@@ -1,0 +1,35 @@
+const chalk = require('chalk')
+const path = require('path')
+const fs = require('fs-extra')
+const execute = (cwd, renderedActions, prompt, args, opts = {}) => {
+  for (const action of renderedActions) {
+    const relativeTo = action.attributes.to
+    const to = path.join(cwd, relativeTo)
+    const { logger } = opts
+
+    if (!to) {
+      logger.error(
+        chalk.yellow(
+          `WARN: skipping ${relativeTo}, no 'to' field provided in template.`
+        )
+      )
+    }
+    if (fs.existsSync(to)) {
+      // readline-sync doesn't accept ^C, we'll need to replace it.
+      if (
+        (prompt(chalk.red(`      exists: ${relativeTo}. Overwrite? (y/N): `)) ||
+          'n')
+          .toLowerCase() !== 'y'
+      ) {
+        logger.log(chalk.yellow(`     skipped: ${relativeTo}`))
+        continue
+      }
+    }
+    if (!args.dry) {
+      fs.ensureDirSync(path.dirname(to))
+      fs.writeFileSync(to, action.body)
+    }
+    logger.log(chalk.green(`       added: ${relativeTo}`))
+  }
+}
+module.exports = execute

@@ -1,0 +1,32 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`render empty 1`] = `
+Array [
+  Object {
+    "attributes": Object {},
+    "body": "",
+    "file": "empty.ejs.t",
+  },
+]
+`;
+
+exports[`render full 1`] = `
+Array [
+  Object {
+    "attributes": Object {
+      "to": "foo/someone/bar",
+    },
+    "body": "
+
+This is the html email template.
+Find me at <i>app/mailers/hello/html.ejs</i>
+
+<br/> 
+<br/> 
+
+You owe
+17",
+    "file": "full.ejs.t",
+  },
+]
+`;
