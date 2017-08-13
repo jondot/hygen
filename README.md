@@ -1,5 +1,7 @@
 # Hygen
 
+<img src="https://travis-ci.org/jondot/hygen.svg?branch=master">
+
 A simple, fast, and flexible code generator and generator builder.
 
 
