@@ -4,6 +4,7 @@
 
 A simple, fast, and flexible code generator and generator builder.
 
+![](media/hygen.gif)
 
 ## Quick Start
 
