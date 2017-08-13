@@ -12,8 +12,8 @@
     "build:umd": "NODE_ENV=development webpack",
     "build": "npm run build:lib",
     "release": "npm run build && npm publish",
-    "test": "node --harmony-async-await node_modules/.bin/jest src/*",
-    "watch": "node --harmony-async-await node_modules/.bin/jest --watch src/*"
+    "test": "node node_modules/.bin/jest src/*",
+    "watch": "node node_modules/.bin/jest --watch src/*"
   },
   "dependencies": {
     "chalk": "^2.1.0",
