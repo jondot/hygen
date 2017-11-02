@@ -25,8 +25,9 @@
     "yargs-parser": "^7.0.0"
   },
   "devDependencies": {
+    "flow-bin": "^0.57.3",
     "goddamn-javascript-config": "^1.0.4",
-    "jest": "^20.0.4",
+    "jest": "^21.2.1",
     "memfs": "^0.0.15",
     "mock-fs": "^4.4.1",
     "webpack": "^3.3.0"

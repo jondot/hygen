@@ -1,10 +1,19 @@
+// @flow
+
+import type { Logger } from './types'
+
 const fs = require('fs-extra')
 const prompt = require('prompt-sync')({ sigint: true })
 const render = require('./render')
 const params = require('./params')
 const execute = require('./execute')
 
-const engine = (cwd, templates, logger, externalArgv = null) => {
+const engine = (
+  cwd: string,
+  templates: string,
+  logger: Logger,
+  externalArgv: any = null
+) => {
   const args = params(templates, externalArgv)
   const { generator, action, actionfolder } = args
 

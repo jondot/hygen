@@ -15,7 +15,11 @@ describe('params', () => {
     },
     () => {
       const args = params('app', 'dont-take-this', ['foo', 'bar', 'baz'])
-      expect(args).toMatchSnapshot()
+      expect(args).toEqual({
+        action: undefined,
+        generator: 'dont-take-this',
+        templates: 'app'
+      })
     }
   )
 
@@ -34,7 +38,11 @@ describe('params', () => {
     () => {
       process.env.HYGEN_TMPLS = 'tmpls'
       const args = params('app', 'dont-take-this', ['foo', 'bar', 'baz'])
-      expect(args).toMatchSnapshot()
+      expect(args).toEqual({
+        action: undefined,
+        generator: 'dont-take-this',
+        templates: 'app'
+      })
     }
   )
 
@@ -52,7 +60,11 @@ describe('params', () => {
     },
     () => {
       const args = params('app', 'famboozle', ['foo', 'bar', 'baz'])
-      expect(args).toMatchSnapshot()
+      expect(args).toEqual({
+        action: undefined,
+        generator: 'famboozle',
+        templates: 'app'
+      })
     }
   )
 })

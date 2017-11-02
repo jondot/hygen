@@ -1,6 +1,6 @@
 const execute = require('../execute')
 const ftest = require('../test/ftest')
-const fs = require('fs')
+const fs = require('fs-extra')
 
 describe('execute', () => {
   ftest(
@@ -16,12 +16,12 @@ describe('execute', () => {
           throw new Error('prompt!')
         },
         {},
-        { logger: console }
+        { logger: { log: _ => _ } }
       )
 
-      expect(
-        fs.readFileSync('app/workers/foobar.js').toString()
-      ).toMatchSnapshot()
+      expect(fs.readFileSync('app/workers/foobar.js').toString()).toMatch(
+        /hello js!/
+      )
     }
   )
 
@@ -38,7 +38,7 @@ describe('execute', () => {
           return 'n'
         },
         {},
-        { logger: console }
+        { logger: { log: _ => _ } }
       )
     }
   )
@@ -58,7 +58,7 @@ describe('execute', () => {
           return 'y'
         },
         {},
-        { logger: console }
+        { logger: { log: _ => _ } }
       )
       expect(flagged).toBe(true)
     }

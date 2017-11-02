@@ -1,7 +1,18 @@
+// @flow
+
+import type { RenderedAction } from './types'
+
 const chalk = require('chalk')
 const path = require('path')
 const fs = require('fs-extra')
-const execute = (cwd, renderedActions, prompt, args, opts = {}) => {
+
+const execute = (
+  cwd: string,
+  renderedActions: Array<RenderedAction>,
+  prompt: string => string,
+  args: any,
+  opts: any = {}
+) => {
   for (const action of renderedActions) {
     const relativeTo = action.attributes.to
     const to = path.join(cwd, relativeTo)
@@ -18,8 +29,8 @@ const execute = (cwd, renderedActions, prompt, args, opts = {}) => {
       // readline-sync doesn't accept ^C, we'll need to replace it.
       if (
         (prompt(chalk.red(`      exists: ${relativeTo}. Overwrite? (y/N): `)) ||
-          'n')
-          .toLowerCase() !== 'y'
+          'n'
+        ).toLowerCase() !== 'y'
       ) {
         logger.log(chalk.yellow(`     skipped: ${relativeTo}`))
         continue

@@ -1,3 +1,7 @@
+// @flow
+
+import type { RenderedAction } from './types'
+
 const L = require('lodash')
 const fs = require('fs-extra')
 const ejs = require('ejs')
@@ -8,7 +12,7 @@ const path = require('path')
 const renderTemplate = (tmpl, locals) =>
   ejs.render(tmpl, Object.assign({}, locals, { h: helpers }))
 
-const render = args =>
+const render = (args: any): (string => Array<RenderedAction>) =>
   L.flow(
     actionfolder =>
       map(_ => path.join(actionfolder, _))(fs.readdirSync(actionfolder)),

@@ -1,7 +1,9 @@
+// @flow
+
 const L = require('lodash')
-const fs = require('fs')
+const fs = require('fs-extra')
 const path = require('path')
-module.exports = (cwd, defaultTemplates) => {
+module.exports = (cwd: string, defaultTemplates: string): string => {
   return (
     L.find(
       [

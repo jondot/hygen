@@ -1,8 +1,10 @@
+// @flow
+
 const L = require('lodash')
 const path = require('path')
 const yargs = require('yargs-parser')
 
-const params = (templates, externalArgv) => {
+const params = (templates: string, externalArgv: Array<any>): any => {
   const argv = yargs(externalArgv || process.argv.slice(2))
 
   const [generator, action] = argv._

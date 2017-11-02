@@ -1,8 +1,9 @@
+// @flow
+
 const engine = require('./engine')
 const resolve = require('./templates-resolver')
 const { printHelp } = require('./help')
-
-const runner = defaultTemplates => {
+const runner = (defaultTemplates: string) => {
   const cwd = process.cwd()
   const templates = resolve(cwd, defaultTemplates)
   try {
