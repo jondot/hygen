@@ -3,3 +3,4 @@ npm-debug.log
 app/
 .tool-versions
 .vscode/
+flow-typed/
