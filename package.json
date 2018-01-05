@@ -13,7 +13,8 @@
     "build": "npm run build:lib",
     "release": "npm run build && npm publish",
     "test": "node node_modules/.bin/jest src/*",
-    "watch": "node node_modules/.bin/jest --watch src/*"
+    "watch": "node node_modules/.bin/jest --watch src/*",
+    "postinstall": "flow-typed install"
   },
   "dependencies": {
     "chalk": "^2.1.0",
@@ -26,6 +27,7 @@
   },
   "devDependencies": {
     "flow-bin": "^0.57.3",
+    "flow-typed": "^2.2.3",
     "goddamn-javascript-config": "^1.0.4",
     "jest": "^21.2.1",
     "memfs": "^0.0.15",
