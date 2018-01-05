@@ -28,4 +28,26 @@ describe('render', () => {
       )
     }
   )
+
+  ftest(
+    'capitalized',
+    { app: { action: { 'capitalized.ejs.t': fixture('capitalized.ejs.t') } } },
+    () => {
+      const res = render({ name: 'someone' })('app/action')
+      expect(res[0].file).toMatch(/capitalized/)
+      res[0].file = 'capitalize.ejs.t'
+      expect(res[0].body).toMatch(/someone and Someone/)
+    }
+  )
+
+  ftest(
+    'capitalized with default locals',
+    { app: { action: { 'capitalized.ejs.t': fixture('capitalized.ejs.t') } } },
+    () => {
+      const res = render({})('app/action')
+      expect(res[0].file).toMatch(/capitalized/)
+      res[0].file = 'capitalize.ejs.t'
+      expect(res[0].body).toMatch(/unnamed and Unnamed/)
+    }
+  )
 })

@@ -8,9 +8,9 @@ const ejs = require('ejs')
 const { map, filter } = require('lodash/fp')
 const fm = require('front-matter')
 const path = require('path')
+const context = require('./context')
 
-const renderTemplate = (tmpl, locals) =>
-  ejs.render(tmpl, Object.assign({}, locals, { h: helpers }))
+const renderTemplate = (tmpl, locals) => ejs.render(tmpl, context(locals))
 
 const render = (args: any): (string => Array<RenderedAction>) =>
   L.flow(
@@ -25,10 +25,4 @@ const render = (args: any): (string => Array<RenderedAction>) =>
       body: renderTemplate(body, args)
     }))
   )
-const helpers = {
-  capitalize(string) {
-    return string.charAt(0).toUpperCase() + string.slice(1).toLowerCase()
-  }
-}
-
 module.exports = render
