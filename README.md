@@ -14,7 +14,13 @@ Install `hygen`:
 $ npm i -g hygen
 ```
 
-And generate:
+To make a local `_templates` folder where you'll keep all project-local templates:
+
+```
+$ hygen init self
+```
+
+Edit your templates (see [templates](#templates)) and generate:
 
 ```
 # generate all required worker files
@@ -70,13 +76,12 @@ Loaded templates: _templates
        added: app/workers/foo.js
 ```
 
-## hygen: a New Template Engine
+## A Different Kind of a Generator
 
-`hygen` was built to have a good developer ergonomics; to avoid
-cluttered template projects which are hard to reason about, and
-to simplify overly complex generator workflows.
+`hygen` has developer ergonomics as first priority; it avoids
+cluttered template projects which are hard to reason about, and simplifies overly complex generator workflows.
 
-Ultimately, it cuts the time from having an itch for a template in your current
+It cuts the time from having an itch generating code in your current
 project to code generated with it and others benefiting from it.
 
 Let's go over why `hygen` is different. Here's our example from before:
@@ -94,9 +99,16 @@ _templates/
 at any folder level of your project you're working from (or an environment variable, or built-in
 templates by building a new library with it).
 
+This is important because:
+
+* Templates are project-local. A git clone of the project fetches all generators as well.
+* Different generators can be tucked in different parts of the project, making it contextual.
+* Template locality is scalable; different teams can maintain different generators.
+* When you change your code, you can make changes in the template and pack in the same commit, to be reviewed and merged in the same PR (as opposed to installing different "plugins" or different templates from out-of-repo places).
+
 ### Folder Structure is Command Structure
 
-Opinionated towards simplifying making generators; the folder structure _maps directly_ to the command structure:
+The templates folder structure _maps directly_ to the command structure:
 
 ```
 $ hygen worker new --name jobrunner
@@ -104,9 +116,9 @@ $ hygen worker new --name jobrunner
 
 Template parameters are given with `--flag VALUE`, as many as you'd like. In this example we've set a parameter named `name` to the value `jobrunner`.
 
-### You can run a subcommand
+### Subcommands
 
-A subcomman is a file inside a your folder structure. So if the structure is this:
+A subcommand is a file inside a your folder structure. So if the structure is this:
 
 ```
 _templates/
@@ -134,7 +146,7 @@ $ hygen worker new:se.*
 
 ### Frontmatter for Decluttering
 
-Finally, here's how a template looks like (in our example, `index.ejs.t`). Templates are [ejs](https://github.com/tj/ejs):
+Here's how a template looks like (in our example, `index.ejs.t`). Templates bodies are [ejs](https://github.com/tj/ejs):
 
 ```javascript
 ---
@@ -148,11 +160,11 @@ class <%= h.capitalize(name) %> {
 }
 ```
 
-The first part of the template is a [front matter](https://jekyllrb.com/docs/frontmatter/), stolen from Markdown, this is now part of a `hygen` template and is part of the reason of why your templates will feel more lightweight and flexible.
+The first part of the template is a [front matter](https://jekyllrb.com/docs/frontmatter/), stolen from Markdown, this is the metadata part of a `hygen` template and is part of the reason of why your templates will feel more lightweight and flexible.
 
-All frontmatter metadata _are also run through the template engine_ so feel free to use variables as you wish.
+All frontmatter metadata _are also run through the template engine_ so feel free to use variables in the frontmatter as you wish.
 
-There's one required meta variable: `to`.
+There's one required metadata variable: `to`.
 `to` points to where this file will be placed (folders are created as needed).
 
 ### Addition or Injection
