@@ -155,6 +155,34 @@ All frontmatter metadata _are also run through the template engine_ so feel free
 There's one required meta variable: `to`.
 `to` points to where this file will be placed (folders are created as needed).
 
+### Addition or Injection
+
+By default templates are 'added' to your project as a new target file, but you can also choose to inject a template _into_ an existing target file.
+
+For this to work, you need to use `inject: true` with the accompanied inject-specific props.
+
+```yaml
+---
+to: package.json
+inject: true
+after: dependencies
+skip_if: react-native-fs
+---
+"react-native-fs",
+```
+
+This template will add the `react-native-fs` dependency into a `package.json` file, but it will not add it twice (see `skip_if`).
+
+Here are the available exclusive options for where to inject at:
+
+* `before | after` - a regular expression / text to locate. The inject line will appear before or after the located line.
+* `prepend | append` - add a line to start or end of file respectively.
+* `line_at` - add a line at this exact line number.
+
+You can guard against double injection:
+
+* `skip_if` - a regular expression / text. If exists injection is skipped.
+
 ### Build Your Own
 
 `hygen` is highly embeddable. You should be able to use it by simply listing it
