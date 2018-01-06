@@ -96,8 +96,7 @@ _templates/
 ### Template Locality
 
 `hygen` picks up a local `_templates` folder
-at any folder level of your project you're working from (or an environment variable, or built-in
-templates by building a new library with it).
+at any folder level of your project you're working from.
 
 This is important because:
 
@@ -105,6 +104,11 @@ This is important because:
 * Different generators can be tucked in different parts of the project, making it contextual.
 * Template locality is scalable; different teams can maintain different generators.
 * When you change your code, you can make changes in the template and pack in the same commit, to be reviewed and merged in the same PR (as opposed to installing different "plugins" or different templates from out-of-repo places).
+
+And yet, if you don't like project-local templates:
+
+* You can have a global `_templates` folder (maybe a central git repo you maintain?) by populating an environment variable `HYGEN_TMPLS`
+* You can build a [custom generator](#build-your-own) of your own with `hygen` at its core, and pack your own templates with it.
 
 ### Folder Structure is Command Structure
 
