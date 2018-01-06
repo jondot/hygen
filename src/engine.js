@@ -33,7 +33,7 @@ const engine = (
     )
   }
 
-  execute(cwd, render(args)(actionfolder), prompt, args, { logger })
+  execute(cwd, render(args), prompt, args, { logger })
 }
 
 module.exports = engine

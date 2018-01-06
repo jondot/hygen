@@ -14,7 +14,8 @@
     "release": "npm run build && npm publish",
     "test": "node node_modules/.bin/jest src/*",
     "watch": "node node_modules/.bin/jest --watch src/*",
-    "postinstall": "flow-typed install"
+    "postinstall": "flow-typed install",
+    "hygen": "babel-node src/bin.js"
   },
   "dependencies": {
     "chalk": "^2.1.0",
@@ -26,6 +27,7 @@
     "yargs-parser": "^7.0.0"
   },
   "devDependencies": {
+    "babel-cli": "^6.26.0",
     "flow-bin": "^0.57.3",
     "flow-typed": "^2.2.3",
     "goddamn-javascript-config": "^1.0.4",

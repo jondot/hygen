@@ -10,13 +10,15 @@ const fm = require('front-matter')
 const path = require('path')
 const context = require('./context')
 
-const renderTemplate = (tmpl, locals) => ejs.render(tmpl, context(locals))
+const renderTemplate = (tmpl, locals) =>
+  L.isString(tmpl) ? ejs.render(tmpl, context(locals)) : tmpl
 
-const render = (args: any): (string => Array<RenderedAction>) =>
+const render = (args: any): Array<RenderedAction> =>
   L.flow(
-    actionfolder =>
+    ({ actionfolder }) =>
       map(_ => path.join(actionfolder, _))(fs.readdirSync(actionfolder)),
     filter(f => fs.lstatSync(f).isFile()),
+    filter(f => (args.subaction ? f.match(args.subaction) : true)),
     map(file => ({ file, text: fs.readFileSync(file).toString() })),
     map(({ file, text }) => Object.assign({ file }, fm(text))),
     map(({ file, attributes, body }) => ({
@@ -24,5 +26,5 @@ const render = (args: any): (string => Array<RenderedAction>) =>
       attributes: L.mapValues(attributes, _ => renderTemplate(_, args)),
       body: renderTemplate(body, args)
     }))
-  )
+  )(args)
 module.exports = render

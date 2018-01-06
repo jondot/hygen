@@ -11,14 +11,16 @@ const params = (templates: string, externalArgv: Array<any>): any => {
   if (!generator || !action) {
     return { generator, action, templates }
   }
+  const [mainAction, subaction] = L.split(action, ':')
 
-  const actionfolder = path.join(templates, generator, action)
+  const actionfolder = path.join(templates, generator, mainAction)
   const args = Object.assign(
     {
       templates,
       actionfolder,
       generator,
-      action
+      action,
+      subaction
     },
     L.omit(argv, ['_'])
   )

@@ -9,5 +9,4 @@ Find me at <i>app/mailers/hello/html.ejs</i>
 <br/> 
 <br/> 
 
-You owe
-<%= bill %>
+You owe <%= bill %>
