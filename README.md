@@ -73,7 +73,7 @@ Finally, you can generate a worker like this:
 $ hygen worker new --name cleaner
 
 Loaded templates: _templates
-       added: app/workers/foo.js
+       added: app/workers/cleaner.js
 ```
 
 ## A Different Kind of a Generator
