@@ -129,7 +129,9 @@ ${chalk.green('       added: workers/index.js')}
     gem 'rails'
     gem 'devise'
     gem 'nokogiri'`)
-      expect(logs.join('\n')).toEqual(`${chalk.green('      inject: Gemfile')}`)
+      expect(logs.join('\n')).toEqual(
+        `${chalk.magenta('      inject: Gemfile')}`
+      )
     }
   )
 })
