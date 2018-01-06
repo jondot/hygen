@@ -191,7 +191,7 @@ skip_if: react-native-fs
 
 This template will add the `react-native-fs` dependency into a `package.json` file, but it will not add it twice (see `skip_if`).
 
-Here are the available exclusive options for where to inject at:
+Here are the available mutually-exclusive options for where to inject at:
 
 * `before | after` - a regular expression / text to locate. The inject line will appear before or after the located line.
 * `prepend | append` - add a line to start or end of file respectively.
