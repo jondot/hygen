@@ -118,6 +118,8 @@ The templates folder structure _maps directly_ to the command structure:
 $ hygen worker new --name jobrunner
 ```
 
+For this command, `hygen worker new` maps to `_templates/worker/new` and all files within `worker/new` are rendered.
+
 Template parameters are given with `--flag VALUE`, as many as you'd like. In this example we've set a parameter named `name` to the value `jobrunner`.
 
 ### Subcommands
