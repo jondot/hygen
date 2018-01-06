@@ -186,7 +186,7 @@ inject: true
 after: dependencies
 skip_if: react-native-fs
 ---
-"react-native-fs",
+"react-native-fs":"*",
 ```
 
 This template will add the `react-native-fs` dependency into a `package.json` file, but it will not add it twice (see `skip_if`).
