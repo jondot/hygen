@@ -35,7 +35,7 @@ $ hygen worker 'new:set.*' --name reporter
 
 ## Templates
 
-`hygen` comes with prepacked templates for node.js workers and mailers, which you probably don't
+`hygen` comes with [prepacked templates](src/templates) for node.js workers and mailers, which you probably don't
 need if you're not using a `hyperstack`. To see them run `hygen`.
 
 For your own use, let's create a folder named `_templates` in your project root. In it, build the following template layout:
