@@ -14,19 +14,33 @@ const ignores = ['prompt.js']
 const renderTemplate = (tmpl, locals) =>
   L.isString(tmpl) ? ejs.render(tmpl, context(locals)) : tmpl
 
-const render = (args: any): Array<RenderedAction> =>
-  L.flow(
-    ({ actionfolder }) =>
-      map(_ => path.join(actionfolder, _))(fs.readdirSync(actionfolder)),
-    filter(f => !L.find(ignores, ig => L.endsWith(f, ig))),
-    filter(f => fs.lstatSync(f).isFile()),
-    filter(f => (args.subaction ? f.match(args.subaction) : true)),
-    map(file => ({ file, text: fs.readFileSync(file).toString() })),
-    map(({ file, text }) => Object.assign({ file }, fm(text))),
-    map(({ file, attributes, body }) => ({
-      file,
-      attributes: L.mapValues(attributes, _ => renderTemplate(_, args)),
-      body: renderTemplate(body, args)
-    }))
-  )(args)
+const render = async (args: any): Array<RenderedAction> =>
+  await fs
+    .readdir(args.actionfolder)
+    .then(map(_ => path.join(args.actionfolder, _)))
+    .then(filter(f => !L.find(ignores, ig => L.endsWith(f, ig))))
+    .then(map(file => fs.lstat(file).then(stat => ({ file, stat }))))
+    .then(_ => Promise.all(_))
+    .then(
+      filter(
+        ({ file, stat }) =>
+          stat.isFile() && (args.subaction ? file.match(args.subaction) : true)
+      )
+    )
+    .then(map(({ file }) => file))
+    .then(
+      map(file =>
+        fs.readFile(file).then(text => ({ file, text: text.toString() }))
+      )
+    )
+    .then(_ => Promise.all(_))
+    .then(map(({ file, text }) => Object.assign({ file }, fm(text))))
+    .then(
+      map(({ file, attributes, body }) => ({
+        file,
+        attributes: L.mapValues(attributes, _ => renderTemplate(_, args)),
+        body: renderTemplate(body, args)
+      }))
+    )
+
 module.exports = render

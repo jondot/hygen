@@ -13,8 +13,8 @@ describe('params', () => {
         }
       }
     },
-    () => {
-      const args = params('app', 'dont-take-this', ['foo', 'bar', 'baz'])
+    async () => {
+      const args = await params('app', 'dont-take-this', ['foo', 'bar', 'baz'])
       expect(args).toEqual({
         action: undefined,
         generator: 'dont-take-this',
@@ -35,9 +35,9 @@ describe('params', () => {
         }
       }
     },
-    () => {
+    async () => {
       process.env.HYGEN_TMPLS = 'tmpls'
-      const args = params('app', 'dont-take-this', ['foo', 'bar', 'baz'])
+      const args = await params('app', 'dont-take-this', ['foo', 'bar', 'baz'])
       expect(args).toEqual({
         action: undefined,
         generator: 'dont-take-this',
@@ -58,8 +58,8 @@ describe('params', () => {
         }
       }
     },
-    () => {
-      const args = params('app', 'famboozle', ['foo', 'bar', 'baz'])
+    async () => {
+      const args = await params('app', 'famboozle', ['foo', 'bar', 'baz'])
       expect(args).toEqual({
         action: undefined,
         generator: 'famboozle',

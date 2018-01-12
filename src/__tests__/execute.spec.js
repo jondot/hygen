@@ -3,19 +3,31 @@ const ftest = require('../test/ftest')
 const fs = require('fs-extra')
 const chalk = require('chalk')
 
+const yes = () => Promise.resolve({ overwrite: true })
+const no = () => Promise.resolve({ overwrite: false })
+const fail = () => {
+  throw new Error('set up prompt in testing')
+}
+
+jest.mock('inquirer', () => ({
+  prompt: null
+}))
+
+const inquirer = require('inquirer')
+
 describe('execute', () => {
+  beforeEach(() => {
+    inquirer.prompt = fail
+  })
   ftest(
     'works',
     {
       app: {}
     },
-    () => {
-      execute(
+    async () => {
+      await execute(
         'app',
         [{ attributes: { to: 'workers/foobar.js' }, body: 'hello js!' }],
-        () => {
-          throw new Error('prompt!')
-        },
         {},
         { logger: { log: _ => _ } }
       )
@@ -31,15 +43,17 @@ describe('execute', () => {
     {
       app: { workers: { 'foobar.js': 'foobar' } }
     },
-    () => {
-      execute(
+    async () => {
+      inquirer.prompt = no
+      await execute(
         'app',
         [{ attributes: { to: 'workers/foobar.js' }, body: 'hello js!' }],
-        () => {
-          return 'n'
-        },
         {},
         { logger: { log: _ => _ } }
+      )
+
+      expect(fs.readFileSync('app/workers/foobar.js').toString()).toEqual(
+        'foobar'
       )
     }
   )
@@ -49,25 +63,24 @@ describe('execute', () => {
     {
       app: { workers: { 'foobar.js': 'foobar' } }
     },
-    () => {
-      let flagged = false
-      execute(
+    async () => {
+      inquirer.prompt = yes
+      await execute(
         'app',
         [{ attributes: { to: 'workers/foobar.js' }, body: 'hello js!' }],
-        () => {
-          flagged = true
-          return 'y'
-        },
         {},
         { logger: { log: _ => _ } }
       )
-      expect(flagged).toBe(true)
+
+      expect(fs.readFileSync('app/workers/foobar.js').toString()).toEqual(
+        'hello js!'
+      )
     }
   )
 
-  ftest('with messages', {}, () => {
+  ftest('with messages', {}, async () => {
     const logs = []
-    execute(
+    await execute(
       'app',
       [
         {
@@ -85,7 +98,6 @@ describe('execute', () => {
           body: 'hello index!'
         }
       ],
-      () => {},
       {},
       { logger: { log: _ => logs.push(_) } }
     )
@@ -98,7 +110,7 @@ ${chalk.green('       added: workers/index.js')}
   })
 
   ftest(
-    'with messages',
+    'with messages (inject)',
     {
       app: {
         Gemfile: `source 'https://rubygems.org'
@@ -106,9 +118,9 @@ ${chalk.green('       added: workers/index.js')}
     gem 'nokogiri'`
       }
     },
-    () => {
+    async () => {
       const logs = []
-      execute(
+      await execute(
         'app',
         [
           {
@@ -120,7 +132,6 @@ ${chalk.green('       added: workers/index.js')}
             body: "    gem 'devise'"
           }
         ],
-        () => {},
         {},
         { logger: { log: _ => logs.push(_) } }
       )

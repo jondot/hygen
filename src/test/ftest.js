@@ -1,10 +1,10 @@
 const mock = require('mock-fs')
 
 const ftest = (msg, files, test) => {
-  it(msg, () => {
+  it(msg, async () => {
     try {
       mock(files)
-      test()
+      await test()
     } finally {
       mock.restore()
     }

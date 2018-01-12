@@ -3,7 +3,6 @@
 import type { Logger } from './types'
 
 const fs = require('fs-extra')
-const prompt = require('prompt-sync')({ sigint: true })
 const render = require('./render')
 const params = require('./params')
 const execute = require('./execute')
@@ -27,13 +26,13 @@ const engine = async (
   }
 
   logger.log(`Loaded templates: ${templates.replace(cwd + '/', '')}`)
-  if (!fs.existsSync(actionfolder)) {
+  if (!await fs.exists(actionfolder)) {
     throw new Error(
       `cannot find action '${action}' for generator '${generator}' (looked for ${generator}/${action} in ${templates}).`
     )
   }
 
-  execute(cwd, render(args), prompt, args, { logger })
+  await execute(cwd, await render(args), args, { logger })
 }
 
 module.exports = engine

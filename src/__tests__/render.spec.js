@@ -9,8 +9,8 @@ describe('render', () => {
   ftest(
     'empty',
     { app: { action: { 'empty.ejs.t': fixture('empty.ejs.t') } } },
-    () => {
-      const res = render({ actionfolder: 'app/action' })
+    async () => {
+      const res = await render({ actionfolder: 'app/action' })
       expect(res[0].file).toMatch(/empty/)
       res[0].file = 'empty.ejs.t'
       expect(res[0].body).toEqual('')
@@ -19,8 +19,8 @@ describe('render', () => {
   ftest(
     'full',
     { app: { action: { 'full.ejs.t': fixture('full.ejs.t') } } },
-    () => {
-      const res = render({
+    async () => {
+      const res = await render({
         bill: 17,
         name: 'someone',
         actionfolder: 'app/action'
@@ -37,8 +37,8 @@ describe('render', () => {
   ftest(
     'capitalized',
     { app: { action: { 'capitalized.ejs.t': fixture('capitalized.ejs.t') } } },
-    () => {
-      const res = render({ name: 'someone', actionfolder: 'app/action' })
+    async () => {
+      const res = await render({ name: 'someone', actionfolder: 'app/action' })
       expect(res[0].file).toMatch(/capitalized/)
       res[0].file = 'capitalize.ejs.t'
       expect(res[0].body).toMatch(/someone and Someone/)
@@ -48,8 +48,8 @@ describe('render', () => {
   ftest(
     'capitalized with default locals',
     { app: { action: { 'capitalized.ejs.t': fixture('capitalized.ejs.t') } } },
-    () => {
-      const res = render({ actionfolder: 'app/action' })
+    async () => {
+      const res = await render({ actionfolder: 'app/action' })
       expect(res[0].file).toMatch(/capitalized/)
       res[0].file = 'capitalize.ejs.t'
       expect(res[0].body).toMatch(/unnamed and Unnamed/)
@@ -66,8 +66,8 @@ describe('render', () => {
         }
       }
     },
-    () => {
-      const res = render({ bill: 17, actionfolder: 'app/action' })
+    async () => {
+      const res = await render({ bill: 17, actionfolder: 'app/action' })
       expect(res.length).toEqual(2)
       expect(res[0].file).toMatch(/capitalized/)
       expect(res[1].file).toMatch(/full/)
@@ -84,8 +84,8 @@ describe('render', () => {
         }
       }
     },
-    () => {
-      const res = render({
+    async () => {
+      const res = await render({
         bill: 17,
         actionfolder: 'app/action',
         subaction: 'capitalized'
@@ -101,8 +101,8 @@ describe('render', () => {
         action: { 'inject.ejs.t': fixture('inject.ejs.t') }
       }
     },
-    () => {
-      const res = render({
+    async () => {
+      const res = await render({
         name: 'devise',
         actionfolder: 'app/action'
       })

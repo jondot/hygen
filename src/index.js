@@ -9,8 +9,10 @@ const runner = async (defaultTemplates: string) => {
   try {
     await engine(cwd, templates, console)
   } catch (err) {
-    throw err
     console.log(err.toString())
+    console.log('details -----------')
+    console.log(err.stack)
+    console.log('-------------------')
     printHelp(templates, console)
     process.exit(1)
   }

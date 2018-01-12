@@ -7,11 +7,11 @@ const path = require('path')
 const fs = require('fs-extra')
 const L = require('lodash')
 const inject = require('./inject')
+const inquirer = require('inquirer')
 
-const execute = (
+const execute = async (
   cwd: string,
   renderedActions: Array<RenderedAction>,
-  prompt: string => string,
   args: any,
   opts: any = {}
 ) => {
@@ -36,26 +36,30 @@ const execute = (
       messages.push(message)
     }
     if (injectAction) {
-      if (!fs.existsSync(to)) {
+      if (!await fs.exists(to)) {
         logger.error(red(`Cannot inject to ${to}: doesn't exist.`))
         continue
       }
 
       if (!args.dry) {
-        fs.writeFileSync(
+        await fs.writeFile(
           to,
-          inject(action, fs.readFileSync(to).toString()).body
+          inject(action, (await fs.readFile(to)).toString()).body
         )
       }
       logger.log(magenta(`      inject: ${relativeTo}`))
     } else {
-      if (fs.existsSync(to)) {
+      if (await fs.exists(to)) {
         // readline-sync doesn't accept ^C, we'll need to replace it.
         if (
-          (
-            prompt(red(`      exists: ${relativeTo}. Overwrite? (y/N): `)) ||
-            'n'
-          ).toLowerCase() !== 'y'
+          !await inquirer
+            .prompt({
+              prefix: '',
+              type: 'confirm',
+              name: 'overwrite',
+              message: red(`     exists: ${relativeTo}. Overwrite? (y/N): `)
+            })
+            .then(({ overwrite }) => overwrite)
         ) {
           logger.log(yellow(`     skipped: ${relativeTo}`))
           continue
@@ -63,8 +67,8 @@ const execute = (
       }
 
       if (!args.dry) {
-        fs.ensureDirSync(path.dirname(to))
-        fs.writeFileSync(to, action.body)
+        await fs.ensureDir(path.dirname(to))
+        await fs.writeFile(to, action.body)
       }
       logger.log(green(`       added: ${relativeTo}`))
     }
