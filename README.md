@@ -76,6 +76,44 @@ Loaded templates: _templates
        added: app/workers/cleaner.js
 ```
 
+## Variables
+
+There are two ways to supply variables.
+
+### Arguments
+
+For unattended generation, it's best to use arguments:
+
+```
+$ hygen worker new --name foobar --message hello --type 8
+```
+
+All double-dash (`--`) arguments become available to you in your
+templates, so this will populate them.
+
+```erb
+Hi <%= name %>,
+<%= message %>.
+
+You've been selected to group <%= type %>.
+```
+
+### Prompt
+
+If you prefer some of your generators to be interactive (you can mix and match), you can use prompts.
+
+Per generator, you have the option to include a `prompt.js` file, that will collect all variables from the user for this given generator.
+
+```
+_templates/
+  worker/
+    new/
+      prompt.js    <-- your prompt file!
+      html.ejs.t
+```
+
+The format is strongly based on [inquirer]() so hopefully, nothing new to you.
+
 ## A Different Kind of a Generator
 
 `hygen` has developer ergonomics as first priority; it avoids

@@ -3,8 +3,9 @@
 const L = require('lodash')
 const path = require('path')
 const yargs = require('yargs-parser')
+const prompt = require('./prompt')
 
-const params = (templates: string, externalArgv: Array<any>): any => {
+const params = async (templates: string, externalArgv: Array<any>): any => {
   const argv = yargs(externalArgv || process.argv.slice(2))
 
   const [generator, action] = argv._
@@ -14,6 +15,7 @@ const params = (templates: string, externalArgv: Array<any>): any => {
   const [mainAction, subaction] = L.split(action, ':')
 
   const actionfolder = path.join(templates, generator, mainAction)
+  const promptArgs = await prompt(actionfolder)
   const args = Object.assign(
     {
       templates,
@@ -22,6 +24,7 @@ const params = (templates: string, externalArgv: Array<any>): any => {
       action,
       subaction
     },
+    promptArgs,
     L.omit(argv, ['_'])
   )
 

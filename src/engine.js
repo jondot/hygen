@@ -8,13 +8,13 @@ const render = require('./render')
 const params = require('./params')
 const execute = require('./execute')
 
-const engine = (
+const engine = async (
   cwd: string,
   templates: string,
   logger: Logger,
   externalArgv: any = null
 ) => {
-  const args = params(templates, externalArgv)
+  const args = await params(templates, externalArgv)
   const { generator, action, actionfolder } = args
 
   logger.log(args.dry ? '(dry mode)' : '')
