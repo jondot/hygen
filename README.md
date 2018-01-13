@@ -1,8 +1,10 @@
-# Hygen
+<h3 align="center">
+  <img src="media/hygen.png" alt="fastlane Logo" width=461 />
+</h3>
 
 <img src="https://travis-ci.org/jondot/hygen.svg?branch=master">
 
-A simple, fast, and flexible code generator and generator builder.
+`hygen` is a simple, fast, and flexible code generator and generator builder.
 
 ![](media/hygen.gif)
 
@@ -14,13 +16,24 @@ Install `hygen`:
 $ npm i -g hygen
 ```
 
-To make a local `_templates` folder where you'll keep all project-local templates:
+Want to try an example generator?
 
 ```
-$ hygen init self
+$ hygen
+
+Error: please specify a generator.
+
+Available actions:
+init: self
+mailer: init, new
+worker: init, new
+
+$ hygen mailer new
 ```
 
-Edit your templates (see [templates](#templates)) and generate:
+This will generate content into the current working directory in `app`.
+
+Here's a few more ways to play with the samples:
 
 ```
 # generate all required worker files
@@ -32,6 +45,14 @@ $ hygen worker new:init --name reporter
 # generate all files that correspond to a regular expression
 $ hygen worker 'new:set.*' --name reporter
 ```
+
+Want to start using `hygen` in your own project?
+
+```
+$ hygen init self
+```
+
+This will create a project-local `_templates` folder for your at your source root, with a sample template.
 
 ## Templates
 
