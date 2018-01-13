@@ -225,7 +225,7 @@ class <%= h.capitalize(name) %> {
 }
 ```
 
-The first part of the template is a [front matter](https://jekyllrb.com/docs/frontmatter/), stolen from Markdown, this is the metadata part of a `hygen` template and is part of the reason of why your templates will feel more lightweight and flexible.
+The first part of the template is a [front matter](https://jekyllrb.com/docs/frontmatter/), idea borrowed from Markdown, this is the metadata part of a `hygen` template and is part of the reason of why your templates will feel more lightweight and flexible.
 
 All frontmatter metadata _are also run through the template engine_ so feel free to use variables in the frontmatter as you wish.
 
@@ -269,7 +269,13 @@ as a dependency and having [this kind of workflow](src/index.js) in your binary.
 const { runner } = require('hygen')
 const path = require('path')
 const defaultTemplates = path.join(__dirname, 'templates')
-runner(defaultTemplates)
+
+runner(process.argv.slice(2), {
+  templates: defaultTemplates,
+  cwd: process.cwd(),
+  logger: console,
+  debug: !!process.env.DEBUG
+})
 ```
 
 # Development
@@ -312,4 +318,4 @@ To all [Contributors](https://github.com/jondot/hygen/graphs/contributors) - you
 
 # Copyright
 
-Copyright (c) 2017 [Dotan Nahum](http://gplus.to/dotan) [@jondot](http://twitter.com/jondot). See [LICENSE](LICENSE.txt) for further details.
+Copyright (c) 2018 [Dotan Nahum](http://gplus.to/dotan) [@jondot](http://twitter.com/jondot). See [LICENSE](LICENSE.txt) for further details.
