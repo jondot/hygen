@@ -5,8 +5,8 @@ const path = require('path')
 const yargs = require('yargs-parser')
 const prompt = require('./prompt')
 
-const params = async (templates: string, externalArgv: Array<any>): any => {
-  const argv = yargs(externalArgv || process.argv.slice(2))
+const params = async (templates: string, externalArgv: Array<string>): any => {
+  const argv = yargs(externalArgv)
 
   const [generator, action] = argv._
   if (!generator || !action) {

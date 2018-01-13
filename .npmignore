@@ -4,4 +4,5 @@ examples/
 .eslintrc
 media/
 app/
+__tests__/
 .tool-versions

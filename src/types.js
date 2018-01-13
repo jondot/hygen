@@ -5,3 +5,8 @@ export type RenderedAction = {
   attributes: any,
   body: string
 }
+export type RunnerConfig = {
+  templates: string,
+  cwd: string,
+  logger: Logger
+}

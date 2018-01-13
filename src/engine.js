@@ -1,19 +1,15 @@
 // @flow
 
-import type { Logger } from './types'
+import type { RunnerConfig } from './types'
 
 const fs = require('fs-extra')
 const render = require('./render')
 const params = require('./params')
 const execute = require('./execute')
 
-const engine = async (
-  cwd: string,
-  templates: string,
-  logger: Logger,
-  externalArgv: any = null
-) => {
-  const args = await params(templates, externalArgv)
+const engine = async (argv: Array<string>, config: RunnerConfig) => {
+  const { cwd, templates, logger } = config
+  const args = await params(templates, argv)
   const { generator, action, actionfolder } = args
 
   logger.log(args.dry ? '(dry mode)' : '')
@@ -32,7 +28,7 @@ const engine = async (
     )
   }
 
-  await execute(cwd, await render(args), args, { logger })
+  await execute(await render(args), args, config)
 }
 
 module.exports = engine

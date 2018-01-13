@@ -4,3 +4,4 @@ app/
 .tool-versions
 .vscode/
 flow-typed/
+src/__tests__/metaverse/**/given/

@@ -7,9 +7,7 @@ const prompt = actionfolder => {
   if (!fs.existsSync(promptfile)) {
     return Promise.resolve({})
   }
-  return inquirer
-    .prompt(require(promptfile))
-    .catch(x => console.log('error', x))
+  return inquirer.prompt(require(promptfile))
 }
 
 module.exports = prompt

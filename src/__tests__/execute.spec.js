@@ -26,10 +26,9 @@ describe('execute', () => {
     },
     async () => {
       await execute(
-        'app',
         [{ attributes: { to: 'workers/foobar.js' }, body: 'hello js!' }],
         {},
-        { logger: { log: _ => _ } }
+        { cwd: 'app', logger: { log: _ => _ } }
       )
 
       expect(fs.readFileSync('app/workers/foobar.js').toString()).toMatch(
@@ -46,10 +45,9 @@ describe('execute', () => {
     async () => {
       inquirer.prompt = no
       await execute(
-        'app',
         [{ attributes: { to: 'workers/foobar.js' }, body: 'hello js!' }],
         {},
-        { logger: { log: _ => _ } }
+        { cwd: 'app', logger: { log: _ => _ } }
       )
 
       expect(fs.readFileSync('app/workers/foobar.js').toString()).toEqual(
@@ -66,10 +64,9 @@ describe('execute', () => {
     async () => {
       inquirer.prompt = yes
       await execute(
-        'app',
         [{ attributes: { to: 'workers/foobar.js' }, body: 'hello js!' }],
         {},
-        { logger: { log: _ => _ } }
+        { cwd: 'app', logger: { log: _ => _ } }
       )
 
       expect(fs.readFileSync('app/workers/foobar.js').toString()).toEqual(
@@ -81,7 +78,6 @@ describe('execute', () => {
   ftest('with messages', {}, async () => {
     const logs = []
     await execute(
-      'app',
       [
         {
           attributes: {
@@ -99,7 +95,7 @@ describe('execute', () => {
         }
       ],
       {},
-      { logger: { log: _ => logs.push(_) } }
+      { cwd: 'app', logger: { log: _ => logs.push(_) } }
     )
     expect(logs.join('\n')).toEqual(`${chalk.green(
       '       added: workers/boot.js'
@@ -121,7 +117,6 @@ ${chalk.green('       added: workers/index.js')}
     async () => {
       const logs = []
       await execute(
-        'app',
         [
           {
             attributes: {
@@ -133,7 +128,7 @@ ${chalk.green('       added: workers/index.js')}
           }
         ],
         {},
-        { logger: { log: _ => logs.push(_) } }
+        { cwd: 'app', logger: { log: _ => logs.push(_) } }
       )
       expect(fs.readFileSync('app/Gemfile').toString())
         .toEqual(`source 'https://rubygems.org'

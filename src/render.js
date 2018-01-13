@@ -14,7 +14,7 @@ const ignores = ['prompt.js']
 const renderTemplate = (tmpl, locals) =>
   L.isString(tmpl) ? ejs.render(tmpl, context(locals)) : tmpl
 
-const render = async (args: any): Array<RenderedAction> =>
+const render = async (args: any): Promise<Array<RenderedAction>> =>
   await fs
     .readdir(args.actionfolder)
     .then(map(_ => path.join(args.actionfolder, _)))

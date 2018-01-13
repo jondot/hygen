@@ -3,7 +3,9 @@ import templateResolver from '../templates-resolver'
 
 describe('resolve', () => {
   it('no file exists in 1/_templates so take "2"', () => {
-    expect(templateResolver('1', '2')).toEqual('2')
+    expect(templateResolver({ cwd: '1', templates: '2' }).templates).toEqual(
+      '2'
+    )
   })
 
   ftest(
@@ -11,7 +13,9 @@ describe('resolve', () => {
     { app: { _templates: { '1': 'foo' } } },
 
     () => {
-      expect(templateResolver('app', '2')).toEqual('app/_templates')
+      expect(
+        templateResolver({ cwd: 'app', templates: '2' }).templates
+      ).toEqual('app/_templates')
     }
   )
 
@@ -21,7 +25,9 @@ describe('resolve', () => {
 
     () => {
       process.env.HYGEN_TMPLS = 'other_templates'
-      expect(templateResolver('app', '2')).toEqual('app/other_templates')
+      expect(
+        templateResolver({ cwd: 'app', templates: '2' }).templates
+      ).toEqual('app/other_templates')
       process.env.HYGEN_TMPLS = null
     }
   )

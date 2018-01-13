@@ -1,6 +1,6 @@
 // @flow
 
-import type { RenderedAction } from './types'
+import type { RunnerConfig, RenderedAction } from './types'
 
 const { yellow, red, green, magenta } = require('chalk')
 const path = require('path')
@@ -10,12 +10,11 @@ const inject = require('./inject')
 const inquirer = require('inquirer')
 
 const execute = async (
-  cwd: string,
   renderedActions: Array<RenderedAction>,
   args: any,
-  opts: any = {}
+  config: RunnerConfig
 ) => {
-  const { logger } = opts
+  const { logger, cwd } = config
   const messages = []
   for (const action of renderedActions) {
     const relativeTo = action.attributes.to

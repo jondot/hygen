@@ -28,6 +28,7 @@
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
+    "dir-compare": "^1.4.0",
     "flow-bin": "^0.57.3",
     "flow-typed": "^2.2.3",
     "goddamn-javascript-config": "^1.0.4",
@@ -35,5 +36,8 @@
     "memfs": "^0.0.15",
     "mock-fs": "^4.4.1",
     "webpack": "^3.3.0"
+  },
+  "jest": {
+    "testRegex": "__tests__/.*\\.spec\\.js$"
   }
 }
