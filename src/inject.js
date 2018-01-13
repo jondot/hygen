@@ -23,7 +23,7 @@ const inject = (action: RenderedAction, intoText: string): RenderedAction => {
   const { attributes, body } = action
   const lines = intoText.split('\n')
   const shouldSkip =
-    attributes.skip_if && L.find(lines, _ => _.match(attributes.skip_if))
+    attributes.skip_if && !!L.find(lines, _ => _.match(attributes.skip_if))
 
   if (!shouldSkip) {
     const idx = indexByLocation(attributes, lines)

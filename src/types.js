@@ -1,5 +1,8 @@
 // @flow
-export type Logger = { +log: (...data: any) => void }
+export type Logger = {
+  +log: (...data: any) => void,
+  +error: (...data: any) => void
+}
 export type RenderedAction = {
   file: string,
   attributes: any,

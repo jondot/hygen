@@ -1,6 +1,6 @@
 // @flow
 
-import { RunnerConfig } from './types'
+import type { RunnerConfig } from './types'
 const L = require('lodash')
 const fs = require('fs-extra')
 const path = require('path')
@@ -9,6 +9,7 @@ module.exports = (config: RunnerConfig): RunnerConfig => {
   const resolvedTemplates =
     L.find(
       [
+        // $FlowFixMe
         path.join(cwd, process.env.HYGEN_TMPLS || '_templates'),
         path.join(cwd, '_templates')
       ],
