@@ -19,15 +19,18 @@ const metaverse = (folder, cmds, promptResponse = null) =>
       inquirer.prompt = () => Promise.resolve(promptResponse)
     }
     const metaDir = dir(folder)
+    console.log('metaverse test in:', metaDir)
     const config = {
       templates: '_templates',
       cwd: metaDir,
       logger: console
     }
     await fs.remove(path.join(metaDir, 'given'))
+    console.log('before', fs.readdirSync(metaDir))
     for (const cmd of cmds) {
       await runner(cmd, config)
     }
+    console.log('after', fs.readdirSync(metaDir))
     const res = dirCompare.compareSync(
       path.join(metaDir, 'given'),
       path.join(metaDir, 'expected'),
