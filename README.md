@@ -1,5 +1,5 @@
 <h3 align="center">
-  <img src="media/hygen.png" alt="fastlane Logo" width=461 />
+  <img src="media/hygen.png" alt="hygen logo" width=461 />
 </h3>
 
 <img src="https://travis-ci.org/jondot/hygen.svg?branch=master">
