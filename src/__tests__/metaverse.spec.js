@@ -30,12 +30,13 @@ const metaverse = (folder, cmds, promptResponse = null) =>
     for (const cmd of cmds) {
       await runner(cmd, config)
     }
-    console.log('after', fs.readdirSync(metaDir))
-    const res = dirCompare.compareSync(
-      path.join(metaDir, 'given'),
-      path.join(metaDir, 'expected'),
-      opts
-    )
+    const givenDir = path.join(metaDir, 'given')
+    const expectedDir = path.join(metaDir, 'expected')
+    console.log('after', {
+      [givenDir]: fs.readdirSync(givenDir),
+      [expectedDir]: fs.readdirSync(expectedDir)
+    })
+    const res = dirCompare.compareSync(givenDir, expectedDir, opts)
     res.diffSet = L.filter(res.diffSet, d => d.state !== 'equal')
     if (!res.same) {
       console.log(res)
