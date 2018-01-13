@@ -11,9 +11,11 @@ const runner = async (argv: Array<string>, config: RunnerConfig) => {
     await engine(argv, resolvedConfig)
   } catch (err) {
     logger.log(err.toString())
-    logger.log('details -----------')
-    logger.log(err.stack)
-    logger.log('-------------------')
+    if (config.debug) {
+      logger.log('details -----------')
+      logger.log(err.stack)
+      logger.log('-------------------')
+    }
     printHelp(templates, logger)
     process.exit(1)
   }

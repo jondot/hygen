@@ -7,5 +7,6 @@ const defaultTemplates = path.join(__dirname, '../src/templates')
 runner(process.argv.slice(2), {
   templates: defaultTemplates,
   cwd: process.cwd(),
-  logger: console
+  logger: console,
+  debug: !!process.env.DEBUG
 })

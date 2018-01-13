@@ -11,5 +11,6 @@ export type RenderedAction = {
 export type RunnerConfig = {
   templates: string,
   cwd: string,
-  logger: Logger
+  logger: Logger,
+  debug: boolean
 }
