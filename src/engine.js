@@ -3,9 +3,7 @@
 import type { RunnerConfig } from './types'
 
 const fs = require('fs-extra')
-const render = require('./render')
 const params = require('./params')
-const execute = require('./execute')
 
 const engine = async (argv: Array<string>, config: RunnerConfig) => {
   const { cwd, templates, logger } = config
@@ -28,6 +26,10 @@ const engine = async (argv: Array<string>, config: RunnerConfig) => {
     )
   }
 
+  // lazy loading these dependencies gives a better feel once
+  // a user is exploring hygen (not specifying what to execute)
+  const execute = require('./execute')
+  const render = require('./render')
   await execute(await render(args), args, config)
 }
 

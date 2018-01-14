@@ -12,7 +12,10 @@
     "build:umd": "NODE_ENV=development webpack",
     "build": "npm run build:lib",
     "release": "npm run build && npm publish",
-    "test": "node node_modules/.bin/jest src/*",
+    "test": "yarn test:code && yarn test:require",
+    "test:code": "node node_modules/.bin/jest src/*",
+    "test:require":
+      "babel-node src/bin.timed.js; babel-node src/bin.timed.js; babel-node src/bin.timed.js init self; rm -rf _templates",
     "watch": "node node_modules/.bin/jest --watch src/*",
     "flow:sync": "flow-typed install",
     "hygen": "babel-node src/bin.js"
@@ -29,12 +32,14 @@
   "devDependencies": {
     "babel-cli": "^6.26.0",
     "dir-compare": "^1.4.0",
-    "flow-bin": "^0.57.3",
+    "flow-bin": "^0.62.0",
     "flow-typed": "^2.2.3",
     "goddamn-javascript-config": "^1.0.4",
     "jest": "^21.2.1",
     "memfs": "^0.0.15",
     "mock-fs": "^4.4.1",
+    "rx-lite": "^4.0.8",
+    "time-require": "^0.1.2",
     "webpack": "^3.3.0"
   },
   "jest": {

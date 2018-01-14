@@ -4,8 +4,8 @@ const package = require('./package.json')
 
 const env = process.env.NODE_ENV
 const config = {
-  entry: './src/index.js',
-  // target: 'node', // INIT-FIXME: set this for node environments, or leave out for web.
+  entry: './src/bin.js',
+  target: 'node', // INIT-FIXME: set this for node environments, or leave out for web.
   externals: {
     lodash: true
   },

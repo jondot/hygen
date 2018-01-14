@@ -5,10 +5,14 @@ import type { RenderedAction } from './types'
 const L = require('lodash')
 const fs = require('fs-extra')
 const ejs = require('ejs')
-const { map, filter } = require('lodash/fp')
 const fm = require('front-matter')
 const path = require('path')
 const context = require('./context')
+
+// for some reason lodash/fp takes 90ms to load.
+// inline what we use here with the regular lodash.
+const map = f => arr => L.map(arr, f)
+const filter = f => arr => L.filter(arr, f)
 
 const ignores = ['prompt.js']
 const renderTemplate = (tmpl, locals) =>

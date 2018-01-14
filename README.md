@@ -308,6 +308,20 @@ Testing `hygen` internally is also easy. We provide an [abstraction layer](src/t
 
 The rest of the tests [are here](src/__tests__/)
 
+## Start Up Speed Testing
+
+Many generators become painfully slow to use as the thing you want to generate grow (because, real life),
+
+This is why `hygen` takes speed as a first class citizen, and sports a dedicated start-up timing suite:
+
+```
+$ yarn test:require
+```
+
+In addition, thought is given to which dependencies to take in, how their file structure fan out and what kind of disk access (due to `require`) would `hygen` ultimately have when we run it. This is recorded with every test run.
+
+Bundling a single file was evaluated (and the infrastructure is still there, using `webpack`) and wasn't faster than what we have right now.
+
 # Contributing
 
 Fork, implement, add tests, pull request, get my everlasting thanks and a respectable place here :).
