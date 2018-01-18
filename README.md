@@ -201,7 +201,7 @@ _templates/
       hello.ejs.t
 ```
 
-## Battaries Included
+## Batteries Included
 
 `hygen` helps you make new generators and templates.
 
