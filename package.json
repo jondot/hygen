@@ -1,6 +1,6 @@
 {
   "name": "hygen",
-  "version": "1.3.3",
+  "version": "1.3.4",
   "main": "lib/index.js",
   "license": "MIT",
   "bin": {
@@ -18,7 +18,8 @@
       "babel-node src/bin.timed.js; babel-node src/bin.timed.js; babel-node src/bin.timed.js init self; rm -rf _templates",
     "watch": "node node_modules/.bin/jest --watch src/*",
     "flow:sync": "flow-typed install",
-    "hygen": "babel-node src/bin.js"
+    "hygen": "babel-node src/bin.js",
+    "docs:prepare": "gitbook install"
   },
   "dependencies": {
     "chalk": "^2.1.0",
@@ -34,6 +35,7 @@
     "dir-compare": "^1.4.0",
     "flow-bin": "^0.62.0",
     "flow-typed": "^2.2.3",
+    "gitbook-cli": "^2.3.2",
     "goddamn-javascript-config": "^1.0.4",
     "jest": "^21.2.1",
     "memfs": "^0.0.15",

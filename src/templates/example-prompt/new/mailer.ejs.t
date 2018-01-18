@@ -1,5 +1,5 @@
 ---
-to: app/mailers/<%= name || 'unnamed-mailer' %>.js
+to: hygen-examples/mailers/<%= name %>.js
 ---
 <% name = name || 'unnamed'
    Name = h.capitalize(name)

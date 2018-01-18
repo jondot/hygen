@@ -5,3 +5,4 @@ npm-debug.log
 .vscode/
 flow-typed/
 src/__tests__/metaverse/**/given/
+_book

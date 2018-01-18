@@ -4,9 +4,11 @@
 
 <img src="https://travis-ci.org/jondot/hygen.svg?branch=master">
 
-`hygen` is a simple, fast, and flexible code generator and generator builder.
+`hygen` is the simple, fast, and scalable code generator.
 
-![](media/hygen.gif)
+<div align="center">
+  <img src="media/hygen.gif" width=720/>
+</div>
 
 ## Quick Start
 
@@ -19,107 +21,149 @@ $ npm i -g hygen
 Want to try an example generator?
 
 ```
-$ hygen
+$ hygen example-prompt new
 
-Error: please specify a generator.
+? What's your message? welcome
 
-Available actions:
-init: self
-mailer: init, new
-worker: init, new
-
-$ hygen mailer new
+Loaded templates: src/templates
+       added: hygen-examples/mailers/unnamed.js
+       added: hygen-examples/mailers/hello/html.ejs
+       added: hygen-examples/mailers/hello/subject.ejs
+       added: hygen-examples/mailers/hello/text.ejs
+      inject: hygen-examples/mailers/hello/html.ejs
 ```
 
-This will generate content into the current working directory in `app`.
+This will generate content into the current working directory in `hygen-example`.
 
-Here's a few more ways to play with the samples:
+Here's a few more ways to play with the demo templates:
 
-```
-# generate all required worker files
-$ hygen worker new --name reporter
+```perl
+# generate all required worker files, with a name variable
+$ hygen example-prompt new --name reporter
+
 
 # generate one specific file
-$ hygen worker new:init --name reporter
+# the 'example' generator template layout is:
+# example/
+#   new/
+#     mailer.ejs.t  
+#     templates_html.ejs.t
+#     templates_subject.ejs.t  
+#     templates_text.ejs.t  
+#     z_inject.ejs.t
+#
+$ hygen example-prompt new:mailer --name reporter
+
 
 # generate all files that correspond to a regular expression
-$ hygen worker 'new:set.*' --name reporter
+$ hygen example-prompt 'new:.*html' --name reporter
 ```
 
 Want to start using `hygen` in your own project?
 
+## Start Using It
+
 ```
 $ hygen init self
+Loaded templates: src/templates
+       added: _templates/generator/with-prompt/hello.ejs.t
+       added: _templates/generator/with-prompt/prompt.ejs.t
+       added: _templates/generator/new/hello.ejs.t
+
+$ hygen generator new my-new-generator --name hello
+
+Loaded templates: _templates
+       added: _templates/hello/new/hello.ejs.t
 ```
 
-This will create a project-local `_templates` folder for your at your source root, with a sample template.
+This will create a project-local `_templates` folder for your at your source root, with a sample generator.
+
+You can go ahead and edit `hello.ejs.t`. See below how templates are composed.
 
 ## Templates
 
-`hygen` comes with [prepacked templates](src/templates) for node.js workers and mailers, which you probably don't
-need if you're not using a `hyperstack`. To see them run `hygen`.
-
-For your own use, let's create a folder named `_templates` in your project root. In it, build the following template layout:
+This is what we have right now:
 
 ```
 _templates/
-  worker/
+  hello/
     new/
-      index.ejs.t
+      hello.ejs.t
 ```
 
-Here's how:
-
-```
-$ mkdir -p _templates/worker/new
-$ touch _templates/worker/new/index.ejs.t
-```
-
-Next, `index.ejs.t` should contain this (just copy and paste it):
+And here's our `hello.ejs.t` template:
 
 ```javascript
 ---
-to: app/workers/<%=name%>.js
+to: app/hello.js
 ---
-class <%= h.capitalize(name) %> {
-    work(){
-        // your code here!
-    }
+const hello = `
+Hello!
+This is your first hygen template.
+
+Learn what it can do here:
+
+https://github.com/jondot/hygen
+`
+
+console.log(hello)
+```
+
+Let's turn it into a react component generator, and let's say all our component live in `src/components`.
+
+First, let's rename `hello`:
+
+```
+$ mv _templates/{hello,component}
+```
+
+In `hygen` folder structure is command structure. Now let's compose our component template:
+
+```javascript
+---
+to: src/components/<%= name %>.js
+---
+import React, { PureComponent } from 'react'
+class <%= Name %> extends Component {
+  render(){
+    return <div>replace me!</div>
+  }
 }
+export default <%= Name %>
 ```
 
-Finally, you can generate a worker like this:
+Finally let's enjoy our new generator!
 
 ```
-$ hygen worker new --name cleaner
+$ hygen component new --name icon
 
 Loaded templates: _templates
-       added: app/workers/cleaner.js
+       added: src/components/icon.js
 ```
 
 ## Variables
 
-There are two ways to supply variables.
+You might have noticed `Name` in the previous template. There are two ways to supply `hygen` templates with variables.
 
 ### Arguments
 
 For unattended generation, it's best to use arguments:
 
 ```
-$ hygen worker new --name foobar --message hello --type 8
+$ hygen email new --name foobar --message hello --type 8
 ```
 
 All double-dash (`--`) arguments become available to you in your
 templates, so this will populate them.
 
-```erb
+```html
 Hi <%= name %>,
 <%= message %>.
 
 You've been selected to group <%= type %>.
 ```
 
-### Prompt
+### Prompts
 
 If you prefer some of your generators to be interactive (you can mix and match), you can use prompts.
 
@@ -127,7 +171,7 @@ Per generator, you have the option to include a `prompt.js` file, that will coll
 
 ```
 _templates/
-  worker/
+  email/
     new/
       prompt.js    <-- your prompt file!
       html.ejs.t
@@ -137,19 +181,47 @@ The [format](src/templates/mailer/new/prompt.js) is based on [inquirer](https://
 
 ## A Different Kind of a Generator
 
-`hygen` has developer ergonomics as first priority; it avoids
-cluttered template projects which are hard to reason about, and simplifies overly complex generator workflows.
+`hygen` is a scalable generator. It has developer and team ergonomics as first priority.
 
-It cuts the time from having an itch generating code in your current
+It avoids "blessed" or dedicated projects that codifies code generation, which before you know it, become a product you build, needs testing, CI, separate pull request reviews, and ultimately sucks up your time and becomes this super hated thing no one likes to touch anymore.
+
+Plus, since they are not the product you are building they become notoriously hard to reason about.
+
+## Scratch Your Own Itch
+
+Because `hygen` templates live _in_ your project, it cuts the time from having an itch for generating code (Redux, anyone?) in your current
 project to code generated with it and others benefiting from it.
 
 Let's go over why `hygen` is different. Here's our example from before:
 
 ```
 _templates/
-  worker/
+  component/
     new/
-      index.ejs.t
+      hello.ejs.t
+```
+
+## Battaries Included
+
+`hygen` helps you make new generators and templates.
+
+Setup for a new project:
+
+```
+$ cd new-project
+$ hygen init self
+```
+
+Make your first generator:
+
+```
+$ hygen generator new --name my-generator
+```
+
+and a generator that asks you questions:
+
+```
+$ hygen generator with-prompt --name my-generator
 ```
 
 ### Template Locality

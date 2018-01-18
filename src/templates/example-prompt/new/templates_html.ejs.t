@@ -1,5 +1,5 @@
 ---
-to: app/mailers/<%= message || 'unnamed' %>/html.ejs
+to: hygen-examples/mailers/<%= message || 'unnamed' %>/html.ejs
 ---
 
 This is the html email template.

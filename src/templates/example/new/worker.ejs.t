@@ -1,10 +1,7 @@
 ---
-to: app/workers/<%= (name || 'unnamed-worker') %>.js
+to: hygen-examples/workers/<%= name %>.js
 ---
-<%
-  name = name || 'unnamed'
-  Name = h.capitalize(name)
-%>const { Worker } = require('hyperwork')
+const { Worker } = require('hyperwork')
 const asyncwork = () => {
   return new Promise((resolve, reject) => {
     setTimeout(resolve, 1000)
