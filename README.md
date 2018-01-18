@@ -335,7 +335,7 @@ You can guard against double injection:
 ### Build Your Own
 
 `hygen` is highly embeddable. You should be able to use it by simply listing it
-as a dependency and having [this kind of workflow](src/index.js) in your binary.
+as a dependency and having [this kind of workflow](src/bin.js) in your binary.
 
 ```javascript
 const { runner } = require('hygen')
