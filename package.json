@@ -18,7 +18,10 @@
     "watch": "node node_modules/.bin/jest --watch src/*",
     "flow:sync": "flow-typed install",
     "hygen": "babel-node src/bin.js",
-    "docs:prepare": "gitbook install"
+    "docs:prepare": "gitbook install",
+    "docs:watch": "gitbook serve",
+    "docs:build":"gitbook build",
+    "docs:publish": "yarn docs:build && gh-pages -d _book"
   },
   "dependencies": {
     "chalk": "^2.1.0",
