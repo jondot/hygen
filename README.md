@@ -4,7 +4,7 @@
 
 <img src="https://travis-ci.org/jondot/hygen.svg?branch=master">
 
-`hygen` is the simple, fast, and scalable code generator.
+`hygen` is the simple, fast, and scalable code generator that lives _in_ your project.
 
 <div align="center">
   <img src="media/hygen.gif" width=720/>
