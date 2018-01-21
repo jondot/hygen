@@ -7,6 +7,7 @@ script:
   - yarn docs:prepare && yarn docs:build
 deploy:
   provider: pages
+  local-dir: _book
   skip-cleanup: true
   github-token: $GITHUB_TOKEN  # Set in travis-ci.org dashboard, marked secure
   keep-history: true
