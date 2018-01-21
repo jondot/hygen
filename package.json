@@ -20,7 +20,7 @@
     "hygen": "babel-node src/bin.js",
     "docs:prepare": "gitbook install",
     "docs:watch": "gitbook serve",
-    "docs:build":"gitbook build && cp docs/CNAME media/favicon.ico _book/",
+    "docs:build":"gitbook build && cp docs/CNAME _book && cp media/favicon.ico _book/gitbook/images",
     "docs:publish": "yarn docs:build && gh-pages -d _book"
   },
   "dependencies": {
