@@ -2,6 +2,12 @@
   <img src="./images/hygen.png" alt="hygen logo" width=461 />
 </h3>
 
+
+[![build status](https://img.shields.io/travis/jondot/hygen/master.svg)](https://travis-ci.org/jondot/hygen)
+[![npm version](https://img.shields.io/npm/v/hygen.svg)](https://www.npmjs.com/package/hygen)
+[![GitHub stars](https://img.shields.io/github/stars/jondot/hygen.svg?style=social&label=Stars)](https://github.com/jondot/hygen)
+
+`hygen` is the simple, fast, and scalable code generator that lives _in_ your project.
 ## Quick Start
 
 Install `hygen`:

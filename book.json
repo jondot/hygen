@@ -2,7 +2,7 @@
   "root": "./docs",
   "gitbook": "^3.2.3",
   "title": "hygen",
-  "plugins": ["summary", "edit-link", "prism", "ga", "hints"],
+  "plugins": ["summary", "edit-link", "prism", "ga", "hints", "github"],
   "pluginsConfig": {
     "theme-default": {
       "showLevel": true
