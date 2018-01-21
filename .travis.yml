@@ -4,7 +4,7 @@ node_js:
   - "8"
 script:
   - yarn test
-  - yarn docs:build
+  - yarn docs:prepare && docs:build
 deploy:
   provider: pages
   skip-cleanup: true
