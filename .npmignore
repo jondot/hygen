@@ -1,0 +1,10 @@
+node_modules/
+examples/
+.babelrc
+.eslintrc
+_book/
+media/
+app/
+docs/
+__tests__/
+.tool-versions

@@ -1,0 +1,26 @@
+{
+  "root": "./docs",
+  "gitbook": "^3.2.3",
+  "title": "hygen",
+  "plugins": ["summary", "edit-link", "prism", "ga", "hints", "github"],
+  "pluginsConfig": {
+    "theme-default": {
+      "showLevel": true
+    },
+    "sharing": {
+      "google": false,
+      "facebook": false,
+      "twitter": false
+    },
+    "edit-link": {
+      "base": "https://github.com/jondot/hygen/tree/master",
+      "label": "Edit This Page"
+    },
+    "github": {
+      "url": "https://github.com/jondot/hygen/"
+    },
+    "ga": {
+      "token": "UA-7131053-23"
+    }
+  }
+}

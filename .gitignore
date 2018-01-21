@@ -1,0 +1,8 @@
+node_modules/
+npm-debug.log
+/app/
+.tool-versions
+.vscode/
+flow-typed/
+src/__tests__/metaverse/**/given/
+_book
