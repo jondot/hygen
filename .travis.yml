@@ -2,9 +2,12 @@ language: node_js
 node_js:
   - "7"
   - "8"
+
+# run install twice. flaky npm behavior
+# https://github.com/GitbookIO/gitbook/issues/1834
 script:
   - yarn test
-  - yarn docs:prepare && yarn docs:build
+  - yarn docs:prepare; yarn docs:prepare && yarn docs:build
 deploy:
   provider: pages
   local-dir: _book
