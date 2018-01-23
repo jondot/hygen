@@ -1,5 +1,5 @@
 <h3 align="center">
-  <img src="./images/hygen.png" alt="hygen logo" width=461 />
+  <img src="./images/hygen.png" alt="hygen logo" width=400 />
 </h3>
 
 

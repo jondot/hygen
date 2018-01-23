@@ -1,5 +1,5 @@
 <h3 align="center">
-  <img src="media/hygen.png" alt="hygen logo" width=461 />
+  <img src="media/hygen.png" alt="hygen logo" width=400 />
 </h3>
 
 [![build status](https://img.shields.io/travis/jondot/hygen/master.svg)](https://travis-ci.org/jondot/hygen)
@@ -8,7 +8,7 @@
 `hygen` is the simple, fast, and scalable code generator that lives _in_ your project.
 
 <div align="center">
-  <img src="media/hygen.gif" width=720/>
+  <img src="media/hygen.gif" width=600/>
 </div>
 
 ## Quick Start
