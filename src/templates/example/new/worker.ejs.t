@@ -1,5 +1,6 @@
 ---
 to: hygen-examples/workers/<%= name %>.js
+sh: touch hello.world
 ---
 const { Worker } = require('hyperwork')
 const asyncwork = () => {

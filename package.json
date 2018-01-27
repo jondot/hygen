@@ -20,12 +20,13 @@
     "hygen": "babel-node src/bin.js",
     "docs:prepare": "gitbook install",
     "docs:watch": "gitbook serve",
-    "docs:build":"gitbook build && cp docs/CNAME _book && cp media/favicon.ico _book/gitbook/images",
+    "docs:build": "gitbook build && cp docs/CNAME _book && cp media/favicon.ico _book/gitbook/images",
     "docs:publish": "yarn docs:build && gh-pages -d _book"
   },
   "dependencies": {
     "chalk": "^2.1.0",
     "ejs": "^2.5.7",
+    "execa": "^0.9.0",
     "front-matter": "^2.1.2",
     "fs-extra": "^5.0.0",
     "inquirer": "^4.0.2",

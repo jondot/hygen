@@ -140,4 +140,33 @@ ${chalk.green('       added: workers/index.js')}
       )
     }
   )
+
+  ftest(
+    'shell',
+    {
+      app: {}
+    },
+    async () => {
+      /*
+      TODO:
+      this test fails because fs is fake and shell is real; but shell command works.
+
+      - abstract execa into a shell executor, that internally also lazy-loads
+      - this shell executor should take a body and a command, if needed pipe the body into the command
+      - a shell script takes: input, side-effect executes a command, and the command has stdout/err. we currently
+        ignore stdout/err but should we not?
+          ie. overload the option 'to' in order to get the output there. stderr piping should be left to user
+          (there's only one 'to')
+      - logic for executing actions should be modularized, it's now sphagetti.
+      */
+
+      await execute(
+        [{ attributes: { sh: 'cat > hello.world' }, body: 'hey!' }],
+        {},
+        { cwd: 'app', logger: { log: _ => _ } }
+      )
+
+      expect(fs.readFileSync('hello.world').toString()).toMatch(/hey!/)
+    }
+  )
 })
