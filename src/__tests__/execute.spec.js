@@ -2,6 +2,7 @@ const execute = require('../execute')
 const ftest = require('../test/ftest')
 const fs = require('fs-extra')
 const chalk = require('chalk')
+const Logger = require('../logger')
 
 const yes = () => Promise.resolve({ overwrite: true })
 const no = () => Promise.resolve({ overwrite: false })
@@ -28,7 +29,7 @@ describe('execute', () => {
       await execute(
         [{ attributes: { to: 'workers/foobar.js' }, body: 'hello js!' }],
         {},
-        { cwd: 'app', logger: { log: _ => _ } }
+        { cwd: 'app', logger: new Logger(_ => _) }
       )
 
       expect(fs.readFileSync('app/workers/foobar.js').toString()).toMatch(
@@ -47,7 +48,7 @@ describe('execute', () => {
       await execute(
         [{ attributes: { to: 'workers/foobar.js' }, body: 'hello js!' }],
         {},
-        { cwd: 'app', logger: { log: _ => _ } }
+        { cwd: 'app', logger: new Logger(_ => _) }
       )
 
       expect(fs.readFileSync('app/workers/foobar.js').toString()).toEqual(
@@ -66,7 +67,7 @@ describe('execute', () => {
       await execute(
         [{ attributes: { to: 'workers/foobar.js' }, body: 'hello js!' }],
         {},
-        { cwd: 'app', logger: { log: _ => _ } }
+        { cwd: 'app', logger: new Logger(_ => _) }
       )
 
       expect(fs.readFileSync('app/workers/foobar.js').toString()).toEqual(
@@ -77,6 +78,7 @@ describe('execute', () => {
 
   ftest('with messages', {}, async () => {
     const logs = []
+    const logger = new Logger(_ => logs.push(_))
     await execute(
       [
         {
@@ -95,7 +97,7 @@ describe('execute', () => {
         }
       ],
       {},
-      { cwd: 'app', logger: { log: _ => logs.push(_) } }
+      { cwd: 'app', logger }
     )
     expect(logs.join('\n')).toEqual(`${chalk.green(
       '       added: workers/boot.js'
@@ -116,6 +118,7 @@ ${chalk.green('       added: workers/index.js')}
     },
     async () => {
       const logs = []
+      const logger = new Logger(_ => logs.push(_))
       await execute(
         [
           {
@@ -128,7 +131,7 @@ ${chalk.green('       added: workers/index.js')}
           }
         ],
         {},
-        { cwd: 'app', logger: { log: _ => logs.push(_) } }
+        { cwd: 'app', logger }
       )
       expect(fs.readFileSync('app/Gemfile').toString())
         .toEqual(`source 'https://rubygems.org'
@@ -148,25 +151,24 @@ ${chalk.green('       added: workers/index.js')}
     },
     async () => {
       /*
-      TODO:
-      this test fails because fs is fake and shell is real; but shell command works.
-
-      - abstract execa into a shell executor, that internally also lazy-loads
-      - this shell executor should take a body and a command, if needed pipe the body into the command
-      - a shell script takes: input, side-effect executes a command, and the command has stdout/err. we currently
-        ignore stdout/err but should we not?
-          ie. overload the option 'to' in order to get the output there. stderr piping should be left to user
-          (there's only one 'to')
       - logic for executing actions should be modularized, it's now sphagetti.
+      - logger should include green/red etc. built-in, abstracted
       */
 
+      const captured = []
       await execute(
         [{ attributes: { sh: 'cat > hello.world' }, body: 'hey!' }],
         {},
-        { cwd: 'app', logger: { log: _ => _ } }
+        {
+          cwd: 'app',
+          logger: new Logger(_ => _),
+          exec: (sh, body) => captured.push({ sh, body })
+        }
       )
 
-      expect(fs.readFileSync('hello.world').toString()).toMatch(/hey!/)
+      expect(captured.length).toEqual(1)
+      expect(captured[0].sh).toEqual('cat > hello.world')
+      expect(captured[0].body).toEqual('hey!')
     }
   )
 })

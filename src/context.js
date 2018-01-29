@@ -1,3 +1,5 @@
+// @flow
+
 const L = require('lodash')
 
 const helpers = {
@@ -10,7 +12,7 @@ const localsToCapitalize = ['name']
 const localsDefaults = {
   name: 'unnamed'
 }
-const capitalizedLocals = locals =>
+const capitalizedLocals = (locals: any) =>
   L.mapValues(
     L.mapKeys(L.pick(locals, localsToCapitalize), (v, k) =>
       helpers.capitalize(k)
@@ -18,7 +20,7 @@ const capitalizedLocals = locals =>
     v => helpers.capitalize(v)
   )
 
-const context = locals => {
+const context = (locals: any) => {
   const localsWithDefaults = Object.assign({}, localsDefaults, locals)
   return Object.assign(
     localsWithDefaults,

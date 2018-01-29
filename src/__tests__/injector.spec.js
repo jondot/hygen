@@ -1,4 +1,4 @@
-const inject = require('../inject')
+const injector = require('../ops/injector')
 const gemfile = `
     source 'http://rubygems.org'
     gem 'rails'
@@ -6,10 +6,10 @@ const gemfile = `
     gem 'httparty'
 
     `
-describe('inject', () => {
-  it('before', () => {
+describe('injector', () => {
+  it('before rails', () => {
     expect(
-      inject(
+      injector(
         {
           attributes: {
             before: "gem 'rails'"
@@ -20,9 +20,9 @@ describe('inject', () => {
       )
     ).toMatchSnapshot()
   })
-  it('after', () => {
+  it('after rails', () => {
     expect(
-      inject(
+      injector(
         {
           attributes: {
             after: "gem 'rails'"
@@ -33,9 +33,9 @@ describe('inject', () => {
       )
     ).toMatchSnapshot()
   })
-  it('prepend', () => {
+  it('prepend top of file', () => {
     expect(
-      inject(
+      injector(
         {
           attributes: {
             prepend: true
@@ -46,9 +46,9 @@ describe('inject', () => {
       )
     ).toMatchSnapshot()
   })
-  it('append', () => {
+  it('append bottom of file', () => {
     expect(
-      inject(
+      injector(
         {
           attributes: {
             append: true
@@ -59,9 +59,9 @@ describe('inject', () => {
       )
     ).toMatchSnapshot()
   })
-  it('at_index', () => {
+  it('at_index 2 (below "source")', () => {
     expect(
-      inject(
+      injector(
         {
           attributes: {
             at_line: 2
@@ -72,9 +72,9 @@ describe('inject', () => {
       )
     ).toMatchSnapshot()
   })
-  it('skip_if', () => {
+  it('skip_if "source" exists', () => {
     expect(
-      inject(
+      injector(
         {
           attributes: {
             skip_if: 'source',

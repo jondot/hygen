@@ -8,6 +8,8 @@ const dirCompare = require('dir-compare')
 const opts = { compareContent: true }
 const fs = require('fs-extra')
 const inquirer = require('inquirer')
+const Logger = require('../logger')
+const logger = new Logger(console.log)
 const fail = () => {
   throw new Error('set up prompt in testing')
 }
@@ -23,7 +25,11 @@ const metaverse = (folder, cmds, promptResponse = null) =>
     const config = {
       templates: '_templates',
       cwd: metaDir,
-      logger: console
+      exec: (action, body) => {
+        const opts = body && body.length > 0 ? { input: body } : {}
+        return require('execa').shell(action, opts)
+      },
+      logger
     }
     await fs.remove(path.join(metaDir, 'given'))
     console.log('before', fs.readdirSync(metaDir))
@@ -50,7 +56,12 @@ describe('metaverse', () => {
   })
   metaverse(
     'hygen-templates',
-    [['init', 'self'], ['mailer', 'new'], ['worker', 'new', '--name', 'foo']],
+    [
+      ['init', 'self'],
+      ['mailer', 'new'],
+      ['worker', 'new', '--name', 'foo'],
+      ['shell', 'new', '--name', 'foo']
+    ],
     { name: 'message', message: 'foo' }
   )
 })

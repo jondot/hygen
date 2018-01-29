@@ -14,13 +14,16 @@
     "release": "npm run build && npm publish",
     "test": "yarn test:code && yarn test:require",
     "test:code": "node node_modules/.bin/jest src/*",
-    "test:require": "babel-node src/bin.timed.js; babel-node src/bin.timed.js; babel-node src/bin.timed.js init self; rm -rf _templates",
+    "test:metaverse": "node node_modules/.bin/jest metaverse",
+    "test:require":
+      "babel-node src/bin.timed.js; babel-node src/bin.timed.js; babel-node src/bin.timed.js init self; rm -rf _templates",
     "watch": "node node_modules/.bin/jest --watch src/*",
     "flow:sync": "flow-typed install",
     "hygen": "babel-node src/bin.js",
     "docs:prepare": "gitbook install",
     "docs:watch": "gitbook serve",
-    "docs:build": "gitbook build && cp docs/CNAME _book && cp media/favicon.ico _book/gitbook/images",
+    "docs:build":
+      "gitbook build && cp docs/CNAME _book && cp media/favicon.ico _book/gitbook/images",
     "docs:publish": "yarn docs:build && gh-pages -d _book"
   },
   "dependencies": {
@@ -41,7 +44,7 @@
     "gh-pages": "^1.1.0",
     "gitbook-cli": "^2.3.2",
     "goddamn-javascript-config": "^1.0.4",
-    "jest": "^21.2.1",
+    "jest": "^22.1.4",
     "memfs": "^0.0.15",
     "mock-fs": "^4.4.1",
     "rx-lite": "^4.0.8",

@@ -1,97 +1,66 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`inject after 1`] = `
-Object {
-  "attributes": Object {
-    "after": "gem 'rails'",
-  },
-  "body": "
+exports[`injector after rails 1`] = `
+"
     source 'http://rubygems.org'
     gem 'rails'
     gem 'kamikaze' # added by hygen
     gem 'nokogiri'
     gem 'httparty'
 
-    ",
-}
+    "
 `;
 
-exports[`inject append 1`] = `
-Object {
-  "attributes": Object {
-    "append": true,
-  },
-  "body": "
+exports[`injector append bottom of file 1`] = `
+"
     source 'http://rubygems.org'
     gem 'rails'
     gem 'nokogiri'
     gem 'httparty'
 
     gem 'kamikaze' # added by hygen
-    ",
-}
+    "
 `;
 
-exports[`inject at_index 1`] = `
-Object {
-  "attributes": Object {
-    "at_line": 2,
-  },
-  "body": "
+exports[`injector at_index 2 (below "source") 1`] = `
+"
     source 'http://rubygems.org'
     gem 'kamikaze' # added by hygen
     gem 'rails'
     gem 'nokogiri'
     gem 'httparty'
 
-    ",
-}
+    "
 `;
 
-exports[`inject before 1`] = `
-Object {
-  "attributes": Object {
-    "before": "gem 'rails'",
-  },
-  "body": "
+exports[`injector before rails 1`] = `
+"
     source 'http://rubygems.org'
     gem 'kamikaze' # added by hygen
     gem 'rails'
     gem 'nokogiri'
     gem 'httparty'
 
-    ",
-}
+    "
 `;
 
-exports[`inject prepend 1`] = `
-Object {
-  "attributes": Object {
-    "prepend": true,
-  },
-  "body": "
+exports[`injector prepend top of file 1`] = `
+"
     gem 'kamikaze' # added by hygen
     source 'http://rubygems.org'
     gem 'rails'
     gem 'nokogiri'
     gem 'httparty'
 
-    ",
-}
+    "
 `;
 
-exports[`inject skip_if 1`] = `
-Object {
-  "attributes": Object {
-    "after": "gem 'rails'",
-    "skip_if": "source",
-  },
-  "body": "
+exports[`injector skip_if "source" exists 1`] = `
+"
     source 'http://rubygems.org'
     gem 'rails'
     gem 'nokogiri'
     gem 'httparty'
 
-    ",
-}
+    "
 `;

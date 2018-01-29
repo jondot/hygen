@@ -7,7 +7,7 @@ const params = require('./params')
 
 const engine = async (argv: Array<string>, config: RunnerConfig) => {
   const { cwd, templates, logger } = config
-  const args = await params(templates, argv)
+  const args = Object.assign(await params(templates, argv), { cwd })
   const { generator, action, actionfolder } = args
 
   logger.log(args.dry ? '(dry mode)' : '')
