@@ -5,6 +5,9 @@ all=warn
 include_warnings=true
 
 [ignore]
+.*/node_modules/config-chain/.*
+.*/node_modules/npm/.*
+.*/node_modules/npmi/.*
 
 [include]
 

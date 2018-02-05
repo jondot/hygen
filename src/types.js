@@ -1,14 +1,17 @@
 // @flow
 export type Logger = {
-  +log: (...data: any) => void,
-  +error: (...data: any) => void
+  ok: (msg: string) => void,
+  notice: (msg: string) => void,
+  warn: (msg: string) => void,
+  err: (msg: string) => void
 }
 export type RenderedAction = {
   file: string,
-  attributes: any,
+  attributes: Object,
   body: string
 }
 export type RunnerConfig = {
+  exec: (sh: string, body: string) => void,
   templates: string,
   cwd: string,
   logger: Logger,
