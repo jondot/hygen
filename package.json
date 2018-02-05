@@ -1,27 +1,30 @@
 {
   "name": "hygen",
-  "version": "1.3.4",
+  "version": "1.3.5",
   "main": "lib/index.js",
   "license": "MIT",
   "bin": {
     "hygen": "./lib/bin.js"
   },
   "scripts": {
-    "build:lib": "babel src --out-dir lib --ignore __tests__",
+    "build:lib":
+      "babel src --out-dir lib --ignore src/__tests__ && cp -r src/templates lib/",
     "build:umd:min": "NODE_ENV=production webpack",
     "build:umd": "NODE_ENV=development webpack",
     "build": "npm run build:lib",
     "release": "npm run build && npm publish",
     "test": "yarn test:code && yarn test:require",
-    "test:code": "node node_modules/.bin/jest src/*",
-    "test:require": "babel-node src/bin.timed.js; babel-node src/bin.timed.js; babel-node src/bin.timed.js init self; rm -rf _templates",
+    "test:code": "node node_modules/.bin/jest",
+    "test:require":
+      "babel-node src/bin.timed.js; babel-node src/bin.timed.js; babel-node src/bin.timed.js init self; rm -rf _templates",
     "watch": "node node_modules/.bin/jest --watch src/*",
     "flow:sync": "flow-typed install",
     "hygen": "babel-node src/bin.js",
-    "docs:prepare": "gitbook install",
-    "docs:watch": "gitbook serve",
-    "docs:build":"gitbook build && cp docs/CNAME _book && cp media/favicon.ico _book/gitbook/images",
-    "docs:publish": "yarn docs:build && gh-pages -d _book"
+    "docs:prepare": "cd hygen.io && yarn",
+    "docs:watch": "cd hygen.io && yarn gatsby develop",
+    "docs:build":
+      "cd hygen.io && yarn build",
+    "docs:publish": "cd hygen.io && yarn build:gh"
   },
   "dependencies": {
     "chalk": "^2.1.0",
@@ -33,14 +36,21 @@
     "yargs-parser": "^7.0.0"
   },
   "devDependencies": {
-    "babel-cli": "^6.26.0",
+    "@babel/cli": "^7.0.0-beta.39",
+    "@babel/core": "^7.0.0-beta.39",
+    "@babel/node": "^7.0.0-beta.39",
+    "@babel/preset-env": "^7.0.0-beta.39",
+    "@babel/preset-flow": "^7.0.0-beta.39",
+    "@babel/preset-stage-0": "^7.0.0-beta.39",
+    "babel-core": "^7.0.0-0",
+    "babel-jest": "^22.1.0",
     "dir-compare": "^1.4.0",
     "flow-bin": "^0.62.0",
     "flow-typed": "^2.2.3",
     "gh-pages": "^1.1.0",
     "gitbook-cli": "^2.3.2",
-    "goddamn-javascript-config": "^1.0.4",
-    "jest": "^21.2.1",
+    "goddamn-javascript-config": "^2.0.0",
+    "jest": "^22.1.4",
     "memfs": "^0.0.15",
     "mock-fs": "^4.4.1",
     "rx-lite": "^4.0.8",
@@ -48,6 +58,9 @@
     "webpack": "^3.3.0"
   },
   "jest": {
-    "testRegex": "__tests__/.*\\.spec\\.js$"
+    "testRegex": "src/__tests__/.*\\.spec\\.js$",
+    "transform": {
+      "^.+\\.jsx?$": "babel-jest"
+    }
   }
 }

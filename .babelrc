@@ -1,4 +1,14 @@
 {
-  "plugins": ["transform-runtime", "transform-class-properties"],
-  "presets": ["es2015", "stage-0", "react"]
+  "presets": [
+    "@babel/preset-flow",
+    "@babel/preset-stage-0",
+    [
+      "@babel/preset-env",
+      {
+        "targets": {
+          "node": 6
+        }
+      }
+    ]
+  ]
 }

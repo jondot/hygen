@@ -1,4 +1,10 @@
-# React Native
+---
+title: React Native
+doc: 2
+section: 2
+category: "tech"
+type: "doc"
+---
 
 While the [Redux use case](1-redux.md) is more than suitable to use for React Native, we have one unique (and arguably limiting) property of the React Native packager which is: you can't require anything dynamically.
 
@@ -6,7 +12,7 @@ So all of the fancy glob-and-require code that's supposed to glue up many files 
 
 ```javascript
 // this can't be done
-each(m=>require(m), glob('modules/**/state'))
+each(m => require(m), glob('modules/**/state'))
 ```
 
 ## Injecting with `hygen`
@@ -15,7 +21,7 @@ Using `hygen` we can help ourselves maintain these dependencies.
 
 Having that every module, component or file that you add is generated with `hygen`, we could do something like this:
 
-```
+```bash{5}
 _templates/
    component/
      new/
@@ -27,19 +33,43 @@ And here's how `inject_component` looks like:
 
 ```javascript
 ---
-to: app/globs/all-components.js
 inject: true
+to: app/globs/all-components.js
 skip_if: <%= name %>
 after: "const components = ["
 ---
-require('./<%= name %>).default,
+<%= Name %>: require('../components/<%= name %>').default,
 ```
 
-This assumes we have a central file in `globs/all-components.js` that we use to glue all components to one re-exportable module.
+This assumes we have a central file in `globs/all-components.js` that we use to glue all components to one re-exportable module:
+
+```javascript
+const components = {
+  Avatar: require('../components/avatar').default,
+  Icon: require('../components/icon').default
+}
+export default components
+```
+
+Running this:
+
+```
+$ hygen component new --name intro
+```
+
+Will build this:
+
+```javascript{4}
+const components = {
+  Avatar: require('../components/avatar').default,
+  Icon: require('../components/icon').default,
+  Intro: require('../components/intro').default
+}
+export default components
+```
 
 Now we could do something fun like this:
 
 ```javascript
-import { Icon, Avatar } from 'app/globs/all-components'
+import { Intro } from 'app/globs/all-components'
 ```
-

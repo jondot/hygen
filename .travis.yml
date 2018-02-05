@@ -7,12 +7,20 @@ node_js:
 # https://github.com/GitbookIO/gitbook/issues/1834
 script:
   - yarn test
-  - yarn docs:prepare; yarn docs:prepare && yarn docs:build
+  - yarn docs:prepare && yarn docs:build
 deploy:
-  provider: pages
-  local-dir: _book
-  skip-cleanup: true
-  github-token: $GITHUB_TOKEN  # Set in travis-ci.org dashboard, marked secure
-  keep-history: true
-  on:
-    branch: master
+  - provider: npm
+    email: "jondotan@gmail.com"
+    api_key:
+      secure: GzXJ4e9uu2+L7C+PRZh59sdtfa+NMrubwDBKNkZjrZZV5mnw5LiDBA537LCOFS/d0wzvavJAnGFoqa3pTqkI0PUL4lBQJi0nqiv6xw4hWJ4B0gC5QjWtRdAPgAznequNLjUU4kHVl2rW711mWQX8w8/+yA3WwVM/Mst7U10r0vvETx4ATjeTFyK88+gVCmF93n1vS6OT7rCqnrBatjuW7apNryZynzMIWOqDEljUYCf0q1tj/GQJKtktLD9Mr1K64KYXaGxO7+v7r4szKNxExznRjZqB6/tTxStxvfnLRT7Pk12/HE54aMTCZndbaNjuQN6uf1fQSEXxjUy1OEnLCOYH3/JmfvASSQ/QDnOwMXiKeRiIpB7usL414tQGEGtn+3gAZ8Jv8+zQcdWgq+94zJ8TfDNTVTRXkTqR96cJmbVcDDZZxdUMgK3/+O+++YnZACDI62OcydFZ77YRkk3Jwrw2Ttmf3RfwihAFC3J42C+RkfDyk9MPbTF1QmPRKo6DoWnW7pBzqL4ppJIx4TPqzM/ILA2rVKtOrfopnsJ0y2E0vNfwyDlvYzhsXg1xb3d+/T4GhwBjDLPrW6LgdZkxYdxK+HuKQNBCiqA1cvUiHNPOGzMesZJiXUaEMpCm4v6j+izINNb4wwYpV6ES/ys8ZMopI1mOpmTtD3GP7YwJEyg=
+    on:
+      tags: true
+      skip_cleanup: true
+
+  - provider: pages
+    local-dir: gatsby.io/public
+    skip-cleanup: true
+    github-token: $GITHUB_TOKEN  # Set in travis-ci.org dashboard, marked secure
+    keep-history: true
+    on:
+      branch: master

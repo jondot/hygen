@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="292px" height="292px" viewBox="0 0 292 292" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 48.2 (47327) - http://www.bohemiancoding.com/sketch -->
+    <title>scalable</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="scalable">
+            <g id="Group-2" transform="translate(2.000000, 2.000000)" fill="#F722B1">
+                <rect id="Rectangle" x="0" y="0" width="286" height="286" rx="64"></rect>
+            </g>
+            <circle id="Oval" fill="#FFFFFF" cx="72.5" cy="74.5" r="25.5"></circle>
+            <circle id="Oval-Copy" fill="#FFFFFF" cx="144.5" cy="74.5" r="25.5"></circle>
+            <circle id="Oval-Copy-2" fill="#FFFFFF" cx="216.5" cy="74.5" r="25.5"></circle>
+            <circle id="Oval-Copy-3" fill="#FFFFFF" cx="216.5" cy="144.5" r="25.5"></circle>
+            <circle id="Oval-Copy-4" fill="#FFFFFF" cx="144.5" cy="144.5" r="25.5"></circle>
+            <circle id="Oval-Copy-5" fill="#FFFFFF" cx="72.5" cy="144.5" r="25.5"></circle>
+            <circle id="Oval-Copy-6" fill="#FFFFFF" cx="72.5" cy="214.5" r="25.5"></circle>
+            <circle id="Oval-Copy-7" fill="#FFFFFF" cx="144.5" cy="214.5" r="25.5"></circle>
+        </g>
+    </g>
+</svg>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="292px" height="292px" viewBox="0 0 292 292" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 48.2 (47327) - http://www.bohemiancoding.com/sketch -->
+    <title>circ copy</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="circ-copy">
+            <g id="Group-2" transform="translate(1.000000, 1.000000)">
+                <rect id="Rectangle" fill="#F722B1" x="1" y="1" width="286" height="286" rx="64"></rect>
+                <g id="text" transform="translate(174.000000, 205.000000)">
+                    <rect id="Rectangle-2" fill="#FFF06C" x="0" y="0" width="68" height="20"></rect>
+                    <rect id="Rectangle-2" fill="#BCFE25" x="0" y="30" width="32" height="20"></rect>
+                    <rect id="Rectangle-2-Copy" fill="#FFFFFF" x="38" y="30" width="12" height="20"></rect>
+                </g>
+                <path d="M64,0 L226,0 C261.346224,-6.49299601e-15 290,28.653776 290,64 L290,145 L145,290 L64,290 C28.653776,290 4.32866401e-15,261.346224 0,226 L0,64 C-4.32866401e-15,28.653776 28.653776,6.49299601e-15 64,0 Z" id="Rectangle-Copy" fill="#C9C9C9"></path>
+                <g id="Group" transform="translate(290.500000, 290.500000) scale(-1, -1) translate(-290.500000, -290.500000) translate(147.000000, 147.000000)" fill="#FFFFFF">
+                    <path d="M64,0 L223,0 L64,0 Z M287,143.5 L287,223 C287,258.346224 258.346224,287 223,287 L143.5,287 L287,143.5 Z M0,223 L0,64 L0,223 Z" id="Combined-Shape"></path>
+                </g>
+            </g>
+            <g id="text" transform="translate(47.000000, 51.000000)" fill="#E0E0E0">
+                <rect id="Rectangle-2" x="28" y="0" width="98" height="20"></rect>
+                <rect id="Rectangle-2" x="136" y="0" width="35" height="20"></rect>
+                <rect id="Rectangle-2" x="0" y="0" width="18" height="20"></rect>
+                <rect id="Rectangle-2" x="28" y="155" width="70" height="20"></rect>
+                <rect id="Rectangle-2" x="0" y="155" width="18" height="20"></rect>
+                <rect id="Rectangle-2" x="58" y="185" width="40" height="20"></rect>
+                <rect id="Rectangle-2" x="0" y="185" width="48" height="20"></rect>
+                <rect id="Rectangle-2" x="55" y="33" width="55" height="20"></rect>
+                <rect id="Rectangle-2" x="0" y="33" width="44" height="20"></rect>
+                <rect id="Rectangle-2" x="0" y="67" width="67" height="20"></rect>
+            </g>
+        </g>
+    </g>
+</svg>
