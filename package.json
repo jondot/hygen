@@ -12,7 +12,7 @@
     "build:umd:min": "NODE_ENV=production webpack",
     "build:umd": "NODE_ENV=development webpack",
     "build": "npm run build:lib",
-    "release": "npm run build && npm publish",
+    "release": "yarn version && git push --tags",
     "test": "yarn test:code && yarn test:require",
     "test:code": "node node_modules/.bin/jest",
     "test:metaverse": "node node_modules/.bin/jest metaverse",
@@ -23,8 +23,7 @@
     "hygen": "babel-node src/bin.js",
     "docs:prepare": "cd hygen.io && yarn",
     "docs:watch": "cd hygen.io && yarn gatsby develop",
-    "docs:build":
-      "cd hygen.io && yarn build",
+    "docs:build": "cd hygen.io && yarn build",
     "docs:publish": "cd hygen.io && yarn build:gh"
   },
   "dependencies": {
