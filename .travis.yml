@@ -18,7 +18,7 @@ deploy:
       skip_cleanup: true
 
   - provider: pages
-    local-dir: gatsby.io/public
+    local-dir: hygen.io/public
     skip-cleanup: true
     github-token: $GITHUB_TOKEN  # Set in travis-ci.org dashboard, marked secure
     keep-history: true
