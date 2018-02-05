@@ -1,14 +1,13 @@
 {
   "name": "hygen",
-  "version": "1.3.5",
+  "version": "1.4.0",
   "main": "lib/index.js",
   "license": "MIT",
   "bin": {
     "hygen": "./lib/bin.js"
   },
   "scripts": {
-    "build:lib":
-      "babel src --out-dir lib --ignore src/__tests__ && cp -r src/templates lib/",
+    "build:lib": "babel src --out-dir lib --ignore src/__tests__ && cp -r src/templates lib/",
     "build:umd:min": "NODE_ENV=production webpack",
     "build:umd": "NODE_ENV=development webpack",
     "build": "npm run build:lib",
@@ -16,8 +15,7 @@
     "test": "yarn test:code && yarn test:require",
     "test:code": "node node_modules/.bin/jest",
     "test:metaverse": "node node_modules/.bin/jest metaverse",
-    "test:require":
-      "babel-node src/bin.timed.js; babel-node src/bin.timed.js; babel-node src/bin.timed.js init self; rm -rf _templates",
+    "test:require": "babel-node src/bin.timed.js; babel-node src/bin.timed.js; babel-node src/bin.timed.js init self; rm -rf _templates",
     "watch": "node node_modules/.bin/jest --watch src/*",
     "flow:sync": "flow-typed install",
     "hygen": "babel-node src/bin.js",
