@@ -135,7 +135,7 @@ const LogoHeader = styled.div`
   }
 `
 const SiteHeaderWrapper = styled.div`
-  flex: 0.5;
+  flex: 0.6;
 `
 
 /* eslint no-undef: "off" */
