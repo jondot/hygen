@@ -1,5 +1,5 @@
 module.exports = {
-  docsDir: `${__dirname}/../`, // The name of the directory that contains docs or docs.
+  docsDir: `${__dirname}/../content`, // The name of the directory that contains docs or docs.
   siteTitle: 'Hygen', // Site title.
   siteTitleAlt: 'Hygen - The scalable code generator that saves you time.', // Alternative site title for SEO.
   siteLogo: '/logo-meta.png', // Logo used for SEO and manifest.

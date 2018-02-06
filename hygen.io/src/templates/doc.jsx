@@ -122,7 +122,7 @@ const LogoBar = styled.div`
   flex-direction: row;
 `
 const LogoHeader = styled.div`
-  flex: 0.5;
+  flex: 0.4;
   padding: 20px;
   font-size: 1.8em;
   img {

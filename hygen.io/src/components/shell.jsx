@@ -43,7 +43,8 @@ const FauxWindow = styled.pre`
   margin: 0px -3rem;
   box-shadow: 0 2px 6px 0 #eff5fa;
   border-radius: 3px;
-  width: 500px;
+  max-width: 500px;
+  overflow: auto;
   height: 200px;
   margin: 4rem auto;
   font-size: 14px;
