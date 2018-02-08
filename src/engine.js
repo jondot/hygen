@@ -21,9 +21,14 @@ const engine = async (argv: Array<string>, config: RunnerConfig) => {
 
   logger.log(`Loaded templates: ${templates.replace(cwd + '/', '')}`)
   if (!await fs.exists(actionfolder)) {
-    throw new Error(
-      `cannot find action '${action}' for generator '${generator}' (looked for ${generator}/${action} in ${templates}).`
-    )
+    throw new Error(`I can't find action '${action}' for generator '${generator}'.
+
+      You can try:
+      1. 'hygen init self' to initialize your project, and
+      2. 'hygen generator new --name ${generator}' to build the generator you wanted.
+
+      Check out the quickstart for more: http://www.hygen.io/quick-start
+      `)
   }
 
   // lazy loading these dependencies gives a better feel once

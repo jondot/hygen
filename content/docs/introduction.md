@@ -12,7 +12,7 @@ Install `hygen`:
 $ npm i -g hygen
 ```
 
-Supply a `GENERATOR ACTION` pair:
+To use a generator, we supply a `GENERATOR ACTION` pair like so (here `mailer` and `new` are examples).
 
 ```
 $ hygen mailer new
@@ -20,38 +20,21 @@ $ hygen mailer new
          `------------ generator
 ```
 
-After a fresh install, `hygen` will use the example generators it comes with. Let's try one:
+Here's a quick run-down to get to your own generator:
 
-```yaml{1}
-$ hygen example-prompt new
-? What's your message? welcome
-
-Loaded templates: src/templates
-       added: hygen-examples/mailers/unnamed.js
-       added: hygen-examples/mailers/hello/html.ejs
-       added: hygen-examples/mailers/hello/subject.ejs
-       added: hygen-examples/mailers/hello/text.ejs
-      inject: hygen-examples/mailers/hello/html.ejs
+```bash
+$ hygen self init
+$ hygen generator new --name awesome-generator
+$ hygen awesome-generator new --name hello
 ```
 
-There are a few more ways to play with the examples:
+Congratz! you've made a new generator called `awesome-generator`!
 
-```perl
-# generate all files, with a name variable
-$ hygen example-prompt new --name reporter
-
-
-# generate one specific file
-$ hygen example-prompt new:mailer --name reporter
-
-
-# generate all resources that correspond to a regular expression
-$ hygen example-prompt 'new:.*html' --name reporter
-```
+Let's walk through what we just did.
 
 ## Bootstrapping Your Project
 
-Use `hygen init self` to start using it in your own project (it also gets rid of the example generators).
+Use `hygen init self` to start using it in your own project. `hygen` comes with two pre-built generators that helps you build your own - although it was built to ease the boilerplate fatigue for React, Redux, and Node.js it can be use for any technology really.
 
 ```yaml{2}
 $ cd your-project
@@ -97,3 +80,36 @@ Loaded templates: _templates
 |In this way you can even tweak the way `hygen` generates new generators. It scales to a set up with different teams, each with its own preference.
 
 That's it! we've done a basic walkthrough of `hygen`. Next up is a detailed overview of [generators](generators) and [templates](templates).
+
+## What Happen If I Don't Init?
+
+After a fresh install, `hygen` will use the example generators it comes with, so that you can just try out the tool. This way you can build a sample generator and see how it works from the inside, or maybe copy its contents to have a better starting point.
+
+If you didn't `hygen init self` yet - let's try one:
+
+```yaml{1}
+$ hygen example-prompt new
+? What's your message? welcome
+
+Loaded templates: src/templates
+       added: hygen-examples/mailers/unnamed.js
+       added: hygen-examples/mailers/hello/html.ejs
+       added: hygen-examples/mailers/hello/subject.ejs
+       added: hygen-examples/mailers/hello/text.ejs
+      inject: hygen-examples/mailers/hello/html.ejs
+```
+
+There are a few more ways to play with the examples:
+
+```perl
+# generate all files, with a name variable
+$ hygen example-prompt new --name reporter
+
+
+# generate one specific file
+$ hygen example-prompt new:mailer --name reporter
+
+
+# generate all resources that correspond to a regular expression
+$ hygen example-prompt 'new:.*html' --name reporter
+```
