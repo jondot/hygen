@@ -1,6 +1,6 @@
 {
   "name": "hygen",
-  "version": "1.4.3",
+  "version": "1.4.4",
   "main": "lib/index.js",
   "license": "MIT",
   "bin": {
@@ -11,7 +11,7 @@
     "build:umd:min": "NODE_ENV=production webpack",
     "build:umd": "NODE_ENV=development webpack",
     "build": "npm run build:lib",
-    "release": "yarn version && git push --tags",
+    "release": "yarn build && yarn version && git push --tags",
     "test": "yarn test:code && yarn test:require",
     "test:code": "node node_modules/.bin/jest",
     "test:metaverse": "node node_modules/.bin/jest metaverse",
