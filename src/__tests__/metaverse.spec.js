@@ -60,7 +60,8 @@ describe('metaverse', () => {
       ['init', 'self'],
       ['mailer', 'new'],
       ['worker', 'new', '--name', 'foo'],
-      ['shell', 'new', '--name', 'foo']
+      ['shell', 'new', '--name', 'foo'],
+      ['inflection', 'new', '--name', 'person']
     ],
     { name: 'message', message: 'foo' }
   )

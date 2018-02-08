@@ -1,11 +1,13 @@
 // @flow
 
 const L = require('lodash')
+const inflection = require('inflection')
 
 const helpers = {
   capitalize(string) {
     return string.charAt(0).toUpperCase() + string.slice(1).toLowerCase()
-  }
+  },
+  inflection
 }
 
 const localsToCapitalize = ['name']
