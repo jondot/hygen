@@ -24,6 +24,10 @@ Hello <%= defaulted %>.
 
 Yes and yes!. One of the critical points with the `hygen` approach is that templates and generators are co-located with a project, to a team, to a branch. A team can also review templates in the same way they do their code.
 
+## Isn't generating code counteracting DRY (don't repeat yourself)
+
+Not in this case. `hygen` is build for modern app architectures, which demand modularity, clean code, and high maintainability and that are already DRY. This means there will be multiple tools requiring various ceremonies (most trivially - tests), that are set up by hand or by a combination of shortcuts. `hygen` wants to streamline all these, and give you the tools to save yourself some time.
+
 ## What's the difference from generator X/Y/Z?
 
 First, it's not hard to start building the intuition by trying it out. Here's the short answer based on comparison with `plop`. See the full discussion [here](https://github.com/jondot/hygen/issues/1)
