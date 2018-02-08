@@ -87,6 +87,8 @@ class <%= Name %> {
 }
 ```
 
+## Helpers and Inflections
+
 You can also use the built-in helpers by accessing `h`:
 
 ```javascript{3}
@@ -97,7 +99,29 @@ class <%= Name %> {
 }
 ```
 
-With time, we'll add more utilities onto `h`.
+The special helper object `h` also hosts _inflections_. With these you can pluralize, signularize and more:
+
+```
+// example: <%= h.inflection.pluralize(name) %>
+
+pluralize( str, plural )
+singularize( str, singular )
+inflect( str, count, singular, plural )
+camelize( str, low_first_letter )
+underscore( str, all_upper_case )
+humanize( str, low_first_letter )
+capitalize( str )
+dasherize( str )
+titleize( str )
+demodulize( str )
+tableize( str )
+classify( str )
+foreign_key( str, drop_id_ubar )
+ordinalize( str )
+transform( str, arr )
+```
+
+You can see the full list [here](https://github.com/dreamerslab/node.inflection). With time, we'll add more utilities onto `h`.
 
 ## Addition
 
@@ -143,3 +167,39 @@ In almost all cases you want to ensure you're not injecting content twice:
 * `skip_if` which contains a regular expression / text. If exists, injection is skipped.
 
 Let's see how these play out in the [Redux](redux) use case.
+
+### Shell
+
+Shell actions give you the ability to trigger any shell commands. You can do things such as:
+
+* Copy a resource or an asset from a template into a target folder
+* Pipe the output of a template into a shell command
+* Perform any other side-effect - touch files, restart processes, trigger a `yarn install` or what have you.
+
+Here's how to pipe a generator's output into a shell command:
+
+```yaml
+---
+sh: "mkdir -p <%= cwd %>/given/app/shell && cat > <%= cwd %>/given/app/shell/hello.piped"
+---
+hello, this was piped!
+```
+
+Using just the `sh:` property, `hygen` will understand this is a shell action. Note that you have the `cwd` variable pre-available to you to indicate the current working directory.
+
+This generator will _pipe_ its output into the shell command, so you can assume it happens - note that `cat` is expecting someone to give it `STDIN`.
+
+Some times you want to run a generator and just invoke an additional command. This means the shell action can be added to what ever action you wanted to perform (inject or addition).
+
+Here's a common task: add a dependency and then run `yarn install`.
+
+```yaml
+---
+inject: true
+to: package.json
+after: dependencies
+skip_if: lodash
+sh: cd <%= cwd %> && yarn install
+---
+"lodash":"*",
+```
