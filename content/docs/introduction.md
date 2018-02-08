@@ -23,7 +23,7 @@ $ hygen mailer new
 Here's a quick run-down to get to your own generator:
 
 ```bash
-$ hygen self init
+$ hygen init self
 $ hygen generator new --name awesome-generator
 $ hygen awesome-generator new --name hello
 ```
