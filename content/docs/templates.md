@@ -1,6 +1,6 @@
 ---
 title: Templates
-doc: 3
+doc: 2
 section: 1
 category: "tech"
 type: "doc"
@@ -203,3 +203,5 @@ sh: cd <%= cwd %> && yarn install
 ---
 "lodash":"*",
 ```
+
+Next up, we'll move on to [generators](generators).

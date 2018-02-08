@@ -1,6 +1,6 @@
 ---
 title: Generators
-doc: 2
+doc: 3
 section: 1
 category: "tech"
 type: "doc"
@@ -180,4 +180,4 @@ $ hygen mailer new:.*xt --name textual-mailer
 
 That's about it for generators.
 
-Next up, we'll move on to [templates](templates).
+That's it for now, you're invited to take a look at the [FAQ](faq)!

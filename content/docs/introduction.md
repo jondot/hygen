@@ -79,9 +79,9 @@ Loaded templates: _templates
 |
 |In this way you can even tweak the way `hygen` generates new generators. It scales to a set up with different teams, each with its own preference.
 
-That's it! we've done a basic walkthrough of `hygen`. Next up is a detailed overview of [generators](generators) and [templates](templates).
+That's it! we've done a basic walkthrough of `hygen`. Next up is a detailed overview of [templates](templates) and [generators](generators).
 
-## What Happen If I Don't Init?
+## What Happens If I Don't Init?
 
 After a fresh install, `hygen` will use the example generators it comes with, so that you can just try out the tool. This way you can build a sample generator and see how it works from the inside, or maybe copy its contents to have a better starting point.
 
@@ -113,3 +113,5 @@ $ hygen example-prompt new:mailer --name reporter
 # generate all resources that correspond to a regular expression
 $ hygen example-prompt 'new:.*html' --name reporter
 ```
+
+You made it to the end! nice! Now check out [templates](templates) and [generators](generators).
