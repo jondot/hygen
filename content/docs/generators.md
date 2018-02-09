@@ -178,6 +178,8 @@ message: |
 ---
 ```
 
+The special `|` annotation is a YAML literal block. Should you need it, [here's a quick YAML refresher](https://learnxinyminutes.com/docs/yaml/).
+
 Note that in `message` you can have a special coloring syntax, which can spice up your self-documenting generators.
 
 Here's a few examples:
