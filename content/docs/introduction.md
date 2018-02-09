@@ -28,6 +28,17 @@ $ hygen generator new --name awesome-generator
 $ hygen awesome-generator new --name hello
 ```
 
+To see the `generator` help, you could always do:
+
+```bash
+$ hygen generator help
+
+Loaded templates: _templates
+help:
+hygen generator new --name [NAME] --action [ACTION]
+hygen generator with-prompt --name [NAME] --action [ACTION]
+```
+
 Congratz! you've made a new generator called `awesome-generator`!
 
 Let's walk through what we just did.

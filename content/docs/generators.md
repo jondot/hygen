@@ -152,6 +152,45 @@ $ hygen mailer new --name fancy-mailer
 
 Which will ask the user for the `message`, and generate all contents.
 
+## Documenting Your Generators
+
+Since there's a special `message` prop you can use in any template, you can use that to build generator help screens. Ultimately, your generator should be documenting itself.
+
+Looking at our generator layout from before, we add a `help` action:
+
+```bash{3,4}
+_templates/
+  mailer/
+    help/
+      index.ejs.t
+    new/
+      prompt.js
+      html.ejs.t
+      text.ejs.t
+```
+
+Our `index.ejs.t` is simply a blank template, with just a `message:` prop:
+
+```yaml
+---
+message: |
+  - hygen {bold mailer} new --name [NAME]
+---
+```
+
+Note that in `message` you can have a special coloring syntax, which can spice up your self-documenting generators.
+
+Here's a few examples:
+
+```javascript
+{bold mailer}
+{red mailer}
+{underline mailer}
+{green mailer}
+```
+
+For more styles [check out chalk](https://github.com/chalk/chalk#styles).
+
 ## Selecting Parts of a Generator
 
 In addition to what we've seen until now, `hygen` lets the user select parts of a generator.
