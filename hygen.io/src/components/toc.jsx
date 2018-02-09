@@ -58,7 +58,7 @@ class TableOfContents extends React.Component {
       })
       listItems.push(
         <li className="section">
-          <h5 className="tocHeading">{sectionTitles[idx]}</h5>
+          <h5 className="tocHeading docSearch-lvl0">{sectionTitles[idx]}</h5>
           <ul className="sectionItems">{sectionDocs}</ul>
         </li>
       )

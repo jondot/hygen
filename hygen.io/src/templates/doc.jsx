@@ -49,7 +49,7 @@ export default class DocTemplate extends React.Component {
             />
           </ToCContainer>
           <BodyContainer>
-            <div>
+            <div className="docSearch-content">
               <h1>{post.title}</h1>
               <div dangerouslySetInnerHTML={{ __html: postNode.html }} />
             </div>
