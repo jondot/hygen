@@ -1,7 +1,12 @@
-const { yellow, red, green, magenta } = require('chalk')
+const chalk = require('chalk')
+const { yellow, red, green, magenta } = chalk
+const template = require('chalk/templates')
 class Logger {
   constructor(log) {
     this.log = log
+  }
+  colorful(msg) {
+    this.log(template(chalk, msg))
   }
   notice(msg) {
     this.log(magenta(msg))

@@ -22,7 +22,7 @@ const execute = async (
     }
   }
   if (messages.length > 0) {
-    logger.log(L.map(messages, m => `* ${m}`).join('\n'))
+    logger.colorful(`${args.action}:\n${messages.join('\n')}`)
   }
 }
 module.exports = execute

@@ -3,7 +3,8 @@ export type Logger = {
   ok: (msg: string) => void,
   notice: (msg: string) => void,
   warn: (msg: string) => void,
-  err: (msg: string) => void
+  err: (msg: string) => void,
+  colorful: (msg: string) => void
 }
 export type RenderedAction = {
   file: string,

@@ -96,15 +96,16 @@ describe('execute', () => {
           body: 'hello index!'
         }
       ],
-      {},
+      { action: 'boot' },
       { cwd: 'app', logger }
     )
     expect(logs.join('\n')).toEqual(`${chalk.green(
       '       added: workers/boot.js'
     )}
 ${chalk.green('       added: workers/index.js')}
-* hello from boot
-* hello from index`)
+boot:
+hello from boot
+hello from index`)
   })
 
   ftest(
