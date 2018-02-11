@@ -340,13 +340,14 @@ as a dependency and having [this kind of workflow](src/bin.js) in your binary.
 
 ```javascript
 const { runner } = require('hygen')
+const Logger = require('hygen/lib/logger')
 const path = require('path')
 const defaultTemplates = path.join(__dirname, 'templates')
 
 runner(process.argv.slice(2), {
   templates: defaultTemplates,
   cwd: process.cwd(),
-  logger: console,
+  logger: new Logger(console.log.bind(console)),
   debug: !!process.env.DEBUG
 })
 ```
