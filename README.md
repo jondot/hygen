@@ -178,7 +178,7 @@ _templates/
       html.ejs.t
 ```
 
-The [format](src/templates/mailer/new/prompt.js) is based on [inquirer](https://github.com/SBoudrias/Inquirer.js) so hopefully, nothing new to you.
+The [format](src/templates/example-prompt/new/prompt.js) is based on [inquirer](https://github.com/SBoudrias/Inquirer.js) so hopefully, nothing new to you.
 
 ## A Different Kind of a Generator
 
