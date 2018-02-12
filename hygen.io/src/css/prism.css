@@ -15,13 +15,11 @@
   padding-bottom: 30px;
 }
 code {
-  font-family: Monaco, 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande',
-    'Lucida Sans Unicode', monospace;
+  font-family: Monaco, 'Lucida Console', monospace;
   font-size: 1.6rem;
 }
 pre[class*='language-'] {
-  font-family: Monaco, 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande',
-    'Lucida Sans Unicode', monospace;
+  font-family: Monaco, 'Lucida Console', monospace;
   background: #fff;
   border: 1px solid #dae4ed;
   padding: 2rem;
