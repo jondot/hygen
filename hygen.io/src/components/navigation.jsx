@@ -1,6 +1,7 @@
 import React from 'react'
 import Link from 'gatsby-link'
 import styled from 'styled-components'
+import DocSearch from './doc-search'
 
 class Navigation extends React.Component {
   render() {
@@ -18,6 +19,7 @@ class Navigation extends React.Component {
           <a className="nav-link" href="https://github.com/jondot/hygen">
             Github
           </a>
+          {this.props.withSearch && <DocSearch />}
         </section>
       </NavContainer>
     )
@@ -26,17 +28,17 @@ class Navigation extends React.Component {
 
 const NavContainer = styled.div`
   display: flex;
-  justify-content: space-between;
   width: 100%;
 
+  justify-content: flex-end;
   .nav-link {
     font-size: 1.6rem;
     margin-right: 10px;
     color: ${props => props.theme.ink};
   }
   section {
-    position: absolute;
     right: 5rem;
+    display: flex;
   }
 
   @media screen and (max-width: 600px) {
@@ -48,10 +50,6 @@ const NavContainer = styled.div`
       position: relative;
       right: 0;
       margin: 0 auto;
-    }
-
-    span {
-      display: none;
     }
   }
 `

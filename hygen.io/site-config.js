@@ -8,6 +8,12 @@ module.exports = {
   siteDescription: 'Hygen - The scalable code generator that saves you time.', // Website description used for RSS feeds/meta description tag.
   googleAnalyticsID: 'UA-7131053-23', // GA tracking ID.
   googleFonts: ['Source Sans Pro:300,400,700'],
+  docSearch: {
+    apiKey: '8eb34147bbf73c81783f18b42ce01614',
+    indexName: 'hygen',
+    inputSelector: '#algolia-doc-search',
+    debug: false // Set debug to true if you want to inspect the dropdown
+  },
   usedIn: [
     {
       image: 'redux.svg',

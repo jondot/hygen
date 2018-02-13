@@ -2,6 +2,7 @@ import React from 'react'
 import Helmet from 'react-helmet'
 import styled from 'styled-components'
 import Link from 'gatsby-link'
+import DocSearch from '../components/doc-search'
 
 import SEO from '../components/seo'
 import SiteHeader from '../components/header'
@@ -120,9 +121,14 @@ const ToCContainer = styled.div`
 const LogoBar = styled.div`
   display: flex;
   flex-direction: row;
+  @media screen and (max-width: 600px) {
+    flex-direction: column;
+    align-items: center;
+  }
 `
 const LogoHeader = styled.div`
   flex: 0.4;
+  flex-direction: row;
   padding: 20px;
   font-size: 1.8em;
   img {
@@ -136,6 +142,9 @@ const LogoHeader = styled.div`
 `
 const SiteHeaderWrapper = styled.div`
   flex: 0.6;
+  @media screen and (max-width: 600px) {
+    align-self: flex-end;
+  }
 `
 
 /* eslint no-undef: "off" */

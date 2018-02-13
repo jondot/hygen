@@ -44,6 +44,11 @@ export default class HTML extends React.Component {
             dangerouslySetInnerHTML={{ __html: this.props.body }}
           />
           {this.props.postBodyComponents}
+          <div
+            dangerouslySetInnerHTML={{
+              __html: `<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.js"></script>`
+            }}
+          />
         </body>
       </html>
     )

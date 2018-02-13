@@ -1,8 +1,6 @@
 {
-  "name": "gatsby-docs-starter",
-  "description": "GatsbyJS starter designed with documentation and tutorial websites in mind.",
-  "version": "1.0.1",
-  "author": "Eric Windmill <eric@ericwindmill.com>",
+  "name": "hygen-docs",
+  "private": true,
   "dependencies": {
     "babel-plugin-lodash": "^3.2.11",
     "gatsby": "^1.9.178",
@@ -41,6 +39,7 @@
     "styled-components": "^3.1.6"
   },
   "devDependencies": {
+    "babel-eslint": "^8.2.1",
     "cli-glob": "^0.1.0",
     "eslint": "^4.17.0",
     "eslint-config-airbnb": "^16.1.0",
@@ -58,11 +57,6 @@
     "stylelint-config-standard": "^18.0.0",
     "write-good": "^0.11.3"
   },
-  "keywords": [
-    "gatsby"
-  ],
-  "license": "MIT",
-  "main": "n/a",
   "scripts": {
     "develop": "gatsby develop",
     "dev": "npm run develop",
@@ -77,8 +71,6 @@
     "format:js": "prettier '**/*.{js,jsx}' --write"
   },
   "remarkConfig": {
-    "plugins": [
-      "remark-preset-lint-recommended"
-    ]
+    "plugins": ["remark-preset-lint-recommended"]
   }
 }

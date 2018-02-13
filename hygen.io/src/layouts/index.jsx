@@ -4,6 +4,8 @@ import styled, { ThemeProvider } from 'styled-components'
 import config, { theme } from '../../site-config'
 import '../css/index.scss'
 import '../css/prism.css'
+import '../css/docsearch.min.css'
+import '../css/docsearch.custom.css'
 
 export default class MainLayout extends React.Component {
   render() {

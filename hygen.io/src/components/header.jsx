@@ -4,9 +4,10 @@ import Navigation from './navigation'
 
 class MainHeader extends React.Component {
   render() {
+    const { location } = this.props
     return (
       <SiteContainer>
-        <Navigation />
+        <Navigation withSearch={location && location.pathname !== '/'} />
       </SiteContainer>
     )
   }
