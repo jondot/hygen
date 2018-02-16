@@ -21,13 +21,14 @@ describe('resolve', () => {
 
   ftest(
     'with custom HYGEN_TMPLS',
-    { app: { other_templates: { '1': 'foo' } } },
+    { app: { other_templates: { '1': 'foo' } }, 
+      other_templates: {'2' : 'foo'} },
 
     () => {
       process.env.HYGEN_TMPLS = 'other_templates'
       expect(
         templateResolver({ cwd: 'app', templates: '2' }).templates
-      ).toEqual('app/other_templates')
+      ).toEqual('other_templates')
       process.env.HYGEN_TMPLS = null
     }
   )

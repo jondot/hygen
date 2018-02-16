@@ -10,7 +10,7 @@ module.exports = (config: RunnerConfig): RunnerConfig => {
     L.find(
       [
         // $FlowFixMe
-        path.join(cwd, process.env.HYGEN_TMPLS || '_templates'),
+        process.env.HYGEN_TMPLS,
         path.join(cwd, '_templates')
       ],
       _ => fs.existsSync(_)
