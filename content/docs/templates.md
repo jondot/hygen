@@ -99,7 +99,7 @@ class <%= Name %> {
 }
 ```
 
-The special helper object `h` also hosts _inflections_. With these you can pluralize, signularize and more:
+The special helper object `h` also hosts _inflections_. With these you can pluralize, singularize and more:
 
 ```
 // example: <%= h.inflection.pluralize(name) %>
