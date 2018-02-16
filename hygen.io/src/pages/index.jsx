@@ -3,19 +3,6 @@ import Helmet from 'react-helmet'
 import styled from 'styled-components'
 import Link from 'gatsby-link'
 import Shell from '../components/shell'
-import '../css/github.scss'
-import GitHubButton from 'react-github-button'
-/*
-              <BadgeContainer>
-                <GitHubButton
-                  type="stargazers"
-                  namespace="jondot"
-                  repo="hygen"
-                />
-                <img src="https://img.shields.io/npm/v/hygen.svg" />
-              </BadgeContainer>
-              */
-import SEO from '../components/seo'
 import config from '../../site-config'
 import CtaButton from '../components/cta-button'
 import Navigation from '../components/navigation'
@@ -23,7 +10,6 @@ import Footer from '../components/footer'
 import logo from '../assets/hygen.svg'
 
 class Index extends React.Component {
-  state = { typingDone: false }
   render() {
     // const postEdges = this.props.data.allMarkdownRemark.edges;
     return (
@@ -49,34 +35,27 @@ class Index extends React.Component {
           <BodyContainer>
             <Section>
               <Triplet>
-                {config.features.map(({ image, title, content }) => {
-                  return (
-                    <Feature>
-                      <img src={require(`../assets/${image}`)} width="100px" />
-                      <Subtitle>{title}</Subtitle>
-                      <p>{content}</p>
-                    </Feature>
-                  )
-                })}
+                {config.features.map(({ image, title, content }) => (
+                  <Feature>
+                    <img src={require(`../assets/${image}`)} width="100px" />
+                    <Subtitle>{title}</Subtitle>
+                    <p>{content}</p>
+                  </Feature>
+                ))}
               </Triplet>
             </Section>
 
             <Section>
               <h1>See how to use with:</h1>
               <Triplet>
-                {config.usedIn.map(({ width, image, title, content, link }) => {
-                  return (
-                    <Feature>
-                      <Link to={link}>
-                        <Subtitle>{title}</Subtitle>
-                        <img
-                          src={require(`../assets/${image}`)}
-                          width={width}
-                        />
-                      </Link>
-                    </Feature>
-                  )
-                })}
+                {config.usedIn.map(({ width, image, title, content, link }) => (
+                  <Feature>
+                    <Link to={link}>
+                      <Subtitle>{title}</Subtitle>
+                      <img src={require(`../assets/${image}`)} width={width} />
+                    </Link>
+                  </Feature>
+                ))}
               </Triplet>
             </Section>
             <Footer />
@@ -156,4 +135,4 @@ const Subtitle = styled.h2`
   margin: 2rem 0;
 `
 
-/* eslint no-undef: "off"*/
+/* eslint no-undef: "off" */

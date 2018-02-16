@@ -2,8 +2,6 @@ import React from 'react'
 import Helmet from 'react-helmet'
 import styled from 'styled-components'
 import Link from 'gatsby-link'
-import DocSearch from '../components/doc-search'
-
 import SEO from '../components/seo'
 import SiteHeader from '../components/header'
 import config from '../../site-config'

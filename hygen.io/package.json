@@ -30,7 +30,6 @@
     "react": "^16.2.0",
     "react-disqus-comments": "^1.0.3",
     "react-dom": "^16.2.0",
-    "react-github-button": "^0.1.11",
     "react-helmet": "^5.1.3",
     "react-icons": "^2.2.7",
     "react-share": "^2.0.0",
@@ -71,6 +70,8 @@
     "format:js": "prettier '**/*.{js,jsx}' --write"
   },
   "remarkConfig": {
-    "plugins": ["remark-preset-lint-recommended"]
+    "plugins": [
+      "remark-preset-lint-recommended"
+    ]
   }
 }
