@@ -221,4 +221,4 @@ $ hygen mailer new:.*xt --name textual-mailer
 
 That's about it for generators.
 
-That's it for now, you're invited to take a look at the [FAQ](faq)!
+That's it for now, you're invited to take a look at the [FAQ](faq), and [Packages](packages).

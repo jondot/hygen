@@ -1,6 +1,6 @@
 ---
 title: FAQ
-doc: 4
+doc: 5
 section: 1
 category: "tech"
 type: "doc"
