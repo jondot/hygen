@@ -8,6 +8,7 @@ node_js:
 script:
   - yarn test
   - yarn docs:prepare && yarn docs:build
+  - yarn standalone
 deploy:
   - provider: npm
     email: "jondotan@gmail.com"
@@ -16,7 +17,14 @@ deploy:
     on:
       tags: true
       skip_cleanup: true
-
+  - provider: releases
+    api_key:
+      secure: fGqPo4don8YwuxgM/QR68RvnSD38prYHqjWyXfdYTFi5xcVvUllIO/REtbQb0X1scbCP4WlvDVYQ7iCH/eh7uXM40RO0B+KSrHOUgngKtLKF104IRLZ48U4qkrJqB+VBxXHpqe2dlQyyOU4Z0RdcSI838EN7WSP802tWC4R/Vsg3B+E/gILnzjGX4dGFdHIqTOpMpcgchQRcfXIkHpFfQWF2Ww6NFwQ5aZzhmXPOxAt9AaaIwrNoNcndh+AqshDVgZzy2+S4NtPLEaEz7YdqqogkFoG1ma+oj4ZM/MhfESYowZYLqo7iqtGFN6RGxoivTUBWwakMz9/2ELrstKD7rtT3U7Et5HSt05sRnHXgNPTSYylnZJXbgprgT/gP9rhdQAMVZS2x6fX/WG4+ifIUG78ZWLLFfMMDn6OhRzbiJsHNMrXkxgg0vuMMU6gMriNHwNsA5Tva2wvuklrqr0nBA3+7YchczQspS+akKHIDI3fXxgBTJNXlqRuz1lWfN26hNxVOzBdmxPIsfwnYC703pc46iPPrpWp5wREjKJfxy85BSvCPO8K1/T7O4CnpIlgcVIGBtVopnhoKXQNVEbiEyiU3I2vyTthgK2ieJtacsu6EeQ2zCgAC73n/9W+nexu9zXvBK7lZSIHgoDByHCKuqBY0LIwrsLg7WRA46wn/VIk=
+    file_glob: true
+    file: standalone/*
+    skip_cleanup: true
+    on:
+      tags: true
   - provider: pages
     local-dir: hygen.io/public
     skip-cleanup: true
