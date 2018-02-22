@@ -64,7 +64,7 @@ module.exports = {
   themeColor: '#F722B1', // Used for setting manifest and progress theme colors.
   backgroundColor: '#fff', // Used for setting manifest background color.
   // TODO: Move this literally anywhere better.
-  toCSections: ['', 'Introduction', 'Use Cases'], // Used to generate the Table Of Contents. Index 0 should be blank.
+  toCSections: ['', 'Introduction', 'Ecosystem', 'Use Cases'], // Used to generate the Table Of Contents. Index 0 should be blank.
   theme: {
     // named colors:
     brand: '#F722B1',

@@ -1,7 +1,7 @@
 ---
 title: React Native
 doc: 2
-section: 2
+section: 3
 category: "tech"
 type: "doc"
 ---

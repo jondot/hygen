@@ -1,7 +1,7 @@
 ---
 title: Redux
 doc: 1
-section: 2
+section: 3
 category: "tech"
 type: "doc"
 ---
