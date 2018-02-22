@@ -1,6 +1,6 @@
 ---
 title: Packages
-doc: 4
+doc: 1
 section: 2
 category: "tech"
 type: "doc"

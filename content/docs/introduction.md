@@ -43,6 +43,9 @@ Congratz! you've made a new generator called `awesome-generator`!
 
 Let's walk through what we just did.
 
+[[info]]
+| You can also install `hygen` from Homebrew or download a standalone binary. For more, see [standalone](standalone).
+
 ## Bootstrapping Your Project
 
 Use `hygen init self` to start using it in your own project. `hygen` comes with two pre-built generators that helps you build your own - although it was built to ease the boilerplate fatigue for React, Redux, and Node.js it can be use for any technology really.
