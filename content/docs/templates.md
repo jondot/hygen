@@ -134,7 +134,7 @@ to: app/index.js
 console.log('this is index!')
 ```
 
-### Injection
+## Injection
 
 You can also choose to inject a template _into_ an existing target file.
 
@@ -168,7 +168,7 @@ In almost all cases you want to ensure you're not injecting content twice:
 
 Let's see how these play out in the [Redux](redux) use case.
 
-### Shell
+## Shell
 
 Shell actions give you the ability to trigger any shell commands. You can do things such as:
 
@@ -204,7 +204,7 @@ sh: cd <%= cwd %> && yarn install
 "lodash":"*",
 ```
 
-### Conditional Rendering
+## Conditional Rendering
 
 If you'd like to render a certain template based on the value of a variable, then you can do something like this:
 
