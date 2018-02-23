@@ -204,4 +204,17 @@ sh: cd <%= cwd %> && yarn install
 "lodash":"*",
 ```
 
+### Conditional Rendering
+
+If you'd like to render a certain template based on the value of a variable, then you can do something like this:
+
+```yaml
+---
+to: "<%= message ? 'where/to/render' : null %>"
+---
+conditionally rendering template
+```
+
+When `hygen` meets a `to:` value that is `null`, it will skip the output of that template, meaning it won't get rendered at all.
+
 Next up, we'll move on to [generators](generators).
