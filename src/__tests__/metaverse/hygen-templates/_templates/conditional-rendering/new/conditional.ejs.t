@@ -1,5 +1,5 @@
 ---
-to: "<%= notGiven ? 'app/shouldnt-happen' : null %>"
+to: "<%= notGiven.length > 0 ? 'given/conditional/shouldnt-be-here' : null %>"
 ---
 
 this should not render itself
