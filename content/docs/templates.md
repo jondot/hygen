@@ -123,6 +123,34 @@ transform( str, arr )
 
 You can see the full list [here](https://github.com/dreamerslab/node.inflection). With time, we'll add more utilities onto `h`.
 
+## Local Variables
+
+As we saw earlier, any CLI argument or prompt parameter automatically becomes a local variable in your templates.
+
+There are two ways to refer to variables:
+
+```javascript
+Hello <%= message %>
+```
+
+This way refers to the `message` CLI argument or prompt parameter, in its bare form. This also means this parameter cannot be optional (otherwise a reference error is thrown).
+
+```javascript
+Hello <%= locals.message %>
+```
+
+This way refers to the `message` CLI argument or prompt parameter, through the `locals` object. This is great if you want to check a variable for existance before using it like so:
+
+```javascript
+<% if(locals.message){ -%>
+    message: <%= message %>
+<% -%>
+```
+
+There's a small gem here, in the form of `-%>`. This will slurp the last newline, so that the `if(..){` clause won't generate garbage newlines into our final output.
+
+For more of how `EJS` works [take a look here](https://github.com/mde/ejs).
+
 ## Addition
 
 By default templates are 'added' to your project as a new target file. By specifying a `to:` frontmatter property, we're telling `hygen` where to put it.
