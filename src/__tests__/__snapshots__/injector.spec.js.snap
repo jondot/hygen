@@ -45,8 +45,8 @@ exports[`injector before rails 1`] = `
 `;
 
 exports[`injector prepend top of file 1`] = `
-"
-    gem 'kamikaze' # added by hygen
+"    gem 'kamikaze' # added by hygen
+
     source 'http://rubygems.org'
     gem 'rails'
     gem 'nokogiri'
