@@ -10,6 +10,10 @@ Sharing generators cross-projects and cross-teams can be done simply by copying 
 
 The `hygen-add` tool offers a streamlined way to do this by introducing _Packages_. Packages are a compiled set of generators which are published as a node module that you can install and share with others.
 
+## Popular Packages
+
+* [hygen-cra (create-react-app)](https://github.com/jondot/hygen-CRA) - generate a full set of component, storybook and test for your [Create React App](https://github.com/facebook/create-react-app) project.
+
 ## Installing a Package
 
 First, you need to install the `hygen-add` tool, it's one of the tools in the `hygen` toolbelt.
