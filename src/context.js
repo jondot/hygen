@@ -3,6 +3,13 @@
 const L = require('lodash')
 const inflection = require('inflection')
 
+// supports kebab-case to KebabCase
+inflection.undasherize = str =>
+  str
+    .split(/[-_]/)
+    .map(w => w[0].toUpperCase() + w.slice(1).toLowerCase())
+    .join('')
+
 const helpers = {
   capitalize(string) {
     return string.charAt(0).toUpperCase() + string.slice(1).toLowerCase()
