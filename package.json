@@ -1,6 +1,6 @@
 {
   "name": "hygen",
-  "version": "1.4.25",
+  "version": "1.4.26",
   "main": "lib/index.js",
   "bin": {
     "hygen": "./lib/bin.js"
