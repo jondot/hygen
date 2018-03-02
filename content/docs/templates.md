@@ -162,6 +162,16 @@ to: app/index.js
 console.log('this is index!')
 ```
 
+If a target file already exists, and you don't want to overwrite it, you can use `unless_exists` (here's the [pull request](https://github.com/jondot/hygen/pull/27) for more).
+
+```yaml
+---
+to: app/index.js
+unless_exists: true
+---
+will not render if target exists
+```
+
 ## Injection
 
 You can also choose to inject a template _into_ an existing target file.
