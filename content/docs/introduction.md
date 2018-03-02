@@ -44,7 +44,7 @@ Congratz! you've made a new generator called `awesome-generator`!
 Let's walk through what we just did.
 
 [[info]]
-| You can also install `hygen` from Homebrew or download a standalone binary. For more, see [standalone](standalone).
+| You can also install `hygen` from Homebrew or download a standalone binary. For more, see [standalone](/standalone).
 
 ## Bootstrapping Your Project
 
@@ -93,7 +93,7 @@ Loaded templates: _templates
 |
 |In this way you can even tweak the way `hygen` generates new generators. It scales to a set up with different teams, each with its own preference.
 
-That's it! we've done a basic walkthrough of `hygen`. Next up is a detailed overview of [templates](templates) and [generators](generators).
+That's it! we've done a basic walkthrough of `hygen`. Next up is a detailed overview of [templates](/templates) and [generators](/generators).
 
 ## What Happens If I Don't Init?
 
@@ -128,4 +128,4 @@ $ hygen example-prompt new:mailer --name reporter
 $ hygen example-prompt 'new:.*html' --name reporter
 ```
 
-You made it to the end! nice! Now check out [templates](templates) and [generators](generators).
+You made it to the end! nice! Now check out [templates](/templates) and [generators](/generators).

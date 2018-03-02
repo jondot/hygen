@@ -40,7 +40,7 @@ Using `hygen` let's see how we could build something like this:
 $ hygen route new --method post --name auth
 ```
 
-Since we've been through a few templates as with [previous](1-redux.md) [use cases](2-react-native.md), let's jump straight to the interesting part, the inject part.
+Since we've been through a few templates as with [previous](/redux) [use cases](/react-native), let's jump straight to the interesting part, the inject part.
 
 So let's say our generator is structured like this:
 
