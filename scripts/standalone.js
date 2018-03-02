@@ -49,7 +49,7 @@ const main = async () => {
       }@${repo}" master > /dev/null 2>&1`
     ]
     for (const cmd of cmds) {
-      await exec.shell(cmd)
+      await execa.shell(cmd)
     }
 
     console.log('standalone: publish done.')
