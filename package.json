@@ -15,7 +15,7 @@
     "build:umd": "NODE_ENV=development webpack",
     "build": "npm run build:lib",
     "release":
-      "yarn build && git commit -am 'build' && yarn version && git push --tags && git push origin master",
+      "yarn build && git commit -am 'build'; yarn version && git push --tags && git push origin master",
     "test": "yarn test:code && yarn test:require",
     "test:code": "node node_modules/.bin/jest",
     "test:metaverse": "node node_modules/.bin/jest metaverse",
