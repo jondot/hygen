@@ -12,6 +12,7 @@ jobs:
   include:
     - stage: npm
       node_js: "8"
+      if: tag =~ ^v\d.*
       deploy:
           provider: npm
           script: yarn build
@@ -32,6 +33,7 @@ jobs:
         keep-history: true
     - stage: binary releases
       script: yarn standalone
+      if: tag =~ ^v\d.*
       node_js: "8"
       deploy:
         provider: releases
