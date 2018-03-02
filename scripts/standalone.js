@@ -29,6 +29,7 @@ const main = async () => {
   console.log((await execa.shell(`ls ${wd}`)).stdout)
 
   console.log('standalone: publishing to homebrew tap...')
+  await fs.writeFile('/tmp/hygen.rb', brewFormula(sha, v))
   const matches = (await execa.shell(
     `shasum ${wd}/hygen.macos.v${v}.tar.gz`
   )).stdout.match(/([a-f0-9]+)\s+/)
@@ -39,7 +40,7 @@ const main = async () => {
       `cd /tmp`,
       `git clone git://${repo} brew-tap`,
       `cd brew-tap`,
-      `cat '${brewFormula(sha, v)}' > hygen.rb`,
+      `mv /tmp/hygen.rb .`,
       `git config user.email jondotan@gmail.com`,
       `git config user.name 'Dotan Nahum'`,
       `git add .`,
