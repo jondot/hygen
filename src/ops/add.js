@@ -9,7 +9,7 @@ const add = async (action: RenderedAction, args, { logger, cwd }) => {
     return
   }
   const absTo = path.join(cwd, to)
-  const shouldNotOverwrite = (typeof unless_exists !== 'undefined') && unless_exists === true
+  const shouldNotOverwrite = unless_exists !== undefined && unless_exists === true
 
   if (await fs.exists(absTo)) {
     if (
