@@ -36,7 +36,7 @@ const main = async () => {
   if (matches && matches.length > 1) {
     const sha = matches[1]
     await fs.writeFile('/tmp/hygen.rb', brewFormula(sha, v))
-    const cmds = [
+    const cmd = [
       `cd /tmp`,
       `git clone git://${repo} brew-tap`,
       `cd brew-tap`,
@@ -46,10 +46,8 @@ const main = async () => {
       `git add .`,
       `git commit -m 'hygen: auto-release'`,
       `git push https://${process.env.GITHUB_TOKEN}@${repo}`
-    ]
-    for (const cmd of cmds) {
-      console.log(await execa.shell(cmd).stdout)
-    }
+    ].join(' && ')
+    console.log(await execa.shell(cmd).stdout)
 
     console.log('standalone: publish done.')
   }
