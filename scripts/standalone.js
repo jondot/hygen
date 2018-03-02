@@ -45,10 +45,10 @@ const main = async () => {
       `git config user.name 'Dotan Nahum'`,
       `git add .`,
       `git commit -m 'hygen: auto-release'`,
-      `git push "https://${process.env.GITHUB_TOKEN}@${repo}" master`
+      `git push https://${process.env.GITHUB_TOKEN}@${repo}`
     ]
     for (const cmd of cmds) {
-      await execa.shell(cmd)
+      console.log(await execa.shell(cmd).stdout)
     }
 
     console.log('standalone: publish done.')
