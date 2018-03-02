@@ -30,7 +30,7 @@ const main = async () => {
 
   console.log('standalone: publishing to homebrew tap...')
   const matches = (await execa.shell(
-    `shasum ${wd}/hygen.macos.v${v}.tar.gz`
+    `shasum -a 256 ${wd}/hygen.macos.v${v}.tar.gz`
   )).stdout.match(/([a-f0-9]+)\s+/)
   console.log(matches)
   if (matches && matches.length > 1) {
