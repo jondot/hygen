@@ -1,26 +1,22 @@
 {
   "name": "hygen",
-  "version": "1.4.16",
+  "version": "1.4.17",
   "main": "lib/index.js",
   "bin": {
     "hygen": "./lib/bin.js"
   },
   "scripts": {
-    "standalone":
-      "rm -rf standalone; yarn build:lib && yarn pkg package.json --out-path standalone && node scripts/standalone.js",
+    "standalone": "rm -rf standalone; yarn build:lib && yarn pkg package.json --out-path standalone && node scripts/standalone.js",
     "standalone:brew-sha": "shasum -a 256 standalone/*.macos.*.tar.gz",
-    "build:lib":
-      "babel src --out-dir lib --ignore src/__tests__ && cp -r src/templates lib/",
+    "build:lib": "babel src --out-dir lib --ignore src/__tests__ && cp -r src/templates lib/",
     "build:umd:min": "NODE_ENV=production webpack",
     "build:umd": "NODE_ENV=development webpack",
     "build": "npm run build:lib",
-    "release":
-      "yarn build && git commit -am 'build'; yarn version && git push --tags && git push origin master",
+    "release": "yarn build && git commit -am 'build'; yarn version && git push --tags && git push origin master",
     "test": "yarn test:code && yarn test:require",
     "test:code": "node node_modules/.bin/jest",
     "test:metaverse": "node node_modules/.bin/jest metaverse",
-    "test:require":
-      "babel-node src/bin.timed.js; babel-node src/bin.timed.js; babel-node src/bin.timed.js init self; rm -rf _templates",
+    "test:require": "babel-node src/bin.timed.js; babel-node src/bin.timed.js; babel-node src/bin.timed.js init self; rm -rf _templates",
     "watch": "node node_modules/.bin/jest --watch src/*",
     "flow:sync": "flow-typed install",
     "hygen": "babel-node src/bin.js",
@@ -73,7 +69,11 @@
     "scripts": "lib/**/*.js",
     "assets": "src/**/*",
     "outPath": "standalone",
-    "targets": ["node8-macos", "node8-linux", "node8-win"]
+    "targets": [
+      "node8-macos",
+      "node8-linux",
+      "node8-win"
+    ]
   },
   "license": "MIT",
   "description": "The scalable code generator that saves you time.",
