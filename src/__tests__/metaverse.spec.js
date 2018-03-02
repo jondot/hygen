@@ -62,8 +62,9 @@ describe('metaverse', () => {
       ['worker', 'new', '--name', 'foo'],
       ['shell', 'new', '--name', 'foo'],
       ['inflection', 'new', '--name', 'person'],
-      ['conditional-rendering', 'new', '--notGiven']
+      ['conditional-rendering', 'new', '--notGiven'],
+      ['add-unless-exists', 'new', '--message', 'foo']
     ],
-    { name: 'message', message: 'foo' }
+    { name: 'message', message: 'foo', overwrite: true }
   )
 })

@@ -4,14 +4,16 @@ const path = require('path')
 const fs = require('fs-extra')
 const { red } = require('chalk')
 const add = async (action: RenderedAction, args, { logger, cwd }) => {
-  const { attributes: { to, inject } } = action
+  const { attributes: { to, inject, unless_exists } } = action
   if (!to || inject) {
     return
   }
   const absTo = path.join(cwd, to)
+  const shouldNotOverwrite = unless_exists !== undefined && unless_exists === true
 
   if (await fs.exists(absTo)) {
     if (
+      shouldNotOverwrite ||
       !await inquirer
         .prompt({
           prefix: '',
