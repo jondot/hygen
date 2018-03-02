@@ -45,9 +45,7 @@ const main = async () => {
       `git config user.name 'Dotan Nahum'`,
       `git add .`,
       `git commit -m 'hygen: auto-release'`,
-      `git push "https://${
-        process.env.GITHUB_TOKEN
-      }@${repo}" master > /dev/null 2>&1`
+      `git push "https://${process.env.GITHUB_TOKEN}@${repo}" master`
     ]
     for (const cmd of cmds) {
       await execa.shell(cmd)
