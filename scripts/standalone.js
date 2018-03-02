@@ -29,13 +29,13 @@ const main = async () => {
   console.log((await execa.shell(`ls ${wd}`)).stdout)
 
   console.log('standalone: publishing to homebrew tap...')
-  await fs.writeFile('/tmp/hygen.rb', brewFormula(sha, v))
   const matches = (await execa.shell(
     `shasum ${wd}/hygen.macos.v${v}.tar.gz`
   )).stdout.match(/([a-f0-9]+)\s+/)
   console.log(matches)
   if (matches && matches.length > 1) {
     const sha = matches[1]
+    await fs.writeFile('/tmp/hygen.rb', brewFormula(sha, v))
     const cmds = [
       `cd /tmp`,
       `git clone git://${repo} brew-tap`,
