@@ -15,7 +15,7 @@ const params = async (templates: string, externalArgv: Array<string>): any => {
   const [mainAction, subaction] = L.split(action, ':')
 
   const actionfolder = path.join(templates, generator, mainAction)
-  const promptArgs = await prompt(actionfolder)
+  const promptArgs = await prompt(actionfolder, L.omit(argv, ['_']))
   const args = Object.assign(
     {
       templates,
