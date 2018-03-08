@@ -151,6 +151,30 @@ There's a small gem here, in the form of `-%>`. This will slurp the last newline
 
 For more of how `EJS` works [take a look here](https://github.com/mde/ejs).
 
+## Predefined Variables
+
+If you look at the following command:
+
+```
+hygen component new:story
+```
+
+`hygen` will break it up for you and place certain values in special variables that are automatically available in your templates:
+
+| Variable       | Content                   | Example                       |
+| -------------- | ------------------------- | ----------------------------- |
+| `templates`    | Templates path (absolute) | /User/.../project/\_tempaltes |
+| `actionfolder` | Action path               | /.../component/new            |
+| `generator`    | Generator name            | `component`                   |
+| `action`       | Action name               | `new`                         |
+| `subaction`    | Sub-action name           | `story`                       |
+
+For example to use `actionfolder` say:
+
+```javascript
+<%= actionfolder %>
+```
+
 ## Addition
 
 By default templates are 'added' to your project as a new target file. By specifying a `to:` frontmatter property, we're telling `hygen` where to put it.
