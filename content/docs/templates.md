@@ -163,11 +163,12 @@ hygen component new:story
 
 | Variable       | Content                   | Example                       |
 | -------------- | ------------------------- | ----------------------------- |
-| `templates`    | Templates path (absolute) | /User/.../project/\_tempaltes |
+| `templates`    | Templates path (absolute) | /User/.../project/\_templates |
 | `actionfolder` | Action path               | /.../component/new            |
 | `generator`    | Generator name            | `component`                   |
 | `action`       | Action name               | `new`                         |
 | `subaction`    | Sub-action name           | `story`                       |
+| `cwd`          | Process working directory | /User/.../project             |
 
 For example to use `actionfolder` say:
 
