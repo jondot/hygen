@@ -6,9 +6,9 @@ category: "tech"
 type: "doc"
 ---
 
-Manually authoring a code generator is a pain. None of the tools that help you write code directly - such as language-sensitive IDEs, debuggers, unit testing frameworks, etc. - play nice when you author a generator. If you have a bug in the generator, you need to modify your templates, run the modified generator to create code, debug the result, and then manually import your changes back into the templates while remembering to replace keywords with ejs placeholders.
+Maintaining code generators over time can be a challenge in some cases. If you have a bug in the generator, you need to modify your templates, run the modified generator, and then manually import your changes back into the templates while remembering to replace keywords with ejs placeholders.
 
-[`hygen-create`](https://github.com/ronp001/hygen-create) offers a different approach to creating new generators: take an existing piece of code and automatically transform it into a generator.
+[`hygen-create`](https://github.com/ronp001/hygen-create) offers an approach to creating new generators: take an existing piece of code and automatically transform it into a generator.
 
 To create a generator using [`hygen-create`](https://github.com/ronp001/hygen-create):
 * Start a [`hygen-create`](https://github.com/ronp001/hygen-create) session
