@@ -10,7 +10,13 @@ const prompt = (actionfolder: string) => {
   }
   // lazy loads inquirer (80ms load time)
   // $FlowFixMe
-  return require('inquirer').prompt(require(promptfile))
+  const inquirer = require('inquirer')
+  const promptModule = require(promptfile)
+  if (promptModule.prompt) {
+    return promptModule.prompt({ inquirer })
+  } else {
+    return inquirer.prompt(promptModule)
+  }
 }
 
 module.exports = prompt

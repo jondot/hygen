@@ -152,6 +152,33 @@ $ hygen mailer new --name fancy-mailer
 
 Which will ask the user for the `message`, and generate all contents.
 
+## Advanced Prompts
+
+It's possible to create a "recursive" flow where you ask some questions, run some computation and ask some more questions, creating a multi-step prompt.
+
+For this to happen you need to have the same `prompt.js` file, but have it export a function called 'prompt':
+
+```javascript
+module.exports = {
+  prompt: ({ inquirer }) =>
+    inquirer
+      .prompt({
+        type: 'input',
+        name: 'email',
+        message: "What's your email?"
+      })
+      .then(({ email }) =>
+        inquirer.prompt({
+          type: 'input',
+          name: 'emailConfirmation',
+          message: `Please type your email [${email}] again:`
+        })
+      )
+}
+```
+
+The `prompt` function gets a data structure with an `inquirer` field you can use.
+
 ## Documenting Your Generators
 
 Since there's a special `message` prop you can use in any template, you can use that to build generator help screens. Ultimately, your generator should be documenting itself.

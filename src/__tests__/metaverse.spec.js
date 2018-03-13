@@ -63,8 +63,21 @@ describe('metaverse', () => {
       ['shell', 'new', '--name', 'foo'],
       ['inflection', 'new', '--name', 'person'],
       ['conditional-rendering', 'new', '--notGiven'],
-      ['add-unless-exists', 'new', '--message', 'foo']
+      ['add-unless-exists', 'new', '--message', 'foo'],
+      ['recursive-prompt', 'new']
     ],
-    { name: 'message', message: 'foo', overwrite: true }
+    // this is all of the responses inquirer gives out from _all_ tests, ever.
+    // it's best to just keep it that way to be simple, and each prompt-dealing test
+    // has its own set of uniquely named variables.
+    {
+      // generic for all tests
+      name: 'message',
+      message: 'foo',
+      overwrite: true,
+
+      // recursive-prompt
+      email: 'some-email@foobar.com',
+      confirmationEmail: 'confirmed-some-email@foobar.com'
+    }
   )
 })
