@@ -152,15 +152,17 @@ $ hygen mailer new --name fancy-mailer
 
 Which will ask the user for the `message`, and generate all contents.
 
-## Advanced Prompts
+## Advanced Params
 
 It's possible to create a "recursive" flow where you ask some questions, run some computation and ask some more questions, creating a multi-step prompt.
 
-For this to happen you need to have the same `prompt.js` file, but have it export a function called 'prompt':
+In addition, it's possible to skip prompting, or re-shape parameters that were given to you from either CLI or prompt, so that you can do it in a central place.
+
+Here's how you can use `prompt.js` to build a two-step prompting flow. Instead of exporting an array of question types you have to export a function called `prompt` or `params`:
 
 ```javascript
 module.exports = {
-  prompt: ({ inquirer }) =>
+  prompt: ({ inquirer, args }) =>
     inquirer
       .prompt({
         type: 'input',
@@ -178,6 +180,37 @@ module.exports = {
 ```
 
 The `prompt` function gets a data structure with an `inquirer` field you can use.
+
+You can also skip prompting completely, using custom logic:
+
+```javascript
+module.exports = {
+  prompt: ({ inquirer, args }) => {
+    if (args.age > 18) {
+      return Promise.resolve({ allow: true })
+    }
+    return inquirer.prompt({
+      type: 'input',
+      name: 'age',
+      message: 'whats your age?'
+    })
+  }
+}
+```
+
+You can skip _physically_ prompting and use `params` to build more sophisticated parameters out of your CLI parameters:
+
+```javascript
+module.exports = {
+  params: ({ args }) => {
+    return { moreConvenientName: args.foobamboozle }
+  }
+}
+```
+
+[[info]]
+| ###### Params and Prompts are The Same
+| If you think about it, prompting for variables or reshaping CLI arguments lead to the same goal: new parameters. But to make a future-proof API, we've separated the two intents to the `prompt` and `params` functions.
 
 ## Documenting Your Generators
 

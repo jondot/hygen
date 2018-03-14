@@ -12,8 +12,9 @@ const prompt = (actionfolder: string, args: Object) => {
   // $FlowFixMe
   const inquirer = require('inquirer')
   const promptModule = require(promptfile)
-  if (promptModule.prompt) {
-    return promptModule.prompt({ inquirer, args })
+  const paramsfunc = promptModule.prompt || promptModule.params
+  if (paramsfunc) {
+    return paramsfunc({ inquirer, args })
   } else {
     return inquirer.prompt(promptModule)
   }

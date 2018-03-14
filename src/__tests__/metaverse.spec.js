@@ -64,7 +64,14 @@ describe('metaverse', () => {
       ['inflection', 'new', '--name', 'person'],
       ['conditional-rendering', 'new', '--notGiven'],
       ['add-unless-exists', 'new', '--message', 'foo'],
-      ['recursive-prompt', 'new']
+      ['recursive-prompt', 'new'],
+      ['existing-params', 'new', '--email', 'premade-email@foobar.com'],
+      [
+        'existing-params',
+        'new-params-alias',
+        '--email',
+        'premade-email@foobar.com'
+      ]
     ],
     // this is all of the responses inquirer gives out from _all_ tests, ever.
     // it's best to just keep it that way to be simple, and each prompt-dealing test
