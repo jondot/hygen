@@ -11,7 +11,6 @@ const prompt = (actionfolder: string, args: Object) => {
       fs.existsSync(f)
     )
   )
-  console.log(hooksfile)
   if (!hooksfile) {
     return Promise.resolve({})
   }
