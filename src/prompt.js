@@ -3,7 +3,7 @@
 const path = require('path')
 const fs = require('fs')
 
-const prompt = (actionfolder: string) => {
+const prompt = (actionfolder: string, args: Object) => {
   const promptfile = path.join(actionfolder, 'prompt.js')
   if (!fs.existsSync(promptfile)) {
     return Promise.resolve({})
@@ -12,8 +12,9 @@ const prompt = (actionfolder: string) => {
   // $FlowFixMe
   const inquirer = require('inquirer')
   const promptModule = require(promptfile)
-  if (promptModule.prompt) {
-    return promptModule.prompt({ inquirer })
+  const paramsfunc = promptModule.prompt || promptModule.params
+  if (paramsfunc) {
+    return paramsfunc({ inquirer, args })
   } else {
     return inquirer.prompt(promptModule)
   }
