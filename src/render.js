@@ -14,7 +14,7 @@ const context = require('./context')
 const map = f => arr => L.map(arr, f)
 const filter = f => arr => L.filter(arr, f)
 
-const ignores = ['prompt.js']
+const ignores = ['prompt.js', 'index.js']
 const renderTemplate = (tmpl, locals) =>
   L.isString(tmpl) ? ejs.render(tmpl, context(locals)) : tmpl
 

@@ -17,9 +17,6 @@ const fail = () => {
 const dir = m => path.join(__dirname, 'metaverse', m)
 const metaverse = (folder, cmds, promptResponse = null) =>
   it(folder, async () => {
-    if (promptResponse) {
-      inquirer.prompt = () => Promise.resolve(promptResponse)
-    }
     const metaDir = dir(folder)
     console.log('metaverse test in:', metaDir)
     const config = {
@@ -33,7 +30,18 @@ const metaverse = (folder, cmds, promptResponse = null) =>
     }
     await fs.remove(path.join(metaDir, 'given'))
     console.log('before', fs.readdirSync(metaDir))
-    for (const cmd of cmds) {
+    for (let cmd of cmds) {
+      inquirer.prompt = fail
+      if (promptResponse) {
+        const last = L.last(cmd)
+        if (L.isObject(last)) {
+          cmd = L.take(cmd, cmd.length - 1)
+          inquirer.prompt = () =>
+            Promise.resolve({ ...promptResponse, ...last })
+        } else {
+          inquirer.prompt = () => Promise.resolve(promptResponse)
+        }
+      }
       await runner(cmd, config)
     }
     const givenDir = path.join(metaDir, 'given')
@@ -58,6 +66,10 @@ describe('metaverse', () => {
     'hygen-templates',
     [
       ['init', 'self'],
+      ['overwrite-yes', 'base'],
+      ['overwrite-yes', 'over'],
+      ['overwrite-no', 'base'],
+      ['overwrite-no', 'over', { overwrite: false }],
       ['mailer', 'new'],
       ['worker', 'new', '--name', 'foo'],
       ['shell', 'new', '--name', 'foo'],
@@ -68,6 +80,18 @@ describe('metaverse', () => {
       ['existing-params', 'new', '--email', 'premade-email@foobar.com'],
       [
         'existing-params',
+        'new-params-alias',
+        '--email',
+        'premade-email@foobar.com'
+      ],
+      [
+        'index-js-existing-params',
+        'new',
+        '--email',
+        'premade-email@foobar.com'
+      ],
+      [
+        'index-js-existing-params',
         'new-params-alias',
         '--email',
         'premade-email@foobar.com'
