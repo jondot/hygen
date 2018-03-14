@@ -11,10 +11,14 @@ const prompt = (actionfolder: string, args: Object) => {
   const prompt = require(promptfile)
   // lazy loads inquirer (80ms load time)
   // $FlowFixMe
-  if('function' === typeof prompt) {
-    return require('inquirer').prompt(prompt(args))
+  const inquirer = require('inquirer')
+  const promptModule = require(promptfile)
+  if (promptModule.prompt) {
+    return promptModule.prompt({ inquirer, args })
+  } else {
+    return inquirer.prompt(promptModule)
   }
-  return require('inquirer').prompt(prompt)
+
 }
 
 module.exports = prompt
