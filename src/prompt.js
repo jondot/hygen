@@ -8,7 +8,6 @@ const prompt = (actionfolder: string, args: Object) => {
   if (!fs.existsSync(promptfile)) {
     return Promise.resolve({})
   }
-  const prompt = require(promptfile)
   // lazy loads inquirer (80ms load time)
   // $FlowFixMe
   const inquirer = require('inquirer')
