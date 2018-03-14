@@ -158,9 +158,20 @@ It's possible to create a "recursive" flow where you ask some questions, run som
 
 In addition, it's possible to skip prompting, or re-shape parameters that were given to you from either CLI or prompt, so that you can do it in a central place.
 
-Here's how you can use `prompt.js` to build a two-step prompting flow. Instead of exporting an array of question types you have to export a function called `prompt` or `params`:
+You can "enable" advanced params and prompting by replacing your `prompt.js` file with an `index.js` file in your action:
 
-```javascript
+```
+my-generator
+  my-action/
+    index.js
+    template1.ejs.t
+    template2.ejs.t
+```
+
+Here's how you can use `index.js` to build a two-step prompting flow. Instead of exporting an array of question types as with the `prompt.js` file, you now need to export an object with a function called `prompt`:
+
+```javascript{3}
+// my-generator/my-action/index.js
 module.exports = {
   prompt: ({ inquirer, args }) =>
     inquirer
@@ -183,7 +194,8 @@ The `prompt` function gets a data structure with an `inquirer` field you can use
 
 You can also skip prompting completely, using custom logic:
 
-```javascript
+```javascript{4,6}
+// my-generator/my-action/index.js
 module.exports = {
   prompt: ({ inquirer, args }) => {
     if (args.age > 18) {
@@ -200,7 +212,8 @@ module.exports = {
 
 You can skip _physically_ prompting and use `params` to build more sophisticated parameters out of your CLI parameters:
 
-```javascript
+```javascript{2}
+// my-generator/my-action/index.js
 module.exports = {
   params: ({ args }) => {
     return { moreConvenientName: args.foobamboozle }
