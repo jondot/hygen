@@ -17,7 +17,6 @@ const prompt = (actionfolder: string, args: Object) => {
   } else {
     return inquirer.prompt(promptModule)
   }
-
 }
 
 module.exports = prompt
