@@ -13,172 +13,79 @@
 
 ## Quick Start
 
-Install `hygen`:
+Hygen can be used to supercharge your workflow with [Redux](http://www.hygen.io/redux), [React Native](http://www.hygen.io/react-native), [Express](http://www.hygen.io/react-native) and more, by allowing you avoid manual work and generate, add, inject and perform custom operations on your codebase.
+
+To start, install `hygen`:
 
 ```
 $ npm i -g hygen
 ```
 
-Want to try an example generator?
+Or if you're on macOS and have Homebrew:
 
 ```
-$ hygen example-prompt new
-
-? What's your message? welcome
-
-Loaded templates: src/templates
-       added: hygen-examples/mailers/unnamed.js
-       added: hygen-examples/mailers/hello/html.ejs
-       added: hygen-examples/mailers/hello/subject.ejs
-       added: hygen-examples/mailers/hello/text.ejs
-      inject: hygen-examples/mailers/hello/html.ejs
+$ brew tap jondot/tap
+$ brew install hygen
 ```
 
-This will generate content into the current working directory in `hygen-example`.
+For other platforms, see [releases](https://github.com/jondot/hygen/releases).
 
-Here's a few more ways to play with the demo templates:
-
-```perl
-# generate all required worker files, with a name variable
-$ hygen example-prompt new --name reporter
-
-
-# generate one specific file
-# the 'example' generator template layout is:
-# example/
-#   new/
-#     mailer.ejs.t  
-#     templates_html.ejs.t
-#     templates_subject.ejs.t  
-#     templates_text.ejs.t  
-#     z_inject.ejs.t
-#
-$ hygen example-prompt new:mailer --name reporter
-
-
-# generate all files that correspond to a regular expression
-$ hygen example-prompt 'new:.*html' --name reporter
-```
-
-Want to start using `hygen` in your own project?
-
-## Start Using It
+Initialize `hygen` in your project (do this once per project):
 
 ```
+$ cd your-project
 $ hygen init self
-Loaded templates: src/templates
-       added: _templates/generator/with-prompt/hello.ejs.t
-       added: _templates/generator/with-prompt/prompt.ejs.t
-       added: _templates/generator/new/hello.ejs.t
+```
 
-$ hygen generator new my-new-generator --name hello
+Build your first generator, called `mygen`:
+
+```
+$ hygen generator new --name mygen
 
 Loaded templates: _templates
-       added: _templates/hello/new/hello.ejs.t
+       added: _templates/mygen/new/hello.ejs.t
 ```
 
-This will create a project-local `_templates` folder for your at your source root, with a sample generator.
-
-You can go ahead and edit `hello.ejs.t`. See below how templates are composed.
-
-## Templates
-
-This is what we have right now:
+Now you can use it:
 
 ```
-_templates/
-  hello/
-    new/
-      hello.ejs.t
-```
-
-And here's our `hello.ejs.t` template:
-
-```javascript
----
-to: app/hello.js
----
-const hello = `
-Hello!
-This is your first hygen template.
-
-Learn what it can do here:
-
-https://github.com/jondot/hygen
-`
-
-console.log(hello)
-```
-
-Let's turn it into a react component generator, and let's say all our component live in `src/components`.
-
-First, let's rename `hello`:
-
-```
-$ mv _templates/{hello,component}
-```
-
-In `hygen` folder structure is command structure. Now let's compose our component template:
-
-```javascript
----
-to: src/components/<%= name %>.js
----
-import React, { PureComponent } from 'react'
-class <%= Name %> extends Component {
-  render(){
-    return <div>replace me!</div>
-  }
-}
-export default <%= Name %>
-```
-
-Finally let's enjoy our new generator!
-
-```
-$ hygen component new --name icon
+$ hygen mygen new
 
 Loaded templates: _templates
-       added: src/components/icon.js
+       added: app/hello.js
 ```
 
-## Variables
+You've generated content into the current working directory in `app/`. To see how the generator is built, look at `_templates` (which you should check-in to your project from now on, by the way).
 
-You might have noticed `Name` in the previous template. There are two ways to supply `hygen` templates with variables.
-
-### Arguments
-
-For unattended generation, it's best to use arguments:
+You can build a generator that uses an interactive prompt to fill in a variable:
 
 ```
-$ hygen email new --name foobar --message hello --type 8
+$ hygen generator with-prompt --name mygen
+
+Loaded templates: _templates
+       added: _templates/mygen/with-prompt/hello.ejs.t
+       added: _templates/mygen/with-prompt/prompt.js
 ```
 
-All double-dash (`--`) arguments become available to you in your
-templates, so this will populate them.
-
-```html
-Hi <%= name %>,
-<%= message %>.
-
-You've been selected to group <%= type %>.
-```
-
-### Prompts
-
-If you prefer some of your generators to be interactive (you can mix and match), you can use prompts.
-
-Per generator, you have the option to include a `prompt.js` file, that will collect all variables from the user for this given generator.
+Done! Now let's use `mygen`:
 
 ```
-_templates/
-  email/
-    new/
-      prompt.js    <-- your prompt file!
-      html.ejs.t
+$ hygen mygen with-prompt
+? What's your message? hello
+
+Loaded templates: _templates
+       added: app/hello.js
 ```
 
-The [format](src/templates/example-prompt/new/prompt.js) is based on [inquirer](https://github.com/SBoudrias/Inquirer.js) so hopefully, nothing new to you.
+## What's Next?
+
+Go to the [documentation](www.hygen.io/quick-start) to get to know the rest of Hygen and generators.
+
+If you're in a hurry:
+
+* To learn how to edit generator templates, [look here](http://www.hygen.io/templates)
+* To see how to use generators [look here](http://www.hygen.io/generators)
+* Take a look at the [ecosystem](http://www.hygen.io/packages) and tooling built around Hygen.
 
 ## A Different Kind of a Generator
 
@@ -192,38 +99,6 @@ Plus, since they are not the product you are building they become notoriously ha
 
 Because `hygen` templates live _in_ your project, it cuts the time from having an itch for generating code (Redux, anyone?) in your current
 project to code generated with it and others benefiting from it.
-
-Let's go over why `hygen` is different. Here's our example from before:
-
-```
-_templates/
-  component/
-    new/
-      hello.ejs.t
-```
-
-## Batteries Included
-
-`hygen` helps you make new generators and templates.
-
-Setup for a new project:
-
-```
-$ cd new-project
-$ hygen init self
-```
-
-Make your first generator:
-
-```
-$ hygen generator new --name my-generator
-```
-
-and a generator that asks you questions:
-
-```
-$ hygen generator with-prompt --name my-generator
-```
 
 ### Template Locality
 
@@ -305,7 +180,7 @@ All frontmatter metadata _are also run through the template engine_ so feel free
 There's one required metadata variable: `to`.
 `to` points to where this file will be placed (folders are created as needed).
 
-### Addition or Injection
+### Addition, Injection, and More
 
 By default templates are 'added' to your project as a new target file, but you can also choose to inject a template _into_ an existing target file.
 
