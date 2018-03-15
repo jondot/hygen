@@ -192,7 +192,9 @@ module.exports = {
 
 The `prompt` function gets a data structure with an `inquirer` field you can use.
 
-You can also skip prompting completely, using custom logic:
+For completeness, here is a [a more elaborate use of prompts](https://github.com/jondot/hygen/issues/35) (thanks [@jaykoontz](https://github.com/jaykoontz)).
+
+You can skip prompting conditionally using custom logic:
 
 ```javascript{4,6}
 // my-generator/my-action/index.js
