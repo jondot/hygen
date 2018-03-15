@@ -11,6 +11,19 @@
   <img src="https://raw.githubusercontent.com/jondot/hygen/master/media/hygen.gif" width=600/>
 </div>
 
+## Features
+
+✅ Build ad-hoc generators quickly and full on project scaffolds.  
+✅ Local generators per project (and global, if you must)  
+✅ Built-in scaffolds to quickly create generators  
+✅ Full logic templates and rendering  
+✅ Prompts and flows for taking in arguments  
+✅ Automatic CLI arguments  
+✅ Adding new files  
+✅ Injecting into existing files  
+✅ Running shell commands  
+✅ Super fast, constantly optimized for speed
+
 ## Quick Start
 
 Hygen can be used to supercharge your workflow with [Redux](http://www.hygen.io/redux), [React Native](http://www.hygen.io/react-native), [Express](http://www.hygen.io/react-native) and more, by allowing you avoid manual work and generate, add, inject and perform custom operations on your codebase.
