@@ -1,16 +1,16 @@
 {
   "assetsByChunkName": {
     "path---packages": [
-      "path---packages-17f768c4dce24f07c906.js",
-      "path---packages-17f768c4dce24f07c906.js.map"
+      "path---packages-b96bb823dfe66a5ba7d8.js",
+      "path---packages-b96bb823dfe66a5ba7d8.js.map"
     ],
     "component---src-templates-doc-jsx": [
       "component---src-templates-doc-jsx-ad6650efd37c58ecbe33.js",
       "component---src-templates-doc-jsx-ad6650efd37c58ecbe33.js.map"
     ],
     "path---templates": [
-      "path---templates-24ca6095d152d8834fff.js",
-      "path---templates-24ca6095d152d8834fff.js.map"
+      "path---templates-dc1cfd90680f488e1ec7.js",
+      "path---templates-dc1cfd90680f488e1ec7.js.map"
     ],
     "path---": [
       "path----557518bd178906f8d58a.js",
@@ -21,28 +21,32 @@
       "component---src-layouts-index-jsx-eaa3605fd41eb06e7815.js.map"
     ],
     "path---faq": [
-      "path---faq-82618035b95c0a0009f9.js",
-      "path---faq-82618035b95c0a0009f9.js.map"
+      "path---faq-c3311b1466bd74689e75.js",
+      "path---faq-c3311b1466bd74689e75.js.map"
     ],
     "path---express": [
-      "path---express-6e34b32786e8b712ab49.js",
-      "path---express-6e34b32786e8b712ab49.js.map"
+      "path---express-b5d91278321702616ff1.js",
+      "path---express-b5d91278321702616ff1.js.map"
     ],
     "component---node-modules-gatsby-plugin-offline-app-shell-js": [
       "component---node-modules-gatsby-plugin-offline-app-shell-js-5c4c5a0f7af9dc69d6d7.js",
       "component---node-modules-gatsby-plugin-offline-app-shell-js-5c4c5a0f7af9dc69d6d7.js.map"
     ],
     "path---create": [
-      "path---create-a9e052994326866d96d7.js",
-      "path---create-a9e052994326866d96d7.js.map"
+      "path---create-bc78ed3b7147020ada7e.js",
+      "path---create-bc78ed3b7147020ada7e.js.map"
+    ],
+    "path---extensibility": [
+      "path---extensibility-88bb991aa1941b6724fb.js",
+      "path---extensibility-88bb991aa1941b6724fb.js.map"
     ],
     "path---index": [
       "path---index-a0e39f21c11f6a62c5ab.js",
       "path---index-a0e39f21c11f6a62c5ab.js.map"
     ],
     "path---generators": [
-      "path---generators-02f1f064383969556ceb.js",
-      "path---generators-02f1f064383969556ceb.js.map"
+      "path---generators-42b0ed5130e21bf62846.js",
+      "path---generators-42b0ed5130e21bf62846.js.map"
     ],
     "commons": [
       "commons-c746cb2799ca82f8d161.js",
@@ -57,26 +61,26 @@
       "component---src-pages-index-jsx-b871c190652df8199b76.js.map"
     ],
     "app": [
-      "app-e08cc3055cdc292cc8a4.js",
+      "app-001d19debacc667722ae.js",
       "build-js-styles.css",
-      "app-e08cc3055cdc292cc8a4.js.map",
+      "app-001d19debacc667722ae.js.map",
       "build-js-styles.css.map"
     ],
     "path---quick-start": [
-      "path---quick-start-dca3aef9255d5e184395.js",
-      "path---quick-start-dca3aef9255d5e184395.js.map"
+      "path---quick-start-0ada8f549ed3a084fa02.js",
+      "path---quick-start-0ada8f549ed3a084fa02.js.map"
     ],
     "path---standalone": [
-      "path---standalone-5bcc85748d422ba9643b.js",
-      "path---standalone-5bcc85748d422ba9643b.js.map"
+      "path---standalone-d5bb0938f86533c9118e.js",
+      "path---standalone-d5bb0938f86533c9118e.js.map"
     ],
     "path---react-native": [
-      "path---react-native-7a3238a68880d8482299.js",
-      "path---react-native-7a3238a68880d8482299.js.map"
+      "path---react-native-75be72f0cdb6682596e0.js",
+      "path---react-native-75be72f0cdb6682596e0.js.map"
     ],
     "path---redux": [
-      "path---redux-e22b743d2cac48d9e82d.js",
-      "path---redux-e22b743d2cac48d9e82d.js.map"
+      "path---redux-74ba5aa87ac716fda7f5.js",
+      "path---redux-74ba5aa87ac716fda7f5.js.map"
     ]
   }
 }
