@@ -28,9 +28,10 @@ const metaverse = (folder, cmds, promptResponse = null) =>
       },
       logger
     }
-    await fs.remove(path.join(metaDir, 'given'))
+    // await fs.remove(path.join(metaDir, 'given'))
     console.log('before', fs.readdirSync(metaDir))
     for (let cmd of cmds) {
+      console.log('testing', cmd)
       inquirer.prompt = fail
       if (promptResponse) {
         const last = L.last(cmd)
@@ -62,6 +63,7 @@ describe('metaverse', () => {
   beforeEach(() => {
     inquirer.prompt = fail
   })
+  metaverse('hygen-extension', [['hygen-js', 'new']], { overwrite: true })
   metaverse(
     'hygen-templates',
     [

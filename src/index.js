@@ -1,11 +1,11 @@
 // @flow
-import type { Logger, RunnerConfig } from './types'
+import type { RunnerConfig } from './types'
 
 const engine = require('./engine')
-const resolve = require('./templates-resolver')
+const resolve = require('./config-resolver')
 const { printHelp } = require('./help')
 const runner = async (argv: Array<string>, config: RunnerConfig) => {
-  const resolvedConfig = resolve(config)
+  const resolvedConfig = await resolve(config)
   const { templates, logger } = resolvedConfig
   try {
     await engine(argv, resolvedConfig)
@@ -17,7 +17,7 @@ const runner = async (argv: Array<string>, config: RunnerConfig) => {
       logger.log('-------------------')
     }
     printHelp(templates, logger)
-    process.exit(1)
+    // process.exit(1)
   }
 }
 

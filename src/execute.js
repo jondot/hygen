@@ -1,7 +1,6 @@
 // @flow
 
 import type { RunnerConfig, RenderedAction } from './types'
-const L = require('lodash')
 const resolve = require('./ops')
 
 const execute = async (

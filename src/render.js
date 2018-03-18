@@ -1,6 +1,6 @@
 // @flow
 
-import type { RenderedAction } from './types'
+import type { RenderedAction, RunnerConfig } from './types'
 
 const L = require('lodash')
 const fs = require('fs-extra')
@@ -15,10 +15,13 @@ const map = f => arr => L.map(arr, f)
 const filter = f => arr => L.filter(arr, f)
 
 const ignores = ['prompt.js', 'index.js']
-const renderTemplate = (tmpl, locals) =>
-  L.isString(tmpl) ? ejs.render(tmpl, context(locals)) : tmpl
+const renderTemplate = (tmpl, locals, config) =>
+  L.isString(tmpl) ? ejs.render(tmpl, context(locals, config)) : tmpl
 
-const render = async (args: any): Promise<Array<RenderedAction>> =>
+const render = async (
+  args: any,
+  config: RunnerConfig
+): Promise<Array<RenderedAction>> =>
   await fs
     .readdir(args.actionfolder)
     .then(map(_ => path.join(args.actionfolder, _)))
@@ -42,8 +45,10 @@ const render = async (args: any): Promise<Array<RenderedAction>> =>
     .then(
       map(({ file, attributes, body }) => ({
         file,
-        attributes: L.mapValues(attributes, _ => renderTemplate(_, args)),
-        body: renderTemplate(body, args)
+        attributes: L.mapValues(attributes, _ =>
+          renderTemplate(_, args, config)
+        ),
+        body: renderTemplate(body, args, config)
       }))
     )
 

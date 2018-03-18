@@ -1,0 +1,44 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`resolver resolves a file in the walk path 1`] = `
+[MockFunction] {
+  "calls": Array [
+    Array [
+      "/foo/bar/.hygen.js",
+    ],
+    Array [
+      "/foo/.hygen.js",
+    ],
+  ],
+}
+`;
+
+exports[`resolver resolves a file in the walk path 2`] = `
+[MockFunction] {
+  "calls": Array [
+    Array [
+      "/foo/.hygen.js",
+    ],
+  ],
+}
+`;
+
+exports[`resolver resolves closest file 1`] = `
+[MockFunction] {
+  "calls": Array [
+    Array [
+      "/foo/bar/.hygen.js",
+    ],
+  ],
+}
+`;
+
+exports[`resolver resolves closest file 2`] = `
+[MockFunction] {
+  "calls": Array [
+    Array [
+      "/foo/bar/.hygen.js",
+    ],
+  ],
+}
+`;

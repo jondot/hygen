@@ -1,11 +1,15 @@
 // @flow
 
-import type { RenderedAction } from './types'
+import type { RenderedAction, RunnerConfig } from '../types'
 const fs = require('fs-extra')
 const path = require('path')
 const injector = require('./injector')
 
-const inject = async (action: RenderedAction, args, { logger, cwd }) => {
+const inject = async (
+  action: RenderedAction,
+  args: any,
+  { logger, cwd }: RunnerConfig
+) => {
   const { attributes: { to, inject } } = action
   if (!(inject && to)) {
     return

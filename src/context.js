@@ -1,4 +1,5 @@
 // @flow
+import type { RunnerConfig } from './types'
 
 const L = require('lodash')
 const inflection = require('inflection')
@@ -29,13 +30,14 @@ const capitalizedLocals = (locals: any) =>
     v => helpers.capitalize(v)
   )
 
-const context = (locals: any) => {
+const context = (locals: any, config: RunnerConfig) => {
   const localsWithDefaults = Object.assign({}, localsDefaults, locals)
+  const configHelpers = (config && config.helpers) || {}
   return Object.assign(
     localsWithDefaults,
     capitalizedLocals(localsWithDefaults),
     {
-      h: helpers
+      h: { ...helpers, ...configHelpers }
     }
   )
 }

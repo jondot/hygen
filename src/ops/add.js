@@ -1,15 +1,22 @@
-import type { RenderedAction } from './types'
+// @flow
+
+import type { RunnerConfig, RenderedAction } from '../types'
 const inquirer = require('inquirer')
 const path = require('path')
 const fs = require('fs-extra')
 const { red } = require('chalk')
-const add = async (action: RenderedAction, args, { logger, cwd }) => {
+const add = async (
+  action: RenderedAction,
+  args: any,
+  { logger, cwd }: RunnerConfig
+) => {
   const { attributes: { to, inject, unless_exists } } = action
   if (!to || inject) {
     return
   }
   const absTo = path.join(cwd, to)
-  const shouldNotOverwrite = unless_exists !== undefined && unless_exists === true
+  const shouldNotOverwrite =
+    unless_exists !== undefined && unless_exists === true
 
   if (await fs.exists(absTo)) {
     if (

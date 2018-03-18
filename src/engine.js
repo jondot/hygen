@@ -35,7 +35,7 @@ const engine = async (argv: Array<string>, config: RunnerConfig) => {
   // a user is exploring hygen (not specifying what to execute)
   const execute = require('./execute')
   const render = require('./render')
-  await execute(await render(args), args, config)
+  await execute(await render(args, config), args, config)
 }
 
 module.exports = engine

@@ -4,6 +4,7 @@ export type Logger = {
   notice: (msg: string) => void,
   warn: (msg: string) => void,
   err: (msg: string) => void,
+  log: (msg: string) => void,
   colorful: (msg: string) => void
 }
 export type RenderedAction = {
@@ -16,5 +17,11 @@ export type RunnerConfig = {
   templates: string,
   cwd: string,
   logger: Logger,
-  debug: boolean
+  debug: boolean,
+  helpers: Object
+}
+
+export type ResolverIO = {
+  exists: string => Promise<boolean>,
+  load: string => Promise<Object>
 }

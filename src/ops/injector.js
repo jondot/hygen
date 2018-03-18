@@ -1,4 +1,6 @@
-import type { RenderedAction } from './types'
+// @flow
+
+import type { RenderedAction } from '../types'
 const L = require('lodash')
 
 const injector = (action: RenderedAction, content: string): string => {

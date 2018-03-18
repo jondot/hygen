@@ -6,9 +6,11 @@ const L = require('lodash')
 
 const hooksfiles = ['prompt.js', 'index.js']
 const prompt = (actionfolder: string, args: Object) => {
+  console.log(actionfolder)
   const hooksfile = L.first(
-    L.filter(L.map(hooksfiles, f => path.join(actionfolder, f)), f =>
-      fs.existsSync(f)
+    L.filter(
+      L.map(hooksfiles, f => path.resolve(path.join(actionfolder, f))),
+      f => fs.existsSync(f)
     )
   )
   if (!hooksfile) {
@@ -16,6 +18,7 @@ const prompt = (actionfolder: string, args: Object) => {
   }
 
   // shortcircuit without inquirer
+  // $FlowFixMe
   const hooksModule = require(hooksfile)
   if (hooksModule.params) {
     return hooksModule.params({ args })
