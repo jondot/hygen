@@ -35,3 +35,18 @@ First, it's not hard to start building the intuition by trying it out. Here's th
 * Hygen was built to support a large number of teams, large number of developers and/or a big code base, so that it scales and evolves with your project and team. One difference between the two is that plop will make all these people, and activity share a single file which is a pain in merges, conflicts and code reviews. In addition hygen is contextual, so it will automatically understand where it is in your code base and what generators are relevant for each part (think about monorepos) and use only those.
 
 * A design goal for hygen is to be instinctive - the amount of effort to make a generator and meet your goal from a developer experience perspective should always go to zero. So then you have generator generators, helpers, a familiar logic-full templating engine, and maybe a little bit surprising, but I think attention for details is super important - for example, there's someone (me) watching your back and making sure hygen is always fast.
+
+## Can I Inject Multiple Times for the Same File?
+
+Yes! Have multiple template files, each responsible to a different part
+of the injection:
+
+```
+my-generator/
+  new/
+    index.js.t
+    add-redux-to-package.json.t   <-- injects to package.json
+    add-lodash-to-package.json.t  <-- injects to package.json
+```
+
+Hygen will parallelize most of its book-keeping to gain speed, but file operations _are serially executed_ to avoid operations stepping on eachother's toes.
