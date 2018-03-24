@@ -6,7 +6,6 @@ const L = require('lodash')
 
 const hooksfiles = ['prompt.js', 'index.js']
 const prompt = (actionfolder: string, args: Object) => {
-  console.log(actionfolder)
   const hooksfile = L.first(
     L.filter(
       L.map(hooksfiles, f => path.resolve(path.join(actionfolder, f))),
