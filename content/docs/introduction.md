@@ -95,32 +95,16 @@ Loaded templates: _templates
 
 That's it! we've done a basic walkthrough of `hygen`. Next up is a detailed overview of [templates](/templates) and [generators](/generators).
 
-## What Happens If I Don't Init?
+## Invoking Generators
 
-After a fresh install, `hygen` will use the example generators it comes with, so that you can just try out the tool. This way you can build a sample generator and see how it works from the inside, or maybe copy its contents to have a better starting point.
-
-If you didn't `hygen init self` yet - let's try one:
-
-```yaml{1}
-$ hygen example-prompt new
-? What's your message? welcome
-
-Loaded templates: src/templates
-       added: hygen-examples/mailers/unnamed.js
-       added: hygen-examples/mailers/hello/html.ejs
-       added: hygen-examples/mailers/hello/subject.ejs
-       added: hygen-examples/mailers/hello/text.ejs
-      inject: hygen-examples/mailers/hello/html.ejs
-```
-
-There are a few more ways to play with the examples:
+There are more ways to play with a generator after you've built it:
 
 ```perl
-# generate all files, with a name variable
+# generate all files, with a 'name' variable
 $ hygen example-prompt new --name reporter
 
 
-# generate one specific file
+# generate one specific file, picked up based on the substring 'mailer'
 $ hygen example-prompt new:mailer --name reporter
 
 

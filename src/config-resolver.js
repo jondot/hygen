@@ -4,20 +4,30 @@ import type { RunnerConfig } from './types'
 import { ConfigResolver } from './config'
 const L = require('lodash')
 const fs = require('fs-extra')
-const path = require('path')
-const resolver = new ConfigResolver('.hygen.js', {
+const configResolver = new ConfigResolver('.hygen.js', {
   exists: fs.exists,
   // $FlowFixMe
-  load: f => Promise.resolve(require(f))
+  load: f => Promise.resolve(require(f)),
+  none: f => ({})
+})
+const templateResolver = new ConfigResolver('_templates', {
+  exists: fs.exists,
+  // $FlowFixMe
+  load: f => f,
+  none: f => null
 })
 module.exports = async (config: RunnerConfig): Promise<RunnerConfig> => {
   const { cwd, templates } = config
-  const fileConfig = await resolver.resolve(cwd)
 
   const resolvedTemplates =
-    L.find([process.env.HYGEN_TMPLS, path.join(cwd, '_templates')], _ =>
-      fs.existsSync(_)
+    L.find(
+      [process.env.HYGEN_TMPLS, await templateResolver.resolve(cwd)],
+      _ => _ && fs.existsSync(_)
     ) || templates
 
-  return { ...config, templates: resolvedTemplates, ...fileConfig }
+  return {
+    ...config,
+    templates: resolvedTemplates,
+    ...(await configResolver.resolve(cwd))
+  }
 }

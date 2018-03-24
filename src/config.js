@@ -28,13 +28,13 @@ class ConfigResolver {
   }
   async resolve(from: string) {
     const configCandidates = configLookup(this.configFile, from)
-    const { exists, load } = this.io
+    const { exists, load, none } = this.io
     for (const candidate of configCandidates) {
       if (await exists(candidate)) {
         return await load(candidate)
       }
     }
-    return {}
+    return await none(from)
   }
 }
 
