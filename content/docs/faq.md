@@ -20,6 +20,48 @@ to: app/reducers/<%= reducer.toLowerCase() %>.js
 Hello <%= defaulted %>.
 ```
 
+## I Want To Use Generators From a Single Place
+
+If you have several `_templates` locations throughout a project (let's say for a server and client), you might usually `cd` into each sub-project to use hygen like so:
+
+```
+[src/] $ cd server
+[server/] $ hygen route new --name authentication
+[server/] $ cd ../client
+[client/] $ hygen page new --name authentication
+```
+
+Hygen was built to this kind of workflow.
+
+But it may be that you want to run those from your top `src/` vantage point and not dive into each subfolder:
+
+```
+[src/] $ hygen route new --name authentication
+[src/] $ hygen page new --name authentication
+```
+
+Hygen doesn't support discovering templates down the folder trees out of the box because currently there isn't a good idea for how to do this without compromising the superfast performance Hygen holds.
+
+However Hygen is super flexible with regards to template location, so here's how to achieve this goal with little effort, by dropping these into your `package.json` file:
+
+```
+    "g:client":
+      "HYGEN_TMPLS=src/client/_templates hygen",
+    "g:server":
+      "HYGEN_TMPLS=src/server/_templates hygen",
+```
+
+And now your flow is simply:
+
+```
+[src/] $ yarn g:client page new --name authentication
+[src/] $ yarn g:server page new --name authentication
+```
+
+A nice bonus is that this streamlines into your `yarn` workflow and you can change and improve it as you go.
+
+This was inspired by a community contributed solution, [see here for more](https://github.com/jondot/hygen/issues/24).
+
 ## Should I Check In My Templates?
 
 Yes and yes!. One of the critical points with the `hygen` approach is that templates and generators are co-located with a project, to a team, to a branch. A team can also review templates in the same way they do their code.
