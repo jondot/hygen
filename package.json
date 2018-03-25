@@ -1,6 +1,6 @@
 {
   "name": "hygen",
-  "version": "1.5.6",
+  "version": "1.5.7",
   "main": "lib/index.js",
   "repository": "https://github.com/jondot/hygen",
   "bin": {
