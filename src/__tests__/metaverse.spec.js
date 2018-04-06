@@ -68,7 +68,10 @@ const metaverse = (folder, cmds, promptResponse = null) =>
       d =>
         d.state !== 'equal' &&
         process.platform === 'win32' &&
-        !L.find(SKIP_ON_WINDOWS, c => d.relativePath.match(`${c}$`))
+        !L.find(
+          SKIP_ON_WINDOWS,
+          c => d.name2.match(c) || d.relativePath.match(`${c}$`)
+        )
     )
     if (!res.same) {
       console.log(res)
