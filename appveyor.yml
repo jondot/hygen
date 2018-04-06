@@ -16,6 +16,7 @@ shallow_clone: true
 test_script:
   - node --version
   - yarn --version
+  - yarn test:metaverse
   - yarn hygen
   - yarn hygen init self
 cache:

@@ -1,6 +1,9 @@
 jest.mock('inquirer', () => ({
   prompt: null
 }))
+
+const SKIP_ON_WINDOWS = ['shell']
+
 const L = require('lodash')
 const { runner } = require('../index')
 const path = require('path')
@@ -32,6 +35,14 @@ const metaverse = (folder, cmds, promptResponse = null) =>
     console.log('before', fs.readdirSync(metaDir))
     for (let cmd of cmds) {
       console.log('testing', cmd)
+      if (
+        process.platform === 'win32' &&
+        L.find(SKIP_ON_WINDOWS, c => L.head(cmd) === c)
+      ) {
+        console.log(`skipping ${cmd} (windows!)`)
+        continue
+      }
+
       inquirer.prompt = fail
       if (promptResponse) {
         const last = L.last(cmd)

@@ -5,7 +5,7 @@ import os from 'os'
 
 const sep = path.sep
 describe(`config lookup with separator '${sep}'`, () => {
-  if (!os.type().match(/Win/)) {
+  if (process.platform !== 'win32') {
     it('sanitizes bad "from" path', () => {
       const p = L.find(configLookup('.myconfig', 'foo'), f =>
         f.match(/foo\/\.myconfig/)
