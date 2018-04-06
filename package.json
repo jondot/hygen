@@ -15,6 +15,7 @@
     "build": "npm run build:lib",
     "release": "yarn build && git commit -am 'build'; yarn version && git push --tags && git push origin master",
     "test": "yarn test:code && yarn test:require",
+    "test:win32": "node node_modules/jest/bin/jest.js --runInBand",
     "test:code": "node node_modules/.bin/jest",
     "test:metaverse": "node node_modules/.bin/jest metaverse",
     "test:require": "babel-node src/bin.timed.js; babel-node src/bin.timed.js; babel-node src/bin.timed.js init self; rm -rf _templates",
