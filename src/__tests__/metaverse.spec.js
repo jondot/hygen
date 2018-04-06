@@ -63,7 +63,13 @@ const metaverse = (folder, cmds, promptResponse = null) =>
       [expectedDir]: fs.readdirSync(expectedDir)
     })
     const res = dirCompare.compareSync(givenDir, expectedDir, opts)
-    res.diffSet = L.filter(res.diffSet, d => d.state !== 'equal')
+    res.diffSet = L.filter(
+      res.diffSet,
+      d =>
+        d.state !== 'equal' &&
+        process.platform === 'win32' &&
+        !L.find(SKIP_ON_WINDOWS, c => d.relativePath.match(`${c}$`))
+    )
     if (!res.same) {
       console.log(res)
     }
