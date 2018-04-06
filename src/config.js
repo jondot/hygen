@@ -10,7 +10,10 @@ const reversePathsToWalk = L.flow(
   f => path.resolve(f),
   f => f.split(path.sep),
   reduce(
-    (acc, p) => (p === '' ? [path.sep] : [...acc, path.join(L.last(acc), p)]),
+    (acc, p) =>
+      p === undefined || p === ''
+        ? [path.sep]
+        : [...acc, path.join(L.last(acc), p)],
     []
   ),
   L.reverse
