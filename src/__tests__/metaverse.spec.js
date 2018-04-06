@@ -2,7 +2,7 @@ jest.mock('inquirer', () => ({
   prompt: null
 }))
 
-const SKIP_ON_WINDOWS = ['shell']
+const SKIP_ON_WINDOWS = process.platform === 'win32' ? ['shell'] : []
 
 const L = require('lodash')
 const { runner } = require('../index')
@@ -59,20 +59,15 @@ const metaverse = (folder, cmds, promptResponse = null) =>
     const givenDir = path.join(metaDir, 'given')
     const expectedDir = path.join(metaDir, 'expected')
     console.log('after', {
-      [givenDir]: fs.readdirSync(givenDir),
-      [expectedDir]: fs.readdirSync(expectedDir)
+      [givenDir]: L.reject(fs.readdirSync(givenDir), d =>
+        L.find(SKIP_ON_WINDOWS, c => d.match(`${c}$`))
+      ),
+      [expectedDir]: L.reject(fs.readdirSync(expectedDir), d =>
+        L.find(SKIP_ON_WINDOWS, c => d.match(`${c}$`))
+      )
     })
     const res = dirCompare.compareSync(givenDir, expectedDir, opts)
-    res.diffSet = L.filter(
-      res.diffSet,
-      d =>
-        d.state !== 'equal' &&
-        process.platform === 'win32' &&
-        !L.find(
-          SKIP_ON_WINDOWS,
-          c => d.name2.match(c) || d.relativePath.match(`${c}$`)
-        )
-    )
+    res.diffSet = L.filter(res.diffSet, d => d.state !== 'equal')
     if (!res.same) {
       console.log(res)
     }
