@@ -40,6 +40,7 @@ const metaverse = (folder, cmds, promptResponse = null) =>
         L.find(SKIP_ON_WINDOWS, c => L.head(cmd) === c)
       ) {
         console.log(`skipping ${cmd} (windows!)`)
+        await fs.remove(path.join(metaDir, 'expected', L.head(cmd)))
         continue
       }
 
@@ -59,12 +60,8 @@ const metaverse = (folder, cmds, promptResponse = null) =>
     const givenDir = path.join(metaDir, 'given')
     const expectedDir = path.join(metaDir, 'expected')
     console.log('after', {
-      [givenDir]: L.reject(fs.readdirSync(givenDir), d =>
-        L.find(SKIP_ON_WINDOWS, c => d.match(`${c}$`))
-      ),
-      [expectedDir]: L.reject(fs.readdirSync(expectedDir), d =>
-        L.find(SKIP_ON_WINDOWS, c => d.match(`${c}$`))
-      )
+      [givenDir]: fs.readdirSync(givenDir),
+      [expectedDir]: fs.readdirSync(expectedDir)
     })
     const res = dirCompare.compareSync(givenDir, expectedDir, opts)
     res.diffSet = L.filter(res.diffSet, d => d.state !== 'equal')
