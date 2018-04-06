@@ -1,3 +1,3 @@
 ---
-sh: "mkdir -p <%= cwd %>/given/app/shell && touch <%= cwd %>/given/app/shell/<%= name %>.hello"
+sh: "mkdir -p <%= cwd %>/given/shell && touch <%= cwd %>/given/shell/<%= name %>.hello"
 ---
