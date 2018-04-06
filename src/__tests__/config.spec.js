@@ -19,6 +19,12 @@ describe(`config lookup with separator '${sep}'`, () => {
         '/one/.myconfig',
         '/.myconfig'
       ])
+      expect(configLookup('.myconfig', '/one/one/one')).toEqual([
+        '/one/one/one/.myconfig',
+        '/one/one/.myconfig',
+        '/one/.myconfig',
+        '/.myconfig'
+      ])
       expect(configLookup('.myconfig', '/users/foo/bar/baz')).toEqual([
         '/users/foo/bar/baz/.myconfig',
         '/users/foo/bar/.myconfig',

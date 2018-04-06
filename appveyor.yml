@@ -17,5 +17,6 @@ test_script:
   - node --version
   - yarn --version
   - yarn hygen
+  - yarn hygen init self
 cache:
   - '%APPDATA%\npm-cache'
