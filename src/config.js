@@ -1,26 +1,25 @@
 // @flow
 import type { ResolverIO } from './types'
+import importedPath from 'path'
 
-import path from 'path'
 import L from 'lodash'
 // inline fp methods due to perf
 const reduce = (f, init) => arr => L.reduce(arr, f, init)
 
 const reversePathsToWalk = L.flow(
-  f => path.resolve(f),
-  f => f.split(path.sep),
-  reduce(
-    (acc, p) =>
-      p === undefined || p === ''
-        ? [path.sep]
-        : [...acc, path.join(L.last(acc), p)],
-    []
-  ),
-  L.reverse
+  ({ folder, path }) => ({ resolved: path.resolve(folder), path }),
+  ({ resolved, path }) => ({ parts: resolved.split(path.sep), path }),
+  ({ parts, path }) => {
+    return reduce((acc, p) => [...acc, path.join(L.last(acc), p)], [
+      path.join(L.head(parts), path.sep)
+    ])(L.tail(parts))
+  },
+  L.reverse,
+  L.uniq
 )
 
-const configLookup = (file: string, folder: string) =>
-  L.map(reversePathsToWalk(folder), p => path.join(p, file))
+const configLookup = (file: string, folder: string, path: any = importedPath) =>
+  L.map(reversePathsToWalk({ folder, path }), p => path.join(p, file))
 
 class ConfigResolver {
   configFile: string

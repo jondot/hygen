@@ -1,26 +1,42 @@
 import { configLookup, ConfigResolver } from '../config'
 import L from 'lodash'
+import path from 'path'
+import os from 'os'
 
-describe('config lookup', () => {
-  it('sanitizes bad "from" path', () => {
-    const p = L.find(configLookup('.myconfig', 'foo'), f =>
-      f.match(/foo\/\.myconfig/)
-    )
-    expect(p).toBeDefined()
-  })
+const sep = path.sep
+describe(`config lookup with separator '${sep}'`, () => {
+  if (!os.type().match(/Win/)) {
+    it('sanitizes bad "from" path', () => {
+      const p = L.find(configLookup('.myconfig', 'foo'), f =>
+        f.match(/foo\/\.myconfig/)
+      )
+      expect(p).toBeDefined()
+    })
 
-  it('looks up configuration upwards', () => {
-    expect(configLookup('.myconfig', '/')).toEqual(['/.myconfig'])
-    expect(configLookup('.myconfig', '/one')).toEqual([
-      '/one/.myconfig',
-      '/.myconfig'
+    it('looks up configuration upwards', () => {
+      expect(configLookup('.myconfig', '/')).toEqual(['/.myconfig'])
+      expect(configLookup('.myconfig', '/one')).toEqual([
+        '/one/.myconfig',
+        '/.myconfig'
+      ])
+      expect(configLookup('.myconfig', '/users/foo/bar/baz')).toEqual([
+        '/users/foo/bar/baz/.myconfig',
+        '/users/foo/bar/.myconfig',
+        '/users/foo/.myconfig',
+        '/users/.myconfig',
+        '/.myconfig'
+      ])
+    })
+  }
+  it('looks up windows folders', () => {
+    expect(configLookup('.myconfig', 'C:\\foo\\bar\\baz', path.win32)).toEqual([
+      'C:\\foo\\bar\\baz\\.myconfig',
+      'C:\\foo\\bar\\.myconfig',
+      'C:\\foo\\.myconfig',
+      'C:\\.myconfig'
     ])
-    expect(configLookup('.myconfig', '/users/foo/bar/baz')).toEqual([
-      '/users/foo/bar/baz/.myconfig',
-      '/users/foo/bar/.myconfig',
-      '/users/foo/.myconfig',
-      '/users/.myconfig',
-      '/.myconfig'
+    expect(configLookup('.myconfig', 'C:\\', path.win32)).toEqual([
+      'C:\\.myconfig'
     ])
   })
 })
