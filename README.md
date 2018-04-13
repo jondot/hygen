@@ -28,17 +28,23 @@
 
 Hygen can be used to supercharge your workflow with [Redux](http://www.hygen.io/redux), [React Native](http://www.hygen.io/react-native), [Express](http://www.hygen.io/react-native) and more, by allowing you avoid manual work and generate, add, inject and perform custom operations on your codebase.
 
-To start, install `hygen`:
+If you're on macOS and have Homebrew:
+
+```
+$ brew tap jondot/tap
+$ brew install hygen
+```
+
+If you have node.js installed, you can install globally with `npm` (or Yarn):
 
 ```
 $ npm i -g hygen
 ```
 
-Or if you're on macOS and have Homebrew:
+If you like a no-strings-attached approach, you can use `npx` without installing globally:
 
 ```
-$ brew tap jondot/tap
-$ brew install hygen
+$ npx hygen ...
 ```
 
 For other platforms, see [releases](https://github.com/jondot/hygen/releases).

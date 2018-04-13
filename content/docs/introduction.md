@@ -6,11 +6,31 @@ category: "tech"
 type: "doc"
 ---
 
-Install `hygen`:
+You can have plenty of ways to run `hygen`. Pick one of the following:
+
+On macOS and Homebrew:
+
+```
+$ brew tap jondot/tap
+$ brew install hygen
+```
+
+Globally with npm (or yarn):
 
 ```
 $ npm i -g hygen
 ```
+
+Or, if you like a no-strings-attached approach, use
+with [`npx`](https://medium.com/@maybekatz/introducing-npx-an-npm-package-runner-55f7d4bd282b)
+
+```
+$ npx hygen ...
+```
+
+Should any of these be confusing to you, check out the [binary releases](https://github.com/jondot/hygen/releases) where you'll find a binary for every major platform.
+
+With this done, let's use a `hygen` generator.
 
 To use a generator, we supply a `GENERATOR ACTION` pair like so (here `mailer` and `new` are examples).
 
