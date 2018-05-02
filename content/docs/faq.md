@@ -92,3 +92,28 @@ my-generator/
 ```
 
 Hygen will parallelize most of its book-keeping to gain speed, but file operations _are serially executed_ to avoid operations stepping on eachother's toes.
+
+## Generating from a deep directory and inject to an upper one
+
+This is possible with adding a helper to `.hygen.js`:
+
+```javascript{6}
+//.hygen.js
+module.exports = {
+  templates: `${__dirname}/_templates`,
+  helpers: {
+    relative: (from, to) => path.relative(from, to),
+    src: ()=> __dirname
+  }
+}
+```
+
+And use it:
+
+```yaml
+---
+to: "<%= h.src() %>/src/index.js"
+---
+```
+
+See [this discussion](https://github.com/jondot/hygen/issues/49) for more.
