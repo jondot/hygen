@@ -14,7 +14,7 @@ const add = async (
   if (!to || inject) {
     return
   }
-  const absTo = path.join(cwd, to)
+  const absTo = path.resolve(cwd, to)
   const shouldNotOverwrite =
     unless_exists !== undefined && unless_exists === true
 

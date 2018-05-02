@@ -14,7 +14,7 @@ const inject = async (
   if (!(inject && to)) {
     return
   }
-  const absTo = path.join(cwd, to)
+  const absTo = path.resolve(cwd, to)
 
   if (!await fs.exists(absTo)) {
     logger.err(`Cannot inject to ${to}: doesn't exist.`)
