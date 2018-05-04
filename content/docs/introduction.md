@@ -83,7 +83,7 @@ Loaded templates: src/templates
 This creates a project-local `_templates` folder for you at your source root with two helper generators that saves you time:
 
 * `hygen generator new --name generatorName` - builds a new generator for you
-* `hygen with-prompt new --name generatorName` - the same as before, only this one will be prompt driven.
+* `hygen generator with-prompt new --name generatorName` - the same as before, only this one will be prompt driven.
 
 [[info]]
 |###### Template Locality

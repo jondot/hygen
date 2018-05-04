@@ -223,7 +223,7 @@ Here are the available properties for an `inject: true` template:
 
 * `before` or `after` which contain a regular expression of text to locate. The inject line will appear `before` or `after` the located line.
 * `prepend` or `append`, when true, add a line to start or end of file respectively.
-* `line_at` which contains a line number will add a line at this exact line number.
+* `at_line` which contains a line number will add a line at this exact line number.
 
 In almost all cases you want to ensure you're not injecting content twice:
 
