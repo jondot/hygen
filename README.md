@@ -98,7 +98,7 @@ Loaded templates: _templates
 
 ## What's Next?
 
-Go to the [documentation](www.hygen.io/quick-start) to get to know the rest of Hygen and generators.
+Go to the [documentation](http://www.hygen.io/quick-start) to get to know the rest of Hygen and generators.
 
 If you're in a hurry:
 
