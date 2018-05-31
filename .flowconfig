@@ -2,7 +2,7 @@
 all=warn
 
 [options]
-include_warnings=true
+include_warnings=false
 
 [ignore]
 .*/node_modules/config-chain/.*

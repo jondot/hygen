@@ -1,15 +1,16 @@
 // @flow
 
-import type { RunnerConfig, RenderedAction } from './types'
+import type { RunnerConfig, RenderedAction, ActionResult } from './types'
 const resolve = require('./ops')
 
 const execute = async (
   renderedActions: Array<RenderedAction>,
   args: any,
   config: RunnerConfig
-) => {
+): Promise<Array<ActionResult>> => {
   const { logger } = config
   const messages = []
+  const results = []
   for (const action of renderedActions) {
     const { message } = action.attributes
     if (message) {
@@ -17,11 +18,14 @@ const execute = async (
     }
     const ops = resolve(action.attributes)
     for (const op of ops) {
-      await op(action, args, config)
+      results.push(await op(action, args, config))
     }
   }
   if (messages.length > 0) {
     logger.colorful(`${args.action}:\n${messages.join('\n')}`)
   }
+
+  console.log('results', results)
+  return results
 }
 module.exports = execute

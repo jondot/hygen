@@ -23,5 +23,18 @@ export type RunnerConfig = {
 
 export type ResolverIO = {
   exists: string => Promise<boolean>,
-  load: string => Promise<Object>
+  load: string => Promise<Object>,
+  none: string => Object
+}
+
+export type ActionResult = any
+
+export type RunnerResult = {
+  success: boolean,
+  time: number,
+  actions: Array<ActionResult>,
+  failure?: {
+    message: string,
+    availableActions: Array<string>
+  }
 }

@@ -55,7 +55,8 @@ const metaverse = (folder, cmds, promptResponse = null) =>
           inquirer.prompt = () => Promise.resolve(promptResponse)
         }
       }
-      await runner(cmd, config)
+      const res = await runner(cmd, config)
+      expect(res).toMatchSnapshot(cmd.join(' '))
     }
     const givenDir = path.join(metaDir, 'given')
     const expectedDir = path.join(metaDir, 'expected')

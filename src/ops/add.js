@@ -1,6 +1,8 @@
 // @flow
 
-import type { RunnerConfig, RenderedAction } from '../types'
+import type { ActionResult, RunnerConfig, RenderedAction } from '../types'
+import createResult from './result'
+
 const inquirer = require('inquirer')
 const path = require('path')
 const fs = require('fs-extra')
@@ -9,10 +11,13 @@ const add = async (
   action: RenderedAction,
   args: any,
   { logger, cwd }: RunnerConfig
-) => {
-  const { attributes: { to, inject, unless_exists } } = action
+): ActionResult => {
+  const {
+    attributes: { to, inject, unless_exists }
+  } = action
+  const result = createResult('add', to)
   if (!to || inject) {
-    return
+    return result('ignored')
   }
   const absTo = path.resolve(cwd, to)
   const shouldNotOverwrite =
@@ -21,17 +26,17 @@ const add = async (
   if (await fs.exists(absTo)) {
     if (
       shouldNotOverwrite ||
-      !await inquirer
+      !(await inquirer
         .prompt({
           prefix: '',
           type: 'confirm',
           name: 'overwrite',
           message: red(`     exists: ${to}. Overwrite? (y/N): `)
         })
-        .then(({ overwrite }) => overwrite)
+        .then(({ overwrite }) => overwrite))
     ) {
       logger.warn(`     skipped: ${to}`)
-      return
+      return result('skipped')
     }
   }
 
@@ -40,6 +45,7 @@ const add = async (
     await fs.writeFile(absTo, action.body)
   }
   logger.ok(`       added: ${to}`)
+  return result('added')
 }
 
 module.exports = add

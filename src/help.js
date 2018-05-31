@@ -6,7 +6,7 @@ const fs = require('fs')
 const L = require('lodash')
 const path = require('path')
 const chalk = require('chalk')
-const help = (templates: string) => {
+const availableActions = (templates: string) => {
   const generators = L.filter(fs.readdirSync(templates), _ =>
     fs.lstatSync(path.join(templates, _)).isDirectory()
   )
@@ -45,9 +45,9 @@ const printHelp = (templates: string, logger: Logger) => {
     )
     return
   }
-  L.each(help(templates), (v, k) => {
+  L.each(availableActions(templates), (v, k) => {
     logger.log(chalk.bold(k) + ': ' + v.join(', '))
   })
 }
 
-module.exports = { help, printHelp }
+module.exports = { availableActions, printHelp }

@@ -1,11 +1,14 @@
 // @flow
 
-import type { RunnerConfig } from './types'
+import type { ActionResult, RunnerConfig } from './types'
 
 const fs = require('fs-extra')
 const params = require('./params')
 
-const engine = async (argv: Array<string>, config: RunnerConfig) => {
+const engine = async (
+  argv: Array<string>,
+  config: RunnerConfig
+): Promise<Array<ActionResult>> => {
   const { cwd, templates, logger } = config
   const args = Object.assign(await params(templates, argv), { cwd })
   const { generator, action, actionfolder } = args
@@ -20,7 +23,7 @@ const engine = async (argv: Array<string>, config: RunnerConfig) => {
   }
 
   logger.log(`Loaded templates: ${templates.replace(cwd + '/', '')}`)
-  if (!await fs.exists(actionfolder)) {
+  if (!(await fs.exists(actionfolder))) {
     throw new Error(`I can't find action '${action}' for generator '${generator}'.
 
       You can try:
@@ -35,7 +38,7 @@ const engine = async (argv: Array<string>, config: RunnerConfig) => {
   // a user is exploring hygen (not specifying what to execute)
   const execute = require('./execute')
   const render = require('./render')
-  await execute(await render(args, config), args, config)
+  return await execute(await render(args, config), args, config)
 }
 
 module.exports = engine

@@ -1,0 +1,267 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`metaverse hygen-extension: hygen-js new 1`] = `
+Object {
+  "actions": Array [
+    Object {
+      "status": "added",
+      "subject": "given/hygen-js/new.md",
+      "type": "add",
+    },
+  ],
+  "success": true,
+}
+`;
+
+exports[`metaverse hygen-templates: add-unless-exists new --message foo 1`] = `
+Object {
+  "actions": Array [
+    Object {
+      "status": "added",
+      "subject": "given/add-unless-exists/foo/always.txt",
+      "type": "add",
+    },
+    Object {
+      "status": "added",
+      "subject": "given/add-unless-exists/foo/always.txt",
+      "type": "add",
+    },
+    Object {
+      "status": "skipped",
+      "subject": "given/add-unless-exists/foo/always.txt",
+      "type": "add",
+    },
+  ],
+  "success": true,
+}
+`;
+
+exports[`metaverse hygen-templates: conditional-rendering new --notGiven 1`] = `
+Object {
+  "actions": Array [
+    Object {
+      "status": "added",
+      "subject": "given/conditional/always.txt",
+      "type": "add",
+    },
+  ],
+  "success": true,
+}
+`;
+
+exports[`metaverse hygen-templates: existing-params new --email premade-email@foobar.com 1`] = `
+Object {
+  "actions": Array [
+    Object {
+      "status": "added",
+      "subject": "given/existing-params/new.md",
+      "type": "add",
+    },
+  ],
+  "success": true,
+}
+`;
+
+exports[`metaverse hygen-templates: existing-params new-params-alias --email premade-email@foobar.com 1`] = `
+Object {
+  "actions": Array [
+    Object {
+      "status": "added",
+      "subject": "given/existing-params/new-params-alias.md",
+      "type": "add",
+    },
+  ],
+  "success": true,
+}
+`;
+
+exports[`metaverse hygen-templates: index-js-existing-params new --email premade-email@foobar.com 1`] = `
+Object {
+  "actions": Array [
+    Object {
+      "status": "added",
+      "subject": "given/index-js-existing-params/new.md",
+      "type": "add",
+    },
+  ],
+  "success": true,
+}
+`;
+
+exports[`metaverse hygen-templates: index-js-existing-params new-params-alias --email premade-email@foobar.com 1`] = `
+Object {
+  "actions": Array [
+    Object {
+      "status": "added",
+      "subject": "given/index-js-existing-params/new-params-alias.md",
+      "type": "add",
+    },
+  ],
+  "success": true,
+}
+`;
+
+exports[`metaverse hygen-templates: inflection new --name person 1`] = `
+Object {
+  "actions": Array [
+    Object {
+      "status": "added",
+      "subject": "given/my_app/people.md",
+      "type": "add",
+    },
+  ],
+  "success": true,
+}
+`;
+
+exports[`metaverse hygen-templates: init self 1`] = `
+Object {
+  "actions": Array [
+    Object {
+      "status": "added",
+      "subject": "given/_templates/sample/new/hello.ejs.t",
+      "type": "add",
+    },
+  ],
+  "success": true,
+}
+`;
+
+exports[`metaverse hygen-templates: mailer new 1`] = `
+Object {
+  "actions": Array [
+    Object {
+      "status": "added",
+      "subject": "given/app/mailers/message.js",
+      "type": "add",
+    },
+    Object {
+      "status": "added",
+      "subject": "given/app/mailers/foo/html.ejs",
+      "type": "add",
+    },
+    Object {
+      "status": "added",
+      "subject": "given/app/mailers/foo/subject.ejs",
+      "type": "add",
+    },
+    Object {
+      "status": "added",
+      "subject": "given/app/mailers/foo/text.ejs",
+      "type": "add",
+    },
+    Object {
+      "status": "inject",
+      "subject": "given/app/mailers/foo/html.ejs",
+      "type": "inject",
+    },
+  ],
+  "success": true,
+}
+`;
+
+exports[`metaverse hygen-templates: overwrite-no base 1`] = `
+Object {
+  "actions": Array [
+    Object {
+      "status": "added",
+      "subject": "given/overwrite-no/new.md",
+      "type": "add",
+    },
+  ],
+  "success": true,
+}
+`;
+
+exports[`metaverse hygen-templates: overwrite-no over 1`] = `
+Object {
+  "actions": Array [
+    Object {
+      "status": "skipped",
+      "subject": "given/overwrite-no/new.md",
+      "type": "add",
+    },
+  ],
+  "success": true,
+}
+`;
+
+exports[`metaverse hygen-templates: overwrite-yes base 1`] = `
+Object {
+  "actions": Array [
+    Object {
+      "status": "added",
+      "subject": "given/overwrite-yes/new.md",
+      "type": "add",
+    },
+  ],
+  "success": true,
+}
+`;
+
+exports[`metaverse hygen-templates: overwrite-yes over 1`] = `
+Object {
+  "actions": Array [
+    Object {
+      "status": "added",
+      "subject": "given/overwrite-yes/new.md",
+      "type": "add",
+    },
+  ],
+  "success": true,
+}
+`;
+
+exports[`metaverse hygen-templates: recursive-prompt new 1`] = `
+Object {
+  "actions": Array [
+    Object {
+      "status": "added",
+      "subject": "given/recursive-prompt/new.md",
+      "type": "add",
+    },
+  ],
+  "success": true,
+}
+`;
+
+exports[`metaverse hygen-templates: shell new --name foo 1`] = `
+Object {
+  "actions": Array [
+    Object {
+      "status": "executed",
+      "subject": "mkdir -p /Users/dotan.nahum/projects/hygen/src/__tests__/metaverse/hygen-templates/given/shell && cat > /Users/dotan.nahum/projects/hygen/src/__tests__/metaverse/hygen-templates/given/shell/hello.piped",
+      "type": "shell",
+    },
+    Object {
+      "status": "executed",
+      "subject": "mkdir -p /Users/dotan.nahum/projects/hygen/src/__tests__/metaverse/hygen-templates/given/shell && touch /Users/dotan.nahum/projects/hygen/src/__tests__/metaverse/hygen-templates/given/shell/foo.hello",
+      "type": "shell",
+    },
+    Object {
+      "status": "added",
+      "subject": "given/shell/hmm.txt",
+      "type": "add",
+    },
+    Object {
+      "status": "executed",
+      "subject": "touch /Users/dotan.nahum/projects/hygen/src/__tests__/metaverse/hygen-templates/given/shell/side-effect.hello",
+      "type": "shell",
+    },
+  ],
+  "success": true,
+}
+`;
+
+exports[`metaverse hygen-templates: worker new --name foo 1`] = `
+Object {
+  "actions": Array [
+    Object {
+      "status": "added",
+      "subject": "given/app/workers/foo.js",
+      "type": "add",
+    },
+  ],
+  "success": true,
+}
+`;
