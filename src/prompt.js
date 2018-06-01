@@ -1,11 +1,16 @@
 // @flow
 
+import type { Prompter } from './types'
 const path = require('path')
 const fs = require('fs')
 const L = require('lodash')
 
 const hooksfiles = ['prompt.js', 'index.js']
-const prompt = (actionfolder: string, args: Object) => {
+const prompt = (
+  createPrompter: () => Prompter,
+  actionfolder: string,
+  args: Object
+): Promise<any> => {
   const hooksfile = L.first(
     L.filter(
       L.map(hooksfiles, f => path.resolve(path.join(actionfolder, f))),
@@ -25,11 +30,11 @@ const prompt = (actionfolder: string, args: Object) => {
 
   // lazy loads inquirer (80ms load time)
   // everything below requires it
-  const inquirer = require('inquirer')
+  const prompter = createPrompter()
   if (hooksModule.prompt) {
-    return hooksModule.prompt({ inquirer, args })
+    return hooksModule.prompt({ inquirer: prompter, args })
   }
-  return inquirer.prompt(hooksModule)
+  return prompter.prompt(hooksModule)
 }
 
 module.exports = prompt

@@ -6,6 +6,7 @@ Object {
     Object {
       "status": "added",
       "subject": "given/hygen-js/new.md",
+      "timing": -1,
       "type": "add",
     },
   ],
@@ -19,16 +20,19 @@ Object {
     Object {
       "status": "added",
       "subject": "given/add-unless-exists/foo/always.txt",
+      "timing": -1,
       "type": "add",
     },
     Object {
       "status": "added",
       "subject": "given/add-unless-exists/foo/always.txt",
+      "timing": -1,
       "type": "add",
     },
     Object {
       "status": "skipped",
       "subject": "given/add-unless-exists/foo/always.txt",
+      "timing": -1,
       "type": "add",
     },
   ],
@@ -42,6 +46,7 @@ Object {
     Object {
       "status": "added",
       "subject": "given/conditional/always.txt",
+      "timing": -1,
       "type": "add",
     },
   ],
@@ -55,6 +60,7 @@ Object {
     Object {
       "status": "added",
       "subject": "given/existing-params/new.md",
+      "timing": -1,
       "type": "add",
     },
   ],
@@ -68,6 +74,7 @@ Object {
     Object {
       "status": "added",
       "subject": "given/existing-params/new-params-alias.md",
+      "timing": -1,
       "type": "add",
     },
   ],
@@ -81,6 +88,7 @@ Object {
     Object {
       "status": "added",
       "subject": "given/index-js-existing-params/new.md",
+      "timing": -1,
       "type": "add",
     },
   ],
@@ -94,6 +102,7 @@ Object {
     Object {
       "status": "added",
       "subject": "given/index-js-existing-params/new-params-alias.md",
+      "timing": -1,
       "type": "add",
     },
   ],
@@ -107,6 +116,7 @@ Object {
     Object {
       "status": "added",
       "subject": "given/my_app/people.md",
+      "timing": -1,
       "type": "add",
     },
   ],
@@ -120,6 +130,7 @@ Object {
     Object {
       "status": "added",
       "subject": "given/_templates/sample/new/hello.ejs.t",
+      "timing": -1,
       "type": "add",
     },
   ],
@@ -133,26 +144,31 @@ Object {
     Object {
       "status": "added",
       "subject": "given/app/mailers/message.js",
+      "timing": -1,
       "type": "add",
     },
     Object {
       "status": "added",
       "subject": "given/app/mailers/foo/html.ejs",
+      "timing": -1,
       "type": "add",
     },
     Object {
       "status": "added",
       "subject": "given/app/mailers/foo/subject.ejs",
+      "timing": -1,
       "type": "add",
     },
     Object {
       "status": "added",
       "subject": "given/app/mailers/foo/text.ejs",
+      "timing": -1,
       "type": "add",
     },
     Object {
       "status": "inject",
       "subject": "given/app/mailers/foo/html.ejs",
+      "timing": -1,
       "type": "inject",
     },
   ],
@@ -166,6 +182,7 @@ Object {
     Object {
       "status": "added",
       "subject": "given/overwrite-no/new.md",
+      "timing": -1,
       "type": "add",
     },
   ],
@@ -179,6 +196,7 @@ Object {
     Object {
       "status": "skipped",
       "subject": "given/overwrite-no/new.md",
+      "timing": -1,
       "type": "add",
     },
   ],
@@ -192,6 +210,7 @@ Object {
     Object {
       "status": "added",
       "subject": "given/overwrite-yes/new.md",
+      "timing": -1,
       "type": "add",
     },
   ],
@@ -205,6 +224,7 @@ Object {
     Object {
       "status": "added",
       "subject": "given/overwrite-yes/new.md",
+      "timing": -1,
       "type": "add",
     },
   ],
@@ -218,6 +238,7 @@ Object {
     Object {
       "status": "added",
       "subject": "given/recursive-prompt/new.md",
+      "timing": -1,
       "type": "add",
     },
   ],
@@ -231,21 +252,25 @@ Object {
     Object {
       "status": "executed",
       "subject": "mkdir -p /Users/dotan.nahum/projects/hygen/src/__tests__/metaverse/hygen-templates/given/shell && cat > /Users/dotan.nahum/projects/hygen/src/__tests__/metaverse/hygen-templates/given/shell/hello.piped",
+      "timing": -1,
       "type": "shell",
     },
     Object {
       "status": "executed",
       "subject": "mkdir -p /Users/dotan.nahum/projects/hygen/src/__tests__/metaverse/hygen-templates/given/shell && touch /Users/dotan.nahum/projects/hygen/src/__tests__/metaverse/hygen-templates/given/shell/foo.hello",
+      "timing": -1,
       "type": "shell",
     },
     Object {
       "status": "added",
       "subject": "given/shell/hmm.txt",
+      "timing": -1,
       "type": "add",
     },
     Object {
       "status": "executed",
       "subject": "touch /Users/dotan.nahum/projects/hygen/src/__tests__/metaverse/hygen-templates/given/shell/side-effect.hello",
+      "timing": -1,
       "type": "shell",
     },
   ],
@@ -259,6 +284,7 @@ Object {
     Object {
       "status": "added",
       "subject": "given/app/workers/foo.js",
+      "timing": -1,
       "type": "add",
     },
   ],

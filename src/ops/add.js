@@ -3,19 +3,19 @@
 import type { ActionResult, RunnerConfig, RenderedAction } from '../types'
 import createResult from './result'
 
-const inquirer = require('inquirer')
 const path = require('path')
 const fs = require('fs-extra')
 const { red } = require('chalk')
 const add = async (
   action: RenderedAction,
   args: any,
-  { logger, cwd }: RunnerConfig
+  { logger, cwd, createPrompter }: RunnerConfig
 ): ActionResult => {
   const {
     attributes: { to, inject, unless_exists }
   } = action
   const result = createResult('add', to)
+  const prompter = createPrompter()
   if (!to || inject) {
     return result('ignored')
   }
@@ -26,7 +26,7 @@ const add = async (
   if (await fs.exists(absTo)) {
     if (
       shouldNotOverwrite ||
-      !(await inquirer
+      !(await prompter
         .prompt({
           prefix: '',
           type: 'confirm',

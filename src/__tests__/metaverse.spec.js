@@ -29,7 +29,8 @@ const metaverse = (folder, cmds, promptResponse = null) =>
         const opts = body && body.length > 0 ? { input: body } : {}
         return require('execa').shell(action, opts)
       },
-      logger
+      logger,
+      createPrompter: () => require('inquirer')
     }
     // await fs.remove(path.join(metaDir, 'given'))
     console.log('before', fs.readdirSync(metaDir))
@@ -56,6 +57,9 @@ const metaverse = (folder, cmds, promptResponse = null) =>
         }
       }
       const res = await runner(cmd, config)
+      res.actions.forEach(a => {
+        a.timing = -1
+      })
       expect(res).toMatchSnapshot(cmd.join(' '))
     }
     const givenDir = path.join(metaDir, 'given')

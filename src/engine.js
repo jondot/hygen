@@ -10,7 +10,7 @@ const engine = async (
   config: RunnerConfig
 ): Promise<Array<ActionResult>> => {
   const { cwd, templates, logger } = config
-  const args = Object.assign(await params(templates, argv), { cwd })
+  const args = Object.assign(await params(config, argv), { cwd })
   const { generator, action, actionfolder } = args
 
   logger.log(args.dry ? '(dry mode)' : '')

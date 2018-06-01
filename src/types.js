@@ -7,6 +7,9 @@ export type Logger = {
   log: (msg: string) => void,
   colorful: (msg: string) => void
 }
+export type Prompter = {
+  prompt: any => Promise<any>
+}
 export type RenderedAction = {
   file: string,
   attributes: Object,
@@ -18,7 +21,8 @@ export type RunnerConfig = {
   cwd: string,
   logger: Logger,
   debug: boolean,
-  helpers: Object
+  helpers: Object,
+  createPrompter: () => Prompter
 }
 
 export type ResolverIO = {

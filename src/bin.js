@@ -12,5 +12,6 @@ runner(process.argv.slice(2), {
   exec: (action, body) => {
     const opts = body && body.length > 0 ? { input: body } : {}
     return require('execa').shell(action, opts)
-  }
+  },
+  createPrompter: () => require('inquirer')
 })
