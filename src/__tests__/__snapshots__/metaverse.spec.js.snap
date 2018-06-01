@@ -251,13 +251,13 @@ Object {
   "actions": Array [
     Object {
       "status": "executed",
-      "subject": "mkdir -p /Users/dotan.nahum/projects/hygen/src/__tests__/metaverse/hygen-templates/given/shell && cat > /Users/dotan.nahum/projects/hygen/src/__tests__/metaverse/hygen-templates/given/shell/hello.piped",
+      "subject": "/__tests__/metaverse/hygen-templates/given/shell/hello.piped",
       "timing": -1,
       "type": "shell",
     },
     Object {
       "status": "executed",
-      "subject": "mkdir -p /Users/dotan.nahum/projects/hygen/src/__tests__/metaverse/hygen-templates/given/shell && touch /Users/dotan.nahum/projects/hygen/src/__tests__/metaverse/hygen-templates/given/shell/foo.hello",
+      "subject": "/__tests__/metaverse/hygen-templates/given/shell/foo.hello",
       "timing": -1,
       "type": "shell",
     },
@@ -269,7 +269,7 @@ Object {
     },
     Object {
       "status": "executed",
-      "subject": "touch /Users/dotan.nahum/projects/hygen/src/__tests__/metaverse/hygen-templates/given/shell/side-effect.hello",
+      "subject": "/__tests__/metaverse/hygen-templates/given/shell/side-effect.hello",
       "timing": -1,
       "type": "shell",
     },

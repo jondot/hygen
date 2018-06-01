@@ -59,6 +59,7 @@ const metaverse = (folder, cmds, promptResponse = null) =>
       const res = await runner(cmd, config)
       res.actions.forEach(a => {
         a.timing = -1
+        a.subject = a.subject.replace(/.*hygen\/src/, '')
       })
       expect(res).toMatchSnapshot(cmd.join(' '))
     }
