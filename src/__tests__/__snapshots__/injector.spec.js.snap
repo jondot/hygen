@@ -44,6 +44,17 @@ exports[`injector before rails 1`] = `
     "
 `;
 
+exports[`injector if eof_last is false trim eof last empty line from injection 1`] = `
+"
+    source 'http://rubygems.org'
+    gem 'rails'
+    gem 'kamikaze' # added by hygen
+    gem 'nokogiri'
+    gem 'httparty'
+
+    "
+`;
+
 exports[`injector prepend top of file 1`] = `
 "    gem 'kamikaze' # added by hygen
 
