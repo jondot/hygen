@@ -86,7 +86,7 @@ describe('injector', () => {
       )
     ).toMatchSnapshot()
   })
-  it('if eof_last is false trim eof last empty line from injection', () => {
+  it('if eof_last is false remove empty line from the end of injection body', () => {
     expect(
       injector(
         {
@@ -95,6 +95,20 @@ describe('injector', () => {
             eof_last: false
           },
           body: "    gem 'kamikaze' # added by hygen\n"
+        },
+        gemfile
+      )
+    ).toMatchSnapshot()
+  })
+  it('if eof_last is true insert empty line to injection body', () => {
+    expect(
+      injector(
+        {
+          attributes: {
+            after: "gem 'rails'",
+            eof_last: true
+          },
+          body: "    gem 'kamikaze' # added by hygen"
         },
         gemfile
       )

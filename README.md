@@ -22,7 +22,7 @@
 ✅ Adding new files  
 ✅ Injecting into existing files  
 ✅ Running shell commands  
-✅ Super fast, constantly optimized for speed
+✅ Super fast, constantly optimized for speed  
 
 ## Quick Start
 
@@ -226,6 +226,10 @@ Here are the available mutually-exclusive options for where to inject at:
 You can guard against double injection:
 
 * `skip_if` - a regular expression / text. If exists injection is skipped.
+
+Also you can insert or remove empty line to injection body. That feature very useful if your editor or formatter automatically insert blank line at the end of file on save:
+
+* `eof_last` - if falsy - trim blank line from the end of injection body, if truthy - insert it.
 
 ### Build Your Own
 

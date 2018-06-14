@@ -12,17 +12,19 @@ const injector = (action: RenderedAction, content: string): string => {
   if (!shouldSkip) {
     const idx = indexByLocation(attributes, lines)
     //eslint-disable-next-line
-    const trimEOF = eof_last === false && /\r?\n$/.test(body);
-    if (idx >= 0) {
-      lines.splice(
-        idx,
-        0,
-        trimEOF
-          ? body.replace(/\r?\n$/, '')
-          : body
-      )
+    const trimEOF = idx >= 0 && eof_last === false && /\r?\n$/.test(body)
+    //eslint-disable-next-line
+    const insertEOF = idx >= 0 && eof_last === true && !/\r?\n$/.test(body)
+
+    if (trimEOF) {
+      lines.splice(idx, 0, body.replace(/\r?\n$/, ''))
+    } else if (insertEOF) {
+      lines.splice(idx, 0, `${body}\n`)
+    } else if (idx >= 0) {
+      lines.splice(idx, 0, body)
     }
   }
+
   return lines.join('\n')
 }
 
