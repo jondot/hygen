@@ -25,7 +25,6 @@ const execute = async (
     logger.colorful(`${args.action}:\n${messages.join('\n')}`)
   }
 
-  console.log('results', results)
   return results
 }
 module.exports = execute
