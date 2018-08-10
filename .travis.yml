@@ -6,7 +6,9 @@ node_js:
 
 # run install twice. flaky npm behavior
 # https://github.com/GitbookIO/gitbook/issues/1834
-script: yarn test
+script:
+  - echo $GITHUB_TOKEN
+  - yarn test
 
 jobs:
   include:
