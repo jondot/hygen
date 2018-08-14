@@ -14,6 +14,20 @@ module.exports = {
     inputSelector: '#algolia-doc-search',
     debug: false // Set debug to true if you want to inspect the dropdown
   },
+  stories: [
+
+    {
+      title: "Supercharge your CreateReactApp workflow with Hygen",
+      avatar: "https://cdn-images-1.medium.com/fit/c/120/120/1*qyTVPi5bg0s9pbFf_CBnWg.png",
+      link: "https://medium.com/@jondot/supercharge-your-createreactapp-workflow-with-hygen-a9e6f1ca98e9"
+    },
+    {
+      title: "Speeding up your project’s developing with scaffolds",
+      avatar: "https://cdn-images-1.medium.com/fit/c/120/120/1*6MU5HEhXz8m0yZsOXet4Vw.png",
+      link: "https://medium.com/@fccoelho7/speeding-up-your-projects-developing-with-custom-scaffolds-9ff88da7b4e9"
+    },
+
+  ],
   usedIn: [
     {
       image: 'redux.svg',

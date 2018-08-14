@@ -46,6 +46,16 @@ class Index extends React.Component {
             </Section>
 
             <Section>
+              {
+                config.stories.map(({ link, avatar, title }) => (<div style={{ width: 600, textAlign: 'left', margin: "4rem auto" }}>
+                  <TtaLink href={link}>
+                    <img src={avatar} style={{ borderRadius: 32, width: 64, height: 64, marginBottom: -24, marginRight: 10 }} />
+                    {title} &rarr;
+                  </TtaLink>
+                                                                 </div>))
+              }
+            </Section>
+            <Section>
               <h1>See how to use with:</h1>
               <Triplet>
                 {config.usedIn.map(({ width, image, title, content, link }) => (
