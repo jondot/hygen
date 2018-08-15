@@ -8,6 +8,7 @@ import CtaButton from '../components/cta-button'
 import Navigation from '../components/navigation'
 import Footer from '../components/footer'
 import logo from '../assets/hygen.svg'
+import { or } from 'ip';
 
 class Index extends React.Component {
   render() {
@@ -47,12 +48,15 @@ class Index extends React.Component {
 
             <Section>
               {
-                config.stories.map(({ link, avatar, title }) => (<div style={{ width: 600, textAlign: 'left', margin: "4rem auto" }}>
+                config.stories.map(({ link, tagline, avatar, title }) => (<div style={{ maxWidth: 700, textAlign: 'left', padding: '10px', margin: "4rem auto" }}>
                   <TtaLink href={link}>
-                    <img src={avatar} style={{ borderRadius: 32, width: 64, height: 64, marginBottom: -24, marginRight: 10 }} />
-                    {title} &rarr;
+                    <img src={avatar} style={{ float: 'left', borderRadius: 32, width: 64, height: 64, marginRight: 10 }} />
+                    <div style={{}}>
+                      {title} &rarr;
+                      <ArticleTagline>{tagline}</ArticleTagline>
+                    </div>
                   </TtaLink>
-                                                                 </div>))
+                                                                          </div>))
               }
             </Section>
             <Section>
@@ -63,6 +67,7 @@ class Index extends React.Component {
                     <Link to={link}>
                       <Subtitle>{title}</Subtitle>
                       <img src={require(`../assets/${image}`)} width={width} />
+
                     </Link>
                   </Feature>
                 ))}
@@ -88,16 +93,6 @@ const Or = styled.div`
   font-family: Georgia, serif;
   font-size: 1.8em;
   font-style: italic;
-`
-const BadgeContainer = styled.div`
-  margin: 2rem 0 0 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  > img,
-  .github-btn {
-    padding: 0 5px;
-  }
 `
 const IndexHeadContainer = styled.div`
   background: white;
@@ -143,6 +138,11 @@ const Subtitle = styled.h2`
   color: ${({ theme: { brandSecondary } }) => brandSecondary};
   font-weight: 300;
   margin: 2rem 0;
+`
+const ArticleTagline = styled.div`
+  color: ${({ theme: { brandSecondary } }) => brandSecondary};
+  font-weight: 300;
+  font-style: italic;
 `
 
 /* eslint no-undef: "off" */
