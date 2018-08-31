@@ -38,6 +38,7 @@
     "yargs-parser": "^7.0.0"
   },
   "devDependencies": {
+    "babel-core": "7.0.0-bridge.0",
     "dir-compare": "^1.4.0",
     "flow-bin": "0.68.0",
     "flow-typed": "^2.2.3",
