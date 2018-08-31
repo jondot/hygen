@@ -1,114 +1,75 @@
-const render = require('../render')
 const path = require('path')
-const ftest = require('../test/ftest')
 const fs = require('fs')
-const fixture = name =>
-  fs.readFileSync(path.join(__dirname, './fixtures', name)).toString()
+const render = require('../render')
 
-describe('render', () => {
-  ftest(
-    'empty',
-    { app: { action: { 'empty.ejs.t': fixture('empty.ejs.t') } } },
-    async () => {
-      const res = await render({ actionfolder: 'app/action' })
-      expect(res[0].file).toMatch(/empty/)
-      res[0].file = 'empty.ejs.t'
-      expect(res[0].body).toEqual('')
-    }
-  )
-  ftest(
-    'full',
-    { app: { action: { 'full.ejs.t': fixture('full.ejs.t') } } },
-    async () => {
-      const res = await render({
-        bill: 17,
-        name: 'someone',
-        actionfolder: 'app/action'
-      })
-      expect(res[0].file).toMatch(/full/)
-      res[0].file = 'full.ejs.t'
-      expect(res[0].body).toMatch(
-        'Find me at <i>app/mailers/hello/html.ejs</i>'
-      )
-      expect(res[0].body).toMatch('You owe 17')
-    }
-  )
 
-  ftest(
-    'capitalized',
-    { app: { action: { 'capitalized.ejs.t': fixture('capitalized.ejs.t') } } },
-    async () => {
-      const res = await render({ name: 'someone', actionfolder: 'app/action' })
-      expect(res[0].file).toMatch(/capitalized/)
-      res[0].file = 'capitalize.ejs.t'
-      expect(res[0].body).toMatch(/someone and Someone/)
-    }
-  )
 
-  ftest(
-    'capitalized with default locals',
-    { app: { action: { 'capitalized.ejs.t': fixture('capitalized.ejs.t') } } },
-    async () => {
-      const res = await render({ actionfolder: 'app/action' })
-      expect(res[0].file).toMatch(/capitalized/)
-      res[0].file = 'capitalize.ejs.t'
-      expect(res[0].body).toMatch(/unnamed and Unnamed/)
-    }
-  )
 
-  ftest(
-    'render should do all files in an action folder ',
-    {
-      app: {
-        action: {
-          'capitalized.ejs.t': fixture('capitalized.ejs.t'),
-          'full.ejs.t': fixture('full.ejs.t')
-        }
-      }
-    },
-    async () => {
-      const res = await render({ bill: 17, actionfolder: 'app/action' })
-      expect(res.length).toEqual(2)
-      expect(res[0].file).toMatch(/capitalized/)
-      expect(res[1].file).toMatch(/full/)
-    }
-  )
+const fixture = name => path.join(__dirname, './fixtures', name)
 
-  ftest(
-    'render with subaction should filter only to that subaction',
-    {
-      app: {
-        action: {
-          'capitalized.ejs.t': fixture('capitalized.ejs.t'),
-          'full.ejs.t': fixture('full.ejs.t')
-        }
-      }
-    },
-    async () => {
-      const res = await render({
-        bill: 17,
-        actionfolder: 'app/action',
-        subaction: 'capitalized'
-      })
-      expect(res.length).toEqual(1)
-      expect(res[0].file).toMatch(/capitalized/)
-    }
-  )
-  ftest(
-    'inject',
-    {
-      app: {
-        action: { 'inject.ejs.t': fixture('inject.ejs.t') }
-      }
-    },
-    async () => {
-      const res = await render({
-        name: 'devise',
-        actionfolder: 'app/action'
-      })
-      expect(res[0].file).toMatch(/inject/)
-      res[0].file = 'inject.ejs.t'
-      expect(res[0].body).toMatch("gem 'devise'")
-    }
-  )
+describe('render ng', () => {
+  it('empty', async () => {
+    const res = await render({ actionfolder: fixture('app/action-empty') })
+    expect(res[0].file).toMatch(/empty/)
+    res[0].file = 'empty.ejs.t'
+    expect(res[0].body).toEqual('')
+  })
+  it('full', async () => {
+    const res = await render({
+      bill: 17,
+      name: 'someone',
+      actionfolder: fixture('app/action-full')
+    })
+    expect(res[0].file).toMatch(/full/)
+    res[0].file = 'full.ejs.t'
+    expect(res[0].body).toMatch('Find me at <i>app/mailers/hello/html.ejs</i>')
+    expect(res[0].body).toMatch('You owe 17')
+  })
+
+  it('capitalized', async () => {
+    const res = await render({
+      name: 'someone',
+      actionfolder: fixture('app/action-capitalized')
+    })
+    expect(res[0].file).toMatch(/capitalized/)
+    res[0].file = 'capitalize.ejs.t'
+    expect(res[0].body).toMatch(/someone and Someone/)
+  })
+  it('capitalized with default locals', async () => {
+    const res = await render({
+      actionfolder: fixture('app/action-capitalized-defaults')
+    })
+    expect(res[0].file).toMatch(/capitalized/)
+    res[0].file = 'capitalize.ejs.t'
+    expect(res[0].body).toMatch(/unnamed and Unnamed/)
+  })
+
+  it('render should do all files in an action folder ', async () => {
+    const res = await render({
+      bill: 17,
+      actionfolder: fixture('app/action-multifiles')
+    })
+    expect(res.length).toEqual(2)
+    expect(res[0].file).toMatch(/capitalized/)
+    expect(res[1].file).toMatch(/full/)
+  })
+
+  it('render with subaction should filter only to that subaction', async () => {
+    const res = await render({
+      bill: 17,
+      actionfolder: fixture('app/action-multifiles'),
+      subaction: 'capitalized'
+    })
+    expect(res.length).toEqual(1)
+    expect(res[0].file).toMatch(/capitalized/)
+  })
+  it('inject', async () => {
+    const res = await render({
+      name: 'devise',
+      actionfolder: fixture('app/action-inject')
+    })
+    expect(res[0].file).toMatch(/inject/)
+    res[0].file = 'inject.ejs.t'
+    expect(res[0].body).toMatch("gem 'devise'")
+  })
 })

@@ -1,15 +1,46 @@
 {
-  "extends":  [
-  "standard",
-  "standard-flow",
-  "standard-jsx"
+  "parser": "babel-eslint",
+  "extends": [
+    "airbnb",
+    "prettier"
   ],
-  "rules":{
-    "space-before-function-paren": 0,
-    "comma-dangle":0,
-    "jsx-quotes":0
+  "plugins": [
+    "jest",
+    "flowtype",
+    "prettier"
+  ],
+  "settings": {
+    "flowtype": {
+      "onlyFilesWithFlowAnnotation": false
+    }
   },
-  "env":{
-    "jest": true
+  "rules": {
+    "prettier/prettier": [
+      "error",
+      {
+        "semi": false,
+        "singleQuote": true
+      }
+    ],
+    "prettier/semi": 0,
+    "space-before-function-paren": 0,
+    "comma-dangle": 0,
+    "jsx-quotes": 0,
+    "react/jsx-filename-extension": "off"
+  },
+  "env": {
+    "es6": true,
+    "browser": true,
+    "node": true,
+    "jest": true,
+    "jest/globals": true
+  },
+  "globals": {
+    "fetch": true,
+    "navigator": true,
+    "__DEV__": true,
+    "XMLHttpRequest": true,
+    "React$Element": true,
+    "Generator": true
   }
 }
