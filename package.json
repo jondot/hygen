@@ -32,7 +32,6 @@
     "execa": "^1.0.0",
     "front-matter": "^2.1.2",
     "fs-extra": "^7.0.0",
-    "fsevents": "^1.2.4",
     "inflection": "^1.12.0",
     "inquirer": "^4.0.2",
     "lodash": "^4.17.4",
