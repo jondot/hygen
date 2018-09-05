@@ -26,7 +26,7 @@
 
 ## Quick Start
 
-Hygen can be used to supercharge your workflow with [Redux](http://www.hygen.io/redux), [React Native](http://www.hygen.io/react-native), [Express](http://www.hygen.io/react-native) and more, by allowing you avoid manual work and generate, add, inject and perform custom operations on your codebase.
+Hygen can be used to supercharge your workflow with [Redux](http://www.hygen.io/redux), [React Native](http://www.hygen.io/react-native), [Express](http://www.hygen.io/express) and more, by allowing you avoid manual work and generate, add, inject and perform custom operations on your codebase.
 
 If you're on macOS and have Homebrew:
 
