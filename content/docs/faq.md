@@ -42,7 +42,7 @@ But it may be that you want to run those from your top `src/` vantage point and 
 
 Hygen doesn't support discovering templates down the folder trees out of the box because currently there isn't a good idea for how to do this without compromising the superfast performance Hygen holds.
 
-However Hygen is super flexible with regards to template location, so here's how to achieve this goal with little effort, by dropping these into your `package.json` file:
+However Hygen is super flexible with regards to template location, so here's how to achieve this goal with little effort, by dropping these into the scripts of your `package.json` file:
 
 ```
     "g:client":
