@@ -27,17 +27,18 @@
     "docs:publish": "cd hygen.io && yarn build:gh"
   },
   "dependencies": {
-    "chalk": "^2.1.0",
-    "ejs": "^2.5.7",
+    "chalk": "^2.4.1",
+    "ejs": "^2.6.1",
     "execa": "^1.0.0",
-    "front-matter": "^2.1.2",
+    "front-matter": "^2.3.0",
     "fs-extra": "^7.0.0",
     "inflection": "^1.12.0",
-    "inquirer": "^4.0.2",
-    "lodash": "^4.17.4",
-    "yargs-parser": "^7.0.0"
+    "inquirer": "^6.2.0",
+    "lodash": "^4.17.11",
+    "yargs-parser": "^10.1.0"
   },
   "devDependencies": {
+    "@babel/node": "^7.0.0",
     "babel-core": "7.0.0-bridge.0",
     "dir-compare": "^1.4.0",
     "flow-bin": "0.68.0",
