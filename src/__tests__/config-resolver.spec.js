@@ -1,6 +1,7 @@
-import ftest from '../test/ftest'
+import path from 'path'
 import templateResolver from '../config-resolver'
-import fs from 'fs-extra'
+
+const fixture = dir => path.join(__dirname, 'fixtures/templates', dir)
 
 describe('resolve', () => {
   it('no file exists in 1/_templates so take "2"', async () => {
@@ -9,31 +10,19 @@ describe('resolve', () => {
     ).toEqual('2')
   })
 
-  ftest(
-    'when templates exist',
-    { '/app': { _templates: { '1': 'foo' } } },
+  it('when templates exist', async () => {
+    expect(
+      (await templateResolver({ cwd: fixture('app'), templates: '2' }))
+        .templates
+    ).toEqual(fixture('/app/_templates'))
+  })
 
-    async () => {
-      console.log({ exists: await fs.readdir('/') })
-      expect(
-        (await templateResolver({ cwd: '/app', templates: '2' })).templates
-      ).toEqual('/app/_templates')
-    }
-  )
-
-  ftest(
-    'with custom HYGEN_TMPLS',
-    {
-      app: { other_templates: { '1': 'foo' } },
-      other_templates: { '2': 'foo' }
-    },
-
-    async () => {
-      process.env.HYGEN_TMPLS = 'other_templates'
-      expect(
-        (await templateResolver({ cwd: '/app', templates: '2' })).templates
-      ).toEqual('other_templates')
-      process.env.HYGEN_TMPLS = null
-    }
-  )
+  it('take other_templates if explicitly given', async () => {
+    process.env.HYGEN_TMPLS = fixture('app-custom/other-templates')
+    expect(
+      (await templateResolver({ cwd: fixture('app-custom'), templates: '2' }))
+        .templates
+    ).toEqual(fixture('app-custom/other-templates'))
+    process.env.HYGEN_TMPLS = null
+  })
 })

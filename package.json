@@ -47,7 +47,6 @@
     "goddamn-javascript-babel": "1.0.1",
     "goddamn-javascript-eslint": "^1.0.1",
     "jest": "^22.1.4",
-    "mock-fs": "^4.6.0",
     "pkg": "^4.3.0",
     "time-require": "^0.1.2"
   },

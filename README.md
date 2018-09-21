@@ -280,11 +280,6 @@ The idea here is to copy templates from any project that use `hygen` and to test
 
 ## Internal Testing
 
-Testing `hygen` internally is also easy. We provide an [abstraction layer](src/test/ftest.js)
-(Note [here be dragons](src/__tests__/readme.md)) for easy end-to-end testing with a virtual file system.
-
-The rest of the tests [are here](src/__tests__/)
-
 ## Start Up Speed Testing
 
 Many generators become painfully slow to use as the thing you want to generate grow (because, real life),
