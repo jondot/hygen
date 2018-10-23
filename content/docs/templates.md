@@ -144,7 +144,7 @@ This way refers to the `message` CLI argument or prompt parameter, through the `
 ```javascript
 <% if(locals.message){ -%>
     message: <%= message %>
-<% -%>
+<% } -%>
 ```
 
 There's a small gem here, in the form of `-%>`. This will slurp the last newline, so that the `if(..){` clause won't generate garbage newlines into our final output.
