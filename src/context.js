@@ -3,6 +3,7 @@ import type { RunnerConfig } from './types'
 
 const L = require('lodash')
 const inflection = require('inflection')
+const changeCase = require('change-case')
 
 // supports kebab-case to KebabCase
 inflection.undasherize = str =>
@@ -15,7 +16,8 @@ const helpers = {
   capitalize(string) {
     return string.charAt(0).toUpperCase() + string.slice(1).toLowerCase()
   },
-  inflection
+  inflection,
+  changeCase
 }
 
 const localsToCapitalize = ['name']
