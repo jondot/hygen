@@ -52,6 +52,7 @@
     "time-require": "^0.1.2"
   },
   "jest": {
+    "testURL": "http://localhost/",
     "testRegex": "src/__tests__/.*\\.spec\\.js$",
     "transform": {
       "^.+\\.jsx?$": "babel-jest"
