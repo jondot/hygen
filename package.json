@@ -28,6 +28,7 @@
   },
   "dependencies": {
     "chalk": "^2.4.1",
+    "change-case": "^3.0.2",
     "ejs": "^2.6.1",
     "execa": "^1.0.0",
     "front-matter": "^2.3.0",
@@ -51,6 +52,7 @@
     "time-require": "^0.1.2"
   },
   "jest": {
+    "testURL": "http://localhost/",
     "testRegex": "src/__tests__/.*\\.spec\\.js$",
     "transform": {
       "^.+\\.jsx?$": "babel-jest"

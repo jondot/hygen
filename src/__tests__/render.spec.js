@@ -2,9 +2,6 @@ const path = require('path')
 const fs = require('fs')
 const render = require('../render')
 
-
-
-
 const fixture = name => path.join(__dirname, './fixtures', name)
 
 describe('render ng', () => {
@@ -35,6 +32,7 @@ describe('render ng', () => {
     res[0].file = 'capitalize.ejs.t'
     expect(res[0].body).toMatch(/someone and Someone/)
   })
+
   it('capitalized with default locals', async () => {
     const res = await render({
       actionfolder: fixture('app/action-capitalized-defaults')
@@ -63,6 +61,7 @@ describe('render ng', () => {
     expect(res.length).toEqual(1)
     expect(res[0].file).toMatch(/capitalized/)
   })
+
   it('inject', async () => {
     const res = await render({
       name: 'devise',
@@ -71,5 +70,15 @@ describe('render ng', () => {
     expect(res[0].file).toMatch(/inject/)
     res[0].file = 'inject.ejs.t'
     expect(res[0].body).toMatch("gem 'devise'")
+  })
+
+  it('should allowrs to use changeCase helpers in templates', async () => {
+    const res = await render({
+      name: 'FooBar',
+      actionfolder: fixture('app/action-change-case')
+    })
+    expect(res[0].file).toMatch(/snake/)
+    res[0].file = 'snake.ejs.t'
+    expect(res[0].body).toMatch(/foo_bar/)
   })
 })
