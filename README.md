@@ -199,6 +199,35 @@ All frontmatter metadata _are also run through the template engine_ so feel free
 There's one required metadata variable: `to`.
 `to` points to where this file will be placed (folders are created as needed).
 
+### Case changing
+
+`hygen` provides ability to semantic case changing with `change-case` library, it's simple to use and very easy to understand.
+
+There is a usecase for react based components generation:
+
+```yaml
+---
+to: components/<%= name %>/index.jsx
+---
+import React from 'react'
+
+export const <%= name %> = ({ children }) => (
+  <div className="<%= h.changeCase.paramCase(name) %>">{children}</div>"
+)
+```
+
+With name `HelloWorld` will be compiled to:
+
+```js
+import React from 'react'
+
+export const HelloWorld = ({ children }) => (
+  <div className="hello-world">{children}</div>"
+)
+```
+
+You can see the full list [here](https://github.com/blakeembrey/change-case).
+
 ### Addition, Injection, and More
 
 By default templates are 'added' to your project as a new target file, but you can also choose to inject a template _into_ an existing target file.

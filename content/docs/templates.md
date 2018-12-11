@@ -123,6 +123,57 @@ transform( str, arr )
 
 You can see the full list [here](https://github.com/dreamerslab/node.inflection). With time, we'll add more utilities onto `h`.
 
+## Change case helpers
+
+`hygen` provides ability to semantic case changing with `change-case` library, it's simple to use and very easy to understand:
+
+```js
+// example: <%= h.changeCase.camel(name) %>
+
+camel( str )
+constant( str )
+dot( str )
+header( str )
+isLower( str )
+isUpper( str )
+lower( str )
+lcFirst( str )
+no( str )
+param( str )
+pascal( str )
+path( str )
+sentence( str )
+snake( str )
+swap( str )
+title( str )
+upper( str )
+```
+
+There is a usecase for react based components generation:
+
+```yaml
+---
+to: components/<%= name %>/index.jsx
+---
+import React from 'react'
+
+export const <%= name %> = ({ children }) => (
+  <div className="<%= h.changeCase.paramCase(name) %>">{children}</div>"
+)
+```
+
+With name `HelloWorld` will be compiled to:
+
+```js
+import React from 'react'
+
+export const HelloWorld = ({ children }) => (
+  <div className="hello-world">{children}</div>"
+)
+```
+
+You can see the full list [here](https://github.com/blakeembrey/change-case).
+
 ## Local Variables
 
 As we saw earlier, any CLI argument or prompt parameter automatically becomes a local variable in your templates.
