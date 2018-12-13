@@ -43,13 +43,17 @@ const render = async (
     .then(_ => Promise.all(_))
     .then(map(({ file, text }) => Object.assign({ file }, fm(text))))
     .then(
-      map(({ file, attributes, body }) => ({
-        file,
-        attributes: L.mapValues(attributes, _ =>
-          renderTemplate(_, args, config)
-        ),
-        body: renderTemplate(body, args, config)
-      }))
+      map(({ file, attributes, body }) => {
+          const compiledAttributes = L.mapValues(attributes, (_, key) =>
+            key === 'variables'
+              ? JSON.parse(renderTemplate(JSON.stringify(_), args, config))
+              : renderTemplate(_, args, config))
+          return {
+            file,
+            attributes: compiledAttributes,
+            body: renderTemplate(body, Object.assign({}, (compiledAttributes.variables || {}), args), config)
+          }
+      })
     )
 
 module.exports = render
