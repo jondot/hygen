@@ -9,9 +9,9 @@
   "scripts": {
     "standalone": "rm -rf standalone; yarn build:lib && yarn pkg package.json --out-path standalone && node scripts/standalone.js",
     "standalone:brew-sha": "shasum -a 256 standalone/*.macos.*.tar.gz",
-    "build:changelog": "conventional-changelog -i CHANGELOG.md -p angular -s -u",
-    "build:lib": "babel src --out-dir lib --ignore src/__tests__ && yarn build:changelog",
-    "build": "npm run build:lib && conventional-changelog -i CHANGELOG.md -p angular -s -u",
+    "build:changelog": "conventional-changelog -i CHANGELOG.md -p angular > CHANGELOG.md",
+    "build:lib": "babel src --out-dir lib --ignore src/__tests__",
+    "build": "yarn build:lib && yarn build:changelog",
     "release": "yarn build && git commit -am 'build'; yarn version && git push --tags && git push origin master",
     "test": "yarn test:code && yarn test:require",
     "test:win32": "node node_modules/jest/bin/jest.js --runInBand metaverse",
