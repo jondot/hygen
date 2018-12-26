@@ -1,6 +1,6 @@
 {
   "name": "hygen",
-  "version": "1.6.4",
+  "version": "2.0.0",
   "main": "lib/index.js",
   "repository": "https://github.com/jondot/hygen",
   "bin": {
@@ -9,8 +9,9 @@
   "scripts": {
     "standalone": "rm -rf standalone; yarn build:lib && yarn pkg package.json --out-path standalone && node scripts/standalone.js",
     "standalone:brew-sha": "shasum -a 256 standalone/*.macos.*.tar.gz",
-    "build:lib": "babel src --out-dir lib --ignore src/__tests__ && cp -r src/templates lib/",
-    "build": "npm run build:lib",
+    "build:changelog": "conventional-changelog -i CHANGELOG.md -p angular > CHANGELOG.md",
+    "build:lib": "babel src --out-dir lib --ignore src/__tests__",
+    "build": "yarn build:lib && yarn build:changelog",
     "release": "yarn build && git commit -am 'build'; yarn version && git push --tags && git push origin master",
     "test": "yarn test:code && yarn test:require",
     "test:win32": "node node_modules/jest/bin/jest.js --runInBand metaverse",
@@ -30,17 +31,18 @@
     "chalk": "^2.4.1",
     "change-case": "^3.0.2",
     "ejs": "^2.6.1",
+    "enquirer": "^2.0.7",
     "execa": "^1.0.0",
     "front-matter": "^2.3.0",
     "fs-extra": "^7.0.0",
     "inflection": "^1.12.0",
-    "inquirer": "^6.2.0",
     "lodash": "^4.17.11",
     "yargs-parser": "^10.1.0"
   },
   "devDependencies": {
     "@babel/node": "^7.0.0",
     "babel-core": "7.0.0-bridge.0",
+    "conventional-changelog-cli": "^2.0.11",
     "dir-compare": "^1.4.0",
     "flow-bin": "0.68.0",
     "flow-typed": "^2.2.3",
@@ -63,9 +65,9 @@
     "assets": "src/**/*",
     "outPath": "standalone",
     "targets": [
-      "node8-macos",
-      "node8-linux",
-      "node8-win"
+      "node10-macos",
+      "node10-linux",
+      "node10-win"
     ]
   },
   "license": "MIT",

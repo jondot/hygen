@@ -11,6 +11,8 @@
   <img src="https://raw.githubusercontent.com/jondot/hygen/master/media/hygen.gif" width=600/>
 </div>
 
+__NOTE__: Hygen 2.0 is our fastest release yet! Migrating from inquirer to enquirer yields 5x performance improvement. This comes at the cost of breaking compatibility for prompts (unless you use the new compat layer). See [more here](https://github.com/enquirer/enquirer/issues/40).
+
 ## Features
 
 ✅ Build ad-hoc generators quickly and full on project scaffolds.  
@@ -275,7 +277,7 @@ runner(process.argv.slice(2), {
   templates: defaultTemplates,
   cwd: process.cwd(),
   logger: new Logger(console.log.bind(console)),
-  createPrompter: () => require('inquirer'),
+  createPrompter: () => require('enquirer'),
   exec: (action, body) => {
     const opts = body && body.length > 0 ? { input: body } : {}
     return require('execa').shell(action, opts)

@@ -135,7 +135,7 @@ module.exports = [
 ]
 ```
 
-The format is based on the very popular [inquirer](https://github.com/SBoudrias/Inquirer.js), so hopefully, nothing new to you. Let's use the `message` variable now:
+The format is based on [enquirer](https://github.com/enquirer/enquirer) so hopefully, nothing new to you. Let's use the `message` variable now:
 
 ```html{4}
 ---
@@ -173,15 +173,15 @@ Here's how you can use `index.js` to build a two-step prompting flow. Instead of
 ```javascript{3}
 // my-generator/my-action/index.js
 module.exports = {
-  prompt: ({ inquirer, args }) =>
-    inquirer
+  prompt: ({ prompter, args }) =>
+    prompter
       .prompt({
         type: 'input',
         name: 'email',
         message: "What's your email?"
       })
       .then(({ email }) =>
-        inquirer.prompt({
+        prompter.prompt({
           type: 'input',
           name: 'emailConfirmation',
           message: `Please type your email [${email}] again:`
@@ -190,7 +190,7 @@ module.exports = {
 }
 ```
 
-The `prompt` function gets a data structure with an `inquirer` field you can use.
+The `prompt` function gets a data structure with an `prompter` field you can use.
 
 For completeness, here is a [a more elaborate use of prompts](https://github.com/jondot/hygen/issues/35) (thanks [@jaykoontz](https://github.com/jaykoontz)).
 
@@ -199,11 +199,11 @@ You can skip prompting conditionally using custom logic:
 ```javascript{4,6}
 // my-generator/my-action/index.js
 module.exports = {
-  prompt: ({ inquirer, args }) => {
+  prompt: ({ prompter, args }) => {
     if (args.age > 18) {
       return Promise.resolve({ allow: true })
     }
-    return inquirer.prompt({
+    return prompter.prompt({
       type: 'input',
       name: 'age',
       message: 'whats your age?'

@@ -1,3 +1,3 @@
 module.exports = {
-  params: ({ inquirer, args }) => Promise.resolve(args)
+  params: ({ prompter, args }) => Promise.resolve(args)
 }

@@ -1,6 +1,7 @@
 // @flow
 
 import type { Prompter } from './types'
+
 const path = require('path')
 const fs = require('fs')
 const L = require('lodash')
@@ -21,18 +22,18 @@ const prompt = (
     return Promise.resolve({})
   }
 
-  // shortcircuit without inquirer
+  // shortcircuit without prompter
   // $FlowFixMe
   const hooksModule = require(hooksfile)
   if (hooksModule.params) {
     return hooksModule.params({ args })
   }
 
-  // lazy loads inquirer (80ms load time)
+  // lazy loads prompter
   // everything below requires it
   const prompter = createPrompter()
   if (hooksModule.prompt) {
-    return hooksModule.prompt({ inquirer: prompter, args })
+    return hooksModule.prompt({ prompter, inquirer: prompter, args })
   }
   return prompter.prompt(hooksModule)
 }

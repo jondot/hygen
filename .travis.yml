@@ -1,7 +1,7 @@
 language: node_js
 cache: yarn
 node_js:
-  - "8"
+  - "10"
   - node
 
 before_install:
@@ -14,7 +14,7 @@ script: yarn test
 jobs:
   include:
     - stage: npm
-      node_js: "8"
+      node_js: "10"
       if: tag =~ ^v\d.*
       deploy:
           provider: npm
@@ -27,7 +27,7 @@ jobs:
             skip_cleanup: true
     - stage: docs
       script: yarn docs:prepare && yarn docs:build
-      node_js: "8"
+      node_js: "10"
       deploy:
         provider: pages
         local-dir: hygen.io/public
@@ -37,7 +37,7 @@ jobs:
     - stage: binary releases
       script: yarn standalone
       if: tag =~ ^v\d.*
-      node_js: "8"
+      node_js: "10"
       deploy:
         provider: releases
         api_key: $GITHUB_TOKEN
