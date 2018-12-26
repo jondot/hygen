@@ -1,17 +1,19 @@
-jest.mock('inquirer', () => ({
+jest.mock('enquirer', () => ({
   prompt: null
 }))
 
 const SKIP_ON_WINDOWS = process.platform === 'win32' ? ['shell'] : []
 
 const L = require('lodash')
-const { runner } = require('../index')
 const path = require('path')
 const dirCompare = require('dir-compare')
+
 const opts = { compareContent: true }
 const fs = require('fs-extra')
-const inquirer = require('inquirer')
+const enquirer = require('enquirer')
+const { runner } = require('../index')
 const Logger = require('../logger')
+
 const logger = new Logger(console.log)
 const fail = () => {
   throw new Error('set up prompt in testing')
@@ -30,7 +32,7 @@ const metaverse = (folder, cmds, promptResponse = null) =>
         return require('execa').shell(action, opts)
       },
       logger,
-      createPrompter: () => require('inquirer')
+      createPrompter: () => require('enquirer')
     }
     // await fs.remove(path.join(metaDir, 'given'))
     console.log('before', fs.readdirSync(metaDir))
@@ -45,15 +47,15 @@ const metaverse = (folder, cmds, promptResponse = null) =>
         continue
       }
 
-      inquirer.prompt = fail
+      enquirer.prompt = fail
       if (promptResponse) {
         const last = L.last(cmd)
         if (L.isObject(last)) {
           cmd = L.take(cmd, cmd.length - 1)
-          inquirer.prompt = () =>
+          enquirer.prompt = () =>
             Promise.resolve({ ...promptResponse, ...last })
         } else {
-          inquirer.prompt = () => Promise.resolve(promptResponse)
+          enquirer.prompt = () => Promise.resolve(promptResponse)
         }
       }
       const res = await runner(cmd, config)
@@ -79,7 +81,7 @@ const metaverse = (folder, cmds, promptResponse = null) =>
 
 describe('metaverse', () => {
   beforeEach(() => {
-    inquirer.prompt = fail
+    enquirer.prompt = fail
   })
   metaverse('hygen-extension', [['hygen-js', 'new']], { overwrite: true })
   metaverse(
@@ -117,7 +119,7 @@ describe('metaverse', () => {
         'premade-email@foobar.com'
       ]
     ],
-    // this is all of the responses inquirer gives out from _all_ tests, ever.
+    // this is all of the responses enquirer gives out from _all_ tests, ever.
     // it's best to just keep it that way to be simple, and each prompt-dealing test
     // has its own set of uniquely named variables.
     {
@@ -128,7 +130,7 @@ describe('metaverse', () => {
 
       // recursive-prompt
       email: 'some-email@foobar.com',
-      confirmationEmail: 'confirmed-some-email@foobar.com'
+      emailConfirmation: 'confirmed-some-email@foobar.com'
     }
   )
 })

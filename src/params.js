@@ -1,6 +1,7 @@
 // @flow
 
 import type { RunnerConfig } from './types'
+
 const L = require('lodash')
 const path = require('path')
 const yargs = require('yargs-parser')
