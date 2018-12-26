@@ -1,16 +1,70 @@
-# Changelog
-All notable changes to this project will be documented in this file.
+# [2.0.0](https://github.com/jondot/hygen/compare/v1.6.4...v2.0.0) (2018-12-26)
 
-The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
-and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [Unreleased]
-- TBD
+### Performance Improvements
 
-## [2.0.0] - 2018-11-19
+* replace inquirer with enquirer gains 300ms startup time ([776b336](https://github.com/jondot/hygen/commit/776b336))
 
-### Changed
 
-- New prompter - [enquirer](https://github.com/enquirer/enquirer) to replace inquirer. This has led to 5x increase in speed, our best performance yet.
-    - Expect breaking changes, enquirer is mostly compatible with inquirer but not direct swap if you're using advanced features. To keep compatibility [see this](https://github.com/enquirer/enquirer/issues/40)
+### BREAKING CHANGES
+
+* inquirer and enquirer are not 100% compatible. see docs for notes about this
+
+
+
+# [2.0.0](https://github.com/jondot/hygen/compare/v1.6.4...v2.0.0) (2018-12-26)
+
+
+### Performance Improvements
+
+* replace inquirer with enquirer gains 300ms startup time ([776b336](https://github.com/jondot/hygen/commit/776b336))
+
+
+### BREAKING CHANGES
+
+* inquirer and enquirer are not 100% compatible. see docs for notes about this
+
+
+
+# [2.0.0](https://github.com/jondot/hygen/compare/v1.6.4...v2.0.0) (2018-12-26)
+
+
+### Performance Improvements
+
+* replace inquirer with enquirer gains 300ms startup time ([776b336](https://github.com/jondot/hygen/commit/776b336))
+
+
+### BREAKING CHANGES
+
+* inquirer and enquirer are not 100% compatible. see docs for notes about this
+
+
+
+# [2.0.0](https://github.com/jondot/hygen/compare/v1.6.4...v2.0.0) (2018-12-26)
+
+
+### Performance Improvements
+
+* replace inquirer with enquirer gains 300ms startup time ([776b336](https://github.com/jondot/hygen/commit/776b336))
+
+
+### BREAKING CHANGES
+
+* inquirer and enquirer are not 100% compatible. see docs for notes about this
+
+
+
+# [2.0.0](https://github.com/jondot/hygen/compare/v1.6.4...v2.0.0) (2018-12-26)
+
+
+### Performance Improvements
+
+* replace inquirer with enquirer gains 300ms startup time ([776b336](https://github.com/jondot/hygen/commit/776b336))
+
+
+### BREAKING CHANGES
+
+* inquirer and enquirer are not 100% compatible. see docs for notes about this
+
+
 
