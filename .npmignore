@@ -9,5 +9,5 @@ docs/
 __tests__/
 .tool-versions
 hygen.io/
-src/
+src/__tests__/
 content/
