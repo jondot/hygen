@@ -21,7 +21,7 @@ jobs:
           script: yarn build
           email: "jondotan@gmail.com"
           api_key:
-            secure: fGqPo4don8YwuxgM/QR68RvnSD38prYHqjWyXfdYTFi5xcVvUllIO/REtbQb0X1scbCP4WlvDVYQ7iCH/eh7uXM40RO0B+KSrHOUgngKtLKF104IRLZ48U4qkrJqB+VBxXHpqe2dlQyyOU4Z0RdcSI838EN7WSP802tWC4R/Vsg3B+E/gILnzjGX4dGFdHIqTOpMpcgchQRcfXIkHpFfQWF2Ww6NFwQ5aZzhmXPOxAt9AaaIwrNoNcndh+AqshDVgZzy2+S4NtPLEaEz7YdqqogkFoG1ma+oj4ZM/MhfESYowZYLqo7iqtGFN6RGxoivTUBWwakMz9/2ELrstKD7rtT3U7Et5HSt05sRnHXgNPTSYylnZJXbgprgT/gP9rhdQAMVZS2x6fX/WG4+ifIUG78ZWLLFfMMDn6OhRzbiJsHNMrXkxgg0vuMMU6gMriNHwNsA5Tva2wvuklrqr0nBA3+7YchczQspS+akKHIDI3fXxgBTJNXlqRuz1lWfN26hNxVOzBdmxPIsfwnYC703pc46iPPrpWp5wREjKJfxy85BSvCPO8K1/T7O4CnpIlgcVIGBtVopnhoKXQNVEbiEyiU3I2vyTthgK2ieJtacsu6EeQ2zCgAC73n/9W+nexu9zXvBK7lZSIHgoDByHCKuqBY0LIwrsLg7WRA46wn/VIk=
+            secure: p34hE6/SsJqd8DrtEnRd+RP9fQwSMa+4q/qOTPlJSWIE08rgdt+vZ2gvUtVBaQWUjgL1lYt1OWPiPDBpVKsPYHfGPfxGrW5Q341y97nONqxn0qtLfxduEjFSW0q2ywav3Pz/vSP14g1MCty07Df066J1tRuJVx75FoIuzD8L3GeHApOL/LAYH++jA5l6BMZCF+tn3xNdUPwZB3v7LbsOSnXv8q/zXua3MqYJdB63NWs6/0meRymf9jj3LgjbLjuAhap7MtF+WJ+WCUePZvg24bhSdMhnXItMrPEXkqmWtVQNGsNSc1T/P2Wzo8EEoD5VHw0LHDDFl4Pt/BkGdgzx9YUjYyN60hFnfhFc7HrwlpOQ6zY+8tzERhYoScaBrzzVIXnBjeWuRGYrbMmSsYNhKvkbRc1lShOXDFoCiTPTQlI/xMijnn5uRcxjSgVeeCUdNjI9SkXEJ8OfPM/oKhWYXImcrI4eAE0lD+MLBAI428ip4xQUzgFlpaUu1LL+AcyyEIgLg9FyJtHwD8M4vKs9BwFOuyW2aEU5vmdXrQkL3MhOi3+m203dzgI4ZcbqYuBw9m1bP4AB1KV4yqxmAthnZ2pLwag2KQm4V9jO6aEOBtxV1keoeLvNV0fGh9wKgdEKC6jmHqW2e2sCc2v8kh3VmJlK+Q4tBlwQ5IJPVecbYyw=
           on:
             tags: true
             skip_cleanup: true
