@@ -6,6 +6,7 @@ import createResult from './result'
 const path = require('path')
 const fs = require('fs-extra')
 const { red } = require('chalk')
+
 const add = async (
   action: RenderedAction,
   args: any,
@@ -23,7 +24,7 @@ const add = async (
   const shouldNotOverwrite =
     unless_exists !== undefined && unless_exists === true
 
-  if (await fs.exists(absTo)) {
+  if (!process.env.HYGEN_OVERWRITE && (await fs.exists(absTo))) {
     if (
       shouldNotOverwrite ||
       !(await prompter

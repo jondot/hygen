@@ -117,3 +117,14 @@ to: "<%= h.src() %>/src/index.js"
 ```
 
 See [this discussion](https://github.com/jondot/hygen/issues/49) for more.
+
+## Can I Force Hygen to always Overwrite? (e.g. --force)
+
+To avoid prompts, and force overwrites you can use the `HYGEN_OVERWRITE` environment flag.
+
+```
+$ HYGEN_OVERWRITE=1 hygen generator new --name foobar
+```
+
+If you use this, Hygen will always write out content without asking even if the file already exists.
+
