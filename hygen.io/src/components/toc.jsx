@@ -29,7 +29,9 @@ class TableOfContents extends React.Component {
     })
 
     postNodeSections.forEach(section => {
-      section.sort((a, b) => a.docNumber > b.docNumber)
+      section.forEach(s => console.log(s.docNumber))
+      section.sort((a, b) => a.docNumber - b.docNumber)
+      console.log(section)
     })
     return postNodeSections
   }
@@ -42,9 +44,10 @@ class TableOfContents extends React.Component {
       const sectionDocs = []
       section.forEach(node => {
         sectionDocs.push(
-          <DocContainer>
+          <DocContainer key={node.path}>
             <Link to={node.path}>
               <OffsetLi
+                key={node.path}
                 selected={
                   this.props.location &&
                   node.path === this.props.location.pathname
@@ -57,7 +60,7 @@ class TableOfContents extends React.Component {
         )
       })
       listItems.push(
-        <li className="section">
+        <li className="section" key={idx}>
           <h5 className="tocHeading docSearch-lvl0">{sectionTitles[idx]}</h5>
           <ul className="sectionItems">{sectionDocs}</ul>
         </li>
