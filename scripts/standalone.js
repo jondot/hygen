@@ -18,10 +18,18 @@ const main = async () => {
 
     await fs.remove(`${wd}/tar-${file}`)
     await fs.mkdir(`${wd}/tar-${file}`)
-    await fs.move(`${wd}/${file}`, `${wd}/tar-${file}/hygen`)
-    await execa.shell(
-      `cd ${wd}/tar-${file} && tar -czvf ../hygen.${plat}.v${v}.tar.gz hygen`
-    )
+    // give Windows special treatment: it should be a zip file and keep an .exe suffix
+    if(plat === 'win.exe'){
+      await fs.move(`${wd}/${file}`, `${wd}/tar-${file}/hygen.exe`)
+      await execa.shell(
+        `cd ${wd}/tar-${file} && zip ../hygen.${plat}.v${v}.zip hygen.exe`
+      )
+    } else {
+      await fs.move(`${wd}/${file}`, `${wd}/tar-${file}/hygen`)
+      await execa.shell(
+        `cd ${wd}/tar-${file} && tar -czvf ../hygen.${plat}.v${v}.tar.gz hygen`
+      )
+    }
     await fs.remove(`${wd}/tar-${file}`)
   }
 
