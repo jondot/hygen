@@ -24,6 +24,7 @@ const render = async (
 ): Promise<Array<RenderedAction>> =>
   await fs
     .readdir(args.actionfolder)
+    .then(things => things.sort((a, b) => a.localeCompare(b)))
     .then(map(_ => path.join(args.actionfolder, _)))
     .then(filter(f => !L.find(ignores, ig => L.endsWith(f, ig))))
     .then(map(file => fs.lstat(file).then(stat => ({ file, stat }))))
