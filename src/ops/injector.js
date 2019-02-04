@@ -7,7 +7,7 @@ const injector = (action: RenderedAction, content: string): string => {
   const { attributes: { skip_if, eof_last }, attributes, body } = action
   const lines = content.split('\n')
   //eslint-disable-next-line
-  const shouldSkip = skip_if && !!L.find(lines, _ => _.match(skip_if))
+  const shouldSkip = skip_if && !!content.match(skip_if)
 
   if (!shouldSkip) {
     const idx = indexByLocation(attributes, lines)
@@ -28,13 +28,36 @@ const injector = (action: RenderedAction, content: string): string => {
   return lines.join('\n')
 }
 
-const before = (_, lines) => L.findIndex(lines, l => l.match(_))
+const getPragmaticIndex = (pattern, lines, isBefore) => {
+
+  const oneLineMatchIndex = L.findIndex(lines, l => l.match(pattern));
+
+  if (oneLineMatchIndex < 0) {
+    const fullText = lines.join('\n');
+    const fullMatch = fullText.match(new RegExp(pattern, "m"));
+  
+    if (fullMatch && fullMatch.length) {
+
+      if (isBefore) {
+        const fullTextUntilMatchStart = fullText.substring(0, fullMatch.index);
+        return fullTextUntilMatchStart.split('\n').length -1;
+      } else {
+        const matchEndIndex = fullMatch.index + fullMatch.toString().length;
+        const fullTextUntilMatchEnd = fullText.substring(0, matchEndIndex);
+        return fullTextUntilMatchEnd.split('\n').length;
+      }
+    }
+  }
+
+  return oneLineMatchIndex + (isBefore ? 0 : 1);
+}
+
 const locations = {
   at_line: _ => _,
   prepend: _ => 0,
   append: (_, lines) => lines.length - 1,
-  before,
-  after: (_, lines) => before(_, lines) + 1
+  before: (_, lines) => getPragmaticIndex(_, lines, true),
+  after: (_, lines) => getPragmaticIndex(_, lines, false)
 }
 const indexByLocation = (attributes: any, lines: Array<string>): number => {
   const pair = L.find(L.toPairs(attributes), ([k, v]) => locations[k])
