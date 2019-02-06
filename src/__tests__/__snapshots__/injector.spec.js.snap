@@ -87,3 +87,36 @@ exports[`injector skip_if "source" exists 1`] = `
 
     "
 `;
+
+exports[`injector correctly interpret multi-line after regex 1`] = `
+"
+    source 'http://rubygems.org'
+    gem 'rails'
+    gem 'nokogiri'
+    gem 'kamikaze' # added by hygen
+    gem 'httparty'
+
+    "
+`;
+
+exports[`injector correctly interpret multi-line before regex 1`] = `
+"
+    source 'http://rubygems.org'
+    gem 'kamikaze' # added by hygen
+    gem 'rails'
+    gem 'nokogiri'
+    gem 'httparty'
+
+    "
+`;
+
+
+exports[`injector correctly interpret multi-line skip_if regex 1`] = `
+"
+    source 'http://rubygems.org'
+    gem 'rails'
+    gem 'nokogiri'
+    gem 'httparty'
+
+    "
+`;

@@ -20,6 +20,19 @@ to: app/reducers/<%= reducer.toLowerCase() %>.js
 Hello <%= defaulted %>.
 ```
 
+
+## Can I inject using regular expressions that span across newlines in the target file?
+
+`hygen` is designed to work on a line-by-line basis. Injection inserts the _lines_ of the template _between lines_ (by `\n`) of the target file according to the expression supplied. 
+
+However, as of v2.1.2 or later, `hygen` supports multi-line regular expressions in the `before`, `after`, and `skip_if` injection properties.  This works in the following ways: 
+
+* `skip-if` is now always evaluated as a potentially multi-line expression across the entire target file.
+
+* `before` and `after` first try to match the expression within any single line of the target file. If no match is found, they then attempt a multi-line match.
+
+* `before` will inject before the line on which the match began, and `after` will inject after the line on which the match ended.
+
 ## I Want To Use Generators From a Single Place
 
 If you have several `_templates` locations throughout a project (let's say for a server and client), you might usually `cd` into each sub-project to use hygen like so:

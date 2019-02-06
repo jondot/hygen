@@ -114,4 +114,46 @@ describe('injector', () => {
       )
     ).toMatchSnapshot()
   })
+  it('correctly interpret multi-line after regex', () => {
+    expect(
+      injector(
+        {
+          attributes: {
+            after: "rails[a-z\\:\\/\\.'\\s]*giri",
+            eof_last: false
+          },
+          body: "    gem 'kamikaze' # added by hygen"
+        },
+        gemfile
+      )
+    ).toMatchSnapshot()
+  })
+  it('correctly interpret multi-line before regex', () => {
+    expect(
+      injector(
+        {
+          attributes: {
+            before: "rails[a-z\\:\\/\\.'\\s]*giri",
+            eof_last: false
+          },
+          body: "    gem 'kamikaze' # added by hygen"
+        },
+        gemfile
+      )
+    ).toMatchSnapshot()
+  })
+  it('correctly interpret multi-line skip_if regex', () => {
+    expect(
+      injector(
+        {
+          attributes: {
+            skip_if: "rails[a-z\\:\\/\\.'\\s]*giri",
+            after: "gem 'rails'"
+          },
+          body: "    gem 'kamikaze' # added by hygen"
+        },
+        gemfile
+      )
+    ).toMatchSnapshot()
+  })
 })
