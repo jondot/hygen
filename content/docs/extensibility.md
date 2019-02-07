@@ -55,3 +55,33 @@ module.exports = {
 ```
 
 Note that beyond inlining a utility function like in this example, you can require and use any piece of code in your project here and export it for Hygen to use.
+
+# Plugins
+
+Plugins allow you to define functions that called with frontmatter attributes.
+
+```js
+// .hygen.js
+const gruntWrapper = require('my/grunt-wrapper')
+module.exports({
+  plugins: {
+    grunt: gruntWrapper
+  }
+})
+
+```
+
+# Plugins
+
+Plugins allow you to define functions that called with frontmatter attributes
+. and return a string.  That string is then executed via the shell
+
+```js
+// .hygen.js
+module.exports({
+  plugins: {
+    yarn: ({attributes: {yarn}}, args, config) => `yarn add ${yarn}`
+  }
+})
+
+```
