@@ -78,6 +78,8 @@ package.json
 
 Every time you call it, `hygen mailer new` automagically picks up the closest `_templates` folder, and renders all files in `mailer/new`. In this case it's `html.ejs.t` and `text.ejs.t`.
 
+As of [PR 102](https://github.com/jondot/hygen/pull/102) Hygen will recursively walk your template folder, so that you can structure your generators as elaborately as you wish.
+
 [[info]]
 |###### Hygen is Contextual
 |`hygen` simplifies things by asserting "command structure is folder structure".

@@ -8,6 +8,7 @@ const ejs = require('ejs')
 const fm = require('front-matter')
 const path = require('path')
 const context = require('./context')
+const { resolve } = require('path');
 
 // for some reason lodash/fp takes 90ms to load.
 // inline what we use here with the regular lodash.
@@ -18,24 +19,23 @@ const ignores = ['prompt.js', 'index.js']
 const renderTemplate = (tmpl, locals, config) =>
   L.isString(tmpl) ? ejs.render(tmpl, context(locals, config)) : tmpl
 
+async function getFiles(dir) {
+  const subdirs = await fs.readdir(dir);
+  const files = await Promise.all(subdirs.map(async (subdir) => {
+    const res = resolve(dir, subdir);
+    return (await fs.stat(res)).isDirectory() ? getFiles(res) : res;
+  }));
+  return Array.prototype.concat(...files);
+}
+
 const render = async (
   args: any,
   config: RunnerConfig
 ): Promise<Array<RenderedAction>> =>
-  await fs
-    .readdir(args.actionfolder)
-    .then(things => things.sort((a, b) => a.localeCompare(b)))
-    .then(map(_ => path.join(args.actionfolder, _)))
-    .then(filter(f => !L.find(ignores, ig => L.endsWith(f, ig))))
-    .then(map(file => fs.lstat(file).then(stat => ({ file, stat }))))
-    .then(_ => Promise.all(_))
-    .then(
-      filter(
-        ({ file, stat }) =>
-          stat.isFile() && (args.subaction ? file.match(args.subaction) : true)
-      )
-    )
-    .then(map(({ file }) => file))
+  await getFiles(args.actionfolder)
+    .then(things => things.sort((a, b) => a.localeCompare(b))) // TODO: add a test to verify this sort
+    .then(filter(f => !L.find(ignores, ig => L.endsWith(f, ig)))) // TODO: add a test for ignoring prompt.js and index.js
+    .then(filter(file => args.subaction ? file.match(args.subaction) : true))
     .then(
       map(file =>
         fs.readFile(file).then(text => ({ file, text: text.toString() }))

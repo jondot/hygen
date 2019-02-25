@@ -52,6 +52,16 @@ describe('render ng', () => {
     expect(res[1].file).toMatch(/full/)
   })
 
+  it('render should include files sorted into subfolders', async () => {
+    const res = await render({
+      bill: 17,
+      actionfolder: fixture('app/action-multifiles-nest')
+    })
+    expect(res.length).toEqual(2)
+    expect(res[0].file).toMatch(/capitalized/)
+    expect(res[1].file).toMatch(/full/)
+  })
+
   it('render with subaction should filter only to that subaction', async () => {
     const res = await render({
       bill: 17,
