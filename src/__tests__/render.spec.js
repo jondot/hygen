@@ -5,23 +5,45 @@ const render = require('../render')
 const fixture = name => path.join(__dirname, './fixtures', name)
 
 describe('render ng', () => {
-  it('empty', async () => {
-    const res = await render({ actionfolder: fixture('app/action-empty') })
-    expect(res[0].file).toMatch(/empty/)
-    res[0].file = 'empty.ejs.t'
-    expect(res[0].body).toEqual('')
-  })
-  it('full', async () => {
-    const res = await render({
-      bill: 17,
-      name: 'someone',
-      actionfolder: fixture('app/action-full')
-    })
-    expect(res[0].file).toMatch(/full/)
-    res[0].file = 'full.ejs.t'
-    expect(res[0].body).toMatch('Find me at <i>app/mailers/hello/html.ejs</i>')
-    expect(res[0].body).toMatch('You owe 17')
-  })
+  it('should provide correct file name and body should be empty if template is empty', async () => {
+    // setup
+    const expectedFile = /empty/;
+    const expectedBody = '';
+    // act
+    const actual = await render({ actionfolder: fixture('app/action-empty') });
+    const actualFile = actual[0].file;
+    const actualBody = actual[0].body;
+    // assert
+    expect(actualFile).toMatch(expectedFile);
+    expect(actualBody).toEqual(expectedBody);
+  });
+  it('should provide correct file name full and apply variable correctly ', async () => {
+    // setup
+    const expectedVariableText = /You owe 17/;
+    const expectedFileName = /full/;
+    const expectedFilePath = 'foo/someone/bar';
+    // act
+    const actual = await render({
+                    bill: 17,
+                    name: 'someone',
+                    actionfolder: fixture('app/action-full')
+                  });
+    // get template that was loaded
+    const actualFile = actual[0].file;
+    // get the To that was generated
+    const actualTo = actual[0].attributes.to;
+    // get body that was generated from template
+    const actualBody = actual[0].body;
+    // assert
+    // is correct template file
+    expect(actualFile).toMatch(expectedFileName);
+    // generated the correct To file
+    expect(actualTo).toMatch(expectedFilePath);
+    // i guess just testing this text is still there
+    expect(actualBody).toMatch('Find me at <i>app/mailers/hello/html.ejs</i>');
+    // applied bill variable correctly
+    expect(actualBody).toMatch(expectedVariableText)
+  });
 
   it('capitalized', async () => {
     const res = await render({
