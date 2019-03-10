@@ -1,7 +1,7 @@
-import { configLookup, ConfigResolver } from '../config'
 import L from 'lodash'
 import path from 'path'
 import os from 'os'
+import { configLookup, ConfigResolver } from '../config'
 
 const sep = path.sep
 describe(`config lookup with separator '${sep}'`, () => {
@@ -61,8 +61,6 @@ describe('resolver', () => {
     })
     const config = await resolver.resolve('/foo/bar')
 
-    expect(exists).toMatchSnapshot()
-    expect(load).toMatchSnapshot()
     expect(config).toEqual({ param: 1 })
   })
 
@@ -78,8 +76,6 @@ describe('resolver', () => {
     })
     const config = await resolver.resolve('/foo/bar')
 
-    expect(exists).toMatchSnapshot()
-    expect(load).toMatchSnapshot()
     expect(config).toEqual({ param: 1 })
   })
 })
