@@ -6,6 +6,22 @@ category: "tech"
 type: "doc"
 ---
 
+## Why Should I use Hygen?
+
+There's a few generator toolkit right now, arguably Yeoman is the most popular. To understand why to use Hygen over anything else, first -- some context.
+
+Hygen was born to solve developer effectiveness in a multi-team, multi-module monorepo containing frontend (React, Redux) and backend (Node.js) projects. Every team had its nuances, ceremonies and how it kept itself effective. Every project had those as well.
+
+Using Hygen, developers could create many different generators, suiting any kind of development workflow, and they could change, evolve, improve and adapt their generators to their ever evolving project and workflow.
+When this is the reality, you also want to keep your generator code as close to your actual code as possible. For example, you want to include generator changes in the same PR as your code for it to be reviewed.
+
+Using Yeoman, you focus on consuming _community generators_ rather than producing your own. And in the context that we've described, it would be like hitting a brick wall. You can't build Yeoman generators fast enough. More over, you can't keep them close to your codebase because they need to be independent projects, and you need to develop the skillset, and every time you want to tweak something, you need to call your Yeoman expert.
+
+While Yeoman is great for building self-sufficient, whole-sale generator for a specific problem by a person that's passionate about it -- with Hygen, your _team_ builds generators, all the time, collaboratively.
+
+
+
+
 ## How do I lowercase, uppercase or transform variables?
 
 `ejs` lets you use Javascript, so plenty of what you know is already available. You can transform text inline and make new variables in code blocks on template body on the fly.
