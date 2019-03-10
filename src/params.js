@@ -13,7 +13,7 @@ const params = async (
 ): any => {
   const argv = yargs(externalArgv)
 
-  const [generator, action] = argv._
+  const [generator, action, name] = argv._
   if (!generator || !action) {
     return { generator, action, templates }
   }
@@ -34,7 +34,8 @@ const params = async (
       subaction
     },
     promptArgs,
-    L.omit(argv, ['_'])
+    L.omit(argv, ['_']),
+    name && { name }
   )
 
   return args

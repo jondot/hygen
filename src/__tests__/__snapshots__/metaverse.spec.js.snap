@@ -232,6 +232,20 @@ Object {
 }
 `;
 
+exports[`metaverse hygen-templates: positional-name new acmecorp 1`] = `
+Object {
+  "actions": Array [
+    Object {
+      "status": "added",
+      "subject": "given/positional-name/acmecorp/always.txt",
+      "timing": -1,
+      "type": "add",
+    },
+  ],
+  "success": true,
+}
+`;
+
 exports[`metaverse hygen-templates: recursive-prompt new 1`] = `
 Object {
   "actions": Array [

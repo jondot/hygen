@@ -99,6 +99,7 @@ describe('metaverse', () => {
       ['conditional-rendering', 'new', '--notGiven'],
       ['add-unless-exists', 'new', '--message', 'foo'],
       ['recursive-prompt', 'new'],
+      ['positional-name', 'new', 'acmecorp'],
       ['existing-params', 'new', '--email', 'premade-email@foobar.com'],
       [
         'existing-params',

@@ -35,17 +35,20 @@ With this done, let's use a `hygen` generator.
 To use a generator, we supply a `GENERATOR ACTION` pair like so (here `mailer` and `new` are examples).
 
 ```
-$ hygen mailer new
+$ hygen mailer new [NAME]
          |      ^----- action
          `------------ generator
 ```
+
+[[info]]
+| New in hygen 4.0.0: a positional `NAME` parameter to save a bit of typing. With versions prior to 4.0.0 you still have to use `--name NAME`.
 
 Here's a quick run-down to get to your own generator:
 
 ```bash
 $ hygen init self
-$ hygen generator new --name awesome-generator
-$ hygen awesome-generator new --name hello
+$ hygen generator new awesome-generator
+$ hygen awesome-generator new hello
 ```
 
 To see the `generator` help, you could always do:
@@ -55,8 +58,8 @@ $ hygen generator help
 
 Loaded templates: _templates
 help:
-hygen generator new --name [NAME] --action [ACTION]
-hygen generator with-prompt --name [NAME] --action [ACTION]
+hygen generator new [NAME] --action [ACTION]
+hygen generator with-prompt [NAME] --action [ACTION]
 ```
 
 Congratz! you've made a new generator called `awesome-generator`!
@@ -82,8 +85,8 @@ Loaded templates: src/templates
 
 This creates a project-local `_templates` folder for you at your source root with two helper generators that saves you time:
 
-* `hygen generator new --name generatorName` - builds a new generator for you
-* `hygen generator with-prompt new --name generatorName` - the same as before, only this one will be prompt driven.
+* `hygen generator new generatorName` - builds a new generator for you
+* `hygen generator with-prompt new generatorName` - the same as before, only this one will be prompt driven.
 
 [[info]]
 |###### Template Locality
@@ -92,7 +95,7 @@ This creates a project-local `_templates` folder for you at your source root wit
 Still in your project root, let's create a new generator now:
 
 ```yaml
-$ hygen generator new --name mygen
+$ hygen generator new mygen
 Loaded templates: _templates
        added: _templates/mygen/new/hello.ejs.t
 ```
@@ -121,15 +124,15 @@ There are more ways to play with a generator after you've built it:
 
 ```perl
 # generate all files, with a 'name' variable
-$ hygen example-prompt new --name reporter
+$ hygen example-prompt new reporter
 
 
 # generate one specific file, picked up based on the substring 'mailer'
-$ hygen example-prompt new:mailer --name reporter
+$ hygen example-prompt new:mailer reporter
 
 
 # generate all resources that correspond to a regular expression
-$ hygen example-prompt 'new:.*html' --name reporter
+$ hygen example-prompt 'new:.*html' reporter
 ```
 
 You made it to the end! nice! Now check out [templates](/templates) and [generators](/generators).

@@ -25,6 +25,10 @@
 ✅ Running shell commands  
 ✅ Super fast, constantly optimized for speed  
 
+
+> New in hygen v4.0.0: a positional `NAME` parameter. 
+> Now you can use `$ hygen component new MyComponent` instead of `$ hygen component new --name MyComponent`.
+
 ## Quick Start
 
 Hygen can be used to supercharge your workflow with [Redux](http://www.hygen.io/redux), [React Native](http://www.hygen.io/react-native), [Express](http://www.hygen.io/express) and more, by allowing you avoid manual work and generate, add, inject and perform custom operations on your codebase.
@@ -60,7 +64,7 @@ $ hygen init self
 Build your first generator, called `mygen`:
 
 ```
-$ hygen generator new --name mygen
+$ hygen generator new mygen
 
 Loaded templates: _templates
        added: _templates/mygen/new/hello.ejs.t
@@ -80,7 +84,7 @@ You've generated content into the current working directory in `app/`. To see ho
 You can build a generator that uses an interactive prompt to fill in a variable:
 
 ```
-$ hygen generator with-prompt --name mygen
+$ hygen generator with-prompt mygen
 
 Loaded templates: _templates
        added: _templates/mygen/with-prompt/hello.ejs.t
@@ -142,7 +146,7 @@ And yet, if you don't like project-local templates:
 The templates folder structure _maps directly_ to the command structure:
 
 ```
-$ hygen worker new --name jobrunner
+$ hygen worker new jobrunner
 ```
 
 For this command, `hygen worker new` maps to `_templates/worker/new` and all files within `worker/new` are rendered.
@@ -293,7 +297,7 @@ feeds parameters and spits out files. Try to keep it that way.
 Running `hygen` locally, rigged to your current codebase (note the additional `--` to allow passing flags)
 
 ```
-$ yarn hygen -- mailer new --name foobar
+$ yarn hygen -- mailer new foobar
 ```
 
 Running tests in watch mode:
