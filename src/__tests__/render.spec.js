@@ -45,55 +45,82 @@ describe('render ng', () => {
     expect(actualBody).toMatch(expectedVariableText)
   });
 
-  it('capitalized', async () => {
-    const res = await render({
-      name: 'someone',
-      actionfolder: fixture('app/action-capitalized')
-    })
-    expect(res[0].file).toMatch(/capitalized/)
-    res[0].file = 'capitalize.ejs.t'
-    expect(res[0].body).toMatch(/someone and Someone/)
+  it('should capitalize', async () => {
+    // setup
+    const expectedFile = /capitalized/;
+    const expectedBody = /someone and Someone/;
+    // act
+    const response = await render({name: 'someone', actionfolder: fixture('app/action-capitalized')});
+    const actualFile = response[0].file;
+    const actualBody = response[0].body;
+    // assert
+    expect(actualFile).toMatch(expectedFile);
+    expect(actualBody).toMatch(expectedBody);
   })
 
   it('capitalized with default locals', async () => {
-    const res = await render({
-      actionfolder: fixture('app/action-capitalized-defaults')
-    })
-    expect(res[0].file).toMatch(/capitalized/)
-    res[0].file = 'capitalize.ejs.t'
-    expect(res[0].body).toMatch(/unnamed and Unnamed/)
+    // setup
+    const expectedFile = /capitalized/;
+    const expectedBody = /unnamed and Unnamed/;
+    // act
+    const response = await render({actionfolder: fixture('app/action-capitalized-defaults')});
+    const actualFile = response[0].file;
+    const actualBody = response[0].body;
+    // assert
+    expect(actualFile).toMatch(expectedFile);
+    expect(actualBody).toMatch(expectedBody);
   })
 
-  it('render should do all files in an action folder ', async () => {
-    const res = await render({
-      bill: 17,
-      actionfolder: fixture('app/action-multifiles')
-    })
-    expect(res.length).toEqual(2)
-    expect(res[0].file).toMatch(/capitalized/)
-    expect(res[1].file).toMatch(/full/)
+  it('should render all files in an action folder ', async () => {
+    // setup
+    const expectedFileCount = 2;
+    const expectedFileOne = /capitalized/;
+    const expectedFileTwo = /full/;
+    // act
+    const response = await render({bill: 17, actionfolder: fixture('app/action-multifiles')});
+    const actualFileCount = response.length;
+    const actualFileOne = response[0].file;
+    const actualFileTwo = response[1].file;
+    // assert
+    expect(actualFileCount).toEqual(expectedFileCount);
+    expect(actualFileOne).toMatch(expectedFileOne);
+    expect(actualFileTwo).toMatch(expectedFileTwo);
   })
 
-  it('render should include files sorted into subfolders', async () => {
-    const res = await render({
-      bill: 17,
-      actionfolder: fixture('app/action-multifiles-nest')
-    })
-    expect(res.length).toEqual(2)
-    expect(res[0].file).toMatch(/capitalized/)
-    expect(res[1].file).toMatch(/full/)
+  it('should include files nested subfolders', async () => {
+    // setup
+    const expectedFileCount = 2;
+    const expectedFileOne = /capitalized/;
+    const expectedFileTwo = /full/;
+    // act
+    const response = await render({bill: 17, actionfolder: fixture('app/action-multifiles-nest')});
+    const actualFileCount = response.length;
+    const actualFileOne = response[0].file;
+    const actualFileTwo = response[1].file;
+    // assert
+    expect(actualFileCount).toEqual(expectedFileCount);
+    expect(actualFileOne).toMatch(expectedFileOne);
+    expect(actualFileTwo).toMatch(expectedFileTwo);
   })
 
-  it('render with subaction should filter only to that subaction', async () => {
-    const res = await render({
+  it('should filter what will be rendered only to that subaction value', async () => {
+    // setup
+    const expectedFileCount = 1;
+    const expectedFile = /capitalized/;
+    // act
+    const response = await render({
       bill: 17,
       actionfolder: fixture('app/action-multifiles'),
       subaction: 'capitalized'
-    })
-    expect(res.length).toEqual(1)
-    expect(res[0].file).toMatch(/capitalized/)
+    });
+    const actualFileCount = response.length;
+    const actualFile = response[0].file;
+    // assert
+    expect(actualFileCount).toEqual(expectedFileCount)
+    expect(actualFile).toMatch(expectedFile)
   })
 
+  // FIXME this test doesn't seem to be actually testing injection unless i'm missing something
   it('inject', async () => {
     const res = await render({
       name: 'devise',
@@ -105,12 +132,15 @@ describe('render ng', () => {
   })
 
   it('should allowrs to use changeCase helpers in templates', async () => {
-    const res = await render({
-      name: 'FooBar',
-      actionfolder: fixture('app/action-change-case')
-    })
-    expect(res[0].file).toMatch(/snake/)
-    res[0].file = 'snake.ejs.t'
-    expect(res[0].body).toMatch(/foo_bar/)
+    // setup
+    const expectedFile = /nake/;
+    const expectedBody = /foo_bar/;
+    // act
+    const response = await render({name: 'FooBar', actionfolder: fixture('app/action-change-case')});
+    const actualFile = response[0].file;
+    const actualBody = response[0].body;
+    // assert
+    expect(actualFile).toMatch(expectedFile);
+    expect(actualBody).toMatch(expectedBody);
   })
 })
