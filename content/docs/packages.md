@@ -28,7 +28,7 @@ Now pick [a published module](https://www.npmjs.com/search?q=hygen-) on `npm` an
 $ hygen-add acme-generators
 ```
 
-This installs the `acme-generators` package with the embedded `yarn` so it's versioned and locked, and adds the generators to your current project. Technically, it will _copy_ the generators to your local `_templates` directory, because copying is more resilient and robust rather than referncing something that can change unexpectedly.
+This installs the `acme-generators` package with the embedded `yarn` so it's versioned and locked, and adds the generators to your current project. Technically, it will _copy_ the generators to your local `_templates` directory, because copying is more resilient and robust rather than referencing something that can change unexpectedly.
 
 Once that's done, you can remove `acme-generators` using `yarn`, or leave it if you'd like to sync your templates once in a while.
 
