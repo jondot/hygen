@@ -64,8 +64,11 @@ attributes.
 // .hygen.js
 module.exports({
   plugins: {
-    setupRepo: (..., attributes) => {/* do stuff then */ return 'repo name'} 
-  }
+    setupRepo: (action, args, config) => {
+      /* do stuff */
+       return 'repo name'
+    }, 
+  },
 })
 
 // foo.js.t
