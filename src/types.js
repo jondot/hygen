@@ -22,6 +22,7 @@ export type RunnerConfig = {
   logger: Logger,
   debug: boolean,
   helpers: Object,
+  plugins: Object,
   createPrompter: () => Prompter
 }
 

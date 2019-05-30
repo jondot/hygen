@@ -55,3 +55,24 @@ module.exports = {
 ```
 
 Note that beyond inlining a utility function like in this example, you can require and use any piece of code in your project here and export it for Hygen to use.
+
+# Plugins
+Plugins allow you to define functions that are called with frontmatter 
+attributes. 
+
+```js
+// .hygen.js
+module.exports({
+  plugins: {
+    setupRepo: (..., attributes) => {/* do stuff then */ return 'repo name'} 
+  }
+})
+
+// foo.js.t
+---
+to: ...
+setupRepo: <%= name %>
+---
+...
+const repositoryName = '<%- setupRepo %>'
+```
