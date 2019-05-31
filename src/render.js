@@ -28,6 +28,10 @@ async function getFiles(dir) {
   return Array.prototype.concat(...files);
 }
 
+/* wow,
+  this would need to be refactored into a different form
+  for ignoring generator actions files
+*/
 const render = async (
   args: any,
   config: RunnerConfig

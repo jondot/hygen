@@ -22,6 +22,9 @@ export type RunnerConfig = {
   logger: Logger,
   debug: boolean,
   helpers: Object,
+  ignoredGenerators: Array<string>,
+  ignoredActions: Array<string>,
+  ignoredFiles: Array<string>,
   createPrompter: () => Prompter
 }
 

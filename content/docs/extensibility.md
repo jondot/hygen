@@ -24,11 +24,21 @@ This means:
 
 _Note:_ The current strategy when there are two or more `.hygen.js` files in the path upwards is to _take the first one_ and ignore the rest.
 
+# Ignore Generators and actions
+```javascript
+// .hygen.js
+module.exports = {
+  ignoredGenerators: ['wip'],
+  ignoredActions: ['utils'],
+  ignoredFiles: ['utils.js'],
+}
+```
+
 # Helpers
 
 Here's a template that uses a function that doesn't exist in the helper accessor `h`. This function is plainly called `extended`, for lack of a better name.
 
-```yaml{5}
+```
 ---
 to: given/hygen-js/new.md
 ---
