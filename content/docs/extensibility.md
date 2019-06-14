@@ -60,11 +60,19 @@ Note that beyond inlining a utility function like in this example, you can requi
 Plugins allow you to define functions that are called with frontmatter 
 attributes. 
 
+Each plugin defined will be called after the params step, but before any file
+creation or injection occurs. The result of the plugin function all will be 
+saved in the args for further use by templates.
+
+The `attribute` argument is the value of the frontmatter. 'org/newProject' in
+ the example below. `args` will have add the plugin name as a key and the 
+ result of the function as it's value.
+
 ```js
 // .hygen.js
 module.exports({
   plugins: {
-    setupRepo: (action, args, config) => {
+    setupRepo: (attribute, action, args, config) => {
       /* do stuff */
        return 'repo name'
     }, 
@@ -74,8 +82,8 @@ module.exports({
 // foo.js.t
 ---
 to: ...
-setupRepo: <%= name %>
+setupRepo: 'org/newProject'
 ---
 ...
-const repositoryName = '<%- setupRepo %>'
+const repositoryName = '<%- setupRepo %>' 
 ```
