@@ -4,7 +4,7 @@ import plugin from './plugin'
 const resolve = (attributes, args, config) => {
   const ops = []
   if (config.plugins) {
-    Object.entries.forEach(([key, func]) => {
+    Object.entries(config.plugins).forEach(([key, func]) => {
       if (attributes[key]) ops.push(plugin(key, func))
     })
   }
