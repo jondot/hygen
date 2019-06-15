@@ -1,7 +1,6 @@
 // @flow
 import type { RunnerConfig } from './types'
 
-const L = require('lodash')
 const inflection = require('inflection')
 const changeCase = require('change-case')
 
@@ -17,20 +16,23 @@ const helpers = {
     return string.charAt(0).toUpperCase() + string.slice(1).toLowerCase()
   },
   inflection,
-  changeCase
+  changeCase,
 }
 
 const localsToCapitalize = ['name']
 const localsDefaults = {
-  name: 'unnamed'
+  name: 'unnamed',
 }
+
 const capitalizedLocals = (locals: any) =>
-  L.mapValues(
-    L.mapKeys(L.pick(locals, localsToCapitalize), (v, k) =>
-      helpers.capitalize(k)
-    ),
-    v => helpers.capitalize(v)
-  )
+  Object.entries(locals).reduce((hsh, [key, value]) => {
+    hsh[key] = value
+
+    if (localsToCapitalize.includes(key))
+      hsh[helpers.capitalize(key)] = helpers.capitalize(value)
+
+    return hsh
+  }, {})
 
 const context = (locals: any, config: RunnerConfig) => {
   const localsWithDefaults = Object.assign({}, localsDefaults, locals)
@@ -39,8 +41,8 @@ const context = (locals: any, config: RunnerConfig) => {
     localsWithDefaults,
     capitalizedLocals(localsWithDefaults),
     {
-      h: { ...helpers, ...configHelpers }
-    }
+      h: { ...helpers, ...configHelpers },
+    },
   )
 }
 module.exports = context

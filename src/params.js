@@ -2,14 +2,13 @@
 
 import type { RunnerConfig } from './types'
 
-const L = require('lodash')
 const path = require('path')
 const yargs = require('yargs-parser')
 const prompt = require('./prompt')
 
 const params = async (
   { templates, createPrompter }: RunnerConfig,
-  externalArgv: Array<string>
+  externalArgv: Array<string>,
 ): any => {
   const argv = yargs(externalArgv)
 
@@ -17,25 +16,27 @@ const params = async (
   if (!generator || !action) {
     return { generator, action, templates }
   }
-  const [mainAction, subaction] = L.split(action, ':')
+  const [mainAction, subaction] = action.split(':')
 
   const actionfolder = path.join(templates, generator, mainAction)
+  const { _, ...cleanArgv } = argv
   const promptArgs = await prompt(
     createPrompter,
     actionfolder,
-    L.omit(argv, ['_'])
+    cleanArgv,
   )
+
   const args = Object.assign(
     {
       templates,
       actionfolder,
       generator,
       action,
-      subaction
+      subaction,
     },
     promptArgs,
-    L.omit(argv, ['_']),
-    name && { name }
+    cleanArgv,
+    name && { name },
   )
 
   return args
