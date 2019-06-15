@@ -72,9 +72,9 @@ The `attribute` argument is the value of the frontmatter. 'org/newProject' in
 // .hygen.js
 module.exports({
   plugins: {
-    setupRepo: (attribute, action, args, config) => {
+    setupRepo: (attribute, data, config, args ) => {
       /* do stuff */
-       return 'repo name'
+       return `repo name: ${attribute}`
     }, 
   },
 })
