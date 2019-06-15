@@ -32,15 +32,16 @@ const capitalizedLocals = (locals: any) =>
     v => helpers.capitalize(v)
   )
 
-const context = (locals: any, config: RunnerConfig) => {
+const context = (locals: any, config: RunnerConfig, pluginResults: any) => {
   const localsWithDefaults = Object.assign({}, localsDefaults, locals)
   const configHelpers = (config && config.helpers) || {}
   return Object.assign(
     localsWithDefaults,
     capitalizedLocals(localsWithDefaults),
+    pluginResults,
     {
-      h: { ...helpers, ...configHelpers }
-    }
+      h: { ...helpers, ...configHelpers },
+    },
   )
 }
 module.exports = context

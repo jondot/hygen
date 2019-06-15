@@ -1,40 +1,41 @@
-const opsPlugin = require('../ops/plugin')
+const resolvePlugins = require('../plugins')
 
-const pluginData = ['woot', name => `wooticus ${name}`]
-const fakeAction = { attributes: { woot: 'prime' } }
-const fakeConfig = { logger: { ok: msg => console.log(msg) } }
+const fakeConfig = {
+  logger: { ok: msg => console.log(msg) },
+  plugins: {
+    woot: name => `wooticus ${name}`,
+  },
+}
+const fakeDataArr = [{ attributes: { woot: 'prime' } }]
+const fakeArgs = {}
+
 describe('pluginData', () => {
   it('should execute', async () => {
-    const result = await pluginData[1]('prime')
-
+    const result = await fakeConfig.plugins.woot('prime')
     expect(result).toBe('wooticus prime')
   })
 })
-describe('plugins', () => {
+
+describe('resolvePlugins(arrData, config, args)', () => {
   beforeEach(() => {
     process.env.HYGEN_TMPLS = null
   })
 
-  it('should return a function', () => {
-    const result = opsPlugin(...pluginData)
-    expect(typeof result).toBe('function')
+  it('should be a function', () => {
+    expect(typeof resolvePlugins).toBe('function')
   })
 
-  describe('wrappedPlugin', () => {
-    const wrappedPlugin = opsPlugin(...pluginData)
+  it('should return an array with same length as dataArr', () => {
+    const result = resolvePlugins(fakeDataArr, {}, fakeArgs)
 
-    it('should return a result object', async () => {
-      const args = {}
-      const result = await wrappedPlugin(fakeAction, args, fakeConfig)
+    expect(Array.isArray(result)).toBeTruthy()
+    expect(result.length).toBe(fakeDataArr.length)
+  })
 
-      expect(result).toHaveProperty('type', 'plugin:woot')
-      expect(result).toHaveProperty('payload', 'wooticus prime')
-    })
-    it('should add the name/plugin to args', async () => {
-      const args = {}
-      await wrappedPlugin(fakeAction, args, fakeConfig)
+  it('should execute the plugin and assign result ', async() => {
+    const result = await resolvePlugins(fakeDataArr, fakeConfig, fakeArgs)
+    const subject = result[0].pluginResults
 
-      expect(args).toHaveProperty('woot', 'wooticus prime')
-    })
+    expect(subject.woot).toEqual('wooticus prime')
   })
 })
