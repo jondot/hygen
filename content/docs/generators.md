@@ -110,11 +110,9 @@ to: app/emails/<%= name %>.html
 
 Try making the text variant yourself by editing `text.ejs.t`. Note: you want to put it in the correct place with `to:`.
 
-## Prompting Arguments
+## Interactive Prompt
 
-If you prefer some of your generators to be interactive (you can mix and match), you can use prompts.
-
-Per generator, include a special `prompt.js` file. It will declare all variables to collect from the user for a given generator.
+To create an interactive generator, add `prompt.js` file to the generator root directory. 
 
 ```bash{3,4}
 _templates/
@@ -125,7 +123,7 @@ _templates/
       text.ejs.t
 ```
 
-Here's an example `prompt.js` declaring a `message` input variable:
+For example, to ask for the `message` input variable, add to `prompt.js`:
 
 ```javascript
 module.exports = [
@@ -137,7 +135,7 @@ module.exports = [
 ]
 ```
 
-The format is based on [enquirer](https://github.com/enquirer/enquirer) so hopefully, nothing new to you. Let's use the `message` variable now:
+The format is based on [enquirer](https://github.com/enquirer/enquirer#prompt-options). Let's use the `message` variable now:
 
 ```html{4}
 ---
@@ -154,9 +152,9 @@ $ hygen mailer new --name fancy-mailer
 
 Which will ask the user for the `message`, and generate all contents.
 
-## Advanced Params
+## Advanced Interactive Prompt
 
-It's possible to create a "recursive" flow where you ask some questions, run some computation and ask some more questions, creating a multi-step prompt.
+It's possible to create a a multi-step prompt where you ask some questions, run some computation and ask some more questions.
 
 In addition, it's possible to skip prompting, or re-shape parameters that were given to you from either CLI or prompt, so that you can do it in a central place.
 
