@@ -98,6 +98,12 @@ describe('metaverse', () => {
       ['inflection', 'new', '--name', 'person'],
       ['conditional-rendering', 'new', '--notGiven'],
       ['add-unless-exists', 'new', '--message', 'foo'],
+      [
+        'cli-prefill-prompt-vars',
+        'new',
+        '--message-from-cli',
+        'hello-from-cli'
+      ],
       ['recursive-prompt', 'new'],
       ['positional-name', 'new', 'acmecorp'],
       ['existing-params', 'new', '--email', 'premade-email@foobar.com'],
