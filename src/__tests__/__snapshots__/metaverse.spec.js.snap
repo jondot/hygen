@@ -40,6 +40,20 @@ Object {
 }
 `;
 
+exports[`metaverse hygen-templates: cli-prefill-prompt-vars name-is-special foobar 1`] = `
+Object {
+  "actions": Array [
+    Object {
+      "status": "added",
+      "subject": "given/cli-prefill-prompt-vars/name-is-special.md",
+      "timing": -1,
+      "type": "add",
+    },
+  ],
+  "success": true,
+}
+`;
+
 exports[`metaverse hygen-templates: cli-prefill-prompt-vars new --message-from-cli hello-from-cli 1`] = `
 Object {
   "actions": Array [
