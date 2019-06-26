@@ -110,7 +110,7 @@ describe('metaverse', () => {
         'falsy-values-are-ok',
         'foobar',
         '--include_something',
-        false
+        'false'
       ],
       ['recursive-prompt', 'new'],
       ['positional-name', 'new', 'acmecorp'],

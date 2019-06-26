@@ -42,8 +42,15 @@ Object {
 
 exports[`metaverse hygen-templates: cli-prefill-prompt-vars falsy-values-are-ok foobar --include_something false 1`] = `
 Object {
-  "actions": Array [],
-  "success": false,
+  "actions": Array [
+    Object {
+      "status": "added",
+      "subject": "given/cli-prefill-prompt-vars/falsy.md",
+      "timing": -1,
+      "type": "add",
+    },
+  ],
+  "success": true,
 }
 `;
 
