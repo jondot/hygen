@@ -38,7 +38,12 @@ const prompt = (
 
   return prompter.prompt(
     // prompt _only_ for things we've not seen on the CLI
-    hooksModule.filter(p => !args[p.name] || args[p.name].length === 0)
+    hooksModule.filter(
+      p =>
+        args[p.name] === undefined ||
+        args[p.name] === null ||
+        args[p.name].length === 0
+    )
   )
 }
 

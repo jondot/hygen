@@ -105,6 +105,13 @@ describe('metaverse', () => {
         'hello-from-cli'
       ],
       ['cli-prefill-prompt-vars', 'name-is-special', 'foobar'],
+      [
+        'cli-prefill-prompt-vars',
+        'falsy-values-are-ok',
+        'foobar',
+        '--include_something',
+        false
+      ],
       ['recursive-prompt', 'new'],
       ['positional-name', 'new', 'acmecorp'],
       ['existing-params', 'new', '--email', 'premade-email@foobar.com'],
