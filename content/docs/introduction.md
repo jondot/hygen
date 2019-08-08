@@ -62,6 +62,8 @@ hygen generator new [NAME] --action [ACTION]
 hygen generator with-prompt [NAME] --action [ACTION]
 ```
 
+Finally, use `--dry` to do a test-run of your generators.
+
 Congratz! you've made a new generator called `awesome-generator`!
 
 Let's walk through what we just did.
