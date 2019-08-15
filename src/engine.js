@@ -7,11 +7,22 @@ const params = require('./params')
 
 const engine = async (
   argv: Array<string>,
-  config: RunnerConfig
+  config: RunnerConfig,
 ): Promise<Array<ActionResult>> => {
   const { cwd, templates, logger } = config
   const args = Object.assign(await params(config, argv), { cwd })
   const { generator, action, actionfolder } = args
+
+  if (['-h', '--help'].includes(argv[0])) {
+    logger.log(`
+Usage:
+  hygen [option] GENERATOR ACTION [--name NAME] [data-options]
+
+Options:
+  -h, --help # Show this message and quit
+  --dry      # Perform a dry run.  Files will be generated but not saved.`)
+    process.exit(0)
+  }
 
   logger.log(args.dry ? '(dry mode)' : '')
   if (!generator) {

@@ -5,6 +5,8 @@ import type { Logger } from './types'
 const fs = require('fs')
 const path = require('path')
 const chalk = require('chalk')
+const pkg = require('../package.json')
+
 const availableActions = (templates: string) => {
   const generators = fs.readdirSync(templates).filter(_ =>
     fs.lstatSync(path.join(templates, _)).isDirectory()
@@ -17,6 +19,7 @@ const availableActions = (templates: string) => {
 }
 
 const printHelp = (templates: string, logger: Logger) => {
+  logger.log(`Hygen v${pkg.version}`)
   logger.log('\nAvailable actions:')
   if (!templates) {
     logger.log(
@@ -41,7 +44,6 @@ const printHelp = (templates: string, logger: Logger) => {
     return
   }
   Object.entries(availableActions(templates)).forEach(([k, v]) => {
-    console.log('ACTIONS', k, v)
     logger.log(chalk.bold(k) + ': ' + v.join(', '))
   })
 }
