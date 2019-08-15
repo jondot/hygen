@@ -14,6 +14,13 @@ Object {
 }
 `;
 
+exports[`metaverse hygen-templates: [object Object] 1`] = `
+Object {
+  "actions": Array [],
+  "success": false,
+}
+`;
+
 exports[`metaverse hygen-templates: add-unless-exists new --message foo 1`] = `
 Object {
   "actions": Array [
