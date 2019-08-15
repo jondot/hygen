@@ -19,20 +19,22 @@ const helpers = {
   changeCase,
 }
 
+const doCapitalization = (hsh, [key, value]) => {
+  hsh[key] = value
+
+  if (localsToCapitalize.includes(key))
+    hsh[helpers.capitalize(key)] = helpers.capitalize(value)
+
+  return hsh
+}
+
 const localsToCapitalize = ['name']
 const localsDefaults = {
   name: 'unnamed',
 }
 
 const capitalizedLocals = (locals: any) =>
-  Object.entries(locals).reduce((hsh, [key, value]) => {
-    hsh[key] = value
-
-    if (localsToCapitalize.includes(key))
-      hsh[helpers.capitalize(key)] = helpers.capitalize(value)
-
-    return hsh
-  }, {})
+  Object.entries(locals).reduce(doCapitalization, {})
 
 const context = (locals: any, config: RunnerConfig) => {
   const localsWithDefaults = Object.assign({}, localsDefaults, locals)
