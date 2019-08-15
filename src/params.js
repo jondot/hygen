@@ -20,11 +20,8 @@ const params = async (
   const [mainAction, subaction] = L.split(action, ':')
 
   const actionfolder = path.join(templates, generator, mainAction)
-  const promptArgs = await prompt(
-    createPrompter,
-    actionfolder,
-    L.omit(argv, ['_'])
-  )
+  const cleanArgs = Object.assign(L.omit(argv, ['_']), name && { name })
+  const promptArgs = await prompt(createPrompter, actionfolder, cleanArgs)
   const args = Object.assign(
     {
       templates,
@@ -34,8 +31,7 @@ const params = async (
       subaction
     },
     promptArgs,
-    L.omit(argv, ['_']),
-    name && { name }
+    cleanArgs
   )
 
   return args

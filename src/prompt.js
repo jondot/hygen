@@ -35,7 +35,16 @@ const prompt = (
   if (hooksModule.prompt) {
     return hooksModule.prompt({ prompter, inquirer: prompter, args })
   }
-  return prompter.prompt(hooksModule)
+
+  return prompter.prompt(
+    // prompt _only_ for things we've not seen on the CLI
+    hooksModule.filter(
+      p =>
+        args[p.name] === undefined ||
+        args[p.name] === null ||
+        args[p.name].length === 0
+    )
+  )
 }
 
 module.exports = prompt
