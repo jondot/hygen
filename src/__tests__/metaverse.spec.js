@@ -4,7 +4,6 @@ jest.mock('enquirer', () => ({
 
 const SKIP_ON_WINDOWS = process.platform === 'win32' ? ['shell'] : []
 
-const L = require('lodash')
 const path = require('path')
 const dirCompare = require('dir-compare')
 
@@ -40,18 +39,18 @@ const metaverse = (folder, cmds, promptResponse = null) =>
       console.log('testing', cmd)
       if (
         process.platform === 'win32' &&
-        L.find(SKIP_ON_WINDOWS, c => L.head(cmd) === c)
+        SKIP_ON_WINDOWS.find(c => cmd[0] === c)
       ) {
         console.log(`skipping ${cmd} (windows!)`)
-        await fs.remove(path.join(metaDir, 'expected', L.head(cmd)))
+        await fs.remove(path.join(metaDir, 'expected', cmd[0]))
         continue
       }
 
       enquirer.prompt = fail
       if (promptResponse) {
-        const last = L.last(cmd)
-        if (L.isObject(last)) {
-          cmd = L.take(cmd, cmd.length - 1)
+        const last = cmd[cmd.length - 1]
+        if (typeof last === 'object') {
+          cmd = cmd.slice(cmd.length - 1)
           enquirer.prompt = () =>
             Promise.resolve({ ...promptResponse, ...last })
         } else {
@@ -72,7 +71,7 @@ const metaverse = (folder, cmds, promptResponse = null) =>
       [expectedDir]: fs.readdirSync(expectedDir)
     })
     const res = dirCompare.compareSync(givenDir, expectedDir, opts)
-    res.diffSet = L.filter(res.diffSet, d => d.state !== 'equal')
+    res.diffSet = res.diffSet.filter(d => d.state !== 'equal')
     if (!res.same) {
       console.log(res)
     }
@@ -98,6 +97,20 @@ describe('metaverse', () => {
       ['inflection', 'new', '--name', 'person'],
       ['conditional-rendering', 'new', '--notGiven'],
       ['add-unless-exists', 'new', '--message', 'foo'],
+      [
+        'cli-prefill-prompt-vars',
+        'new',
+        '--message-from-cli',
+        'hello-from-cli'
+      ],
+      ['cli-prefill-prompt-vars', 'name-is-special', 'foobar'],
+      [
+        'cli-prefill-prompt-vars',
+        'falsy-values-are-ok',
+        'foobar',
+        '--include_something',
+        'false'
+      ],
       ['recursive-prompt', 'new'],
       ['positional-name', 'new', 'acmecorp'],
       ['existing-params', 'new', '--email', 'premade-email@foobar.com'],
