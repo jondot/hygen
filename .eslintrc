@@ -9,11 +9,6 @@
     "flowtype",
     "prettier"
   ],
-  "settings": {
-    "flowtype": {
-      "onlyFilesWithFlowAnnotation": false
-    }
-  },
   "rules": {
     "prettier/prettier": [
       "error",
@@ -27,6 +22,11 @@
     "comma-dangle": 0,
     "jsx-quotes": 0,
     "react/jsx-filename-extension": "off"
+  },
+  "settings": {
+    "flowtype": {
+      "onlyFilesWithFlowAnnotation": false
+    }
   },
   "env": {
     "es6": true,
