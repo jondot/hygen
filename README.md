@@ -79,6 +79,12 @@ Loaded templates: _templates
        added: app/hello.js
 ```
 
+Or you can have it prompt for generator and action:
+
+```
+$ hygen --prompt
+```
+
 You've generated content into the current working directory in `app/`. To see how the generator is built, look at `_templates` (which you should check-in to your project from now on, by the way).
 
 You can build a generator that uses an interactive prompt to fill in a variable:
