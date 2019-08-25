@@ -3,24 +3,19 @@
 import type { Logger } from './types'
 
 const fs = require('fs')
-const L = require('lodash')
 const path = require('path')
 const chalk = require('chalk')
 const pkg = require('../package.json')
 
 const availableActions = (templates: string) => {
-  const generators = L.filter(fs.readdirSync(templates), _ =>
+  const generators = fs.readdirSync(templates).filter(_ =>
     fs.lstatSync(path.join(templates, _)).isDirectory()
   )
-  return L.reduce(
-    generators,
-    (acc, generator) => {
-      const actions = fs.readdirSync(path.join(templates, generator))
-      acc[generator] = actions
-      return acc
-    },
-    {}
-  )
+  return generators.reduce((acc, generator) => {
+    const actions = fs.readdirSync(path.join(templates, generator))
+    acc[generator] = actions
+    return acc
+  }, {})
 }
 
 const printHelp = (templates: string, logger: Logger) => {
@@ -44,12 +39,12 @@ const printHelp = (templates: string, logger: Logger) => {
 
       See http://hygen.io for more.
       
-      `
+      `,
     )
     return
   }
-  L.each(availableActions(templates), (v, k) => {
-    logger.log(`${chalk.bold(k)}: ${v.join(', ')}`)
+  Object.entries(availableActions(templates)).forEach(([k, v]) => {
+    logger.log(chalk.bold(k) + ': ' + v.join(', '))
   })
 }
 

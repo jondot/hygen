@@ -1,14 +1,13 @@
-import L from 'lodash'
 import path from 'path'
 import os from 'os'
-import { configLookup, ConfigResolver } from '../config'
+import { configLookup, ConfigResolver, reversePathsToWalk } from '../config'
 
 const sep = path.sep
 describe(`config lookup with separator '${sep}'`, () => {
   if (process.platform !== 'win32') {
     it('sanitizes bad "from" path', () => {
-      const p = L.find(configLookup('.myconfig', 'foo'), f =>
-        f.match(/foo\/\.myconfig/)
+      const p = configLookup('.myconfig', 'foo').find(f =>
+        f.match(/foo\/\.myconfig/),
       )
       expect(p).toBeDefined()
     })
@@ -17,20 +16,20 @@ describe(`config lookup with separator '${sep}'`, () => {
       expect(configLookup('.myconfig', '/')).toEqual(['/.myconfig'])
       expect(configLookup('.myconfig', '/one')).toEqual([
         '/one/.myconfig',
-        '/.myconfig'
+        '/.myconfig',
       ])
       expect(configLookup('.myconfig', '/one/one/one')).toEqual([
         '/one/one/one/.myconfig',
         '/one/one/.myconfig',
         '/one/.myconfig',
-        '/.myconfig'
+        '/.myconfig',
       ])
       expect(configLookup('.myconfig', '/users/foo/bar/baz')).toEqual([
         '/users/foo/bar/baz/.myconfig',
         '/users/foo/bar/.myconfig',
         '/users/foo/.myconfig',
         '/users/.myconfig',
-        '/.myconfig'
+        '/.myconfig',
       ])
     })
   }
@@ -39,10 +38,10 @@ describe(`config lookup with separator '${sep}'`, () => {
       'C:\\foo\\bar\\baz\\.myconfig',
       'C:\\foo\\bar\\.myconfig',
       'C:\\foo\\.myconfig',
-      'C:\\.myconfig'
+      'C:\\.myconfig',
     ])
     expect(configLookup('.myconfig', 'C:\\', path.win32)).toEqual([
-      'C:\\.myconfig'
+      'C:\\.myconfig',
     ])
   })
 })
@@ -57,7 +56,7 @@ describe('resolver', () => {
 
     const resolver = new ConfigResolver('.hygen.js', {
       exists,
-      load
+      load,
     })
     const config = await resolver.resolve('/foo/bar')
 
@@ -72,10 +71,19 @@ describe('resolver', () => {
 
     const resolver = new ConfigResolver('.hygen.js', {
       exists,
-      load
+      load,
     })
     const config = await resolver.resolve('/foo/bar')
 
     expect(config).toEqual({ param: 1 })
+  })
+})
+
+describe('reversePathsToWalk({folder, path})', () => {
+  it('should return an array of paths', () => {
+    const folder = '/where/the/code/lives'
+    const result = reversePathsToWalk({folder, path})
+    expect(result.length).toEqual(5)
+    expect(result[2]).toEqual('/where/the')
   })
 })
