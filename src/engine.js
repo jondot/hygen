@@ -24,6 +24,17 @@ Options:
     process.exit(0)
   }
 
+  if ((config.ignoredGenerators || []).includes(generator)) {
+    logger.log(`generator: ${generator} is ignored`)
+    throw new Error('please specify another generator')
+  }
+
+  if ((config.ignoredActions || []).includes(action)) {
+    logger.log(`generator: ${generator}`)
+    logger.log(`   action: ${action} is ignored`)
+    throw new Error('please specify another action')
+  }
+
   logger.log(args.dry ? '(dry mode)' : '')
   if (!generator) {
     throw new Error('please specify a generator.')
