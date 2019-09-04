@@ -239,20 +239,6 @@ Object {
 }
 `;
 
-exports[`metaverse hygen-templates: overwrite-no over 1`] = `
-Object {
-  "actions": Array [
-    Object {
-      "status": "skipped",
-      "subject": "given/overwrite-no/new.md",
-      "timing": -1,
-      "type": "add",
-    },
-  ],
-  "success": true,
-}
-`;
-
 exports[`metaverse hygen-templates: overwrite-yes base 1`] = `
 Object {
   "actions": Array [

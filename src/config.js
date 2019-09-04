@@ -1,25 +1,24 @@
 // @flow
-import type { ResolverIO } from './types'
 import importedPath from 'path'
-import L from 'lodash'
+import type { ResolverIO } from './types'
 // inline fp methods due to perf
-const reduce = (f, init) => arr => arr.reduce(f, init)
-
+const uniq = arr => arr.filter((elem, pos, a) => a.indexOf(elem) === pos)
 const reversePathsToWalk = ({ folder, path }) => {
   const resolved = path.resolve(folder)
   const parts = resolved.split(path.sep)
-  const results = parts.map(
-    (n, idx, arr) => arr.slice(0, idx + 1).join(path.sep),
+  const results = parts.map((n, idx, arr) =>
+    arr.slice(0, idx + 1).join(path.sep),
   )
   results[0] = results[0] || '/'
   return results.reverse()
 }
 
 const configLookup = (file: string, folder: string, path: any = importedPath) =>
-  reversePathsToWalk({ folder, path }).map(p => path.join(p, file))
+  uniq(reversePathsToWalk({ folder, path }).map(p => path.join(p, file)))
 
 class ConfigResolver {
   configFile: string
+
   io: ResolverIO
 
   constructor(configFile: string, io: ResolverIO) {
