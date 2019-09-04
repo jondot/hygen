@@ -24,6 +24,43 @@ This means:
 
 _Note:_ The current strategy when there are two or more `.hygen.js` files in the path upwards is to _take the first one_ and ignore the rest.
 
+# Argument Processing
+Hygen supports a pipeline approach to processing arguments into data for your templates.
+
+```javascript
+let initialArgs = {...defaultArguments, ...cliArguments}
+let args = postParam( // the final processing stage, defined in .hygen.js
+  params( // if generator/action/{index|prompt}.js exports `params`
+    prompt( // if generator/action/{index|prompt}.js exports `prompt`
+      preparams(initalArgs) // initial processing, defined in .hygen.js
+    )
+  )
+)
+```
+
+# Default Arguments
+
+Default argumnts for the generators may be defined a `.hygen.js`
+```javascript
+//.hygen.js
+modules.exports = {
+  defaultArguments: {projectRoot: process.cwd(), cssFilename: 'styles.module.css'},
+}
+```
+
+# preParam && postParam
+
+These functions are run during the argument processing steps, before and after the action defined `params` || `prompt`
+```javascript
+//.hygen.js
+modules.exports = {
+  defaultArguments: {projectRoot: process.cwd(), cssFilename: 'styles.module.css'},
+  preParam: ({args, ...config}) => {
+    args.copyright = `fancy copyright for ${args.name}`
+  }.
+}
+```
+
 # Helpers
 
 Here's a template that uses a function that doesn't exist in the helper accessor `h`. This function is plainly called `extended`, for lack of a better name.
