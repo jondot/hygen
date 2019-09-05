@@ -1,0 +1,32 @@
+---
+message: |
+  {blue.bold action new}
+    Create a new template
+
+    {bold Usage:}
+      {yellow hygen} {yellow.bold template new} --name NAME [--action ACTION] [--ext EXT] --css
+
+    {bold Options:}
+      --name      name of the generator
+      --action    action to create for named generator  [default: 'new']
+      --ext       extension to use for default template [default: 'js']
+      --css       when set, generates a css file template
+      --withHelp  when set, generates a help action and files
+
+  {blue.bold action add}
+    add a new template file to a generator
+
+    {bold Usage:}
+      {yellow hygen} {yellow.bold template add} --name NAME --generator GENERATOR --action ACTION
+
+    {bold Options:}
+      --name       name of the generator
+      --generator  name of the generator
+      --action     action to create for named generator
+
+  {cyan action help}
+    show this message
+
+    {bold Usage:}
+      {yellow hygen} {yellow.bold template help}
+---

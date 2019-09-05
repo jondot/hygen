@@ -1,0 +1,14 @@
+---
+message: |
+  {blue.bold action new}
+    initialize a .hygen.js file
+
+    {bold Usage:}
+      {yellow hygen} {yellow.bold project init} [--srcDir SRC_DIR] [--subDirs SUB_DIR,SUB_DIR,...]
+
+    {bold Options:}
+      --srcDir    path to the src directory
+      --subDirs   a comma separated list of directories below srcDir
+                    [default: components,models,pages,panes,styles,utils]
+
+---
