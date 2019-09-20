@@ -99,7 +99,9 @@ use more of the power of `yargs-parser`.  Result is merged specifically into
 `config.options`
 
 ###### Hooks 
+* preYargsOptionsParser
 * yargsOptionParsers for adding parsers before parsing
+* preYargsOptionsParser
 
 #### Generator
 Find the correct directory for the given generator and action, and create a 
