@@ -38,7 +38,7 @@ const capitalizedLocals = (locals: any) =>
 
 const context = (locals: any, config: RunnerConfig) => {
   const localsWithDefaults = Object.assign({}, localsDefaults, locals)
-  const configHelpers = (config && config.helpers) || {}
+  const configHelpers = (config && (typeof config.helpers === "function"? config.helpers(locals,config):config.helpers)) || {}
   return Object.assign(
     localsWithDefaults,
     capitalizedLocals(localsWithDefaults),
