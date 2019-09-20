@@ -20,7 +20,12 @@ const params = async (
 
   const actionfolder = path.join(templates, generator, mainAction)
   const { _, ...cleanArgv } = argv
-  const promptArgs = await prompt(createPrompter, actionfolder, cleanArgv)
+  const promptArgs = await prompt(createPrompter, actionfolder, {
+    // NOTE we might also want the rest of the generator/action/etc. params here
+    // but theres no usecase yet
+    ...(name ? { name } : {}),
+    ...cleanArgv,
+  })
 
   const args = Object.assign(
     {
