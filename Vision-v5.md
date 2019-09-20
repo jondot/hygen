@@ -101,7 +101,7 @@ use more of the power of `yargs-parser`.  Result is merged specifically into
 ###### Hooks 
 * preYargsOptionsParser
 * yargsOptionParsers for adding parsers before parsing
-* preYargsOptionsParser
+* postYargsOptionsParser
 
 #### Generator
 Find the correct directory for the given generator and action, and create a 
@@ -122,7 +122,9 @@ As yargsOptions, but run after the generator has loaded. The result is merged
  specifically into `config.params`
 
 ###### Hooks
+* preParamsParsers
 * yargsParamsParsers for adding parsers before parsing
+* postParamsParsers
 
 #### Params
 Processing the params is only a matter of running all of the hooks.
@@ -178,7 +180,7 @@ A module is a packaged set of helpers, tools, hooks, and ignored. A module is
 
 * logging - an advanced logger that respect `cli --quiet, --trace, --logLevel 4`
 * help - a system wide help system 
-* srcPath - path creation utility
+* pathTo - path creation utility
 * nameMaker - a name mutation utility
 * jsonSource - read a json file and add to config, also yml, csv...
 * prompt - interactive prompt system
