@@ -1,4 +1,4 @@
-import {pathTo} from '../utils/pathTo'
+import {pathTo} from 'src/v5/utils/pathTo'
 
 const pathToModule = {
   hooks: {

@@ -1,5 +1,5 @@
 // @flow
-import type {HygenConfig, Resolver} from './types'
+import type {HygenConfig, Resolver} from 'src/types'
 
 const chainPromise = async (
   firstLink: Promise<HygenConfig>,
