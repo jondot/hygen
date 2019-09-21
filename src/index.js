@@ -1,24 +1,35 @@
 // @flow
-import type { HygenConfig, Resolver, ChainedVars } from './types'
-import { chainPromise } from './utils'
+import type { RunnerResult, RunnerConfig } from './types'
 
-const masterResolvers: Array<Resolver> = [
-  require('./resolvers/config'),
-  require('./resolvers/module'),
-  require('./resolvers/yargs'),
-  require('./resolvers/generator'),
-  require('./resolvers/params'),
-  require('./resolvers/templates'),
-  require('./resolvers/directives'),
-  require('./resolvers/render'),
-]
+const engine = require('./engine')
+const resolve = require('./config-resolver')
+const { printHelp, availableActions } = require('./help')
+const runner = async (
+  argv: Array<string>,
+  config: RunnerConfig
+): Promise<RunnerResult> => {
+  const resolvedConfig = await resolve(config)
+  const { templates, logger } = resolvedConfig
+  try {
+    const actions = await engine(argv, resolvedConfig)
+    return { success: true, actions }
+  } catch (err) {
+    logger.log(err.toString())
+    if (config.debug) {
+      logger.log('details -----------')
+      logger.log(err.stack)
+      logger.log('-------------------')
+    }
+    printHelp(templates, logger)
+    return { success: false, actions: [] }
+    // process.exit(1)
+  }
+}
 
-const hygen = async (config: HygenConfig): Promise<HygenConfig> =>
-  chainPromise(Promise.resolve(defaultConfig), masterResolvers).catch(err => {
-    config.logger.error(err.toString())
-    config.logger.debug('======== details ========')
-    config.logger.debug(err.stack)
-    config.logger.debug('=========================')
-  })
-
-module.exports = { hygen }
+module.exports = {
+  runner,
+  engine,
+  resolve,
+  printHelp,
+  availableActions
+}
