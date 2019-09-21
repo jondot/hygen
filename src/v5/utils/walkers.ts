@@ -1,3 +1,5 @@
+import { walkDirUpParams } from '../hygen/utils'
+
 const fs = require('fs')
 const importedPath = require('path')
 
@@ -6,9 +8,9 @@ const walkDirUp = ({
   withFile = '',
   path = importedPath,
   stopAt = path.sep,
-}) => {
+}: walkDirUpParams): string[] => {
   if (!stopAt) return [path.join(path.resolve(startAt), withFile)]
-  const parts = path.resolve(startAt).split(path.sep)
+  const parts: string[] = path.resolve(startAt).split(path.sep)
 
   const topDir =
     path.sep === path.win32.sep && stopAt === path.sep ? parts[0] : stopAt

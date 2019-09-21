@@ -50,7 +50,8 @@
     "goddamn-javascript-eslint": "^1.0.1",
     "jest": "^24.3.1",
     "pkg": "^4.3.5",
-    "time-require": "^0.1.2"
+    "time-require": "^0.1.2",
+    "typescript": "^3.6.3"
   },
   "jest": {
     "testURL": "http://localhost/",

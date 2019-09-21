@@ -23,4 +23,5 @@ const run = async () =>
     },
   })
 
-run()
+  (async () => await run())()
+

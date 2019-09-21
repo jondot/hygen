@@ -6,3 +6,4 @@ export const modulesResolver = (config: HygenConfig): Promise<HygenConfig> => {
 }
 
 export default modulesResolver
+
