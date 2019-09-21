@@ -56,4 +56,7 @@ export interface ToolsConfig {
 
 }
 
+export interface HygenConfig {
+
+}
 

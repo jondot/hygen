@@ -1,10 +1,11 @@
 ---
-to: <%- [process.cwd(),'v5', 'resolvers', `${name}.ts` %>
+to: <%- srcPath('resolvers', `${name}.ts`) %>
 ---
-import {HygenConfig} from './hygen'
-export const <%- ${name}Resolver %> = (config: HygenConfig): Promise<HygenConfig> => {
+import { HygenConfig } from '../hygen'
 
-  return config
+export const <%- resolverName %> = (config: HygenConfig): Promise<HygenConfig> => {
+
+  return Promise.resolve(config)
 }
 
-export default <%- ${name}Resolver %>
+export default <%- resolverName %>
