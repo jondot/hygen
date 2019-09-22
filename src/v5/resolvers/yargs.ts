@@ -5,7 +5,11 @@ import yargs from 'yargs-parser'
 export const yargsResolver = (config: HygenConfig): Promise<HygenConfig> => {
   // resolve preYargs hooks
   // setup basic parser
-  const parser =
+  const parser = yargs(config.env.argv)
+    .scriptName('hygen')
+    .env("HYGEN")
+    .usage('$0 [global-args] <generator> <action> <name> [args]')
+    .options
 
 
   // resolve postYargs hooks

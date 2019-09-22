@@ -11,13 +11,14 @@ export const CHALK_MAPPING: StringMap = {
   err: red,
   error: red,
   info: magenta,
+  log: white,
   ok: green,
   notice: cyan,
   verbose: white,
   warn: yellow,
 }
 
-export const LOG_LEVELS: string[] = ['trace', 'debug', 'info', 'warn', 'error', 'silent']
+export const LOG_LEVELS: string[] = ['trace', 'debug', 'info','log', 'warn', 'error', 'silent']
 const LEVEL_EQUIVALENTS: NumberMap = {
   err: 4,
   ok: 2,
