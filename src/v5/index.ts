@@ -1,6 +1,6 @@
 // import type { HygenConfig, Resolver, ChainedVars } from './types'
 import { chainPromise } from './utils'
-import {Logger} from './logger'
+import {Logger} from './utils/logger'
 
 const masterResolvers = [
   require('./resolvers/config'),

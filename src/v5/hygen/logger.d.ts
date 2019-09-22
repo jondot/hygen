@@ -1,8 +1,15 @@
-import {EnvConfig} from './config'
+import { EnvConfig, HygenConfig } from './config'
 
-export declare function LogMessage = (string[]) => void
-export declare class LoggerClass {
-  constructor(LogMessage, EnvConfig, object)
+export declare type LogMessage = (...msg: any[]) => void
+
+export declare interface StringMap {
+  [s: string]: string
+}
+export declare interface NumberMap {
+  [s: string]: number
+}
+export declare class Logger {
+  constructor(log: LogMessage, env: EnvConfig, mapping: StringMap)
 
   log: LogMessage
   colorful: LogMessage
@@ -14,3 +21,16 @@ export declare class LoggerClass {
   warn: LogMessage
   error: LogMessage
 }
+
+export declare interface LogYargs {
+  logLevel?: number
+
+  s?: string
+  silent?: string
+  q?: string
+  quiet?: string
+  warn?: string
+  debug?: string
+  trace?: string
+}
+

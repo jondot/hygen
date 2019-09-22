@@ -1,8 +1,11 @@
+import { StringMap, NumberMap, EnvConfig, LogMessage } from '../hygen/index'
+import { LogYargs } from '../hygen/logger'
+
 const chalk = require('chalk')
 const { yellow, red, green, magenta, cyan, white, gray } = chalk
 const template = require('chalk/templates')
 
-const CHALK_MAPPING = {
+export const CHALK_MAPPING: StringMap = {
   trace: gray,
   debug: cyan,
   err: red,
@@ -10,22 +13,26 @@ const CHALK_MAPPING = {
   info: magenta,
   ok: green,
   notice: cyan,
-  silent: () => null,
   verbose: white,
   warn: yellow,
 }
 
-const LOG_LEVELS = ['trace', 'debug', 'info', 'warn', 'error', 'silent']
-const LEVEL_EQUIVALENTS = {
+export const LOG_LEVELS: string[] = ['trace', 'debug', 'info', 'warn', 'error', 'silent']
+const LEVEL_EQUIVALENTS: NumberMap = {
   err: 4,
   ok: 2,
   notice: 2,
 }
 
-const mkLogger = env => new Logger(console.log.bind(console), env)
+export const mkLogger = env => new Logger(console.log.bind(console), env)
 
-class Logger {
-  constructor(log, env, mappings = CHALK_MAPPING) {
+export class Logger {
+  yargs: LogYargs
+  log: LogMessage
+  mappings: object
+  logLevels: string[]
+
+  constructor(log: LogMessage, yargs: LogYargs, mappings: StringMap = CHALK_MAPPING) {
     this.yargs = env.yargs || {}
     this.log = log
     this.mappings = mappings
@@ -65,5 +72,3 @@ class Logger {
     this.log(template(chalk, msg))
   }
 }
-
-module.exports = { Logger, mkLogger }
