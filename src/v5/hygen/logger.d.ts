@@ -2,12 +2,6 @@ import { EnvConfig, HygenConfig } from './config'
 
 export declare type LogMessage = (...msg: any[]) => void
 
-export declare interface StringMap {
-  [s: string]: string
-}
-export declare interface NumberMap {
-  [s: string]: number
-}
 export declare class Logger {
   constructor(log: LogMessage, env: EnvConfig, mapping: StringMap)
 

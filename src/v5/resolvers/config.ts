@@ -5,7 +5,8 @@ import { HygenConfig, HygenResolver } from '../hygen/index'
    hygenConfig
   */
 export const configResolver = (config: HygenConfig): Promise<HygenConfig> => {
-  // first yargs
+  /* run yargs for logger */
+  /*   the logger needs logLevel out of argv */
   // set logger
   // set tools
   // set helpers

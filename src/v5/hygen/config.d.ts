@@ -1,65 +1,55 @@
+import { GeneratorConfig } from './generators'
+import { Logger } from './logger'
+
 export interface ConfigFileConfig {
-  globalPaths: [string]
-  localPaths: [string]
+  globalPaths: string[]
+  localPaths: string[]
+  configFiles: []
 }
 
 export interface EnvConfig {
-  argv: string[]
-  cws: string
-  templatesDir: string
-  configFile: string
+  argv?: string[]
+  cwd?: string
+  templatesDir?: string
+  configFile?: string
 }
 
-export interface ModulesConfig {
+export type ModulesConfig = Array<string | HygenConfig>
 
-}
-
-export interface LocalConfigFilenamesConfig {
-
-}
-
-export interface DirectivesConfig {
-
-}
-
-export interface GeneratorConfig {
-
-}
+export interface DirectiveConfig {}
 
 export interface HelpersConfig {
-
+  [s: string]: any
 }
 
 export interface HooksConfig {
-
-}
-
-export interface IgnoredConfig {
-
-}
-
-export interface LoggerConfig {
-
+  [s: string]: ResolverFn[]
 }
 
 export interface OptionsConfig {
-
+  [s: string]: any
 }
-
 export interface ParamsConfig {
-
-}
-
-export interface TemplatesConfig {
-
+  dry?: boolean,
+  [s: string]: none,
 }
 
 export interface ToolsConfig {
-
+  [s: string]: (...args: any) => any
 }
 
 export interface HygenConfig {
-  env: EnvConfig
-
+  configFile?: ConfigFileConfig
+  env?: EnvConfig
+  generator?: GeneratorConfig
+  modules?: ModulesConfig
+  directives?: DirectiveConfig
+  helpers?: HelpersConfig
+  hooks?: HooksConfig
+  logger?: Logger
+  options?: OptionsConfig
+  params?: ParamsConfig
+  tools?: ToolsConfig
 }
 
+export declare type ResolverFn = (config: HygenConfig) => Promise<HygenConfig>

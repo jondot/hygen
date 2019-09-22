@@ -1,4 +1,4 @@
-import { HygenConfig, resolverFn } from '../hygen/index'
+import { HygenConfig, ResolverFn } from '../hygen/index'
 // TODO why won't ../hygen work for import?
 
 export const modulesResolver = (config: HygenConfig): Promise<HygenConfig> => {

@@ -92,13 +92,14 @@ Modules may be defined in a few ways depending on the type of the module
 * preModule - before the array of modules is read
 * eachModule - after each module is read
 * postModule - after all of the modules are loaded
+* postModuleYargs - after yargs is run again with module options
 
-#### YargsOptions
+#### ~~YargsOptions~~
 Parsing argv for options, and using hooks to provide a way to chain call and
 use more of the power of `yargs-parser`.  Result is merged specifically into 
 `config.options`
 
-###### Hooks 
+###### ~~Hooks~~ 
 * preYargsOptionsParser
 * yargsOptionParsers for adding parsers before parsing
 * postYargsOptionsParser

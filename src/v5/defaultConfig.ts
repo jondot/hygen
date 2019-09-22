@@ -3,19 +3,16 @@ import { HygenConfig } from './hygen'
 /* @function create an empty configuration object */
 const mkConfig = (): HygenConfig =>
   ({
-    configFile: {globalPaths: [], localPaths: []},
+    configFile: {globalPaths: [], localPaths: [], configFiles: []},
     env: {},
     modules: [],
-    localConfigFilenames: [],
     directives: [],
-    generator: {templates: [],ignored: [], paramFiles: []},
+    generator: {generator: null, action: null, path: null, templates: [], ignored: [], configFiles: []},
     helpers: {},
     hooks: {},
-    ignored: { generators: [], actions: [], files: [], patterns: [] },
     logger: undefined,
     options: {},
     params: {},
-    templates: [],
     tools: {},
   })
 
