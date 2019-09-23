@@ -3,6 +3,7 @@ import { chainPromise } from './utils'
 import {Logger} from './utils/logger'
 
 const masterResolvers = [
+  require('./resolvers/defaults'),
   require('./resolvers/config'),
   require('./resolvers/module'),
   require('./resolvers/yargs'),

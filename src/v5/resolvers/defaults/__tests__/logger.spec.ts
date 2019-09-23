@@ -1,18 +1,15 @@
----
-to: <%- resolverSpecPath %>
----
-import <%- resolverName %> from '<%- resolverSpecImportPath %>'
+import loggerResolver from '../logger'
 
-describe('<%- resolverName %>', () => {
+describe('loggerResolver', () => {
   describe('Basics', () => {
     it('should be a function', () => {
-      expect(typeof <%- resolverName %>).toEqual('function')
+      expect(typeof loggerResolver).toEqual('function')
     })
     // does it accept all of the various parameter signatures it needs
     // does it return the correct data
   })
 
-  describe('<%- resolverSpecDescription %>', () => {
+  describe('loggerResolver(config: HygenConfig): HygenConfig', () => {
     // happy path
     it('should test happy path', () => {
       const hasRealTests = false

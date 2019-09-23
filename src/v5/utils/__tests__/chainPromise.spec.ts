@@ -1,4 +1,4 @@
-import { chainPromise } from '../../utils/chainPromise'
+import { chainPromise } from '../chainPromise'
 
 describe('pathTo', () => {
   it('should be a function', () => {

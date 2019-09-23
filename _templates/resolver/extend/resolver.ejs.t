@@ -1,8 +1,8 @@
 ---
 to: <%- resolverPath %>
 ---
-import { HygenConfig, HygenResolver } from '../hygen'
-import { chainPromise } from '../utils'
+import { HygenConfig, HygenResolver } from '../../hygen'
+import { chainPromise } from '../../utils'
 
 export const <%- resolverName %> = (config: HygenConfig): Promise<HygenConfig> => {
   // resolve pre<%- Name %> hooks
@@ -13,7 +13,7 @@ export const <%- resolverName %> = (config: HygenConfig): Promise<HygenConfig> =
 
 const resolver: HygenResolver = {
   resolver: <%- resolverName %>,
-  name: '<%- Name%> Resolver',
+  name: '<%- Name %> Resolver',
   hooks: ['pre<%- Name %>', 'post<%- Name %>'],
 }
 

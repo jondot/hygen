@@ -5,26 +5,28 @@ export declare type LogMessage = (...msg: any[]) => void
 export declare class Logger {
   constructor(log: LogMessage, env: EnvConfig, mapping: StringMap)
 
-  log: LogMessage
-  colorful: LogMessage
   trace: LogMessage
   debug: LogMessage
-  notice: LogMessage
-  ok: LogMessage
   info: LogMessage
   warn: LogMessage
   error: LogMessage
+
+  // logLevel info - variation of colors for standard log levels
+  log: LogMessage // dark white or light black
+  notice: LogMessage // gold ish
+  ok: LogMessage // green ish
 }
 
 export declare interface LogYargs {
   logLevel?: number
 
-  s?: string
   silent?: string
-  q?: string
   quiet?: string
   warn?: string
   debug?: string
   trace?: string
+
+  /* pass `--log` to format output for logging? */
+  // log?: string
 }
 

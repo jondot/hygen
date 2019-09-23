@@ -3,7 +3,13 @@
     "allowJs": true,
     "allowSyntheticDefaultImports": true,
     "resolveJsonModule": true,
-    "types": ["chalk", "change-case", "enquirer", "front-matter"]
+    "types": ["chalk", "change-case", "enquirer", "front-matter"],
+    "lib": [
+      "dom",
+      "es5",
+      "scripthost",
+      "es2015.promise"
+    ]
   },
   "include": ["src/**/*.ts"]
 }

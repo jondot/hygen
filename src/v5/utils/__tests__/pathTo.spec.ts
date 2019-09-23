@@ -1,4 +1,4 @@
-import { pathTo } from '../../utils/pathTo'
+import { pathTo } from '../pathTo'
 
 describe('pathTo', () => {
   it('should be a function', () => {

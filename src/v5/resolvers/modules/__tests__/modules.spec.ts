@@ -1,4 +1,4 @@
-import modulesResolver from '/home/scottp/code/workspace/hygen/src/v5/resolvers/modules'
+import modulesResolver from './src/v5/resolvers/modules'
 
 describe('modulesResolver(hygenConfig)', () => {
   it('should be a function', () => {

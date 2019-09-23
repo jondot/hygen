@@ -1,5 +1,6 @@
 import { GeneratorConfig } from './generators'
 import { Logger } from './logger'
+import {YargsConfig} from './yargs'
 
 export interface ConfigFileConfig {
   globalPaths: string[]
@@ -50,6 +51,7 @@ export interface HygenConfig {
   options?: OptionsConfig
   params?: ParamsConfig
   tools?: ToolsConfig
+  yargs?: YargsConfig
 }
 
 export declare type ResolverFn = (config: HygenConfig) => Promise<HygenConfig>

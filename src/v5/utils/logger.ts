@@ -8,14 +8,14 @@ const template = require('chalk/templates')
 export const CHALK_MAPPING: StringMap = {
   trace: gray,
   debug: cyan,
-  err: red,
-  error: red,
   info: magenta,
+  warn: yellow,
+  error: red,
+
   log: white,
   ok: green,
   notice: cyan,
   verbose: white,
-  warn: yellow,
 }
 
 export const LOG_LEVELS: string[] = ['trace', 'debug', 'info','log', 'warn', 'error', 'silent']
@@ -27,14 +27,26 @@ const LEVEL_EQUIVALENTS: NumberMap = {
 
 export const mkLogger = env => new Logger(console.log.bind(console), env)
 
+// silent no output at all
+// quiet only short error messages
+// warn only short warning messages
+// info standard messages
+// verbose standard messages with more details
+// debug dumps at keys spots
+// trace ignore
+
+// log
+
 export class Logger {
   yargs: LogYargs
   log: LogMessage
   mappings: object
   logLevels: string[]
 
-  constructor(log: LogMessage, yargs: LogYargs, mappings: StringMap = CHALK_MAPPING) {
-    this.yargs = env.yargs || {}
+
+
+  constructor(log: LogMessage, yargs: LogYargs = {}, mappings: StringMap = CHALK_MAPPING) {
+    this.yargs = yargs
     this.log = log
     this.mappings = mappings
     this.logLevels = LOG_LEVELS
@@ -49,6 +61,8 @@ export class Logger {
       }
     })
   }
+
+
 
   levelFor = level => {
     if (LOG_LEVELS.indexOf(level) >= 0) return LOG_LEVELS.indexOf(level)

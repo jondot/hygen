@@ -1,8 +1,12 @@
-import yargsParser from 'yargs-parser'
+import {Parser} from 'yargs-parser'
+
+export declare type YargsBuilder = (Parser) => Parser
 
 export declare interface YargsConfig {
-  config: yargsParser.Configuration
-  parser: yargsParser.Parser
+  parser: Parser
+  key: string
+  description: string
+  builder: YargsBuilder
 
 }
 
