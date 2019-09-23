@@ -6,7 +6,6 @@ const masterResolvers = [
   require('./resolvers/defaults'),
   require('./resolvers/config'),
   require('./resolvers/module'),
-  require('./resolvers/yargs'),
   require('./resolvers/generator'),
   require('./resolvers/params'),
   require('./resolvers/templates'),

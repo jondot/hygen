@@ -1,7 +1,8 @@
 import { HygenConfig, HygenResolver } from '../hygen/index'
 // import { chainPromise } from '../utils/chainPromise'
 
-
+const GLOBAL_SEARCH_FILES = ['.hygenignore','.hygen.js']
+const LOCAL_SEARCH_FILES = [...GLOBAL_SEARCH_FILES, 'index.js','prompt.js']
 
 export const generatorResolver = (config: HygenConfig): Promise<HygenConfig> => {
   // HYGEN_FILES [.hygenignore,.hygen.js,index.js,prompt.js]

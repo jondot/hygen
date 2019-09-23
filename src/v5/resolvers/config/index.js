@@ -11,21 +11,10 @@ const moduleResolvers =   require('./resolvers/module')
 export const configResolver = (config: HygenConfig): Promise<HygenConfig> => {
 
   return defaultsResolvers(config)
-    .then(loadHygenFiles)
-    .then(mergeHygenFiles)
+    .then(fileResolver('configFiles'))
     .then(yargsResolver)
     .then(hooksResolver('postConfig'))
 
-  /* run yargs for logger */
-  /*   the logger needs logLevel out of argv */
-  // set logger
-  // set tools
-  // set helpers
-  // find existing `.hygen.js` files
-  // load each
-  // merge into master config
-  // run postConfig hooks
-  return Promise.resolve(config)
 }
 
 const resolver: HygenResolver = {
