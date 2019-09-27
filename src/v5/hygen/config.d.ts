@@ -2,12 +2,31 @@ import { GeneratorConfig } from './generators'
 import { Logger } from './logger'
 import {YargsConfig} from './yargs'
 
-export interface ConfigFileConfig {
-  globalPaths: string[]
-  localPaths: string[]
-  configFiles: []
+interface loadedFileConfig {
+  files: string[],
+  data: object,
 }
-
+interface searchFileConfig {
+  files?: string[],
+  filenames?: string[],
+  searchStart: string,
+  searchEnd?: string,
+  searchLimit?: number,
+}
+interface ignoreConfig {
+  dirs: string[],
+  files: string[],
+  actions: string[],
+  generators: string[],
+  templates: string[],
+}
+export interface configFiles {
+  templatePaths: string[],
+  globalConfig: searchFileConfig,
+  hygenIgnore: searchFileConfig,
+  localConfig: searchFileConfig,
+  ignore: ignoreConfig,
+}
 export interface EnvConfig {
   argv?: string[]
   cwd?: string

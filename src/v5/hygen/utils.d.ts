@@ -34,3 +34,4 @@ export declare class pathTo {
   base: string[]
 
 }
+
