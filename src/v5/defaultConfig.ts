@@ -1,51 +1,50 @@
 import { HygenConfig } from './hygen'
 
-
-const mkConfig = (): HygenConfig =>
+export const mkConfig = (): object =>
   ({
-    hygenConfig = {
-      configFile: {
-        templatePaths: ['_templates'], /* where to look for generators */
-        globalConfig: {
-          files: [], /* specific file(s) to load */
-          filenames: ['.hygen.js','hygen.js'],
-          searchStart: path.join(cwd, '.hygen.js'),
-          searchEnd: '/',
-          searchLimit: 1,
-        },
-        hygenIgnore: {
-          filename: ['.hygenignore'],
-          searchLimit: 1,
-        },
-        localConfig: {
-          localFilenames: ['.hygen.js','hygen.js'],
-          searchLimit: 0,
-        },
-        templateConfig: {
-
-        }
-        ignore: {
-          dirs: ['_hygen'],
-          files: ['.hygen.js','hygen.js', '.hygenignore'],
-          actions: [],
-          generators: [],
-          templates: [],
-        }
-      }
+    /* information for collecting config from files, and for ignoring them */
+    hygenConfig: {
+      /* files to find and read */
+      filenames: [
+        /* process.env.HYGEN_CONFIG_FILENAME - [index.js, prompt.js] */
+        /* process.env.HYGEN_CONFIG_FILE - '/home/carrot/.config/hygen.js' */
+        '.hygen.js',
+        'hygen.js'
+      ],
+      hygenIgnore:[/* process.env.HYGEN_IGNORE_FILENAME, */'.hygenignore'],
     },
+    /* env contains data about the running environment */
     env: {},
+    /* modules is a list of modules to be loaded by moduleResolver */
     modules: [],
+    /* directives are specific actions that templates can do */
+    /* examples: renderFile, sh, message, user added additions are allowed */
+    /* api for a directive to follow */
     directives: [],
-    generator: {generator: null, action: null, path: null, templates: [], ignored: [], configFiles: []},
+    /* specifics about the generator being used */
+    generator: {
+      generator: null,
+      action: null,
+      path: null,
+      templates: [],
+      ignored: [],
+      configFiles: [],
+    },
+    /* available to templates as `h` */
     helpers: {},
+    /* resolvers execute hooks during it's lifecycle */
+    /* each hook takes a hygenConfig obj and returns a promise to deliver one */
     hooks: {},
+    /* used to generate output.  .error, .warning, .verbose, */
+    /* .debug, .info, .log, .warn, .error */
     logger: undefined,
-    options: {},
+    // options: {},
+    // the current set of yargs data and the results of processing it
     params: {},
+    // programs and constants used across resolvers
     tools: {},
   })
 
-const mkConfigPromise = (): Promise<HygenConfig> => Promise.resolve(mkConfig())
+export const mkConfigPromise = (): Promise<HygenConfig> => Promise.resolve(mkConfig())
 
-module.exports = { mkConfig, mkConfigPromise }
-
+export default {mkConfig, mkConfigPromise}
