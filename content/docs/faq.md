@@ -115,7 +115,7 @@ of the injection:
 ```
 my-generator/
   new/
-    index.js.t
+    index.ts.t
     add-redux-to-package.json.t   <-- injects to package.json
     add-lodash-to-package.json.t  <-- injects to package.json
 ```
@@ -141,7 +141,7 @@ And use it:
 
 ```yaml
 ---
-to: "<%= h.src() %>/src/index.js"
+to: "<%= h.src() %>/src/index.ts"
 ---
 ```
 

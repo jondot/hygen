@@ -3,8 +3,9 @@
     "allowJs": true,
     "allowSyntheticDefaultImports": true,
     "resolveJsonModule": true,
-    "types": ["chalk", "change-case", "enquirer", "front-matter"],
+    "types": ["chalk","yargs", "node","change-case", "enquirer", "front-matter", "jest"],
     "lib": [
+      "node",
       "dom",
       "es5",
       "scripthost",

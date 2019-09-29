@@ -1,4 +1,4 @@
-import { HygenConfig, HygenResolver } from '../hygen/index'
+import { HygenConfig, HygenResolver } from '../hygen'
 
 export const chainPromise = async (
   firstLink: Promise<HygenConfig>,

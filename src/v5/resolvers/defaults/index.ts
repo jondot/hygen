@@ -1,13 +1,18 @@
 import { HygenConfig, HygenResolver } from '../hygen'
-import { chainPromise } from '../utils'
+import yargsResolver from '../yargs'
+import { loggerResolver } from './logger'
+import  {helpModuleResolver} from './helpModule'
+import { createHooksResolver } from '../hooks'
+import { toolsResolver } from './tools'
+import { helpersResolver } from './helpers'
 
 export const defaultsResolver = (config: HygenConfig): Promise<HygenConfig> => {
   yargsResolver(config)
     .then(loggerResolver)
-    .then(helpModule)
+    .then(helpModuleResolver)
     .then(toolsResolver)
     .then(helpersResolver)
-    .then(hooksResolver('postDefaults'))
+    .then(createHooksResolver('postDefaults'))
 }
 
 const resolver: HygenResolver = {

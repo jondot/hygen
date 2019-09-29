@@ -1,7 +1,7 @@
 import { HygenConfig, HygenResolver } from '../../hygen'
 import { chainPromise } from '../../utils'
 
-export const toolsResolverResolver = (config: HygenConfig): Promise<HygenConfig> => {
+export const toolsResolver = (config: HygenConfig): Promise<HygenConfig> => {
   // resolve preToolsresolver hooks
 
   // resolve postToolsresolver hooks
@@ -9,7 +9,7 @@ export const toolsResolverResolver = (config: HygenConfig): Promise<HygenConfig>
 }
 
 const resolver: HygenResolver = {
-  resolver: toolsResolverResolver,
+  resolver: toolsResolver,
   name: 'Toolsresolver Resolver',
   hooks: ['preToolsresolver', 'postToolsresolver'],
 }

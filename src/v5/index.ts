@@ -1,8 +1,8 @@
 // import type { HygenConfig, Resolver, ChainedVars } from './types'
 import { chainPromise } from './utils'
-import {Logger} from './utils/logger'
+import { HygenConfig, HygenResolver } from './hygen'
 
-const masterResolvers = [
+const masterResolvers: HygenResolver[] = [
   require('./resolvers/defaults'),
   require('./resolvers/config'),
   require('./resolvers/module'),
@@ -13,8 +13,8 @@ const masterResolvers = [
   require('./resolvers/render'),
 ]
 
-export const hygen = async config =>
-  chainPromise(Promise.resolve(defaultConfig), masterResolvers).catch(err => {
+export const hygen = async (config: HygenConfig): Promise<HygenConfig | void>  =>
+  chainPromise(Promise.resolve(config), masterResolvers).catch(err => {
     config.logger.error(err.toString())
     config.logger.debug('======== details ========')
     config.logger.debug(err.stack)
