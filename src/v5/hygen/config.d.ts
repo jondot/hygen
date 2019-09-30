@@ -1,7 +1,7 @@
 import { HelpersConfig } from './context'
 import { Logger } from './logger'
 import { YargsConfig } from './yargs'
-import { HygenResolver } from './resolvers'
+import { HygenResolver, ResolverFn } from './resolvers'
 
 export interface EnvConfig {
   cwd: string
@@ -13,5 +13,5 @@ export interface HygenConfig {
   yargs: YargsConfig
 }
 export interface Hooks {
-  [s: string]: Array<HygenResolver>
+  [s: string]: Array<ResolverFn>
 }

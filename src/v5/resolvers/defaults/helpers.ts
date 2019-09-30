@@ -1,7 +1,7 @@
-import { HygenConfig, HygenResolver } from '../../hygen'
-import { chainPromise } from '../../utils'
+import { HygenConfig, HygenResolver, ResolverFn } from '../../hygen'
+import { createResolverChain } from '../../utils'
 
-export const helpersResolver = (config: HygenConfig): Promise<HygenConfig> => {
+export const helpersResolver: ResolverFn = config => {
   // resolve preHelpersresolver hooks
 
   // resolve postHelpersresolver hooks
@@ -9,7 +9,7 @@ export const helpersResolver = (config: HygenConfig): Promise<HygenConfig> => {
 }
 
 const resolver: HygenResolver = {
-  resolver: helpersResolver,
+  resolve: helpersResolver,
   name: 'Helpersresolver Resolver',
   hooks: ['preHelpersresolver', 'postHelpersresolver'],
 }
