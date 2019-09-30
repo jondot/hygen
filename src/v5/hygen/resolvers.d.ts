@@ -7,3 +7,4 @@ export declare interface HygenResolver {
   name: string,
   hooks: string[],
 }
+

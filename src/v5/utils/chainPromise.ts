@@ -1,16 +1,10 @@
-import { HygenConfig, HygenResolver } from '../hygen'
+import {
+  ChainResolver,
+  CreateResolverChainFn,
+} from '../hygen/utils'
 
-export const chainPromise = async (
-  firstLink: Promise<HygenConfig>,
-  resolvers: Array<HygenResolver>,
-): Promise<HygenConfig> => {
-  return resolvers.reduce(
-    async (
-      chain: Promise<HygenConfig>,
-      resolver: HygenResolver,
-    ): Promise<HygenConfig> => {
-      return chain.then(resolver.resolve)
-    },
-    firstLink,
-  )
-}
+export const chainResolver: ChainResolver = async (chain, resolver) => chain.then(resolver)
+export const createResolverChain: CreateResolverChainFn = resolvers =>
+  async config => resolvers.reduce(chainResolver, Promise.resolve(config))
+
+

@@ -1,5 +1,5 @@
 import { HygenConfig } from './config'
-import { HygenResolver } from './resolvers'
+import { HygenResolver, ResolverFn } from './resolvers'
 
 export interface Pathlike {
   join: (...args: string[]) => string,
@@ -37,4 +37,5 @@ export declare class pathTo {
   base: string[]
 }
 
-export type PromiseChainer = (firstLink: Promise<HygenConfig>, resolvers: Array<HygenResolver>) => Promise<HygenConfig>
+export type CreateResolverChainFn = (resolvers: Array<HygenResolver>) => ResolverFn
+export type ChainResolver = (chain: Promise<HygenConfig>, resolver: ResolverFn) => Promise<HygenConfig>

@@ -20,7 +20,7 @@ export const configResolver = (config: HygenConfig): Promise<HygenConfig> => {
 }
 
 const resolver: HygenResolver = {
-  resolver: configResolver,
+  resolve: configResolver,
   name: 'Modules ',
   hooks: ['postConfig'],
 }
