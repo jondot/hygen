@@ -1,16 +1,8 @@
-import { HygenConfig } from '../../hygen'
+import { HygenResolver } from '../../hygen'
 import { createResolverChain } from '../../utils'
-import { CreateHooksChainFn } from '../../hygen/hooks'
 
-export const createHooksChain: CreateHooksChainFn = (hook, config) =>
-  createResolverChain(config.hooks[hook])(config)
-
-export const createHooksResolver = (hook)  => {
+export const createHooksResolver = (hook: string): HygenResolver => {
   return config => {
-    return {
-      resolve: createHooksChain(hook, config),
-      name: `Hooks resolver: ${hook}`,
-      hooks: ['preHooks', 'postHooks'],
-    }
+    return createResolverChain(config.hooks[hook])(config)
   }
 }

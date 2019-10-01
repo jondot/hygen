@@ -26,10 +26,4 @@ export const yargsResolver = (config: HygenConfig): Promise<HygenConfig> => {
   return (Promise.resolve(config))
 }
 
-export const resolver: HygenResolver = {
-  resolve: yargsResolver,
-  name: 'Yargs Resolver',
-  hooks: ['preYargs', 'postYargs'],
-}
-
 export default yargsResolver

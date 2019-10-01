@@ -1,5 +1,5 @@
 // import type { HygenConfig, Resolver, ChainedVars } from './types'
-import { chainPromise } from './utils'
+import { createResolverChain } from './utils'
 import { HygenConfig, HygenResolver } from './hygen'
 
 const masterResolvers: HygenResolver[] = [
@@ -9,14 +9,16 @@ const masterResolvers: HygenResolver[] = [
   require('./resolvers/generator'),
   require('./resolvers/params'),
   require('./resolvers/templates'),
+  // these could be one step
   require('./resolvers/directives'),
   require('./resolvers/render'),
 ]
-
-export const hygen = async (config: HygenConfig): Promise<HygenConfig | void>  =>
-  chainPromise(Promise.resolve(config), masterResolvers).catch(err => {
+const hygenChain = createResolverChain(masterResolvers)
+export const hygen = async (config: HygenConfig): Promise<any>  => {
+  hygenChain(config).catch(err => {
     config.logger.error(err.toString())
-    config.logger.debug('======== details ========')
-    config.logger.debug(err.stack)
-    config.logger.debug('=========================')
+    config.logger.trace('======== details ========')
+    config.logger.trace(err.stack)
+    config.logger.trace('=========================')
   })
+}

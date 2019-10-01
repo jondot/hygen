@@ -10,8 +10,8 @@ interface TemplateContext {
 
 interface HelpersConfig {
   capitalize: StringManipulationFn
-  inflection: StringManipulationLib
-  changeCase: StringManipulationLib
+  inflection: object
+  changeCase: object
 
   [s: string]: any
 }

@@ -3,11 +3,12 @@
     "allowJs": true,
     "allowSyntheticDefaultImports": true,
     "resolveJsonModule": true,
-    "types": ["chalk","yargs", "node","change-case", "enquirer", "front-matter", "jest"],
+    "types": ["chalk","yargs", "node","change-case", "enquirer", "front-matter", "jest", "inflection"],
     "lib": [
-      "node",
+      "es5","es2015.promise",
       "dom",
       "es5",
+      "es6",
       "scripthost",
       "es2015.promise"
     ]

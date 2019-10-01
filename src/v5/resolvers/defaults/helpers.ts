@@ -1,17 +1,24 @@
-import { HygenConfig, HygenResolver, ResolverFn } from '../../hygen'
-import { createResolverChain } from '../../utils'
+import { HygenResolver } from '../../hygen'
+import * as inflection from 'inflection'
+import * as changeCase from 'change-case'
 
-export const helpersResolver: ResolverFn = config => {
-  // resolve preHelpersresolver hooks
+// supports kebab-case to KebabCase
+// @ts-ignore
+inflection.undasherize = str =>
+  str
+    .split(/[-_]/)
+    .map(w => w[0].toUpperCase() + w.slice(1).toLowerCase())
+    .join('')
 
-  // resolve postHelpersresolver hooks
+export const helpersResolver: HygenResolver = config => {
+  config.helpers = {
+    ...config.helpers,
+    capitalize: changeCase.ucFirst,
+    inflection,
+    changeCase: changeCase,
+  }
   return Promise.resolve(config)
 }
 
-const resolver: HygenResolver = {
-  resolve: helpersResolver,
-  name: 'Helpersresolver Resolver',
-  hooks: ['preHelpersresolver', 'postHelpersresolver'],
-}
 
-export default resolver
+export default helpersResolver

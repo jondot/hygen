@@ -21,7 +21,7 @@ const run = async () =>
         path,
       },
     },
-  })
+  })()
 
-  (async () => await run())()
+(async () => await run())()
 
