@@ -58,13 +58,14 @@
     "jest": "^24.3.1",
     "pkg": "^4.3.5",
     "time-require": "^0.1.2",
+    "ts-jest": "^24.1.0",
     "typescript": "^3.6.3"
   },
   "jest": {
     "testURL": "http://localhost/",
-    "testRegex": "src/__tests__/.*\\.spec\\.js$",
+    "testRegex": "src/v5/(__tests__/)?.*\\.spec\\.ts$",
     "transform": {
-      "^.+\\.jsx?$": "babel-jest"
+      "^.+\\.tsx?$": "ts-jest"
     }
   },
   "pkg": {

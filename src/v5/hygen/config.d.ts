@@ -7,10 +7,10 @@ export interface EnvConfig {
   cwd: string
 }
 export interface HygenConfig {
-  helpers: HelpersConfig
-  logger: Logger
-  hooks: Hooks
-  yargs: YargsConfig
+  helpers?: HelpersConfig
+  logger?: Logger
+  hooks?: Hooks
+  yargs?: YargsConfig
 }
 export interface Hooks {
   [s: string]: Array<HygenResolver>
