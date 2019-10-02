@@ -5,6 +5,7 @@ const Logger = require('./logger')
 const path = require('path')
 
 const defaultTemplates = path.join(__dirname, '../src/templates')
+
 runner(process.argv.slice(2), {
   templates: defaultTemplates,
   cwd: process.cwd(),

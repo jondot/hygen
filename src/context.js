@@ -11,13 +11,7 @@ inflection.undasherize = str =>
     .map(w => w[0].toUpperCase() + w.slice(1).toLowerCase())
     .join('')
 
-const helpers = {
-  capitalize(string) {
-    return string.charAt(0).toUpperCase() + string.slice(1).toLowerCase()
-  },
-  inflection,
-  changeCase,
-}
+
 
 const doCapitalization = (hsh, [key, value]) => {
   hsh[key] = value

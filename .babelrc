@@ -47,11 +47,11 @@
       "@babel/env",
       {
         "targets": {
-          "node": "6.0"
+          "node": "current"
         }
       }
     ],
     "@babel/react",
-    "@babel/preset-flow"
+    "@babel/preset-typescript"
   ]
 }

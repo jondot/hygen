@@ -20,15 +20,15 @@ app/
   modules/
     boot.js     <---- glues modules together, requires chat, app, and auth.
     app/
-      index.js
+      index.ts
       view.js
       state.js
     auth/
-      index.js
+      index.ts
       view.js
       state.js
     chat/
-      index.js  <---- the 'connect' bit for Redux.
+      index.ts  <---- the 'connect' bit for Redux.
       view.js   <---- the view, separated, for testing.
       state.js  <---- reducer, actions, types, selectors.
 ```
@@ -53,7 +53,7 @@ Here's how `index` looks like:
 
 ```javascript
 ---
-to: app/modules/<%= name %>/index.js
+to: app/modules/<%= name %>/index.ts
 ---
 //
 // requires, mappings, etc....

@@ -72,7 +72,7 @@ _templates/
       html.ejs.t
       text.ejs.t
 app/
-  index.js
+  index.ts
 package.json
 ```
 
@@ -158,20 +158,20 @@ It's possible to create a a multi-step prompt where you ask some questions, run 
 
 In addition, it's possible to skip prompting, or re-shape parameters that were given to you from either CLI or prompt, so that you can do it in a central place.
 
-You can "enable" advanced params and prompting by replacing your `prompt.js` file with an `index.js` file in your action:
+You can "enable" advanced params and prompting by replacing your `prompt.js` file with an `index.ts` file in your action:
 
 ```
 my-generator
   my-action/
-    index.js
+    index.ts
     template1.ejs.t
     template2.ejs.t
 ```
 
-Here's how you can use `index.js` to build a two-step prompting flow. Instead of exporting an array of question types as with the `prompt.js` file, you now need to export an object with a function called `prompt`:
+Here's how you can use `index.ts` to build a two-step prompting flow. Instead of exporting an array of question types as with the `prompt.js` file, you now need to export an object with a function called `prompt`:
 
 ```javascript{3}
-// my-generator/my-action/index.js
+// my-generator/my-action/index.ts
 module.exports = {
   prompt: ({ prompter, args }) =>
     prompter
@@ -197,7 +197,7 @@ For completeness, here is a [a more elaborate use of prompts](https://github.com
 You can skip prompting conditionally using custom logic:
 
 ```javascript{4,6}
-// my-generator/my-action/index.js
+// my-generator/my-action/index.ts
 module.exports = {
   prompt: ({ prompter, args }) => {
     if (args.age > 18) {
@@ -215,7 +215,7 @@ module.exports = {
 You can skip _physically_ prompting and use `params` to build more sophisticated parameters out of your CLI parameters:
 
 ```javascript{2}
-// my-generator/my-action/index.js
+// my-generator/my-action/index.ts
 module.exports = {
   params: ({ args }) => {
     return { moreConvenientName: args.foobamboozle }

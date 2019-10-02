@@ -1,5 +1,16 @@
 {
-    "compilerOptions": {
-        "allowJs": true
-    }
+  "compilerOptions": {
+    "allowJs": true,
+    "allowSyntheticDefaultImports": true,
+    "resolveJsonModule": true,
+    "types": ["chalk","yargs", "yargs-parser", "node","change-case", "enquirer", "front-matter", "jest", "inflection"],
+    "lib": [
+      "dom",
+      "es5",
+      "es6",
+      "scripthost",
+      "es2015.promise"
+    ]
+  },
+  "include": ["src/**/*.ts"]
 }

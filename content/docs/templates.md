@@ -233,7 +233,7 @@ By default templates are 'added' to your project as a new target file. By specif
 
 ```yaml
 ---
-to: app/index.js
+to: app/index.ts
 ---
 console.log('this is index!')
 ```
@@ -242,7 +242,7 @@ If a target file already exists, and you don't want to overwrite it, you can use
 
 ```yaml
 ---
-to: app/index.js
+to: app/index.ts
 unless_exists: true
 ---
 will not render if target exists
