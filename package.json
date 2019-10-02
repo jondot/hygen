@@ -19,7 +19,7 @@
     "test:metaverse": "node node_modules/.bin/jest metaverse",
     "test:require": "babel-node src/bin.timed.js; babel-node src/bin.timed.js; babel-node src/bin.timed.js init self; rm -rf _templates",
     "watch": "node node_modules/.bin/jest --watch",
-    "flow:sync": "flow-typed install",
+    "flow:sync": "echo 'flow:sync no longer applicable'",
     "hygen": "babel-node src/bin.js",
     "hygen:timed": "babel-node src/bin.timed.js",
     "docs:prepare": "cd hygen.io && yarn",
@@ -47,11 +47,11 @@
   },
   "devDependencies": {
     "@babel/node": "^7.0.0",
+    "@typescript-eslint/parser": "^2.3.2",
+    "@typescript-eslint/eslint-plugin": "^2.3.2",
     "babel-core": "7.0.0-bridge.0",
     "conventional-changelog-cli": "^2.0.11",
     "dir-compare": "^1.4.0",
-    "flow-bin": "0.68.0",
-    "flow-typed": "^2.2.3",
     "gh-pages": "^1.1.0",
     "goddamn-javascript-babel": "1.0.1",
     "goddamn-javascript-eslint": "^1.0.1",
@@ -63,7 +63,7 @@
   },
   "jest": {
     "testURL": "http://localhost/",
-    "testRegex": "src/v5/(__tests__/)?.*\\.spec\\.ts$",
+    "testRegex": "src/(__tests__/)?.*\\.spec\\.ts$",
     "transform": {
       "^.+\\.tsx?$": "ts-jest"
     }

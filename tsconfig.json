@@ -3,9 +3,8 @@
     "allowJs": true,
     "allowSyntheticDefaultImports": true,
     "resolveJsonModule": true,
-    "types": ["chalk","yargs", "node","change-case", "enquirer", "front-matter", "jest", "inflection"],
+    "types": ["chalk","yargs", "yargs-parser", "node","change-case", "enquirer", "front-matter", "jest", "inflection"],
     "lib": [
-      "es5","es2015.promise",
       "dom",
       "es5",
       "es6",

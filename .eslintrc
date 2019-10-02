@@ -1,13 +1,13 @@
 {
-  "parser": "babel-eslint",
+  "parser": "@typescript-eslint/parser",
   "extends": [
     "airbnb",
     "prettier"
   ],
   "plugins": [
     "jest",
-    "flowtype",
-    "prettier"
+    "prettier",
+    "@typescript-eslint"
   ],
   "rules": {
     "prettier/prettier": [
@@ -24,9 +24,6 @@
     "react/jsx-filename-extension": "off"
   },
   "settings": {
-    "flowtype": {
-      "onlyFilesWithFlowAnnotation": false
-    }
   },
   "env": {
     "es6": true,
