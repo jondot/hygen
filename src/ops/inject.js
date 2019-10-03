@@ -1,6 +1,6 @@
 // @flow
 
-import type { ActionResult, RenderedAction, RunnerConfig } from '../types'
+import type { ActionResult, RenderedAction, RunnerConfig } from 'src/v4/types'
 import createResult from './result'
 
 const fs = require('fs-extra')

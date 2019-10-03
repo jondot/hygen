@@ -1,4 +1,4 @@
-import type { ActionResult } from '../types'
+import type { ActionResult } from 'src/v4/types'
 import createResult from './result'
 
 const notEmpty = x => x && x.length > 0

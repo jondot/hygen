@@ -2,6 +2,7 @@
   "name": "hygen",
   "version": "4.0.9",
   "main": "lib/index.js",
+  "license": "MIT",
   "repository": "https://github.com/jondot/hygen",
   "bin": {
     "hygen": "./lib/bin.js"
@@ -17,15 +18,16 @@
     "test:win32": "node node_modules/jest/bin/jest.js --runInBand metaverse",
     "test:code": "node node_modules/.bin/jest",
     "test:metaverse": "node node_modules/.bin/jest metaverse",
-    "test:require": "babel-node src/bin.timed.js; babel-node src/bin.timed.js; babel-node src/bin.timed.js init self; rm -rf _templates",
+    "test:require": "babel-node src/v4/bin.timed.js; babel-node src/bin.timed.js; babel-node src/bin.timed.js init self; rm -rf _templates",
     "watch": "node node_modules/.bin/jest --watch",
     "flow:sync": "echo 'flow:sync no longer applicable'",
-    "hygen": "babel-node src/bin.js",
-    "hygen:timed": "babel-node src/bin.timed.js",
+    "hygen": "babel-node src/v4/bin.js",
+    "hygen:timed": "babel-node src/v4/bin.timed.js",
     "docs:prepare": "cd hygen.io && yarn",
     "docs:watch": "cd hygen.io && yarn gatsby develop",
     "docs:build": "cd hygen.io && yarn build",
-    "docs:publish": "cd hygen.io && yarn build:gh"
+    "docs:publish": "cd hygen.io && yarn build:gh",
+    "tsc": "tsc"
   },
   "dependencies": {
     "@types/chalk": "^2.2.0",
@@ -47,16 +49,21 @@
   },
   "devDependencies": {
     "@babel/node": "^7.0.0",
-    "@typescript-eslint/parser": "^2.3.2",
     "@typescript-eslint/eslint-plugin": "^2.3.2",
+    "@typescript-eslint/parser": "^2.3.2",
     "babel-core": "7.0.0-bridge.0",
     "conventional-changelog-cli": "^2.0.11",
     "dir-compare": "^1.4.0",
+    "eslint": "^6.5.1",
+    "eslint-config-prettier": "^6.3.0",
+    "eslint-plugin-prettier": "^3.1.1",
     "gh-pages": "^1.1.0",
     "goddamn-javascript-babel": "1.0.1",
     "goddamn-javascript-eslint": "^1.0.1",
     "jest": "^24.3.1",
+    "jest-extended": "^0.11.2",
     "pkg": "^4.3.5",
+    "prettier": "^1.18.2",
     "time-require": "^0.1.2",
     "ts-jest": "^24.1.0",
     "typescript": "^3.6.3"
@@ -64,21 +71,25 @@
   "jest": {
     "testURL": "http://localhost/",
     "testRegex": "src/(__tests__/)?.*\\.spec\\.ts$",
+    "testPathIgnorePatterns": [
+      "/node_modules/",
+      "v4"
+    ],
     "transform": {
       "^.+\\.tsx?$": "ts-jest"
-    }
+    },
+    "setupFilesAfterEnv": ["jest-extended"]
   },
   "pkg": {
     "scripts": "lib/**/*.js",
     "assets": "src/**/*",
     "outPath": "standalone",
     "targets": [
-      "node10-macos",
-      "node10-linux",
-      "node10-win"
+      "node12-macos",
+      "node12-linux",
+      "node12-win"
     ]
   },
-  "license": "MIT",
   "description": "The scalable code generator that saves you time.",
   "keywords": [
     "template",

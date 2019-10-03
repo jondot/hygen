@@ -1,6 +1,6 @@
 // @flow
 
-import type { ActionResult, RunnerConfig, RenderedAction } from '../types'
+import type { ActionResult, RunnerConfig, RenderedAction } from 'src/v4/types'
 import createResult from './result'
 
 const path = require('path')
