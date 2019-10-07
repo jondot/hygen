@@ -1,6 +1,9 @@
 import { EnvConfig, HygenConfig } from './config'
 import { StringMap } from './types'
 
+export interface ChalkMapping {
+  [S: string]: LogMessage
+}
 export declare type LogMessage = (...msg: any[]) => void
 
 export declare class Logger {
@@ -13,6 +16,8 @@ export declare class Logger {
   log: LogMessage // dark white or light black
   notice: LogMessage // gold ish
   ok: LogMessage // green ish
+  setLevelFrom: (params: LogYargs) => void
+  [s: string]: LogMessage,
 }
 
 export declare interface LogYargs {
@@ -27,4 +32,3 @@ export declare interface LogYargs {
   /* pass `--log` to format output for logging? */
   // log?: string
 }
-

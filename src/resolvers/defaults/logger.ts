@@ -1,13 +1,14 @@
-import { HygenConfig, HygenResolver } from '../../hygen'
-import { chainPromise } from '../../utils'
-import mkHooksReducer from '../hooks'
+import { HygenConfig } from 'hygen'
+import { chainPromise } from 'utils'
+import { createHooksResolver } from '../hooks'
 import yargsResolver from '../yargs'
 
-export const loggerResolver = (config: HygenConfig): Promise<HygenConfig> => {
-  mkHooksReducer('preLogger')(config)
+export const loggerResolver = (config: HyQgenConfig): Promise<HygenConfig> => {
+  createHooksResolver('preLogger')(config)
     .then(mergeLogModule)
     .then(yargsResolver)
     .then(setupLogger)
+    .then(createHooksResolver('postLogger'))
 
   // resolve preLogger hooks
 
@@ -15,5 +16,4 @@ export const loggerResolver = (config: HygenConfig): Promise<HygenConfig> => {
   return Promise.resolve(config)
 }
 
-
-export default loggerResolver(
+export default loggerResolver

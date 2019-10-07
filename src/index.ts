@@ -14,11 +14,14 @@ const masterResolvers: HygenResolver[] = [
   require('./resolvers/render'),
 ]
 const hygenChain = createResolverChain(masterResolvers)
-export const hygen = async (config: HygenConfig): Promise<any>  => {
+export const hygen = async (config: HygenConfig): Promise<HygenConfig> => {
   hygenChain(config).catch(err => {
-    config.logger.error(err.toString())
-    config.logger.trace('======== details ========')
-    config.logger.trace(err.stack)
-    config.logger.trace('=========================')
+    if (config.logger) {
+      config.logger.error(err.toString())
+      config.logger.trace('======== details ========')
+      config.logger.trace(err.stack)
+      config.logger.trace('=========================')
+      process.exit(1)
+    }
   })
 }

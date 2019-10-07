@@ -1,4 +1,5 @@
 export * from './chainPromise'
 export * from './logger'
+export * from './mergeConfig'
 export * from './pathTo'
 export * from './walkers'

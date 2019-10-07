@@ -1,10 +1,15 @@
+import yargsParser from 'yargs-parser'
+import yargs from 'yargs'
+import { HygenConfig } from '../hygen'
+
 module.exports = {
   hooks: {
     postParamsParser: [
-      config => config.logger.setLevelFrom(config.params) && config,
+      (config: HygenConfig) =>
+        config.logger.setLevelFrom(config.params) && Promise.resolve(config),
     ],
     yargsOptionParsers: [
-      chain =>
+      (chain: yargs.CommandModule): yargs.CommandModule =>
         chain
           .group('Screen visibility')
           .number('logLevel')

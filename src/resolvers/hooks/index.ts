@@ -1,8 +1,10 @@
-import { HygenResolver } from '../../hygen'
-import { createResolverChain } from '../../utils'
+import { HygenConfig, HygenResolver } from 'hygen'
+import { createResolverChain } from 'utils'
 
 export const createHooksResolver = (hook: string): HygenResolver => {
-  return config => {
-    return createResolverChain(config.hooks[hook])(config)
+  return (config: HygenConfig): Promise<HygenConfig> => {
+    if (config.hooks && config.hooks[hook])
+      return createResolverChain(config.hooks[hook])(config)
+    else return Promise.resolve(config)
   }
 }

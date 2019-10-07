@@ -1,6 +1,10 @@
 import { HygenConfig } from './config'
 import { HygenResolver } from './resolvers'
 
+export interface NameMaker {
+  [s: string]: string
+}
+
 export interface Pathlike {
   join: (...args: string[]) => string,
   resolve: (folder: string) => string,

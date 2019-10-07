@@ -1,11 +1,19 @@
-import { StringMap, NumberMap, EnvConfig, LogMessage } from '../hygen'
+import {
+  StringMap,
+  NumberMap,
+  ChalkMapping,
+  LogMessage,
+  YargsConfig,
+} from '../hygen'
 import { LogYargs } from '../hygen/logger'
 
-const chalk = require('chalk')
-const { yellow, red, green, magenta, cyan, white, gray } = chalk
-const template = require('chalk/templates')
+import chalk from 'chalk'
 
-export const CHALK_MAPPING: StringMap = {
+import * as templates from 'chalk/templates'
+import yargs from 'yargs'
+
+const { yellow, red, green, magenta, cyan, white, gray } = chalk
+export const CHALK_MAPPING: ChalkMapping = {
   trace: gray,
   debug: cyan,
   info: magenta,
@@ -18,7 +26,15 @@ export const CHALK_MAPPING: StringMap = {
   verbose: white,
 }
 
-export const LOG_LEVELS: string[] = ['trace', 'debug', 'info','log', 'warn', 'error', 'silent']
+export const LOG_LEVELS: string[] = [
+  'trace',
+  'debug',
+  'info',
+  'log',
+  'warn',
+  'error',
+  'silent',
+]
 const LEVEL_EQUIVALENTS: NumberMap = {
   err: 4,
   ok: 2,
@@ -42,10 +58,13 @@ export class Logger {
   log: LogMessage
   mappings: object
   logLevels: string[]
+  logLevel = 2
 
-
-
-  constructor(log: LogMessage, yargs: LogYargs = {}, mappings: StringMap = CHALK_MAPPING) {
+  constructor(
+    log: LogMessage,
+    yargs: LogYargs = {},
+    mappings: ChalkMapping = CHALK_MAPPING,
+  ) {
     this.yargs = yargs
     this.log = log
     this.mappings = mappings
@@ -62,14 +81,12 @@ export class Logger {
     })
   }
 
-
-
-  levelFor = level => {
+  levelFor = (level: string): number => {
     if (LOG_LEVELS.indexOf(level) >= 0) return LOG_LEVELS.indexOf(level)
     return LEVEL_EQUIVALENTS[level] || 2
   }
 
-  logLevelFrom = params => {
+  logLevelFrom = (params: yargs) => {
     if (params.logLevel) return params.logLevel
     if (params.s || params.silent) return 5
     if (params.q || params.quiet) return 4
@@ -79,11 +96,11 @@ export class Logger {
     return 2
   }
 
-  setLevelFrom(yargs) {
+  setLevelFrom(yargs: YargsConfig): void {
     this.logLevel = this.logLevelFrom(yargs)
   }
 
-  colorful(msg) {
+  colorful(msg: string): void {
     this.log(template(chalk, msg))
   }
 }
