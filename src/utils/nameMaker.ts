@@ -1,4 +1,4 @@
-import { StringMap, NameMaker, YargsConfig } from '../hygen'
+import { StringMap, NameMaker } from '../hygen'
 
 const cc = require('change-case')
 const inflection = require('inflection')

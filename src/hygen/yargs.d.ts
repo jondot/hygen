@@ -8,3 +8,7 @@ export declare interface YargsConfig {
   description: string
   builder: YargsBuilder
 }
+
+export declare interface YargsResult {
+  [s: string]: boolean | number | string
+}

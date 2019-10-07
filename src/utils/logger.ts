@@ -3,14 +3,13 @@ import {
   NumberMap,
   ChalkMapping,
   LogMessage,
-  YargsConfig,
+  YargsConfig, YargsResult, EnvConfig,
 } from '../hygen'
-import { LogYargs } from '../hygen/logger'
-
+import { LogYargs } from '../hygen'
+import yargs from 'yargs'
 import chalk from 'chalk'
 
-import * as templates from 'chalk/templates'
-import yargs from 'yargs'
+// import * as templates from 'chalk/templates'
 
 const { yellow, red, green, magenta, cyan, white, gray } = chalk
 export const CHALK_MAPPING: ChalkMapping = {
@@ -19,7 +18,6 @@ export const CHALK_MAPPING: ChalkMapping = {
   info: magenta,
   warn: yellow,
   error: red,
-
   log: white,
   ok: green,
   notice: cyan,
@@ -35,13 +33,13 @@ export const LOG_LEVELS: string[] = [
   'error',
   'silent',
 ]
+
 const LEVEL_EQUIVALENTS: NumberMap = {
-  err: 4,
   ok: 2,
   notice: 2,
 }
 
-export const mkLogger = env => new Logger(console.log.bind(console), env)
+export const mkLogger = (env: EnvConfig): Logger  => new Logger(console.log.bind(console), env)
 
 // silent no output at all
 // quiet only short error messages
@@ -69,7 +67,7 @@ export class Logger {
     this.log = log
     this.mappings = mappings
     this.logLevels = LOG_LEVELS
-    this.setLevelFrom(this.yargs)
+    this.setLevelFrom(yargs)
 
     Object.entries(this.mappings).forEach(([logType, formatter]) => {
       const typeLevel = this.levelFor(logType)
@@ -86,21 +84,21 @@ export class Logger {
     return LEVEL_EQUIVALENTS[level] || 2
   }
 
-  logLevelFrom = (params: yargs) => {
+  logLevelFrom = (params: LogYargs) => {
     if (params.logLevel) return params.logLevel
-    if (params.s || params.silent) return 5
-    if (params.q || params.quiet) return 4
+    if (params.silent) return 5
+    if (params.quiet) return 4
     if (params.warn) return 3
     if (params.debug || process.env.DEBUG) return 1
     if (params.trace) return 0
     return 2
   }
 
-  setLevelFrom(yargs: YargsConfig): void {
+  setLevelFrom(yargs: LogYargs): void {
     this.logLevel = this.logLevelFrom(yargs)
   }
 
   colorful(msg: string): void {
-    this.log(template(chalk, msg))
+    // this.log(template(chalk, msg))
   }
 }

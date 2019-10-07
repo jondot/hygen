@@ -13,6 +13,7 @@ export declare class Logger {
   info: LogMessage
   warn: LogMessage
   error: LogMessage
+  err: LogMessage
   log: LogMessage // dark white or light black
   notice: LogMessage // gold ish
   ok: LogMessage // green ish
