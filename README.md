@@ -29,6 +29,21 @@
 > New in hygen v4.0.0: a positional `NAME` parameter. 
 > Now you can use `$ hygen component new MyComponent` instead of `$ hygen component new --name MyComponent`.
 
+## Used By
+
+<Image alt="Wix" height="32" src="https://upload.wikimedia.org/wikipedia/en/7/76/Wix.com_website_logo.svg"/> &nbsp; &nbsp; <Image alt="Airbnb" height="50" src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/Airbnb_Logo_B%C3%A9lo.svg/512px-Airbnb_Logo_B%C3%A9lo.svg.png"/> &nbsp; &nbsp; <Image alt="Open Data Institute" height="60" src="https://luminategroup.com/storage/538/c/opendatainstitute%28ODI%29-logo%402x-logo.png"/> &nbsp; &nbsp;  <Image alt="Ableneo" height="80" src="https://www.ableneo.com/web/images/logo.svg"/> &nbsp;
+<Image alt="City of Amsterdam" height="70" src="https://avatars3.githubusercontent.com/u/14022058?s=200&v=4"/> &nbsp; &nbsp; <Image alt="Accenture" height="80" src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/Accenture.svg/512px-Accenture.svg.png"/>  &nbsp; <Image alt="Birdie" height="60" src="https://assets.website-files.com/5d07a11d8195605723dbff07/5d09430b3d6e1c5d28a6e2b6_global%E2%80%94birdie_logo_black.svg"/> &nbsp; &nbsp;
+<Image alt="Kind" height="80" src="https://madebykind.com/dist/images/logos/site-logo-green-e0e983ec46.svg"/> &nbsp; &nbsp;  <Image alt="Ackee" height="80" src="https://avatars3.githubusercontent.com/u/1728223?s=400&v=4"/> &nbsp;
+ <Image alt="Aerian Studios" height="80" src="https://www.aerian.com/img/c/aerian-logo.svg"/> &nbsp;<Image alt="Food and Agriculture Organization of the UN" height="100" src="https://avatars2.githubusercontent.com/u/38506195?s=200&v=4"/> <Image alt="Cape Cod Commision" height="70" src="http://www.capecodcommission.org/gfx/home-logo.jpg"/> &nbsp; <Image alt="Tweak Things" height="80" src="https://avatars3.githubusercontent.com/u/49718812?s=400&v=4"/> &nbsp; &nbsp; <Image alt="Crema" height="40" src="https://assets.website-files.com/5b6b50e79e9b6f5948395973/5d88f52b42420350d3e117d2_Asset%201.png"/> &nbsp; &nbsp; <Image alt="Cureon" height="120" src="http://cureon.de/resources/cureon_logo.png"/> &nbsp; &nbsp; <Image alt="Astrocoders" height="50" src="https://d33wubrfki0l68.cloudfront.net/b8f71088a0c9bc92d67476a361f35690d157d0e5/517c2/static/logo-c5d890fb431b53a7c61800feccd65ac2.png"/> &nbsp; &nbsp; <Image alt="Vega/IDL" height="60" src="http://vega.github.io/images/idl-logo.png"/> &nbsp; <Image alt="Sporty Spots" height="60" src="https://www.sportyspots.com/static/sportyspots.svg"/> &nbsp; &nbsp;<Image alt="Thrashplay" height="50" src="https://avatars1.githubusercontent.com/u/55868193?s=200&v=4"/> &nbsp;&nbsp;<Image alt="8base" height="80" src="https://avatars1.githubusercontent.com/u/28789399?s=200&v=4"/> &nbsp;&nbsp; <Image alt="Instamotionh" height="50" src="https://avatars1.githubusercontent.com/u/44466967?s=200&v=4"/>  <Image alt="Biotope" height="90" src="https://avatars1.githubusercontent.com/u/34653144?s=400&v=4"/> <Image alt="Frontend Labs" height="50" src="https://avatars1.githubusercontent.com/u/6691550?s=200&v=4"/>
+<Image alt="Swydo" height="90" src="https://avatars1.githubusercontent.com/u/1563883?s=400&v=4"/> <Image alt="Gridsome" height="70" src="https://avatars0.githubusercontent.com/u/17981963?s=200&v=4"/> <Image alt="Rosem Laboratory" height="90" src="https://avatars2.githubusercontent.com/u/22129460?s=200&v=4"/><Image alt="Sheffield Hallam University" height="70" src="https://avatars1.githubusercontent.com/u/46559136?s=400&v=4"/>
+<Image alt="Hackoregon" height="80" src="https://avatars3.githubusercontent.com/u/6343574?s=400&v=4"/> <Image alt="Chilly Design" height="50" src="https://avatars1.githubusercontent.com/u/13002395?s=200&v=4"/>
+
+<Image alt="Scale Leap" height="50" src="https://avatars3.githubusercontent.com/u/41709180?s=200&v=4"/>
+
+<Image alt="Chat Logs" height="50" src="https://avatars1.githubusercontent.com/u/37252774?s=200&v=4"/>
+
+<Image alt="Stelace" height="70" src="https://avatars1.githubusercontent.com/u/32740360?s=400&v=4"/>
+
 ## Quick Start
 
 Hygen can be used to supercharge your workflow with [Redux](http://www.hygen.io/redux), [React Native](http://www.hygen.io/react-native), [Express](http://www.hygen.io/express) and more, by allowing you avoid manual work and generate, add, inject and perform custom operations on your codebase.
