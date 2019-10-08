@@ -6,27 +6,33 @@ const fs = require('fs-extra')
 const ejs = require('ejs')
 const fm = require('front-matter')
 const path = require('path')
-const context = require('./context')
 const { resolve } = require('path')
+const walk = require('ignore-walk')
+const context = require('./context')
 
 // for some reason lodash/fp takes 90ms to load.
 // inline what we use here with the regular lodash.
 const map = f => arr => arr.map(f)
 const filter = f => arr => arr.filter(f)
 
-const ignores = ['prompt.js', 'index.js']
+const ignores = [
+  'prompt.js',
+  'index.js',
+  '.hygenignore',
+  '.DS_Store',
+  '.Spotlight-V100',
+  '.Trashes',
+  'ehthumbs.db',
+  'Thumbs.db',
+]
 const renderTemplate = (tmpl, locals, config) =>
   typeof tmpl === 'string' ? ejs.render(tmpl, context(locals, config)) : tmpl
 
 async function getFiles(dir) {
-  const subdirs = await fs.readdir(dir)
-  const files = await Promise.all(
-    subdirs.map(async subdir => {
-      const res = resolve(dir, subdir)
-      return (await fs.stat(res)).isDirectory() ? getFiles(res) : res
-    }),
-  )
-  return Array.prototype.concat(...files)
+  const files = walk
+    .sync({ path: dir, ignoreFiles: ['.hygenignore'] })
+    .map(f => path.join(dir, f))
+  return files
 }
 
 const render = async (

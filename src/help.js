@@ -8,9 +8,9 @@ const chalk = require('chalk')
 const pkg = require('../package.json')
 
 const availableActions = (templates: string) => {
-  const generators = fs.readdirSync(templates).filter(_ =>
-    fs.lstatSync(path.join(templates, _)).isDirectory()
-  )
+  const generators = fs
+    .readdirSync(templates)
+    .filter(_ => fs.lstatSync(path.join(templates, _)).isDirectory())
   return generators.reduce((acc, generator) => {
     const actions = fs.readdirSync(path.join(templates, generator))
     acc[generator] = actions
@@ -44,7 +44,7 @@ const printHelp = (templates: string, logger: Logger) => {
     return
   }
   Object.entries(availableActions(templates)).forEach(([k, v]) => {
-    logger.log(chalk.bold(k) + ': ' + v.join(', '))
+    logger.log(`${chalk.bold(k)  }: ${  v.join(', ')}`)
   })
 }
 
