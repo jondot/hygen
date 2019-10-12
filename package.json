@@ -28,6 +28,13 @@
     "docs:publish": "cd hygen.io && yarn build:gh"
   },
   "dependencies": {
+    "@types/chalk": "^2.2.0",
+    "@types/change-case": "^2.3.1",
+    "@types/inflection": "^1.5.28",
+    "@types/jest": "^24.0.18",
+    "@types/node": "^12.7.8",
+    "@types/yargs": "^13.0.3",
+    "@types/yargs-parser": "^13.1.0",
     "chalk": "^2.4.2",
     "change-case": "^3.1.0",
     "ejs": "^2.6.1",
@@ -41,24 +48,36 @@
   },
   "devDependencies": {
     "@babel/node": "^7.0.0",
+    "@typescript-eslint/eslint-plugin": "^2.3.2",
+    "@typescript-eslint/parser": "^2.3.2",
     "babel-core": "7.0.0-bridge.0",
     "conventional-changelog-cli": "^2.0.11",
     "dir-compare": "^1.4.0",
-    "flow-bin": "0.68.0",
-    "flow-typed": "^2.2.3",
+    "eslint": "^6.5.1",
+    "eslint-config-prettier": "^6.3.0",
+    "eslint-plugin-prettier": "^3.1.1",
     "gh-pages": "^1.1.0",
     "goddamn-javascript-babel": "1.0.1",
     "goddamn-javascript-eslint": "^1.0.1",
     "jest": "^24.3.1",
+    "jest-extended": "^0.11.2",
     "pkg": "^4.3.5",
-    "time-require": "^0.1.2"
+    "prettier": "^1.18.2",
+    "time-require": "^0.1.2",
+    "ts-jest": "^24.1.0",
+    "typescript": "^3.6.3"
   },
   "jest": {
     "testURL": "http://localhost/",
-    "testRegex": "src/__tests__/.*\\.spec\\.js$",
+    "testRegex": "src/(__tests__/)?.*\\.spec\\.ts$",
+    "testPathIgnorePatterns": [
+      "/node_modules/",
+      "v4"
+    ],
     "transform": {
-      "^.+\\.jsx?$": "babel-jest"
-    }
+      "^.+\\.tsx?$": "ts-jest"
+    },
+    "setupFilesAfterEnv": ["jest-extended"]
   },
   "pkg": {
     "scripts": "lib/**/*.js",
