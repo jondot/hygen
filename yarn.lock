@@ -3656,6 +3656,13 @@ find-cache-dir@^1.0.0:
     make-dir "^1.0.0"
     pkg-dir "^2.0.0"
 
+find-up-all@^1.0.2:
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/find-up-all/-/find-up-all-1.0.2.tgz#456e83038ebd0abbb801e3d783a971880eead751"
+  integrity sha512-zh6Jn6iFk+sA+ZPJqTkEK3BFpx/rTiR4QzOigLKpEtgCaHgUT2oAxBNLICjOaMaVyycAIhpOXEN8szlomSAljA==
+  dependencies:
+    path-exists "^3.0.0"
+
 find-up@^1.0.0:
   version "1.1.2"
   resolved "https://registry.yarnpkg.com/find-up/-/find-up-1.1.2.tgz#6b2e9822b1a2ce0a60ab64d610eccad53cb24d0f"

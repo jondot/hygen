@@ -1,4 +1,4 @@
-export * from './utility.d.ts'
+export * from './utility'
 
 export interface Logger {
   ok: (msg: string) => void,

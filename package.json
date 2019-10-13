@@ -40,6 +40,7 @@
     "ejs": "^2.6.1",
     "enquirer": "^2.3.0",
     "execa": "^1.0.0",
+    "find-up-all": "^1.0.2",
     "front-matter": "^2.3.0",
     "fs-extra": "^7.0.1",
     "ignore-walk": "^3.0.2",
@@ -69,14 +70,16 @@
   },
   "jest": {
     "testURL": "http://localhost/",
-    "testRegex": "src/__tests__\/.*.spec.[tj]s$",
+    "testRegex": "src/__tests__/.*.spec.[tj]s$",
     "testPathIgnorePatterns": [
       "/node_modules/"
     ],
     "transform": {
       "^.+\\.tsx?$": "ts-jest"
     },
-    "setupFilesAfterEnv": ["jest-extended"]
+    "setupFilesAfterEnv": [
+      "jest-extended"
+    ]
   },
   "pkg": {
     "scripts": "lib/**/*.js",

@@ -1,7 +1,6 @@
 import {
   ArrayFilterCallback,
   ArrayMapCallback,
-  ArrayMapWrapper,
   RenderedAction,
   RunnerConfig,
 } from 'hygen'
@@ -19,6 +18,7 @@ const context = require('./context')
 const map = (f: ArrayMapCallback) => (arr: Array<any>): Array<any> => arr.map(f)
 const filter = (f: ArrayFilterCallback) => (arr: Array<any>): Array<any> => arr.filter(f)
 
+// default ignored files
 const ignores = [
   'prompt.js',
   'index.js',
@@ -29,13 +29,13 @@ const ignores = [
   'ehthumbs.db',
   'Thumbs.db',
 ]
-const renderTemplate = (tmpl, locals, config) =>
+const renderTemplate = (tmpl: string | any, locals: object, config: object): string | any =>
   typeof tmpl === 'string' ? ejs.render(tmpl, context(locals, config)) : tmpl
 
-async function getFiles(dir: string): Array<string> {
+async function getFiles(dir: string): Promise<Array<string>> {
   const files = walk
     .sync({ path: dir, ignoreFiles: ['.hygenignore'] })
-    .map(f => path.join(dir, f))
+    .map((f: string): string => path.join(dir, f))
   return files
 }
 
@@ -44,13 +44,14 @@ const render = async (
   config: RunnerConfig,
 ): Promise<Array<RenderedAction>> =>
   await getFiles(args.actionfolder)
-    .then(things => things.sort((a, b) => a.localeCompare(b))) // TODO: add a test to verify this sort
-    .then(filter(f => !ignores.find(ig => f.endsWith(ig)))) // TODO: add a
-    // test for ignoring prompt.js and index.js
+    // TODO: add a test to verify this sort
+    .then((things: Array<string>): Array<string> => things.sort((a, b) => a.localeCompare(b)))
+    // TODO: add a test for ignoring prompt.js and index.js
+    .then(filter(f => !ignores.find(ig => f.endsWith(ig))))
     .then(filter(file => (args.subaction ? file.match(args.subaction) : true)))
     .then(
       map(file =>
-        fs.readFile(file).then(text => ({ file, text: text.toString() })),
+        fs.readFile(file).then((text: string) => ({ file, text: text.toString() })),
       ),
     )
     .then(_ => Promise.all(_))
@@ -59,7 +60,7 @@ const render = async (
       map(({ file, attributes, body }) => ({
         file,
         attributes: Object.entries(attributes).reduce(
-          (obj, [key, value]) =>
+          (obj: {[s: string]: any}, [key, value]: [string,any]) =>
             (obj[key] = renderTemplate(value, args, config)) && obj,
           {},
         ),
