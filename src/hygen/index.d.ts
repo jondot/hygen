@@ -1,5 +1,5 @@
-// @flow
-export type Logger = {
+
+export interface Logger {
   ok: (msg: string) => void,
   notice: (msg: string) => void,
   warn: (msg: string) => void,
@@ -8,8 +8,9 @@ export type Logger = {
   colorful: (msg: string) => void
 }
 export type Prompter = {
-  prompt: any => Promise<any>
+  prompt: (a: any) => Promise<any>
 }
+
 export type RenderedAction = {
   file: string,
   attributes: Object,
@@ -26,9 +27,9 @@ export type RunnerConfig = {
 }
 
 export type ResolverIO = {
-  exists: string => Promise<boolean>,
-  load: string => Promise<Object>,
-  none: string => Object
+  exists: (s: string) => Promise<boolean>,
+  load: (s: string) => Promise<Object>,
+  none: (s: string) => Object
 }
 
 export type ActionResult = any

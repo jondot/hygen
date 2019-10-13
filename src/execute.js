@@ -1,6 +1,4 @@
-// @flow
-
-import type { RunnerConfig, RenderedAction, ActionResult } from './types'
+import { RunnerConfig, RenderedAction, ActionResult } from 'hygen'
 const resolve = require('./ops')
 
 const execute = async (

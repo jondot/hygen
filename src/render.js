@@ -1,6 +1,4 @@
-// @flow
-
-import type { RenderedAction, RunnerConfig } from './types'
+import { RenderedAction, RunnerConfig } from 'hygen'
 
 const fs = require('fs-extra')
 const ejs = require('ejs')

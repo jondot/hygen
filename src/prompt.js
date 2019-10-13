@@ -1,6 +1,4 @@
-// @flow
-
-import type { Prompter } from './types'
+import { Prompter } from 'hygen'
 
 const path = require('path')
 const fs = require('fs')

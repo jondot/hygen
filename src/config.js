@@ -1,6 +1,6 @@
-// @flow
 import importedPath from 'path'
-import type { ResolverIO } from './types'
+import { ResolverIO } from 'hygen'
+
 // inline fp methods due to perf
 const uniq = arr => arr.filter((elem, pos, a) => a.indexOf(elem) === pos)
 const reversePathsToWalk = ({ folder, path }) => {

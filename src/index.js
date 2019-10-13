@@ -1,5 +1,4 @@
-// @flow
-import type { RunnerResult, RunnerConfig } from './types'
+import { RunnerResult, RunnerConfig } from 'hygen'
 
 const engine = require('./engine')
 const resolve = require('./config-resolver')

@@ -1,6 +1,4 @@
-// @flow
-
-import type { ActionResult, RunnerConfig, RenderedAction } from '../types'
+import { ActionResult, RunnerConfig, RenderedAction } from 'hygen'
 import createResult from './result'
 
 const path = require('path')

@@ -1,6 +1,5 @@
-// @flow
 
-import type { RunnerConfig } from './types'
+import { RunnerConfig } from 'hygen'
 import path from 'path'
 import { ConfigResolver } from './config'
 

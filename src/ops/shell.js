@@ -1,4 +1,4 @@
-import type { ActionResult } from '../types'
+import { ActionResult } from 'hygen'
 import createResult from './result'
 
 const notEmpty = x => x && x.length > 0

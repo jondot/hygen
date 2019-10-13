@@ -1,6 +1,4 @@
-// @flow
-
-import type { RenderedAction } from '../types'
+import { RenderedAction } from 'hygen'
 
 const injector = (action: RenderedAction, content: string): string => {
   const {

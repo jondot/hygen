@@ -1,6 +1,4 @@
-// @flow
-
-import type { Logger } from './types'
+import { Logger } from 'hygen'
 
 const fs = require('fs')
 const path = require('path')

@@ -1,6 +1,4 @@
-// @flow
-
-import type { RunnerConfig } from './types'
+import { RunnerConfig } from 'hygen'
 
 const path = require('path')
 const yargs = require('yargs-parser')

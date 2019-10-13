@@ -1,6 +1,4 @@
-// @flow
-
-import type { ActionResult, RenderedAction, RunnerConfig } from '../types'
+import { ActionResult, RenderedAction, RunnerConfig } from 'hygen'
 import createResult from './result'
 
 const fs = require('fs-extra')

@@ -1,5 +1,4 @@
-// @flow
-import type { RunnerConfig } from './types'
+import { RunnerConfig } from 'hygen'
 
 const inflection = require('inflection')
 const changeCase = require('change-case')

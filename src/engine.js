@@ -1,6 +1,4 @@
-// @flow
-
-import type { ActionResult, RunnerConfig } from './types'
+import { ActionResult, RunnerConfig } from 'hygen'
 
 const fs = require('fs-extra')
 const params = require('./params')
