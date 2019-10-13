@@ -69,10 +69,9 @@
   },
   "jest": {
     "testURL": "http://localhost/",
-    "testRegex": "src/(__tests__/)?.*\\.spec\\.ts$",
+    "testRegex": "src/__tests__\/.*.spec.[tj]s$",
     "testPathIgnorePatterns": [
-      "/node_modules/",
-      "v4"
+      "/node_modules/"
     ],
     "transform": {
       "^.+\\.tsx?$": "ts-jest"

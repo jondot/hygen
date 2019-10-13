@@ -1,4 +1,10 @@
-import { RenderedAction, RunnerConfig } from 'hygen'
+import {
+  ArrayFilterCallback,
+  ArrayMapCallback,
+  ArrayMapWrapper,
+  RenderedAction,
+  RunnerConfig,
+} from 'hygen'
 
 const fs = require('fs-extra')
 const ejs = require('ejs')
@@ -10,8 +16,8 @@ const context = require('./context')
 
 // for some reason lodash/fp takes 90ms to load.
 // inline what we use here with the regular lodash.
-const map = f => arr => arr.map(f)
-const filter = f => arr => arr.filter(f)
+const map = (f: ArrayMapCallback) => (arr: Array<any>): Array<any> => arr.map(f)
+const filter = (f: ArrayFilterCallback) => (arr: Array<any>): Array<any> => arr.filter(f)
 
 const ignores = [
   'prompt.js',
@@ -26,7 +32,7 @@ const ignores = [
 const renderTemplate = (tmpl, locals, config) =>
   typeof tmpl === 'string' ? ejs.render(tmpl, context(locals, config)) : tmpl
 
-async function getFiles(dir) {
+async function getFiles(dir: string): Array<string> {
   const files = walk
     .sync({ path: dir, ignoreFiles: ['.hygenignore'] })
     .map(f => path.join(dir, f))
