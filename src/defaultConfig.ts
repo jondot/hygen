@@ -1,3 +1,5 @@
+import {mkLogger} from 'utils'
+
 import { BinConfig, HygenConfig } from './hygen'
 
 export const mkConfig = (startConfig: BinConfig): HygenConfig => ({
@@ -34,7 +36,7 @@ export const mkConfig = (startConfig: BinConfig): HygenConfig => ({
   hooks: {},
   /* used to generate output.  .error, .warning, .verbose, */
   /* .debug, .info, .log, .warn, .error */
-  logger: undefined,
+  logger: startConfig.logger || mkLogger(),
   // options: {},
   // the current set of yargs data and the results of processing it
   params: {},

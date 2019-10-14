@@ -9,8 +9,8 @@ export interface Pathlike {
   join: (...args: string[]) => string,
   resolve: (folder: string) => string,
   sep: string,
-  win32: Pathlike,
 }
+
 declare class pathToClass {
   static pathUtil: Pathlike;
   basePath: Array<string>;
@@ -20,7 +20,7 @@ declare class pathToClass {
   path: (...paths: string[]) => string;
 }
 
-export interface Io {
+export interface IoConfig {
   path: Pathlike,
   exists: (f: string) => Promise<boolean>,
   load: (f: string) => Promise<object>,

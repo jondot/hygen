@@ -1,5 +1,4 @@
 #!/usr/bin/env node
-
 import { ProcessEnv, strKVEntries, strKVPair } from './hygen'
 import { mkConfig } from './defaultConfig'
 import { exec } from './utils/exec'
@@ -17,7 +16,7 @@ const extractEnvVars = (prefix: string): ProcessEnv =>
   envV
     .filter(([k, _v]) => k.startsWith(prefix))
     .reduce(reduceEntriesArr, emptyVars)
-
+// TODO find right way to resolve promise here
 const run = async () =>
   await hygen(
     mkConfig({
@@ -40,4 +39,5 @@ const run = async () =>
         createPrompter: () => require('enquirer'),
       },
     }),
-  )()(async () => await run())()
+  )
+run()

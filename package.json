@@ -23,6 +23,7 @@
     "flow:sync": "echo 'flow:sync no longer applicable'",
     "hygen": "babel-node src/v4/bin.js",
     "hygen:timed": "babel-node src/v4/bin.timed.js",
+    "ylog": "./yLog.js",
     "docs:prepare": "cd hygen.io && yarn",
     "docs:watch": "cd hygen.io && yarn gatsby develop",
     "docs:build": "cd hygen.io && yarn build",
@@ -42,8 +43,10 @@
     "ejs": "^2.6.1",
     "enquirer": "^2.3.0",
     "execa": "^1.0.0",
+    "find-up-all": "^1.0.2",
     "front-matter": "^2.3.0",
     "fs-extra": "^7.0.1",
+    "ignore-walk": "^3.0.3",
     "inflection": "^1.12.0",
     "yargs-parser": "^13.0.0"
   },
@@ -78,7 +81,9 @@
     "transform": {
       "^.+\\.tsx?$": "ts-jest"
     },
-    "setupFilesAfterEnv": ["jest-extended"]
+    "setupFilesAfterEnv": [
+      "jest-extended"
+    ]
   },
   "pkg": {
     "scripts": "lib/**/*.js",

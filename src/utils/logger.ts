@@ -9,6 +9,44 @@ import { LogYargs } from '../hygen'
 import yargs from 'yargs'
 import chalk from 'chalk'
 
+const loggerYargsOptions  = {
+  logLevel: {
+    default: 2,
+    describe: 'log level between 1(trace) and 5(silent)',
+    type: 'number',
+  },
+  trace: {
+    alias: 'vvv',
+    describe: '[logLevel: 0] show absolutely every thing going on (long!)',
+    type: 'boolean',
+  },
+  debug: {
+    alias: 'vv',
+    describe: '[logLevel: 1] show summaries of data',
+    type: 'boolean',
+  },
+  verbose: {
+    alias: ['v'],
+    type: 'boolean',
+    describe: '[logLevel: 2] Extra information, default setting',
+  },
+  quiet: {
+    alias: ['q'],
+    describe: '[logLevel: 3] Show only warnings and errors',
+    type: 'boolean',
+  },
+  error: {
+    alias: ['err'],
+    describe: '[logLevel: 4] Show only errors',
+    type: 'boolean',
+  },
+  silent: {
+    alias: 's',
+    describe: '[logLevel: 5] no output',
+    type: 'boolean',
+  },
+}
+
 // import * as templates from 'chalk/templates'
 
 const { yellow, red, green, magenta, cyan, white, gray } = chalk
@@ -27,9 +65,8 @@ export const CHALK_MAPPING: ChalkMapping = {
 export const LOG_LEVELS: string[] = [
   'trace',
   'debug',
-  'info',
-  'log',
-  'warn',
+  'verbose',
+  'quiet',
   'error',
   'silent',
 ]
@@ -39,7 +76,13 @@ const LEVEL_EQUIVALENTS: NumberMap = {
   notice: 2,
 }
 
-export const mkLogger = (env: EnvConfig): Logger  => new Logger(console.log.bind(console), env)
+export const mkLogger = (env: EnvConfig): Logger  => {
+  const loggerYargs = yargs
+    .env('HYGEN')
+    .options(loggerYargsOptions)
+  console.log(loggerYargs)
+  return new Logger(console.log.bind(console), env)
+}
 
 // silent no output at all
 // quiet only short error messages

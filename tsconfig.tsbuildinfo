@@ -1,0 +1,3710 @@
+{
+  "program": {
+    "fileInfos": {
+      "../../../.asdf/installs/nodejs/12.3.1/.npm/lib/node_modules/typescript/lib/lib.es5.d.ts": {
+        "version": "ff5688d6b2fcfef06842a395d7ff4d5730d45b724d4c48913118c889829052a1",
+        "signature": "ff5688d6b2fcfef06842a395d7ff4d5730d45b724d4c48913118c889829052a1"
+      },
+      "../../../.asdf/installs/nodejs/12.3.1/.npm/lib/node_modules/typescript/lib/lib.es2015.d.ts": {
+        "version": "7994d44005046d1413ea31d046577cdda33b8b2470f30281fd9c8b3c99fe2d96",
+        "signature": "7994d44005046d1413ea31d046577cdda33b8b2470f30281fd9c8b3c99fe2d96"
+      },
+      "../../../.asdf/installs/nodejs/12.3.1/.npm/lib/node_modules/typescript/lib/lib.es2016.d.ts": {
+        "version": "5f217838d25704474d9ef93774f04164889169ca31475fe423a9de6758f058d1",
+        "signature": "5f217838d25704474d9ef93774f04164889169ca31475fe423a9de6758f058d1"
+      },
+      "../../../.asdf/installs/nodejs/12.3.1/.npm/lib/node_modules/typescript/lib/lib.es2017.d.ts": {
+        "version": "459097c7bdd88fc5731367e56591e4f465f2c9de81a35427a7bd473165c34743",
+        "signature": "459097c7bdd88fc5731367e56591e4f465f2c9de81a35427a7bd473165c34743"
+      },
+      "../../../.asdf/installs/nodejs/12.3.1/.npm/lib/node_modules/typescript/lib/lib.es2018.d.ts": {
+        "version": "9c67dcc7ca897b61f58d57d487bc9f07950546e5ac8701cbc41a8a4fec48b091",
+        "signature": "9c67dcc7ca897b61f58d57d487bc9f07950546e5ac8701cbc41a8a4fec48b091"
+      },
+      "../../../.asdf/installs/nodejs/12.3.1/.npm/lib/node_modules/typescript/lib/lib.es2015.core.d.ts": {
+        "version": "4ab19088d508f9e62bfc61c157e8a65b2afaefa251ecca315e7d20b5b97b256f",
+        "signature": "4ab19088d508f9e62bfc61c157e8a65b2afaefa251ecca315e7d20b5b97b256f"
+      },
+      "../../../.asdf/installs/nodejs/12.3.1/.npm/lib/node_modules/typescript/lib/lib.es2015.collection.d.ts": {
+        "version": "dd94d8ef48c562389eb58af8df3a3a34d11367f7c818192aa5f16470d469e3f0",
+        "signature": "dd94d8ef48c562389eb58af8df3a3a34d11367f7c818192aa5f16470d469e3f0"
+      },
+      "../../../.asdf/installs/nodejs/12.3.1/.npm/lib/node_modules/typescript/lib/lib.es2015.generator.d.ts": {
+        "version": "765e0e9c9d74cf4d031ca8b0bdb269a853e7d81eda6354c8510218d03db12122",
+        "signature": "765e0e9c9d74cf4d031ca8b0bdb269a853e7d81eda6354c8510218d03db12122"
+      },
+      "../../../.asdf/installs/nodejs/12.3.1/.npm/lib/node_modules/typescript/lib/lib.es2015.iterable.d.ts": {
+        "version": "285958e7699f1babd76d595830207f18d719662a0c30fac7baca7df7162a9210",
+        "signature": "285958e7699f1babd76d595830207f18d719662a0c30fac7baca7df7162a9210"
+      },
+      "../../../.asdf/installs/nodejs/12.3.1/.npm/lib/node_modules/typescript/lib/lib.es2015.promise.d.ts": {
+        "version": "e6b8ff2798f8ebd7a1c7afd8671f2cb67ee1901c422f5964d74b0b34c6574ea2",
+        "signature": "e6b8ff2798f8ebd7a1c7afd8671f2cb67ee1901c422f5964d74b0b34c6574ea2"
+      },
+      "../../../.asdf/installs/nodejs/12.3.1/.npm/lib/node_modules/typescript/lib/lib.es2015.proxy.d.ts": {
+        "version": "5e72f949a89717db444e3bd9433468890068bb21a5638d8ab15a1359e05e54fe",
+        "signature": "5e72f949a89717db444e3bd9433468890068bb21a5638d8ab15a1359e05e54fe"
+      },
+      "../../../.asdf/installs/nodejs/12.3.1/.npm/lib/node_modules/typescript/lib/lib.es2015.reflect.d.ts": {
+        "version": "f5b242136ae9bfb1cc99a5971cccc44e99947ae6b5ef6fd8aa54b5ade553b976",
+        "signature": "f5b242136ae9bfb1cc99a5971cccc44e99947ae6b5ef6fd8aa54b5ade553b976"
+      },
+      "../../../.asdf/installs/nodejs/12.3.1/.npm/lib/node_modules/typescript/lib/lib.es2015.symbol.d.ts": {
+        "version": "9ae2860252d6b5f16e2026d8a2c2069db7b2a3295e98b6031d01337b96437230",
+        "signature": "9ae2860252d6b5f16e2026d8a2c2069db7b2a3295e98b6031d01337b96437230"
+      },
+      "../../../.asdf/installs/nodejs/12.3.1/.npm/lib/node_modules/typescript/lib/lib.es2015.symbol.wellknown.d.ts": {
+        "version": "3e0a459888f32b42138d5a39f706ff2d55d500ab1031e0988b5568b0f67c2303",
+        "signature": "3e0a459888f32b42138d5a39f706ff2d55d500ab1031e0988b5568b0f67c2303"
+      },
+      "../../../.asdf/installs/nodejs/12.3.1/.npm/lib/node_modules/typescript/lib/lib.es2016.array.include.d.ts": {
+        "version": "3f96f1e570aedbd97bf818c246727151e873125d0512e4ae904330286c721bc0",
+        "signature": "3f96f1e570aedbd97bf818c246727151e873125d0512e4ae904330286c721bc0"
+      },
+      "../../../.asdf/installs/nodejs/12.3.1/.npm/lib/node_modules/typescript/lib/lib.es2017.object.d.ts": {
+        "version": "ff8ad203e83338289b0f5defc1a5b5c253fb7d251b464db497383f915a0df3f4",
+        "signature": "ff8ad203e83338289b0f5defc1a5b5c253fb7d251b464db497383f915a0df3f4"
+      },
+      "../../../.asdf/installs/nodejs/12.3.1/.npm/lib/node_modules/typescript/lib/lib.es2017.sharedmemory.d.ts": {
+        "version": "b8667586a618c5cf64523d4e500ae39e781428abfb28f3de441fc66b56144b6f",
+        "signature": "b8667586a618c5cf64523d4e500ae39e781428abfb28f3de441fc66b56144b6f"
+      },
+      "../../../.asdf/installs/nodejs/12.3.1/.npm/lib/node_modules/typescript/lib/lib.es2017.string.d.ts": {
+        "version": "21df2e0059f14dcb4c3a0e125859f6b6ff01332ee24b0065a741d121250bc71c",
+        "signature": "21df2e0059f14dcb4c3a0e125859f6b6ff01332ee24b0065a741d121250bc71c"
+      },
+      "../../../.asdf/installs/nodejs/12.3.1/.npm/lib/node_modules/typescript/lib/lib.es2017.intl.d.ts": {
+        "version": "c1759cb171c7619af0d2234f2f8fb2a871ee88e956e2ed91bb61778e41f272c6",
+        "signature": "c1759cb171c7619af0d2234f2f8fb2a871ee88e956e2ed91bb61778e41f272c6"
+      },
+      "../../../.asdf/installs/nodejs/12.3.1/.npm/lib/node_modules/typescript/lib/lib.es2017.typedarrays.d.ts": {
+        "version": "28569d59e07d4378cb3d54979c4c60f9f06305c9bb6999ffe6cab758957adc46",
+        "signature": "28569d59e07d4378cb3d54979c4c60f9f06305c9bb6999ffe6cab758957adc46"
+      },
+      "../../../.asdf/installs/nodejs/12.3.1/.npm/lib/node_modules/typescript/lib/lib.es2018.asyncgenerator.d.ts": {
+        "version": "93c0c9ae60e46e4d1389dd33936bbfa24d9c66ef83a1569fcbb67a46432405e0",
+        "signature": "93c0c9ae60e46e4d1389dd33936bbfa24d9c66ef83a1569fcbb67a46432405e0"
+      },
+      "../../../.asdf/installs/nodejs/12.3.1/.npm/lib/node_modules/typescript/lib/lib.es2018.asynciterable.d.ts": {
+        "version": "16c06e535d8e03be7c35735f9ce92c9e591cfea50cdcd0ac1353a0b85c60ab10",
+        "signature": "16c06e535d8e03be7c35735f9ce92c9e591cfea50cdcd0ac1353a0b85c60ab10"
+      },
+      "../../../.asdf/installs/nodejs/12.3.1/.npm/lib/node_modules/typescript/lib/lib.es2018.intl.d.ts": {
+        "version": "1b820b57379c726f94af50cd60053674af53ff9d079c1563cc70071e8b757dd0",
+        "signature": "1b820b57379c726f94af50cd60053674af53ff9d079c1563cc70071e8b757dd0"
+      },
+      "../../../.asdf/installs/nodejs/12.3.1/.npm/lib/node_modules/typescript/lib/lib.es2018.promise.d.ts": {
+        "version": "efe049114bad1035b0aa9a4a0359f50ab776e3897c411521e51d3013079cbd62",
+        "signature": "efe049114bad1035b0aa9a4a0359f50ab776e3897c411521e51d3013079cbd62"
+      },
+      "../../../.asdf/installs/nodejs/12.3.1/.npm/lib/node_modules/typescript/lib/lib.es2018.regexp.d.ts": {
+        "version": "e7780d04cd4120ee554c665829db2bbdd6b947cbaa3c150b7d9ea74df3beb2e8",
+        "signature": "e7780d04cd4120ee554c665829db2bbdd6b947cbaa3c150b7d9ea74df3beb2e8"
+      },
+      "../../../.asdf/installs/nodejs/12.3.1/.npm/lib/node_modules/typescript/lib/lib.esnext.intl.d.ts": {
+        "version": "f6e0c89daaf72eac38dfb1d5ef0972183f7f26a68da15bfe5bcb7cfccf0c7db8",
+        "signature": "f6e0c89daaf72eac38dfb1d5ef0972183f7f26a68da15bfe5bcb7cfccf0c7db8"
+      },
+      "../../../.asdf/installs/nodejs/12.3.1/.npm/lib/node_modules/typescript/lib/lib.esnext.bigint.d.ts": {
+        "version": "63b66918290d794f73832a6d0325be5026236674fe8c0cb0b68d162000d7bbe8",
+        "signature": "63b66918290d794f73832a6d0325be5026236674fe8c0cb0b68d162000d7bbe8"
+      },
+      "./node_modules/enquirer/index.d.ts": {
+        "version": "f83687a17d441972e28cc14eef99cef8f8b5783bbe659f7a1b3d4983ca4fc51e",
+        "signature": "f83687a17d441972e28cc14eef99cef8f8b5783bbe659f7a1b3d4983ca4fc51e"
+      },
+      "./src/hygen/misc.d.ts": {
+        "version": "00ed192b630cde0277487bdef466e89532588bb30d95d589bb0cd8277b807fe7",
+        "signature": "00ed192b630cde0277487bdef466e89532588bb30d95d589bb0cd8277b807fe7"
+      },
+      "./src/hygen/context.d.ts": {
+        "version": "e3b4a80e84aa20c7d32cd3c8d5579a9c046606fa826df166e3bea8d5c165d955",
+        "signature": "e3b4a80e84aa20c7d32cd3c8d5579a9c046606fa826df166e3bea8d5c165d955"
+      },
+      "./node_modules/@types/yargs-parser/index.d.ts": {
+        "version": "e65fca93c26b09681d33dad7b3af32ae42bf0d114d859671ffed30a92691439c",
+        "signature": "e65fca93c26b09681d33dad7b3af32ae42bf0d114d859671ffed30a92691439c"
+      },
+      "./src/hygen/yargs.d.ts": {
+        "version": "287186cbf7fd910d62ddc49c1e4f8ea23acacf025710a95e1aa194e0ff0f733c",
+        "signature": "287186cbf7fd910d62ddc49c1e4f8ea23acacf025710a95e1aa194e0ff0f733c"
+      },
+      "./src/hygen/resolvers.d.ts": {
+        "version": "bcfb5e24eb14321857d12da3c2321a0857eae3fcd23c644577d046d06204fd84",
+        "signature": "bcfb5e24eb14321857d12da3c2321a0857eae3fcd23c644577d046d06204fd84"
+      },
+      "./src/hygen/hooks.d.ts": {
+        "version": "a523388748dc23b6bbf447a56799ffc66aefe2acda18b9d591cfcc2abb358c17",
+        "signature": "a523388748dc23b6bbf447a56799ffc66aefe2acda18b9d591cfcc2abb358c17"
+      },
+      "./src/hygen/types.d.ts": {
+        "version": "dfca1bfa054fdcac6affb5355f7a9e3cf3db513217b23d4e248e092b054377a5",
+        "signature": "dfca1bfa054fdcac6affb5355f7a9e3cf3db513217b23d4e248e092b054377a5"
+      },
+      "./src/hygen/utils.d.ts": {
+        "version": "9b595814518ee2f0af59174f07aaf9bbae01d28423fdbc0c87a43961a7b072d0",
+        "signature": "9b595814518ee2f0af59174f07aaf9bbae01d28423fdbc0c87a43961a7b072d0"
+      },
+      "./src/hygen/config.d.ts": {
+        "version": "ba025e87a6932e988d20031ad5097845948963abd5a06e43db6f83a7eabed940",
+        "signature": "ba025e87a6932e988d20031ad5097845948963abd5a06e43db6f83a7eabed940"
+      },
+      "./src/hygen/logger.d.ts": {
+        "version": "cfc2b721a4ccab1671cfb33910cb73e50928727457ae85e70e9f7ee04f783fbe",
+        "signature": "cfc2b721a4ccab1671cfb33910cb73e50928727457ae85e70e9f7ee04f783fbe"
+      },
+      "./src/hygen/actions.d.ts": {
+        "version": "7cb0aa16aca750a91197e34b49728165bba2a94cbd38d3f919bb9648a3081975",
+        "signature": "7cb0aa16aca750a91197e34b49728165bba2a94cbd38d3f919bb9648a3081975"
+      },
+      "./src/hygen/templates.d.ts": {
+        "version": "feac436987015e806a8ae1812b90d1082dac433ba1849e792e7cdfecf4a19279",
+        "signature": "feac436987015e806a8ae1812b90d1082dac433ba1849e792e7cdfecf4a19279"
+      },
+      "./src/hygen/generator.d.ts": {
+        "version": "b7d337583b43b7ce3bf2ca92e456dddb083f2a4ace9dac48335cf819375feb1d",
+        "signature": "b7d337583b43b7ce3bf2ca92e456dddb083f2a4ace9dac48335cf819375feb1d"
+      },
+      "./src/hygen/index.d.ts": {
+        "version": "884095a63001de0f74f5674cb17f8809b2e46fbdc7f81b8346c2e7665e3dcf62",
+        "signature": "884095a63001de0f74f5674cb17f8809b2e46fbdc7f81b8346c2e7665e3dcf62"
+      },
+      "./src/utils/chainPromise.ts": {
+        "version": "ef8b03421aee953540590021ff6a249f2500c500d76f41981873130998d22e41",
+        "signature": "917ea664b7a085415efc8cc6adc10b38513054797fd19122562832d61461b196"
+      },
+      "./node_modules/@types/yargs/index.d.ts": {
+        "version": "989ea8e89ef2d6a07a1872fcee14be6b9e1920b04f19a4ab149d673f89af67e6",
+        "signature": "989ea8e89ef2d6a07a1872fcee14be6b9e1920b04f19a4ab149d673f89af67e6"
+      },
+      "./node_modules/chalk/types/index.d.ts": {
+        "version": "091f417275a51ab3c47b949723e9e8a193012157ecc64a96e2d7b1505e82f395",
+        "signature": "091f417275a51ab3c47b949723e9e8a193012157ecc64a96e2d7b1505e82f395"
+      },
+      "./src/utils/logger.ts": {
+        "version": "40fd7a63fbeda7cad9e4b152b8c5d67571d0e7df66bf07babab8d44015c93d8b",
+        "signature": "b73577d4b026d1973c3975e0ba1584768c4e7962b7759daad8cca80dc8393d6a"
+      },
+      "./src/utils/mergeConfig.ts": {
+        "version": "e69bb0392718f4db27e6c24df84dd6f643363611963b85b7f49bf2eb4f8b2350",
+        "signature": "f61cc473e37cc01c9f019348afed01f3d3b2745d9389229b9e3c10d6a073d61c"
+      },
+      "./src/utils/pathTo.ts": {
+        "version": "22a3c969622f52e79177383d0b7ec6260da6aeaba7bd291b137a99a788f186df",
+        "signature": "8e609bb71c20b858c77f0e9f90bb1319db8477b13f9f965f1a1e18524bf50881"
+      },
+      "./src/utils/walkers.ts": {
+        "version": "7771beec27440c40e50ac5ab01e4475a9b2d255553c6734195fe2e082e2983af",
+        "signature": "8e609bb71c20b858c77f0e9f90bb1319db8477b13f9f965f1a1e18524bf50881"
+      },
+      "./src/utils/index.ts": {
+        "version": "c101f02c01283370168d47bb236fd01e07fefa420de7f0a0717ce47761a0ba4b",
+        "signature": "bbda6ad498adc4a2c2cc6bf15fa0c8155ecce2e71c41a83c5db20de78a54f058"
+      },
+      "./src/defaultConfig.ts": {
+        "version": "dc2b3e52c32c7b78e64979cf318de301f5bf4e7c3df043020549840e88437438",
+        "signature": "3335bfa7896218ef4eba2a53dbec82a2dba8be58045b41b53397a24f272a578c"
+      },
+      "./src/utils/exec.ts": {
+        "version": "dcb28bcc0dea132f50acfc6ff42e925c566ca2b57fe5cb4216afbad140320569",
+        "signature": "0b2656e3819a777a5a6d863cd90dca60e26c6983905e9ef4b62a6bd4300dcbf0"
+      },
+      "./src/index.ts": {
+        "version": "af44c440e6dc8ea25107c867a8b27b0a07a18a4d7da64d9b19a192c822959808",
+        "signature": "0033fd1047221acd804a96d4877430869e26e3e93a8d8bd565b9ea06f4ca948c"
+      },
+      "./src/bin.ts": {
+        "version": "b44b6f84cbb1100653bae6486bc773d92da46cc72bf85f0a90a145d48d461ee6",
+        "signature": "43e818adf60173644896298637f47b01d5819b17eda46eaa32d0c7d64724d012"
+      },
+      "./src/types.ts": {
+        "version": "b8433f482a77eee46ddfedae4fd1b49829f941a9b05cfca9749fbcb15c049040",
+        "signature": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "./src/yLog.ts": {
+        "version": "3174ccd4487a014bd9dc25b46a30ad7e0ed1b63b8c44ec6b559390e22c472c96",
+        "signature": "43e818adf60173644896298637f47b01d5819b17eda46eaa32d0c7d64724d012"
+      },
+      "./src/hygen/generators.d.ts": {
+        "version": "131fad33ef05cd7d2b157659cabfa57499fe84f303f6f53d2c90bb2a159c60e9",
+        "signature": "131fad33ef05cd7d2b157659cabfa57499fe84f303f6f53d2c90bb2a159c60e9"
+      },
+      "./src/modules/help.ts": {
+        "version": "89050d2663a23d03729d08eb0626d19d62b3131c44eca56564bb42e9a280a8f3",
+        "signature": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "./src/modules/logging.ts": {
+        "version": "b1becc42e96c353131f10a69201e6e3198f6eb7c4b2b018094714fc32fdf1f36",
+        "signature": "8e609bb71c20b858c77f0e9f90bb1319db8477b13f9f965f1a1e18524bf50881"
+      },
+      "./src/modules/pathTo.ts": {
+        "version": "544db13afe7765144c01be9ba8d1511a95d63dcca10fe5de0b9ace8e1159f3f5",
+        "signature": "e4e9e746ef691821ce4c9500fc60b55976ff6cba08951d76f11de4c7d46dbf03"
+      },
+      "./src/resolvers/yargs/index.ts": {
+        "version": "7dd26cc7dcba5867a85256520566e99cf3e26fdce81a20783bf18929b168186a",
+        "signature": "45db68f3b6aa46cf1401395efa0b24f62e38d210cdd5697e56a4aaf870f806c7"
+      },
+      "./src/resolvers/file/index.ts": {
+        "version": "3be97d3046c832cbf5bab176a8fa617f615d84f1c9e5d2fbee89055a0ff9048b",
+        "signature": "f9a52446c8c25a01bf06debd0dd97e7eefbe7785a90c74782034886b6dd4e3e1"
+      },
+      "./src/resolvers/hooks/index.ts": {
+        "version": "af90570a55dd5f420a01a4d3ec7656f2bf6f52849f8d2f3d6f2bf705879cfedc",
+        "signature": "106f047ce2aba0dd4c5fb6d28a90e43555e72fd2519fffb4f269acda9b638a0d"
+      },
+      "./src/resolvers/config/index.ts": {
+        "version": "dba0029631b8ce1d058615b940b2042f9c0fd4ffa4b4f9d7f3b177db794f1f0f",
+        "signature": "0b49c4ac8bc04f8065bb4d7f34761f47405d83c90bf4df87a365e268184ca658"
+      },
+      "./src/resolvers/config/__tests__/config.spec.ts": {
+        "version": "7eed71c5b9173f96dd7238f8b757beaf6a1b31bbf22d871ff8a1b972c0cde722",
+        "signature": "8e609bb71c20b858c77f0e9f90bb1319db8477b13f9f965f1a1e18524bf50881"
+      },
+      "./src/resolvers/defaults/helpModule.ts": {
+        "version": "792ebc6f5d0484ac510fdfd440375ca40db40bb2e315bd054c5055103feff300",
+        "signature": "8c1ea3ac98e0a6e6e6dbcb815744b08f003237bde6d9c17c760661b8e60405e6"
+      },
+      "./node_modules/@types/inflection/index.d.ts": {
+        "version": "7003f76ed52b31faafdafe7f4c1ae51efa246654deb4d57a49fc305a731a4fce",
+        "signature": "7003f76ed52b31faafdafe7f4c1ae51efa246654deb4d57a49fc305a731a4fce"
+      },
+      "./node_modules/no-case/no-case.d.ts": {
+        "version": "843aa94f53596545adb64d07d0f2887885da6aa10f34876166eb2b6989765608",
+        "signature": "843aa94f53596545adb64d07d0f2887885da6aa10f34876166eb2b6989765608"
+      },
+      "./node_modules/dot-case/dot-case.d.ts": {
+        "version": "9b69687dd02e52cc9a9e35237e5139fc2e41c2fb4f029f02f68a0c842af4f5f6",
+        "signature": "9b69687dd02e52cc9a9e35237e5139fc2e41c2fb4f029f02f68a0c842af4f5f6"
+      },
+      "./node_modules/swap-case/swap-case.d.ts": {
+        "version": "c98de32afe934e8288a86a948cab3c322aae95413545dcf1817c017a666bcd57",
+        "signature": "c98de32afe934e8288a86a948cab3c322aae95413545dcf1817c017a666bcd57"
+      },
+      "./node_modules/path-case/path-case.d.ts": {
+        "version": "723384cc2102f3a59d2052396bb3615f6d693e373e4be588bce9a9e93a275044",
+        "signature": "723384cc2102f3a59d2052396bb3615f6d693e373e4be588bce9a9e93a275044"
+      },
+      "./node_modules/upper-case/upper-case.d.ts": {
+        "version": "8ec5fab89eb3371edaa963239c7795421a13c119a668f1b16f9640559618ed95",
+        "signature": "8ec5fab89eb3371edaa963239c7795421a13c119a668f1b16f9640559618ed95"
+      },
+      "./node_modules/lower-case/lower-case.d.ts": {
+        "version": "27823d8558154e158b80cc2189b5a3cf70c8e0cff3a56e7633b9912d41cb9fe2",
+        "signature": "27823d8558154e158b80cc2189b5a3cf70c8e0cff3a56e7633b9912d41cb9fe2"
+      },
+      "./node_modules/camel-case/camel-case.d.ts": {
+        "version": "9c040b92d23fbf0dfdf4343fb13f23422abe7665d4db42e9320acf7bb94cad30",
+        "signature": "9c040b92d23fbf0dfdf4343fb13f23422abe7665d4db42e9320acf7bb94cad30"
+      },
+      "./node_modules/snake-case/snake-case.d.ts": {
+        "version": "f69f082c0bc0220bd29008b8f42e8ebc9c5a5b47379109fb45dac38b9422427e",
+        "signature": "f69f082c0bc0220bd29008b8f42e8ebc9c5a5b47379109fb45dac38b9422427e"
+      },
+      "./node_modules/title-case/title-case.d.ts": {
+        "version": "3d7081b9347c84cf113d7945dc6510d3d77e669fd7a62f48af309eda66cc1f7f",
+        "signature": "3d7081b9347c84cf113d7945dc6510d3d77e669fd7a62f48af309eda66cc1f7f"
+      },
+      "./node_modules/param-case/param-case.d.ts": {
+        "version": "6a1fcecff5f90041aeb31479d594269738615513b9227bd3b59ee0124bfe702f",
+        "signature": "6a1fcecff5f90041aeb31479d594269738615513b9227bd3b59ee0124bfe702f"
+      },
+      "./node_modules/header-case/header-case.d.ts": {
+        "version": "e8bd4f4e21ac47530888a278a2ca6a9f5828ee7f9fc21a6f41610b9d1c206149",
+        "signature": "e8bd4f4e21ac47530888a278a2ca6a9f5828ee7f9fc21a6f41610b9d1c206149"
+      },
+      "./node_modules/pascal-case/pascal-case.d.ts": {
+        "version": "f20174e35f654f43d7f1d7457996c75133b6c0b18ee2d26411fe0fada83f8643",
+        "signature": "f20174e35f654f43d7f1d7457996c75133b6c0b18ee2d26411fe0fada83f8643"
+      },
+      "./node_modules/constant-case/constant-case.d.ts": {
+        "version": "454dc2ae1f7165a2987e9b92dec35c28bfada812b9096b0488c961f2dbff7801",
+        "signature": "454dc2ae1f7165a2987e9b92dec35c28bfada812b9096b0488c961f2dbff7801"
+      },
+      "./node_modules/sentence-case/sentence-case.d.ts": {
+        "version": "1d06f87ac916c2cbde01d4e13fba677da8b4987aa0e6017f07a01280ae43d134",
+        "signature": "1d06f87ac916c2cbde01d4e13fba677da8b4987aa0e6017f07a01280ae43d134"
+      },
+      "./node_modules/is-upper-case/is-upper-case.d.ts": {
+        "version": "613a5480ccf417050eb50fba3af3837376b8bcde2377e5b99197139cd6816415",
+        "signature": "613a5480ccf417050eb50fba3af3837376b8bcde2377e5b99197139cd6816415"
+      },
+      "./node_modules/is-lower-case/is-lower-case.d.ts": {
+        "version": "b9fb2b9ca886270f18a27bc129f7c9850e5af1068d6ad3840b612ecb21e90b00",
+        "signature": "b9fb2b9ca886270f18a27bc129f7c9850e5af1068d6ad3840b612ecb21e90b00"
+      },
+      "./node_modules/upper-case-first/upper-case-first.d.ts": {
+        "version": "168d7a0cfae0633e9c12ddfdd43081840931cb52047072ff2842f76541e7582f",
+        "signature": "168d7a0cfae0633e9c12ddfdd43081840931cb52047072ff2842f76541e7582f"
+      },
+      "./node_modules/lower-case-first/lower-case-first.d.ts": {
+        "version": "195fc6bcc8fe05bfc815bf67b3efa34947679eff930e40cc4f6a240b624ec116",
+        "signature": "195fc6bcc8fe05bfc815bf67b3efa34947679eff930e40cc4f6a240b624ec116"
+      },
+      "./node_modules/change-case/change-case.d.ts": {
+        "version": "ae7c1a003aeedc026823b8264d7ff9367dd8437eb2bdbd545671a25dcef02ae5",
+        "signature": "ae7c1a003aeedc026823b8264d7ff9367dd8437eb2bdbd545671a25dcef02ae5"
+      },
+      "./src/resolvers/defaults/helpers.ts": {
+        "version": "b444de673f6127ef71f7b0af258a4d6b4c9dd9b8ee2549222efd4c6e586aa917",
+        "signature": "3ef95b1b9e86b1512bc6d3f24a93af95bae032bc610592381ec626a4221f7ced"
+      },
+      "./src/resolvers/defaults/logger.ts": {
+        "version": "b61faa85b7f03e2a5150da2ae6a01a92b88bfc9b386f36d2ef6108244bbfdf70",
+        "signature": "29ca9e069372ceb397b782f7717eabc6ab2d28bd48f58e2f477c49fa9a093912"
+      },
+      "./src/resolvers/defaults/tools.ts": {
+        "version": "eaaed360ee7c9f61ad9b9cf854b63ea0f61f6e3ac983e510eafa38968e3f80b5",
+        "signature": "e21764e8e6eaf8ce60412ac9b6b1176b1a8d47f6345fc0ac65178929d7a81fb0"
+      },
+      "./src/resolvers/defaults/index.ts": {
+        "version": "11a6a67b55a2fe3360c331fe72f32f4f99cefebe01d3b39c49b89ed27491e21b",
+        "signature": "f104a524fe497601dd590b77d487f2c86f032bcc62ab193f77b808360f89f962"
+      },
+      "./src/resolvers/defaults/__tests__/helpModule.spec.ts": {
+        "version": "a3c21359b6256c32ad3a89618039524c21f346e15cef62bca8e19258b7505a59",
+        "signature": "8e609bb71c20b858c77f0e9f90bb1319db8477b13f9f965f1a1e18524bf50881"
+      },
+      "./src/resolvers/defaults/__tests__/helpersResolver.spec.ts": {
+        "version": "acd6147d6834857feb53d2329e62a709e33bd773537e411c681d78b84afa301f",
+        "signature": "8e609bb71c20b858c77f0e9f90bb1319db8477b13f9f965f1a1e18524bf50881"
+      },
+      "./src/resolvers/defaults/__tests__/logger.spec.ts": {
+        "version": "58ab949fe8b5f1f0dee4dc30d2685d841dd1c112274cc3da996593b2701ce6b7",
+        "signature": "8e609bb71c20b858c77f0e9f90bb1319db8477b13f9f965f1a1e18524bf50881"
+      },
+      "./src/resolvers/defaults/__tests__/toolsResolver.spec.ts": {
+        "version": "da53871d5ce9555eafa184d87d483b798656193c7f8b4d5e9437304d295ca8bf",
+        "signature": "8e609bb71c20b858c77f0e9f90bb1319db8477b13f9f965f1a1e18524bf50881"
+      },
+      "./src/resolvers/directives/index.ts": {
+        "version": "605802aff4f41f9c660cce9cc482308446a8d91fea7b427bf40fe95159048a81",
+        "signature": "7187e937aacf467b68fe4e32c335801fc8687298fdfd1a0ddd837282c3112a09"
+      },
+      "./src/resolvers/directives/__tests__/directives.spec.ts": {
+        "version": "61710eb8388cd9051c1b1f1f9ff8bf33efc5671525a0f4dc871f7275b81e8d6b",
+        "signature": "8e609bb71c20b858c77f0e9f90bb1319db8477b13f9f965f1a1e18524bf50881"
+      },
+      "./src/resolvers/file/__tests__/file.spec.ts": {
+        "version": "73917e3e99ad86e26aa163fd6b99aed56f75e6381c0285be73d4ebcb1941a736",
+        "signature": "8e609bb71c20b858c77f0e9f90bb1319db8477b13f9f965f1a1e18524bf50881"
+      },
+      "./src/resolvers/generator/index.ts": {
+        "version": "32040068dde7a34e86158e8aac47f7d2d748414cbc5df8d7ea302eee3065088c",
+        "signature": "a3fee450ac8a863a9eb3aae95afb265f990ee1573aba8b43e8a47a159d61d5d9"
+      },
+      "./src/resolvers/generator/__tests__/generator.spec.ts": {
+        "version": "f26c8cba3d5fd0434971cf71302227428fc54669096a5391d6e3690ab5dd05f3",
+        "signature": "8e609bb71c20b858c77f0e9f90bb1319db8477b13f9f965f1a1e18524bf50881"
+      },
+      "./src/resolvers/hooks/__tests__/hooks.spec.ts": {
+        "version": "c77a883d739bd3ef2344e3ffe1116f5d9c8a6c0afaaa4525e6850263f87c82b1",
+        "signature": "8e609bb71c20b858c77f0e9f90bb1319db8477b13f9f965f1a1e18524bf50881"
+      },
+      "./src/resolvers/logger/__tests__/logger.spec.ts": {
+        "version": "58ab949fe8b5f1f0dee4dc30d2685d841dd1c112274cc3da996593b2701ce6b7",
+        "signature": "8e609bb71c20b858c77f0e9f90bb1319db8477b13f9f965f1a1e18524bf50881"
+      },
+      "./src/resolvers/modules/index.ts": {
+        "version": "2b84dc0ff20886aed1277faa64ff2e8fa4b0434287e3a1cad31a800e113cfec4",
+        "signature": "74807a0229fc8c3d49b50c7a7eb70a82a9edc1ea79e3fbabb47591934ea00103"
+      },
+      "./src/resolvers/modules/__tests__/modules.spec.ts": {
+        "version": "5d2179f492107181b0a641835c22dd25f6dbc47085604e546b03151659f97027",
+        "signature": "8e609bb71c20b858c77f0e9f90bb1319db8477b13f9f965f1a1e18524bf50881"
+      },
+      "./src/resolvers/params/index.ts": {
+        "version": "146be5127aceb60162c98f2875bbddaaefe25bfcead557cc51a86e8a2bd4bc72",
+        "signature": "17125dff7bab1aa23bcf6f10101d94c12f3c2e069371811877c3e5786eca6db7"
+      },
+      "./src/resolvers/params/__tests__/params.spec.ts": {
+        "version": "3f343d624204dfb002af9e968543c5f93a977b49f59603324ec66be8c4b0e009",
+        "signature": "8e609bb71c20b858c77f0e9f90bb1319db8477b13f9f965f1a1e18524bf50881"
+      },
+      "./src/resolvers/render/index.ts": {
+        "version": "f5a8cbbf43ffd18d30958353e0d598dcd010d8b02b995206355fe2651fabed96",
+        "signature": "8232b245fd9af5f0f947ba9d2c36d3e0cb6a0d8727dd023984cd35aef1ddbe3b"
+      },
+      "./src/resolvers/render/__tests__/render.spec.ts": {
+        "version": "9c2af83d767651ea44b21c0af9e2f3b8c22a7ca85a8e739cea96c23e608bfbbb",
+        "signature": "8e609bb71c20b858c77f0e9f90bb1319db8477b13f9f965f1a1e18524bf50881"
+      },
+      "./src/resolvers/templates/index.ts": {
+        "version": "77375d6b5e7acd38fb8ba53798f7bb95323f2160b6ca75ee8921870c3690b405",
+        "signature": "bad5a16ba1e9f40fd3a137f5220f610800631f5205ff2ed7c6e1f011c5e3cd8b"
+      },
+      "./src/resolvers/templates/__tests__/templates.spec.ts": {
+        "version": "66f8531e8eb6ea763923c7a578026c43a137642817257254edf71231f9e12ffc",
+        "signature": "8e609bb71c20b858c77f0e9f90bb1319db8477b13f9f965f1a1e18524bf50881"
+      },
+      "./src/resolvers/yargs/__tests__/yargs.spec.ts": {
+        "version": "e6fc673a516dd87ec6ba24f61797ffdda769844e0250b1135c86aa2a92f8c76f",
+        "signature": "8e609bb71c20b858c77f0e9f90bb1319db8477b13f9f965f1a1e18524bf50881"
+      },
+      "./src/utils/nameMaker.ts": {
+        "version": "94abb022a9f94bb6f93cfe14307d6e3c2e6dcb86828566b56aa6800295d945d7",
+        "signature": "bed06280a52bec7d013dc94a02ab4057cc3bef4523552c737265683d5f535b53"
+      },
+      "./src/utils/__tests__/chainPromise.spec.ts": {
+        "version": "8a158971995ac8ed9ed282dbd16af854ecb3db8945f15c89c81b2bb9a218be85",
+        "signature": "8e609bb71c20b858c77f0e9f90bb1319db8477b13f9f965f1a1e18524bf50881"
+      },
+      "./src/utils/__tests__/logger.spec.ts": {
+        "version": "83b2ebfad70ac37bbf2af035061ed69ec7ec30a33862f9af38ca1a4a4cee05b9",
+        "signature": "8e609bb71c20b858c77f0e9f90bb1319db8477b13f9f965f1a1e18524bf50881"
+      },
+      "./src/utils/__tests__/mergeConfig.spec.ts": {
+        "version": "2001735e525d90923235571cfe8beed8bd37c747cecec1f8acb88f833fd5dacf",
+        "signature": "8e609bb71c20b858c77f0e9f90bb1319db8477b13f9f965f1a1e18524bf50881"
+      },
+      "./src/utils/__tests__/nameMaker.spec.ts": {
+        "version": "99771a267448205a2d2f7a932e45a3745cd1194ba1ac8244fc4fe8131a5e5fff",
+        "signature": "8e609bb71c20b858c77f0e9f90bb1319db8477b13f9f965f1a1e18524bf50881"
+      },
+      "./src/utils/__tests__/pathTo.spec.ts": {
+        "version": "37ba4ee7e5ec3da808391fbc415a0fb19cb29a99f1f2b52593203f27c3519dfd",
+        "signature": "a67197053091802dac84e569ada4a5aa208e84b7f515afa20cc1409468c495ec"
+      },
+      "./src/utils/__tests__/walkers.spec.ts": {
+        "version": "758a29cb5bbbadcc0b58c3d4527bd044ea6dc2ee3116d6904b970b7ef178752e",
+        "signature": "8e609bb71c20b858c77f0e9f90bb1319db8477b13f9f965f1a1e18524bf50881"
+      },
+      "./node_modules/@types/node/globals.d.ts": {
+        "version": "e4461b72726848da76a31153b6b01af5e0be3b08dbfa2ec5741ad302eb20f2ed",
+        "signature": "e4461b72726848da76a31153b6b01af5e0be3b08dbfa2ec5741ad302eb20f2ed"
+      },
+      "./node_modules/@types/node/assert.d.ts": {
+        "version": "58a52f282f1dad18179023804c1f3a7536bf875748a0a314abd43f60fd5b244f",
+        "signature": "58a52f282f1dad18179023804c1f3a7536bf875748a0a314abd43f60fd5b244f"
+      },
+      "./node_modules/@types/node/async_hooks.d.ts": {
+        "version": "1305b079a057355f496bdde048716189178877a6b4fe0e9267a46af67f8c7561",
+        "signature": "1305b079a057355f496bdde048716189178877a6b4fe0e9267a46af67f8c7561"
+      },
+      "./node_modules/@types/node/buffer.d.ts": {
+        "version": "61215c1a376bbe8f51cab4cc4ddbf3746387015113c37a84d981d4738c21b878",
+        "signature": "61215c1a376bbe8f51cab4cc4ddbf3746387015113c37a84d981d4738c21b878"
+      },
+      "./node_modules/@types/node/child_process.d.ts": {
+        "version": "fbf717914b6e7d87d969b13c646b5d15dca61c9b89ea48e97a1513809445b003",
+        "signature": "fbf717914b6e7d87d969b13c646b5d15dca61c9b89ea48e97a1513809445b003"
+      },
+      "./node_modules/@types/node/cluster.d.ts": {
+        "version": "ce629710e5e58724902b753212e97861fd73e2aa09f5d88cb6d55dc763cf8c8a",
+        "signature": "ce629710e5e58724902b753212e97861fd73e2aa09f5d88cb6d55dc763cf8c8a"
+      },
+      "./node_modules/@types/node/console.d.ts": {
+        "version": "525c8fc510d9632d2a0a9de2d41c3ac1cdd79ff44d3b45c6d81cacabb683528d",
+        "signature": "525c8fc510d9632d2a0a9de2d41c3ac1cdd79ff44d3b45c6d81cacabb683528d"
+      },
+      "./node_modules/@types/node/constants.d.ts": {
+        "version": "8ce9418c78d3c1fb703ddbe38c936d34a989ba278666979826590dfa0772a424",
+        "signature": "8ce9418c78d3c1fb703ddbe38c936d34a989ba278666979826590dfa0772a424"
+      },
+      "./node_modules/@types/node/crypto.d.ts": {
+        "version": "ab2319db789867778ccd5f2b5e6cd559e716d1cd3726b0e03724af463eddf78b",
+        "signature": "ab2319db789867778ccd5f2b5e6cd559e716d1cd3726b0e03724af463eddf78b"
+      },
+      "./node_modules/@types/node/dgram.d.ts": {
+        "version": "7954df44c35d39b851b996fdc1af0a252e4e23f862abfef388a058203bb94c30",
+        "signature": "7954df44c35d39b851b996fdc1af0a252e4e23f862abfef388a058203bb94c30"
+      },
+      "./node_modules/@types/node/dns.d.ts": {
+        "version": "ef226a42de7022eacdfa0f15aabf73b46c47af93044c8ebfab8aa8e3cf6c330c",
+        "signature": "ef226a42de7022eacdfa0f15aabf73b46c47af93044c8ebfab8aa8e3cf6c330c"
+      },
+      "./node_modules/@types/node/domain.d.ts": {
+        "version": "d5b7c8819ce1bd31a45f7675309e145ec28e3aa1b60a8e0637fd0e8916255baa",
+        "signature": "d5b7c8819ce1bd31a45f7675309e145ec28e3aa1b60a8e0637fd0e8916255baa"
+      },
+      "./node_modules/@types/node/events.d.ts": {
+        "version": "0be551fde848d5adde38731272ee980bda2bde0f8bf2a76ce99e01b86985546c",
+        "signature": "0be551fde848d5adde38731272ee980bda2bde0f8bf2a76ce99e01b86985546c"
+      },
+      "./node_modules/@types/node/fs.d.ts": {
+        "version": "6bd120d96313412155ae7d4766d586a38576a058b3e269be2152db7030fbc882",
+        "signature": "6bd120d96313412155ae7d4766d586a38576a058b3e269be2152db7030fbc882"
+      },
+      "./node_modules/@types/node/http.d.ts": {
+        "version": "d5470fad800f025be0c4bd1b14c013ea5b4aeec90e53ab0e2703a8fe01f292b3",
+        "signature": "d5470fad800f025be0c4bd1b14c013ea5b4aeec90e53ab0e2703a8fe01f292b3"
+      },
+      "./node_modules/@types/node/http2.d.ts": {
+        "version": "745494f14a9e133beee622ca51cdc59c8896ff77c9f3cd017a4ce735b30dac2d",
+        "signature": "745494f14a9e133beee622ca51cdc59c8896ff77c9f3cd017a4ce735b30dac2d"
+      },
+      "./node_modules/@types/node/https.d.ts": {
+        "version": "dacbe08610729f6343ea9880ea8e737c6d7a6efa4a318d8f6acaf85db4aceed6",
+        "signature": "dacbe08610729f6343ea9880ea8e737c6d7a6efa4a318d8f6acaf85db4aceed6"
+      },
+      "./node_modules/@types/node/inspector.d.ts": {
+        "version": "4218ced3933a31eed1278d350dd63c5900df0f0904f57d61c054d7a4b83dbe4c",
+        "signature": "4218ced3933a31eed1278d350dd63c5900df0f0904f57d61c054d7a4b83dbe4c"
+      },
+      "./node_modules/@types/node/module.d.ts": {
+        "version": "03394bf8deb8781b490ae9266a843fbdf00647947d79e25fcbf1d89a9e9c8a66",
+        "signature": "03394bf8deb8781b490ae9266a843fbdf00647947d79e25fcbf1d89a9e9c8a66"
+      },
+      "./node_modules/@types/node/net.d.ts": {
+        "version": "1224b49e2c8f3b4ed618969d2989412d1282536d2a6a31c30c84d5da01d8b8e4",
+        "signature": "1224b49e2c8f3b4ed618969d2989412d1282536d2a6a31c30c84d5da01d8b8e4"
+      },
+      "./node_modules/@types/node/os.d.ts": {
+        "version": "1a6016bd905855b2b45881e9edbd7ab8c7175f8bcbb711ff06989c4bcdc75486",
+        "signature": "1a6016bd905855b2b45881e9edbd7ab8c7175f8bcbb711ff06989c4bcdc75486"
+      },
+      "./node_modules/@types/node/path.d.ts": {
+        "version": "5fb30076f0e0e5744db8993648bfb67aadd895f439edad5cce039127a87a8a36",
+        "signature": "5fb30076f0e0e5744db8993648bfb67aadd895f439edad5cce039127a87a8a36"
+      },
+      "./node_modules/@types/node/perf_hooks.d.ts": {
+        "version": "27ef4001526ee9d8afa57687a60bb3b59c52b32d29db0a2260094ab64726164f",
+        "signature": "27ef4001526ee9d8afa57687a60bb3b59c52b32d29db0a2260094ab64726164f"
+      },
+      "./node_modules/@types/node/process.d.ts": {
+        "version": "3a8848a9c307429b861402cc69bc472ffe0c05b86474fc158723169161e16389",
+        "signature": "3a8848a9c307429b861402cc69bc472ffe0c05b86474fc158723169161e16389"
+      },
+      "./node_modules/@types/node/punycode.d.ts": {
+        "version": "30ec6f9c683b988c3cfaa0c4690692049c4e7ed7dc6f6e94f56194c06b86f5e1",
+        "signature": "30ec6f9c683b988c3cfaa0c4690692049c4e7ed7dc6f6e94f56194c06b86f5e1"
+      },
+      "./node_modules/@types/node/querystring.d.ts": {
+        "version": "e0070c45bf15b872f58eee948f71ad6f4f424f36330b2477753fc1aed3ece36e",
+        "signature": "e0070c45bf15b872f58eee948f71ad6f4f424f36330b2477753fc1aed3ece36e"
+      },
+      "./node_modules/@types/node/readline.d.ts": {
+        "version": "e1045d32a6a59dbcbe0ed2edddc6568221acc299ac68d92284153e7c00b39d51",
+        "signature": "e1045d32a6a59dbcbe0ed2edddc6568221acc299ac68d92284153e7c00b39d51"
+      },
+      "./node_modules/@types/node/repl.d.ts": {
+        "version": "65dbe15ed8a8ed5d4707a63868178dc38111cfc06de28a2e50713ca017a9c157",
+        "signature": "65dbe15ed8a8ed5d4707a63868178dc38111cfc06de28a2e50713ca017a9c157"
+      },
+      "./node_modules/@types/node/stream.d.ts": {
+        "version": "3d196dfe427fc2ce52eec1892926ed13895be95847bf3a927476498135225102",
+        "signature": "3d196dfe427fc2ce52eec1892926ed13895be95847bf3a927476498135225102"
+      },
+      "./node_modules/@types/node/string_decoder.d.ts": {
+        "version": "7e62aac2cc9c0710d772047ad89e8d7117f52592c791eb995ce1f865fedab432",
+        "signature": "7e62aac2cc9c0710d772047ad89e8d7117f52592c791eb995ce1f865fedab432"
+      },
+      "./node_modules/@types/node/timers.d.ts": {
+        "version": "b40652bf8ce4a18133b31349086523b219724dca8df3448c1a0742528e7ad5b9",
+        "signature": "b40652bf8ce4a18133b31349086523b219724dca8df3448c1a0742528e7ad5b9"
+      },
+      "./node_modules/@types/node/tls.d.ts": {
+        "version": "af5f07deb33b2fb92ef67ea5ebb69670b81c74908b646e7cd4361a331d2a558a",
+        "signature": "af5f07deb33b2fb92ef67ea5ebb69670b81c74908b646e7cd4361a331d2a558a"
+      },
+      "./node_modules/@types/node/trace_events.d.ts": {
+        "version": "978aecd2e6bc2ac094e9a35eda98ff8586713857b3655e7c98ca5ed8f7d50662",
+        "signature": "978aecd2e6bc2ac094e9a35eda98ff8586713857b3655e7c98ca5ed8f7d50662"
+      },
+      "./node_modules/@types/node/tty.d.ts": {
+        "version": "08261bfa763b8cd7fa74c06debf70ee22268c299a18e5dc7c48736bc352be007",
+        "signature": "08261bfa763b8cd7fa74c06debf70ee22268c299a18e5dc7c48736bc352be007"
+      },
+      "./node_modules/@types/node/url.d.ts": {
+        "version": "1e3da92862604b1f7a32265169f9aa712c4567742d42597704e04ae3e07019e7",
+        "signature": "1e3da92862604b1f7a32265169f9aa712c4567742d42597704e04ae3e07019e7"
+      },
+      "./node_modules/@types/node/util.d.ts": {
+        "version": "0f6382d5032e45eec50b8f6c1e18c77544bc4db2ef8f854d196b254ec16add12",
+        "signature": "0f6382d5032e45eec50b8f6c1e18c77544bc4db2ef8f854d196b254ec16add12"
+      },
+      "./node_modules/@types/node/v8.d.ts": {
+        "version": "e98d697adf809fc14dc88ed4e00e4f0e0e381ca23d6d9320cf01af87e801f725",
+        "signature": "e98d697adf809fc14dc88ed4e00e4f0e0e381ca23d6d9320cf01af87e801f725"
+      },
+      "./node_modules/@types/node/vm.d.ts": {
+        "version": "ad20b1311e55187f8eeefdd282a02dbc70e5ac0cf8ab4cabae99c142b32cc562",
+        "signature": "ad20b1311e55187f8eeefdd282a02dbc70e5ac0cf8ab4cabae99c142b32cc562"
+      },
+      "./node_modules/@types/node/worker_threads.d.ts": {
+        "version": "7780573ed8387aaadcc61d87f3d60d77dabf1e060da252dc72ab1d73401988bb",
+        "signature": "7780573ed8387aaadcc61d87f3d60d77dabf1e060da252dc72ab1d73401988bb"
+      },
+      "./node_modules/@types/node/zlib.d.ts": {
+        "version": "2ffd50644d73fc1fa59c69d48859b6c843d3604609d7353725b6d2b001f05a2b",
+        "signature": "2ffd50644d73fc1fa59c69d48859b6c843d3604609d7353725b6d2b001f05a2b"
+      },
+      "./node_modules/@types/node/base.d.ts": {
+        "version": "6622f76993bdfeaacb947ba7c4cf26f2e5c5194194d02d792c3cba4174cd8fce",
+        "signature": "6622f76993bdfeaacb947ba7c4cf26f2e5c5194194d02d792c3cba4174cd8fce"
+      },
+      "./node_modules/@types/node/ts3.2/util.d.ts": {
+        "version": "4f54f0a9dd3b644c99ec32b32f8804d5978bc854799b228ae9c467bf3c84c64c",
+        "signature": "4f54f0a9dd3b644c99ec32b32f8804d5978bc854799b228ae9c467bf3c84c64c"
+      },
+      "./node_modules/@types/node/ts3.2/globals.d.ts": {
+        "version": "4926e99d2ad39c0bbd36f2d37cc8f52756bc7a5661ad7b12815df871a4b07ba1",
+        "signature": "4926e99d2ad39c0bbd36f2d37cc8f52756bc7a5661ad7b12815df871a4b07ba1"
+      },
+      "./node_modules/@types/node/ts3.2/index.d.ts": {
+        "version": "765fc34423b93c2ab763670d8d11d99e5f47387c13c161d6f1640dd6d91b7d1c",
+        "signature": "765fc34423b93c2ab763670d8d11d99e5f47387c13c161d6f1640dd6d91b7d1c"
+      },
+      "./node_modules/front-matter/index.d.ts": {
+        "version": "86ee49622d6e3a7b244e550b55c2834e225df9753906b80c320710f84456e7c9",
+        "signature": "86ee49622d6e3a7b244e550b55c2834e225df9753906b80c320710f84456e7c9"
+      },
+      "./node_modules/@types/jest-diff/index.d.ts": {
+        "version": "6ecb326999da47034eff85653423767152858fbb7acf0433f7603c9abf1e3f06",
+        "signature": "6ecb326999da47034eff85653423767152858fbb7acf0433f7603c9abf1e3f06"
+      },
+      "./node_modules/jest-diff/build/types.d.ts": {
+        "version": "71ba0678a3c647f5c0706ae975c031ace0d464e60f9ce56eaa7f1678d065aab7",
+        "signature": "71ba0678a3c647f5c0706ae975c031ace0d464e60f9ce56eaa7f1678d065aab7"
+      },
+      "./node_modules/jest-diff/build/index.d.ts": {
+        "version": "b2c5ded6320c45c5d3e1c481c5d2808adf24dd1a59ffc944b72a418e95da5b17",
+        "signature": "b2c5ded6320c45c5d3e1c481c5d2808adf24dd1a59ffc944b72a418e95da5b17"
+      },
+      "./node_modules/@types/jest/index.d.ts": {
+        "version": "fa957aac96a5a1b31eab2ad478219b9559d1ab7d0668920817614a8384d8965b",
+        "signature": "fa957aac96a5a1b31eab2ad478219b9559d1ab7d0668920817614a8384d8965b"
+      }
+    },
+    "options": {
+      "incremental": true,
+      "target": 1,
+      "module": 1,
+      "lib": [
+        "lib.es5.d.ts",
+        "lib.es2015.d.ts",
+        "lib.es2015.promise.d.ts",
+        "lib.es2015.d.ts"
+      ],
+      "allowJs": true,
+      "outDir": "./build",
+      "rootDir": "./src",
+      "strict": true,
+      "baseUrl": "./src",
+      "types": [
+        "chalk",
+        "yargs",
+        "yargs-parser",
+        "node",
+        "change-case",
+        "enquirer",
+        "front-matter",
+        "jest",
+        "inflection"
+      ],
+      "allowSyntheticDefaultImports": true,
+      "esModuleInterop": true,
+      "configFilePath": "./tsconfig.json"
+    },
+    "referencedMap": {
+      "../../../.asdf/installs/nodejs/12.3.1/.npm/lib/node_modules/typescript/lib/lib.es5.d.ts": [
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "../../../.asdf/installs/nodejs/12.3.1/.npm/lib/node_modules/typescript/lib/lib.es2015.d.ts": [
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "../../../.asdf/installs/nodejs/12.3.1/.npm/lib/node_modules/typescript/lib/lib.es2016.d.ts": [
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "../../../.asdf/installs/nodejs/12.3.1/.npm/lib/node_modules/typescript/lib/lib.es2017.d.ts": [
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "../../../.asdf/installs/nodejs/12.3.1/.npm/lib/node_modules/typescript/lib/lib.es2018.d.ts": [
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "../../../.asdf/installs/nodejs/12.3.1/.npm/lib/node_modules/typescript/lib/lib.es2015.core.d.ts": [
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "../../../.asdf/installs/nodejs/12.3.1/.npm/lib/node_modules/typescript/lib/lib.es2015.collection.d.ts": [
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "../../../.asdf/installs/nodejs/12.3.1/.npm/lib/node_modules/typescript/lib/lib.es2015.generator.d.ts": [
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "../../../.asdf/installs/nodejs/12.3.1/.npm/lib/node_modules/typescript/lib/lib.es2015.iterable.d.ts": [
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "../../../.asdf/installs/nodejs/12.3.1/.npm/lib/node_modules/typescript/lib/lib.es2015.promise.d.ts": [
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "../../../.asdf/installs/nodejs/12.3.1/.npm/lib/node_modules/typescript/lib/lib.es2015.proxy.d.ts": [
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "../../../.asdf/installs/nodejs/12.3.1/.npm/lib/node_modules/typescript/lib/lib.es2015.reflect.d.ts": [
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "../../../.asdf/installs/nodejs/12.3.1/.npm/lib/node_modules/typescript/lib/lib.es2015.symbol.d.ts": [
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "../../../.asdf/installs/nodejs/12.3.1/.npm/lib/node_modules/typescript/lib/lib.es2015.symbol.wellknown.d.ts": [
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "../../../.asdf/installs/nodejs/12.3.1/.npm/lib/node_modules/typescript/lib/lib.es2016.array.include.d.ts": [
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "../../../.asdf/installs/nodejs/12.3.1/.npm/lib/node_modules/typescript/lib/lib.es2017.object.d.ts": [
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "../../../.asdf/installs/nodejs/12.3.1/.npm/lib/node_modules/typescript/lib/lib.es2017.sharedmemory.d.ts": [
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "../../../.asdf/installs/nodejs/12.3.1/.npm/lib/node_modules/typescript/lib/lib.es2017.string.d.ts": [
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "../../../.asdf/installs/nodejs/12.3.1/.npm/lib/node_modules/typescript/lib/lib.es2017.intl.d.ts": [
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "../../../.asdf/installs/nodejs/12.3.1/.npm/lib/node_modules/typescript/lib/lib.es2017.typedarrays.d.ts": [
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "../../../.asdf/installs/nodejs/12.3.1/.npm/lib/node_modules/typescript/lib/lib.es2018.asyncgenerator.d.ts": [
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "../../../.asdf/installs/nodejs/12.3.1/.npm/lib/node_modules/typescript/lib/lib.es2018.asynciterable.d.ts": [
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "../../../.asdf/installs/nodejs/12.3.1/.npm/lib/node_modules/typescript/lib/lib.es2018.intl.d.ts": [
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "../../../.asdf/installs/nodejs/12.3.1/.npm/lib/node_modules/typescript/lib/lib.es2018.promise.d.ts": [
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "../../../.asdf/installs/nodejs/12.3.1/.npm/lib/node_modules/typescript/lib/lib.es2018.regexp.d.ts": [
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "../../../.asdf/installs/nodejs/12.3.1/.npm/lib/node_modules/typescript/lib/lib.esnext.intl.d.ts": [
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "../../../.asdf/installs/nodejs/12.3.1/.npm/lib/node_modules/typescript/lib/lib.esnext.bigint.d.ts": [
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "./node_modules/enquirer/index.d.ts": [
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "./src/hygen/misc.d.ts": [
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "./src/hygen/context.d.ts": [
+        "./src/hygen/misc.d.ts",
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "./node_modules/@types/yargs-parser/index.d.ts": [
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "./src/hygen/yargs.d.ts": [
+        "./node_modules/@types/yargs-parser/index.d.ts",
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "./src/hygen/resolvers.d.ts": [
+        "./src/hygen/config.d.ts",
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "./src/hygen/hooks.d.ts": [
+        "./src/hygen/config.d.ts",
+        "./src/hygen/resolvers.d.ts",
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "./src/hygen/types.d.ts": [
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "./src/hygen/utils.d.ts": [
+        "./src/hygen/config.d.ts",
+        "./src/hygen/resolvers.d.ts",
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "./src/hygen/config.d.ts": [
+        "./src/hygen/context.d.ts",
+        "./src/hygen/logger.d.ts",
+        "./src/hygen/yargs.d.ts",
+        "./src/hygen/resolvers.d.ts",
+        "./src/hygen/hooks.d.ts",
+        "./src/hygen/types.d.ts",
+        "./src/hygen/utils.d.ts",
+        "./node_modules/enquirer/index.d.ts",
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "./src/hygen/logger.d.ts": [
+        "./src/hygen/config.d.ts",
+        "./src/hygen/types.d.ts",
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "./src/hygen/actions.d.ts": [
+        "./node_modules/enquirer/index.d.ts",
+        "./src/hygen/logger.d.ts",
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "./src/hygen/templates.d.ts": [
+        "./src/hygen/context.d.ts",
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "./src/hygen/generator.d.ts": [
+        "./src/hygen/templates.d.ts",
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "./src/hygen/index.d.ts": [
+        "./src/hygen/actions.d.ts",
+        "./src/hygen/config.d.ts",
+        "./src/hygen/context.d.ts",
+        "./src/hygen/generator.d.ts",
+        "./src/hygen/hooks.d.ts",
+        "./src/hygen/logger.d.ts",
+        "./src/hygen/misc.d.ts",
+        "./src/hygen/resolvers.d.ts",
+        "./src/hygen/templates.d.ts",
+        "./src/hygen/types.d.ts",
+        "./src/hygen/utils.d.ts",
+        "./src/hygen/yargs.d.ts",
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "./src/utils/chainPromise.ts": [
+        "./src/hygen/index.d.ts",
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "./node_modules/@types/yargs/index.d.ts": [
+        "./node_modules/@types/yargs-parser/index.d.ts",
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "./node_modules/chalk/types/index.d.ts": [
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "./src/utils/logger.ts": [
+        "./src/hygen/index.d.ts",
+        "./node_modules/@types/yargs/index.d.ts",
+        "./node_modules/chalk/types/index.d.ts",
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "./src/utils/mergeConfig.ts": [
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "./src/utils/pathTo.ts": [
+        "./src/hygen/index.d.ts",
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "./src/utils/walkers.ts": [
+        "./src/hygen/utils.d.ts",
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "./src/utils/index.ts": [
+        "./src/utils/chainPromise.ts",
+        "./src/utils/logger.ts",
+        "./src/utils/mergeConfig.ts",
+        "./src/utils/pathTo.ts",
+        "./src/utils/walkers.ts",
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "./src/defaultConfig.ts": [
+        "./src/utils/index.ts",
+        "./src/hygen/index.d.ts",
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "./src/utils/exec.ts": [
+        "./src/hygen/index.d.ts",
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "./src/index.ts": [
+        "./src/utils/index.ts",
+        "./src/hygen/index.d.ts",
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "./src/bin.ts": [
+        "./src/hygen/index.d.ts",
+        "./src/defaultConfig.ts",
+        "./src/utils/exec.ts",
+        "./src/index.ts",
+        "./node_modules/@types/node/path.d.ts",
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "./src/types.ts": [
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "./src/yLog.ts": [
+        "./src/utils/index.ts",
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "./src/hygen/generators.d.ts": [
+        "./src/hygen/templates.d.ts",
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "./src/modules/help.ts": [
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "./src/modules/logging.ts": [
+        "./node_modules/@types/yargs-parser/index.d.ts",
+        "./node_modules/@types/yargs/index.d.ts",
+        "./src/hygen/index.d.ts",
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "./src/modules/pathTo.ts": [
+        "./src/utils/pathTo.ts",
+        "./src/hygen/index.d.ts",
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "./src/resolvers/yargs/index.ts": [
+        "./src/hygen/index.d.ts",
+        "./src/utils/index.ts",
+        "./node_modules/@types/yargs-parser/index.d.ts",
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "./src/resolvers/file/index.ts": [
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "./src/resolvers/hooks/index.ts": [
+        "./src/hygen/index.d.ts",
+        "./src/utils/index.ts",
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "./src/resolvers/config/index.ts": [
+        "./src/hygen/index.d.ts",
+        "./src/resolvers/yargs/index.ts",
+        "./src/utils/index.ts",
+        "./src/resolvers/file/index.ts",
+        "./src/resolvers/hooks/index.ts",
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "./src/resolvers/config/__tests__/config.spec.ts": [
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "./src/resolvers/defaults/helpModule.ts": [
+        "./src/hygen/index.d.ts",
+        "./src/utils/index.ts",
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "./node_modules/@types/inflection/index.d.ts": [
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "./node_modules/no-case/no-case.d.ts": [
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "./node_modules/dot-case/dot-case.d.ts": [
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "./node_modules/swap-case/swap-case.d.ts": [
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "./node_modules/path-case/path-case.d.ts": [
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "./node_modules/upper-case/upper-case.d.ts": [
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "./node_modules/lower-case/lower-case.d.ts": [
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "./node_modules/camel-case/camel-case.d.ts": [
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "./node_modules/snake-case/snake-case.d.ts": [
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "./node_modules/title-case/title-case.d.ts": [
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "./node_modules/param-case/param-case.d.ts": [
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "./node_modules/header-case/header-case.d.ts": [
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "./node_modules/pascal-case/pascal-case.d.ts": [
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "./node_modules/constant-case/constant-case.d.ts": [
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "./node_modules/sentence-case/sentence-case.d.ts": [
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "./node_modules/is-upper-case/is-upper-case.d.ts": [
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "./node_modules/is-lower-case/is-lower-case.d.ts": [
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "./node_modules/upper-case-first/upper-case-first.d.ts": [
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "./node_modules/lower-case-first/lower-case-first.d.ts": [
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "./node_modules/change-case/change-case.d.ts": [
+        "./node_modules/no-case/no-case.d.ts",
+        "./node_modules/dot-case/dot-case.d.ts",
+        "./node_modules/swap-case/swap-case.d.ts",
+        "./node_modules/path-case/path-case.d.ts",
+        "./node_modules/upper-case/upper-case.d.ts",
+        "./node_modules/lower-case/lower-case.d.ts",
+        "./node_modules/camel-case/camel-case.d.ts",
+        "./node_modules/snake-case/snake-case.d.ts",
+        "./node_modules/title-case/title-case.d.ts",
+        "./node_modules/param-case/param-case.d.ts",
+        "./node_modules/header-case/header-case.d.ts",
+        "./node_modules/pascal-case/pascal-case.d.ts",
+        "./node_modules/constant-case/constant-case.d.ts",
+        "./node_modules/sentence-case/sentence-case.d.ts",
+        "./node_modules/is-upper-case/is-upper-case.d.ts",
+        "./node_modules/is-lower-case/is-lower-case.d.ts",
+        "./node_modules/upper-case-first/upper-case-first.d.ts",
+        "./node_modules/lower-case-first/lower-case-first.d.ts",
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "./src/resolvers/defaults/helpers.ts": [
+        "./src/hygen/index.d.ts",
+        "./node_modules/@types/inflection/index.d.ts",
+        "./node_modules/change-case/change-case.d.ts",
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "./src/resolvers/defaults/logger.ts": [
+        "./src/hygen/index.d.ts",
+        "./src/utils/index.ts",
+        "./src/resolvers/hooks/index.ts",
+        "./src/resolvers/yargs/index.ts",
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "./src/resolvers/defaults/tools.ts": [
+        "./src/hygen/index.d.ts",
+        "./src/utils/index.ts",
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "./src/resolvers/defaults/index.ts": [
+        "./src/hygen/index.d.ts",
+        "./src/resolvers/yargs/index.ts",
+        "./src/resolvers/defaults/logger.ts",
+        "./src/resolvers/defaults/helpModule.ts",
+        "./src/resolvers/hooks/index.ts",
+        "./src/resolvers/defaults/tools.ts",
+        "./src/resolvers/defaults/helpers.ts",
+        "./src/utils/index.ts",
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "./src/resolvers/defaults/__tests__/helpModule.spec.ts": [
+        "./src/resolvers/defaults/helpModule.ts",
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "./src/resolvers/defaults/__tests__/helpersResolver.spec.ts": [
+        "./src/resolvers/defaults/helpers.ts",
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "./src/resolvers/defaults/__tests__/logger.spec.ts": [
+        "./src/resolvers/defaults/logger.ts",
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "./src/resolvers/defaults/__tests__/toolsResolver.spec.ts": [
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "./src/resolvers/directives/index.ts": [
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "./src/resolvers/directives/__tests__/directives.spec.ts": [
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "./src/resolvers/file/__tests__/file.spec.ts": [
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "./src/resolvers/generator/index.ts": [
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "./src/resolvers/generator/__tests__/generator.spec.ts": [
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "./src/resolvers/hooks/__tests__/hooks.spec.ts": [
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "./src/resolvers/logger/__tests__/logger.spec.ts": [
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "./src/resolvers/modules/index.ts": [
+        "./src/hygen/index.d.ts",
+        "./src/resolvers/hooks/index.ts",
+        "./src/resolvers/file/index.ts",
+        "./src/utils/index.ts",
+        "./src/resolvers/yargs/index.ts",
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "./src/resolvers/modules/__tests__/modules.spec.ts": [
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "./src/resolvers/params/index.ts": [
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "./src/resolvers/params/__tests__/params.spec.ts": [
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "./src/resolvers/render/index.ts": [
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "./src/resolvers/render/__tests__/render.spec.ts": [
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "./src/resolvers/templates/index.ts": [
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "./src/resolvers/templates/__tests__/templates.spec.ts": [
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "./src/resolvers/yargs/__tests__/yargs.spec.ts": [
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "./src/utils/nameMaker.ts": [
+        "./src/hygen/index.d.ts",
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "./src/utils/__tests__/chainPromise.spec.ts": [
+        "./src/utils/chainPromise.ts",
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "./src/utils/__tests__/logger.spec.ts": [
+        "./src/utils/logger.ts",
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "./src/utils/__tests__/mergeConfig.spec.ts": [
+        "./src/utils/mergeConfig.ts",
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "./src/utils/__tests__/nameMaker.spec.ts": [
+        "./src/utils/nameMaker.ts",
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "./src/utils/__tests__/pathTo.spec.ts": [
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "./src/utils/__tests__/walkers.spec.ts": [
+        "./src/utils/walkers.ts",
+        "./node_modules/@types/node/path.d.ts",
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "./node_modules/@types/node/globals.d.ts": [
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "./node_modules/@types/node/assert.d.ts": [
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "./node_modules/@types/node/async_hooks.d.ts": [
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "./node_modules/@types/node/buffer.d.ts": [
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "./node_modules/@types/node/child_process.d.ts": [
+        "./node_modules/@types/node/events.d.ts",
+        "./node_modules/@types/node/net.d.ts",
+        "./node_modules/@types/node/stream.d.ts",
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "./node_modules/@types/node/cluster.d.ts": [
+        "./node_modules/@types/node/child_process.d.ts",
+        "./node_modules/@types/node/events.d.ts",
+        "./node_modules/@types/node/net.d.ts",
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "./node_modules/@types/node/console.d.ts": [
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "./node_modules/@types/node/constants.d.ts": [
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "./node_modules/@types/node/crypto.d.ts": [
+        "./node_modules/@types/node/stream.d.ts",
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "./node_modules/@types/node/dgram.d.ts": [
+        "./node_modules/@types/node/net.d.ts",
+        "./node_modules/@types/node/dns.d.ts",
+        "./node_modules/@types/node/events.d.ts",
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "./node_modules/@types/node/dns.d.ts": [
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "./node_modules/@types/node/domain.d.ts": [
+        "./node_modules/@types/node/events.d.ts",
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "./node_modules/@types/node/events.d.ts": [
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "./node_modules/@types/node/fs.d.ts": [
+        "./node_modules/@types/node/stream.d.ts",
+        "./node_modules/@types/node/events.d.ts",
+        "./node_modules/@types/node/url.d.ts",
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "./node_modules/@types/node/http.d.ts": [
+        "./node_modules/@types/node/events.d.ts",
+        "./node_modules/@types/node/stream.d.ts",
+        "./node_modules/@types/node/url.d.ts",
+        "./node_modules/@types/node/net.d.ts",
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "./node_modules/@types/node/http2.d.ts": [
+        "./node_modules/@types/node/events.d.ts",
+        "./node_modules/@types/node/fs.d.ts",
+        "./node_modules/@types/node/net.d.ts",
+        "./node_modules/@types/node/stream.d.ts",
+        "./node_modules/@types/node/tls.d.ts",
+        "./node_modules/@types/node/url.d.ts",
+        "./node_modules/@types/node/http.d.ts",
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "./node_modules/@types/node/https.d.ts": [
+        "./node_modules/@types/node/tls.d.ts",
+        "./node_modules/@types/node/events.d.ts",
+        "./node_modules/@types/node/http.d.ts",
+        "./node_modules/@types/node/url.d.ts",
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "./node_modules/@types/node/inspector.d.ts": [
+        "./node_modules/@types/node/events.d.ts",
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "./node_modules/@types/node/module.d.ts": [
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "./node_modules/@types/node/net.d.ts": [
+        "./node_modules/@types/node/stream.d.ts",
+        "./node_modules/@types/node/events.d.ts",
+        "./node_modules/@types/node/dns.d.ts",
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "./node_modules/@types/node/os.d.ts": [
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "./node_modules/@types/node/path.d.ts": [
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "./node_modules/@types/node/perf_hooks.d.ts": [
+        "./node_modules/@types/node/async_hooks.d.ts",
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "./node_modules/@types/node/process.d.ts": [
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "./node_modules/@types/node/punycode.d.ts": [
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "./node_modules/@types/node/querystring.d.ts": [
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "./node_modules/@types/node/readline.d.ts": [
+        "./node_modules/@types/node/events.d.ts",
+        "./node_modules/@types/node/stream.d.ts",
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "./node_modules/@types/node/repl.d.ts": [
+        "./node_modules/@types/node/readline.d.ts",
+        "./node_modules/@types/node/vm.d.ts",
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "./node_modules/@types/node/stream.d.ts": [
+        "./node_modules/@types/node/events.d.ts",
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "./node_modules/@types/node/string_decoder.d.ts": [
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "./node_modules/@types/node/timers.d.ts": [
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "./node_modules/@types/node/tls.d.ts": [
+        "./node_modules/@types/node/crypto.d.ts",
+        "./node_modules/@types/node/dns.d.ts",
+        "./node_modules/@types/node/net.d.ts",
+        "./node_modules/@types/node/stream.d.ts",
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "./node_modules/@types/node/trace_events.d.ts": [
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "./node_modules/@types/node/tty.d.ts": [
+        "./node_modules/@types/node/net.d.ts",
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "./node_modules/@types/node/url.d.ts": [
+        "./node_modules/@types/node/querystring.d.ts",
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "./node_modules/@types/node/util.d.ts": [
+        "./node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "./node_modules/@types/node/v8.d.ts": [
+        "./node_modules/@types/node/stream.d.ts",
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "./node_modules/@types/node/vm.d.ts": [
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "./node_modules/@types/node/worker_threads.d.ts": [
+        "./node_modules/@types/node/vm.d.ts",
+        "./node_modules/@types/node/events.d.ts",
+        "./node_modules/@types/node/stream.d.ts",
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "./node_modules/@types/node/zlib.d.ts": [
+        "./node_modules/@types/node/stream.d.ts",
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "./node_modules/@types/node/base.d.ts": [
+        "./node_modules/@types/node/globals.d.ts",
+        "./node_modules/@types/node/assert.d.ts",
+        "./node_modules/@types/node/async_hooks.d.ts",
+        "./node_modules/@types/node/buffer.d.ts",
+        "./node_modules/@types/node/child_process.d.ts",
+        "./node_modules/@types/node/cluster.d.ts",
+        "./node_modules/@types/node/console.d.ts",
+        "./node_modules/@types/node/constants.d.ts",
+        "./node_modules/@types/node/crypto.d.ts",
+        "./node_modules/@types/node/dgram.d.ts",
+        "./node_modules/@types/node/dns.d.ts",
+        "./node_modules/@types/node/domain.d.ts",
+        "./node_modules/@types/node/events.d.ts",
+        "./node_modules/@types/node/fs.d.ts",
+        "./node_modules/@types/node/http.d.ts",
+        "./node_modules/@types/node/http2.d.ts",
+        "./node_modules/@types/node/https.d.ts",
+        "./node_modules/@types/node/inspector.d.ts",
+        "./node_modules/@types/node/module.d.ts",
+        "./node_modules/@types/node/net.d.ts",
+        "./node_modules/@types/node/os.d.ts",
+        "./node_modules/@types/node/path.d.ts",
+        "./node_modules/@types/node/perf_hooks.d.ts",
+        "./node_modules/@types/node/process.d.ts",
+        "./node_modules/@types/node/punycode.d.ts",
+        "./node_modules/@types/node/querystring.d.ts",
+        "./node_modules/@types/node/readline.d.ts",
+        "./node_modules/@types/node/repl.d.ts",
+        "./node_modules/@types/node/stream.d.ts",
+        "./node_modules/@types/node/string_decoder.d.ts",
+        "./node_modules/@types/node/timers.d.ts",
+        "./node_modules/@types/node/tls.d.ts",
+        "./node_modules/@types/node/trace_events.d.ts",
+        "./node_modules/@types/node/tty.d.ts",
+        "./node_modules/@types/node/url.d.ts",
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/@types/node/v8.d.ts",
+        "./node_modules/@types/node/vm.d.ts",
+        "./node_modules/@types/node/worker_threads.d.ts",
+        "./node_modules/@types/node/zlib.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "./node_modules/@types/node/ts3.2/util.d.ts": [
+        "./node_modules/@types/node/util.d.ts"
+      ],
+      "./node_modules/@types/node/ts3.2/globals.d.ts": [
+        "./node_modules/@types/node/globals.d.ts",
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "./node_modules/@types/node/ts3.2/index.d.ts": [
+        "./node_modules/@types/node/base.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts",
+        "./node_modules/@types/node/ts3.2/globals.d.ts",
+        "./node_modules/@types/node/util.d.ts"
+      ],
+      "./node_modules/front-matter/index.d.ts": [
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "./node_modules/@types/jest-diff/index.d.ts": [
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "./node_modules/jest-diff/build/types.d.ts": [
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "./node_modules/jest-diff/build/index.d.ts": [
+        "./node_modules/jest-diff/build/types.d.ts",
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "./node_modules/@types/jest/index.d.ts": [
+        "./node_modules/jest-diff/build/index.d.ts",
+        "./node_modules/@types/jest-diff/index.d.ts",
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts"
+      ]
+    },
+    "exportedModulesMap": {
+      "../../../.asdf/installs/nodejs/12.3.1/.npm/lib/node_modules/typescript/lib/lib.es5.d.ts": [
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "../../../.asdf/installs/nodejs/12.3.1/.npm/lib/node_modules/typescript/lib/lib.es2015.d.ts": [
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "../../../.asdf/installs/nodejs/12.3.1/.npm/lib/node_modules/typescript/lib/lib.es2016.d.ts": [
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "../../../.asdf/installs/nodejs/12.3.1/.npm/lib/node_modules/typescript/lib/lib.es2017.d.ts": [
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "../../../.asdf/installs/nodejs/12.3.1/.npm/lib/node_modules/typescript/lib/lib.es2018.d.ts": [
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "../../../.asdf/installs/nodejs/12.3.1/.npm/lib/node_modules/typescript/lib/lib.es2015.core.d.ts": [
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "../../../.asdf/installs/nodejs/12.3.1/.npm/lib/node_modules/typescript/lib/lib.es2015.collection.d.ts": [
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "../../../.asdf/installs/nodejs/12.3.1/.npm/lib/node_modules/typescript/lib/lib.es2015.generator.d.ts": [
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "../../../.asdf/installs/nodejs/12.3.1/.npm/lib/node_modules/typescript/lib/lib.es2015.iterable.d.ts": [
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "../../../.asdf/installs/nodejs/12.3.1/.npm/lib/node_modules/typescript/lib/lib.es2015.promise.d.ts": [
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "../../../.asdf/installs/nodejs/12.3.1/.npm/lib/node_modules/typescript/lib/lib.es2015.proxy.d.ts": [
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "../../../.asdf/installs/nodejs/12.3.1/.npm/lib/node_modules/typescript/lib/lib.es2015.reflect.d.ts": [
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "../../../.asdf/installs/nodejs/12.3.1/.npm/lib/node_modules/typescript/lib/lib.es2015.symbol.d.ts": [
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "../../../.asdf/installs/nodejs/12.3.1/.npm/lib/node_modules/typescript/lib/lib.es2015.symbol.wellknown.d.ts": [
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "../../../.asdf/installs/nodejs/12.3.1/.npm/lib/node_modules/typescript/lib/lib.es2016.array.include.d.ts": [
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "../../../.asdf/installs/nodejs/12.3.1/.npm/lib/node_modules/typescript/lib/lib.es2017.object.d.ts": [
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "../../../.asdf/installs/nodejs/12.3.1/.npm/lib/node_modules/typescript/lib/lib.es2017.sharedmemory.d.ts": [
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "../../../.asdf/installs/nodejs/12.3.1/.npm/lib/node_modules/typescript/lib/lib.es2017.string.d.ts": [
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "../../../.asdf/installs/nodejs/12.3.1/.npm/lib/node_modules/typescript/lib/lib.es2017.intl.d.ts": [
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "../../../.asdf/installs/nodejs/12.3.1/.npm/lib/node_modules/typescript/lib/lib.es2017.typedarrays.d.ts": [
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "../../../.asdf/installs/nodejs/12.3.1/.npm/lib/node_modules/typescript/lib/lib.es2018.asyncgenerator.d.ts": [
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "../../../.asdf/installs/nodejs/12.3.1/.npm/lib/node_modules/typescript/lib/lib.es2018.asynciterable.d.ts": [
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "../../../.asdf/installs/nodejs/12.3.1/.npm/lib/node_modules/typescript/lib/lib.es2018.intl.d.ts": [
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "../../../.asdf/installs/nodejs/12.3.1/.npm/lib/node_modules/typescript/lib/lib.es2018.promise.d.ts": [
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "../../../.asdf/installs/nodejs/12.3.1/.npm/lib/node_modules/typescript/lib/lib.es2018.regexp.d.ts": [
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "../../../.asdf/installs/nodejs/12.3.1/.npm/lib/node_modules/typescript/lib/lib.esnext.intl.d.ts": [
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "../../../.asdf/installs/nodejs/12.3.1/.npm/lib/node_modules/typescript/lib/lib.esnext.bigint.d.ts": [
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "./node_modules/enquirer/index.d.ts": [
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "./src/hygen/misc.d.ts": [
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "./src/hygen/context.d.ts": [
+        "./src/hygen/misc.d.ts",
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "./node_modules/@types/yargs-parser/index.d.ts": [
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "./src/hygen/yargs.d.ts": [
+        "./node_modules/@types/yargs-parser/index.d.ts",
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "./src/hygen/resolvers.d.ts": [
+        "./src/hygen/config.d.ts",
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "./src/hygen/hooks.d.ts": [
+        "./src/hygen/config.d.ts",
+        "./src/hygen/resolvers.d.ts",
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "./src/hygen/types.d.ts": [
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "./src/hygen/utils.d.ts": [
+        "./src/hygen/config.d.ts",
+        "./src/hygen/resolvers.d.ts",
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "./src/hygen/config.d.ts": [
+        "./src/hygen/context.d.ts",
+        "./src/hygen/logger.d.ts",
+        "./src/hygen/yargs.d.ts",
+        "./src/hygen/resolvers.d.ts",
+        "./src/hygen/hooks.d.ts",
+        "./src/hygen/types.d.ts",
+        "./src/hygen/utils.d.ts",
+        "./node_modules/enquirer/index.d.ts",
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "./src/hygen/logger.d.ts": [
+        "./src/hygen/config.d.ts",
+        "./src/hygen/types.d.ts",
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "./src/hygen/actions.d.ts": [
+        "./node_modules/enquirer/index.d.ts",
+        "./src/hygen/logger.d.ts",
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "./src/hygen/templates.d.ts": [
+        "./src/hygen/context.d.ts",
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "./src/hygen/generator.d.ts": [
+        "./src/hygen/templates.d.ts",
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "./src/hygen/index.d.ts": [
+        "./src/hygen/actions.d.ts",
+        "./src/hygen/config.d.ts",
+        "./src/hygen/context.d.ts",
+        "./src/hygen/generator.d.ts",
+        "./src/hygen/hooks.d.ts",
+        "./src/hygen/logger.d.ts",
+        "./src/hygen/misc.d.ts",
+        "./src/hygen/resolvers.d.ts",
+        "./src/hygen/templates.d.ts",
+        "./src/hygen/types.d.ts",
+        "./src/hygen/utils.d.ts",
+        "./src/hygen/yargs.d.ts",
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "./src/utils/chainPromise.ts": [
+        "./src/hygen/index.d.ts"
+      ],
+      "./node_modules/@types/yargs/index.d.ts": [
+        "./node_modules/@types/yargs-parser/index.d.ts",
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "./node_modules/chalk/types/index.d.ts": [
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "./src/utils/logger.ts": [
+        "./src/hygen/index.d.ts"
+      ],
+      "./src/utils/index.ts": [
+        "./src/utils/chainPromise.ts",
+        "./src/utils/logger.ts",
+        "./src/utils/mergeConfig.ts",
+        "./src/utils/pathTo.ts",
+        "./src/utils/walkers.ts"
+      ],
+      "./src/defaultConfig.ts": [
+        "./src/hygen/index.d.ts"
+      ],
+      "./src/utils/exec.ts": [
+        "./src/hygen/index.d.ts"
+      ],
+      "./src/index.ts": [
+        "./src/hygen/index.d.ts"
+      ],
+      "./src/hygen/generators.d.ts": [
+        "./src/hygen/templates.d.ts",
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "./src/modules/pathTo.ts": [
+        "./src/hygen/index.d.ts"
+      ],
+      "./src/resolvers/yargs/index.ts": [
+        "./src/hygen/index.d.ts"
+      ],
+      "./src/resolvers/hooks/index.ts": [
+        "./src/hygen/index.d.ts"
+      ],
+      "./src/resolvers/config/index.ts": [
+        "./src/hygen/index.d.ts"
+      ],
+      "./src/resolvers/defaults/helpModule.ts": [
+        "./src/hygen/index.d.ts"
+      ],
+      "./node_modules/@types/inflection/index.d.ts": [
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "./node_modules/no-case/no-case.d.ts": [
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "./node_modules/dot-case/dot-case.d.ts": [
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "./node_modules/swap-case/swap-case.d.ts": [
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "./node_modules/path-case/path-case.d.ts": [
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "./node_modules/upper-case/upper-case.d.ts": [
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "./node_modules/lower-case/lower-case.d.ts": [
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "./node_modules/camel-case/camel-case.d.ts": [
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "./node_modules/snake-case/snake-case.d.ts": [
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "./node_modules/title-case/title-case.d.ts": [
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "./node_modules/param-case/param-case.d.ts": [
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "./node_modules/header-case/header-case.d.ts": [
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "./node_modules/pascal-case/pascal-case.d.ts": [
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "./node_modules/constant-case/constant-case.d.ts": [
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "./node_modules/sentence-case/sentence-case.d.ts": [
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "./node_modules/is-upper-case/is-upper-case.d.ts": [
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "./node_modules/is-lower-case/is-lower-case.d.ts": [
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "./node_modules/upper-case-first/upper-case-first.d.ts": [
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "./node_modules/lower-case-first/lower-case-first.d.ts": [
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "./node_modules/change-case/change-case.d.ts": [
+        "./node_modules/no-case/no-case.d.ts",
+        "./node_modules/dot-case/dot-case.d.ts",
+        "./node_modules/swap-case/swap-case.d.ts",
+        "./node_modules/path-case/path-case.d.ts",
+        "./node_modules/upper-case/upper-case.d.ts",
+        "./node_modules/lower-case/lower-case.d.ts",
+        "./node_modules/camel-case/camel-case.d.ts",
+        "./node_modules/snake-case/snake-case.d.ts",
+        "./node_modules/title-case/title-case.d.ts",
+        "./node_modules/param-case/param-case.d.ts",
+        "./node_modules/header-case/header-case.d.ts",
+        "./node_modules/pascal-case/pascal-case.d.ts",
+        "./node_modules/constant-case/constant-case.d.ts",
+        "./node_modules/sentence-case/sentence-case.d.ts",
+        "./node_modules/is-upper-case/is-upper-case.d.ts",
+        "./node_modules/is-lower-case/is-lower-case.d.ts",
+        "./node_modules/upper-case-first/upper-case-first.d.ts",
+        "./node_modules/lower-case-first/lower-case-first.d.ts",
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "./src/resolvers/defaults/helpers.ts": [
+        "./src/hygen/index.d.ts"
+      ],
+      "./src/resolvers/defaults/logger.ts": [
+        "./src/hygen/index.d.ts"
+      ],
+      "./src/resolvers/defaults/tools.ts": [
+        "./src/hygen/index.d.ts"
+      ],
+      "./src/resolvers/defaults/index.ts": [
+        "./src/hygen/index.d.ts"
+      ],
+      "./src/resolvers/modules/index.ts": [
+        "./src/hygen/index.d.ts"
+      ],
+      "./src/utils/nameMaker.ts": [
+        "./src/hygen/index.d.ts"
+      ],
+      "./node_modules/@types/node/globals.d.ts": [
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "./node_modules/@types/node/assert.d.ts": [
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "./node_modules/@types/node/async_hooks.d.ts": [
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "./node_modules/@types/node/buffer.d.ts": [
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "./node_modules/@types/node/child_process.d.ts": [
+        "./node_modules/@types/node/events.d.ts",
+        "./node_modules/@types/node/net.d.ts",
+        "./node_modules/@types/node/stream.d.ts",
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "./node_modules/@types/node/cluster.d.ts": [
+        "./node_modules/@types/node/child_process.d.ts",
+        "./node_modules/@types/node/events.d.ts",
+        "./node_modules/@types/node/net.d.ts",
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "./node_modules/@types/node/console.d.ts": [
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "./node_modules/@types/node/constants.d.ts": [
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "./node_modules/@types/node/crypto.d.ts": [
+        "./node_modules/@types/node/stream.d.ts",
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "./node_modules/@types/node/dgram.d.ts": [
+        "./node_modules/@types/node/net.d.ts",
+        "./node_modules/@types/node/dns.d.ts",
+        "./node_modules/@types/node/events.d.ts",
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "./node_modules/@types/node/dns.d.ts": [
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "./node_modules/@types/node/domain.d.ts": [
+        "./node_modules/@types/node/events.d.ts",
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "./node_modules/@types/node/events.d.ts": [
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "./node_modules/@types/node/fs.d.ts": [
+        "./node_modules/@types/node/stream.d.ts",
+        "./node_modules/@types/node/events.d.ts",
+        "./node_modules/@types/node/url.d.ts",
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "./node_modules/@types/node/http.d.ts": [
+        "./node_modules/@types/node/events.d.ts",
+        "./node_modules/@types/node/stream.d.ts",
+        "./node_modules/@types/node/url.d.ts",
+        "./node_modules/@types/node/net.d.ts",
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "./node_modules/@types/node/http2.d.ts": [
+        "./node_modules/@types/node/events.d.ts",
+        "./node_modules/@types/node/fs.d.ts",
+        "./node_modules/@types/node/net.d.ts",
+        "./node_modules/@types/node/stream.d.ts",
+        "./node_modules/@types/node/tls.d.ts",
+        "./node_modules/@types/node/url.d.ts",
+        "./node_modules/@types/node/http.d.ts",
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "./node_modules/@types/node/https.d.ts": [
+        "./node_modules/@types/node/tls.d.ts",
+        "./node_modules/@types/node/events.d.ts",
+        "./node_modules/@types/node/http.d.ts",
+        "./node_modules/@types/node/url.d.ts",
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "./node_modules/@types/node/inspector.d.ts": [
+        "./node_modules/@types/node/events.d.ts",
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "./node_modules/@types/node/module.d.ts": [
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "./node_modules/@types/node/net.d.ts": [
+        "./node_modules/@types/node/stream.d.ts",
+        "./node_modules/@types/node/events.d.ts",
+        "./node_modules/@types/node/dns.d.ts",
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "./node_modules/@types/node/os.d.ts": [
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "./node_modules/@types/node/path.d.ts": [
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "./node_modules/@types/node/perf_hooks.d.ts": [
+        "./node_modules/@types/node/async_hooks.d.ts",
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "./node_modules/@types/node/process.d.ts": [
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "./node_modules/@types/node/punycode.d.ts": [
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "./node_modules/@types/node/querystring.d.ts": [
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "./node_modules/@types/node/readline.d.ts": [
+        "./node_modules/@types/node/events.d.ts",
+        "./node_modules/@types/node/stream.d.ts",
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "./node_modules/@types/node/repl.d.ts": [
+        "./node_modules/@types/node/readline.d.ts",
+        "./node_modules/@types/node/vm.d.ts",
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "./node_modules/@types/node/stream.d.ts": [
+        "./node_modules/@types/node/events.d.ts",
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "./node_modules/@types/node/string_decoder.d.ts": [
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "./node_modules/@types/node/timers.d.ts": [
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "./node_modules/@types/node/tls.d.ts": [
+        "./node_modules/@types/node/crypto.d.ts",
+        "./node_modules/@types/node/dns.d.ts",
+        "./node_modules/@types/node/net.d.ts",
+        "./node_modules/@types/node/stream.d.ts",
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "./node_modules/@types/node/trace_events.d.ts": [
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "./node_modules/@types/node/tty.d.ts": [
+        "./node_modules/@types/node/net.d.ts",
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "./node_modules/@types/node/url.d.ts": [
+        "./node_modules/@types/node/querystring.d.ts",
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "./node_modules/@types/node/util.d.ts": [
+        "./node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "./node_modules/@types/node/v8.d.ts": [
+        "./node_modules/@types/node/stream.d.ts",
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "./node_modules/@types/node/vm.d.ts": [
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "./node_modules/@types/node/worker_threads.d.ts": [
+        "./node_modules/@types/node/vm.d.ts",
+        "./node_modules/@types/node/events.d.ts",
+        "./node_modules/@types/node/stream.d.ts",
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "./node_modules/@types/node/zlib.d.ts": [
+        "./node_modules/@types/node/stream.d.ts",
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "./node_modules/@types/node/base.d.ts": [
+        "./node_modules/@types/node/globals.d.ts",
+        "./node_modules/@types/node/assert.d.ts",
+        "./node_modules/@types/node/async_hooks.d.ts",
+        "./node_modules/@types/node/buffer.d.ts",
+        "./node_modules/@types/node/child_process.d.ts",
+        "./node_modules/@types/node/cluster.d.ts",
+        "./node_modules/@types/node/console.d.ts",
+        "./node_modules/@types/node/constants.d.ts",
+        "./node_modules/@types/node/crypto.d.ts",
+        "./node_modules/@types/node/dgram.d.ts",
+        "./node_modules/@types/node/dns.d.ts",
+        "./node_modules/@types/node/domain.d.ts",
+        "./node_modules/@types/node/events.d.ts",
+        "./node_modules/@types/node/fs.d.ts",
+        "./node_modules/@types/node/http.d.ts",
+        "./node_modules/@types/node/http2.d.ts",
+        "./node_modules/@types/node/https.d.ts",
+        "./node_modules/@types/node/inspector.d.ts",
+        "./node_modules/@types/node/module.d.ts",
+        "./node_modules/@types/node/net.d.ts",
+        "./node_modules/@types/node/os.d.ts",
+        "./node_modules/@types/node/path.d.ts",
+        "./node_modules/@types/node/perf_hooks.d.ts",
+        "./node_modules/@types/node/process.d.ts",
+        "./node_modules/@types/node/punycode.d.ts",
+        "./node_modules/@types/node/querystring.d.ts",
+        "./node_modules/@types/node/readline.d.ts",
+        "./node_modules/@types/node/repl.d.ts",
+        "./node_modules/@types/node/stream.d.ts",
+        "./node_modules/@types/node/string_decoder.d.ts",
+        "./node_modules/@types/node/timers.d.ts",
+        "./node_modules/@types/node/tls.d.ts",
+        "./node_modules/@types/node/trace_events.d.ts",
+        "./node_modules/@types/node/tty.d.ts",
+        "./node_modules/@types/node/url.d.ts",
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/@types/node/v8.d.ts",
+        "./node_modules/@types/node/vm.d.ts",
+        "./node_modules/@types/node/worker_threads.d.ts",
+        "./node_modules/@types/node/zlib.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "./node_modules/@types/node/ts3.2/util.d.ts": [
+        "./node_modules/@types/node/util.d.ts"
+      ],
+      "./node_modules/@types/node/ts3.2/globals.d.ts": [
+        "./node_modules/@types/node/globals.d.ts",
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "./node_modules/@types/node/ts3.2/index.d.ts": [
+        "./node_modules/@types/node/base.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts",
+        "./node_modules/@types/node/ts3.2/globals.d.ts",
+        "./node_modules/@types/node/util.d.ts"
+      ],
+      "./node_modules/front-matter/index.d.ts": [
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "./node_modules/@types/jest-diff/index.d.ts": [
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "./node_modules/jest-diff/build/types.d.ts": [
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "./node_modules/jest-diff/build/index.d.ts": [
+        "./node_modules/jest-diff/build/types.d.ts",
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "./node_modules/@types/jest/index.d.ts": [
+        "./node_modules/jest-diff/build/index.d.ts",
+        "./node_modules/@types/jest-diff/index.d.ts",
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts"
+      ]
+    },
+    "semanticDiagnosticsPerFile": [
+      "../../../.asdf/installs/nodejs/12.3.1/.npm/lib/node_modules/typescript/lib/lib.es5.d.ts",
+      "../../../.asdf/installs/nodejs/12.3.1/.npm/lib/node_modules/typescript/lib/lib.es2015.d.ts",
+      "../../../.asdf/installs/nodejs/12.3.1/.npm/lib/node_modules/typescript/lib/lib.es2016.d.ts",
+      "../../../.asdf/installs/nodejs/12.3.1/.npm/lib/node_modules/typescript/lib/lib.es2017.d.ts",
+      "../../../.asdf/installs/nodejs/12.3.1/.npm/lib/node_modules/typescript/lib/lib.es2018.d.ts",
+      "../../../.asdf/installs/nodejs/12.3.1/.npm/lib/node_modules/typescript/lib/lib.es2015.core.d.ts",
+      "../../../.asdf/installs/nodejs/12.3.1/.npm/lib/node_modules/typescript/lib/lib.es2015.collection.d.ts",
+      "../../../.asdf/installs/nodejs/12.3.1/.npm/lib/node_modules/typescript/lib/lib.es2015.generator.d.ts",
+      "../../../.asdf/installs/nodejs/12.3.1/.npm/lib/node_modules/typescript/lib/lib.es2015.iterable.d.ts",
+      "../../../.asdf/installs/nodejs/12.3.1/.npm/lib/node_modules/typescript/lib/lib.es2015.promise.d.ts",
+      "../../../.asdf/installs/nodejs/12.3.1/.npm/lib/node_modules/typescript/lib/lib.es2015.proxy.d.ts",
+      "../../../.asdf/installs/nodejs/12.3.1/.npm/lib/node_modules/typescript/lib/lib.es2015.reflect.d.ts",
+      "../../../.asdf/installs/nodejs/12.3.1/.npm/lib/node_modules/typescript/lib/lib.es2015.symbol.d.ts",
+      "../../../.asdf/installs/nodejs/12.3.1/.npm/lib/node_modules/typescript/lib/lib.es2015.symbol.wellknown.d.ts",
+      "../../../.asdf/installs/nodejs/12.3.1/.npm/lib/node_modules/typescript/lib/lib.es2016.array.include.d.ts",
+      "../../../.asdf/installs/nodejs/12.3.1/.npm/lib/node_modules/typescript/lib/lib.es2017.object.d.ts",
+      "../../../.asdf/installs/nodejs/12.3.1/.npm/lib/node_modules/typescript/lib/lib.es2017.sharedmemory.d.ts",
+      "../../../.asdf/installs/nodejs/12.3.1/.npm/lib/node_modules/typescript/lib/lib.es2017.string.d.ts",
+      "../../../.asdf/installs/nodejs/12.3.1/.npm/lib/node_modules/typescript/lib/lib.es2017.intl.d.ts",
+      "../../../.asdf/installs/nodejs/12.3.1/.npm/lib/node_modules/typescript/lib/lib.es2017.typedarrays.d.ts",
+      "../../../.asdf/installs/nodejs/12.3.1/.npm/lib/node_modules/typescript/lib/lib.es2018.asyncgenerator.d.ts",
+      "../../../.asdf/installs/nodejs/12.3.1/.npm/lib/node_modules/typescript/lib/lib.es2018.asynciterable.d.ts",
+      "../../../.asdf/installs/nodejs/12.3.1/.npm/lib/node_modules/typescript/lib/lib.es2018.intl.d.ts",
+      "../../../.asdf/installs/nodejs/12.3.1/.npm/lib/node_modules/typescript/lib/lib.es2018.promise.d.ts",
+      "../../../.asdf/installs/nodejs/12.3.1/.npm/lib/node_modules/typescript/lib/lib.es2018.regexp.d.ts",
+      "../../../.asdf/installs/nodejs/12.3.1/.npm/lib/node_modules/typescript/lib/lib.esnext.intl.d.ts",
+      "../../../.asdf/installs/nodejs/12.3.1/.npm/lib/node_modules/typescript/lib/lib.esnext.bigint.d.ts",
+      "./node_modules/enquirer/index.d.ts",
+      "./src/hygen/misc.d.ts",
+      "./src/hygen/context.d.ts",
+      "./node_modules/@types/yargs-parser/index.d.ts",
+      "./src/hygen/yargs.d.ts",
+      "./src/hygen/types.d.ts",
+      "./src/hygen/templates.d.ts",
+      "./src/hygen/generator.d.ts",
+      "./node_modules/@types/yargs/index.d.ts",
+      "./node_modules/chalk/types/index.d.ts",
+      [
+        "./src/utils/mergeConfig.ts",
+        [
+          {
+            "file": "./src/utils/mergeConfig.ts",
+            "start": 367,
+            "length": 5,
+            "messageText": "Parameter 'stale' implicitly has an 'any' type.",
+            "category": 1,
+            "code": 7006
+          },
+          {
+            "file": "./src/utils/mergeConfig.ts",
+            "start": 374,
+            "length": 5,
+            "messageText": "Parameter 'fresh' implicitly has an 'any' type.",
+            "category": 1,
+            "code": 7006
+          }
+        ]
+      ],
+      "./src/types.ts",
+      "./src/hygen/generators.d.ts",
+      "./src/modules/help.ts",
+      [
+        "./src/resolvers/file/index.ts",
+        [
+          {
+            "file": "./src/resolvers/file/index.ts",
+            "start": 43,
+            "length": 10,
+            "messageText": "Cannot find module '../hygen'.",
+            "category": 1,
+            "code": 2307
+          },
+          {
+            "file": "./src/resolvers/file/index.ts",
+            "start": 83,
+            "length": 10,
+            "messageText": "Cannot find module '../utils'.",
+            "category": 1,
+            "code": 2307
+          }
+        ]
+      ],
+      [
+        "./src/resolvers/config/__tests__/config.spec.ts",
+        [
+          {
+            "file": "./src/resolvers/config/__tests__/config.spec.ts",
+            "start": 27,
+            "length": 59,
+            "messageText": "Cannot find module '/home/scottp/code/workspace/hygen/src/v5/resolvers/config'.",
+            "category": 1,
+            "code": 2307
+          }
+        ]
+      ],
+      "./node_modules/@types/inflection/index.d.ts",
+      "./node_modules/no-case/no-case.d.ts",
+      "./node_modules/dot-case/dot-case.d.ts",
+      "./node_modules/swap-case/swap-case.d.ts",
+      "./node_modules/path-case/path-case.d.ts",
+      "./node_modules/upper-case/upper-case.d.ts",
+      "./node_modules/lower-case/lower-case.d.ts",
+      "./node_modules/camel-case/camel-case.d.ts",
+      "./node_modules/snake-case/snake-case.d.ts",
+      "./node_modules/title-case/title-case.d.ts",
+      "./node_modules/param-case/param-case.d.ts",
+      "./node_modules/header-case/header-case.d.ts",
+      "./node_modules/pascal-case/pascal-case.d.ts",
+      "./node_modules/constant-case/constant-case.d.ts",
+      "./node_modules/sentence-case/sentence-case.d.ts",
+      "./node_modules/is-upper-case/is-upper-case.d.ts",
+      "./node_modules/is-lower-case/is-lower-case.d.ts",
+      "./node_modules/upper-case-first/upper-case-first.d.ts",
+      "./node_modules/lower-case-first/lower-case-first.d.ts",
+      "./node_modules/change-case/change-case.d.ts",
+      [
+        "./src/resolvers/defaults/__tests__/toolsResolver.spec.ts",
+        [
+          {
+            "file": "./src/resolvers/defaults/__tests__/toolsResolver.spec.ts",
+            "start": 34,
+            "length": 18,
+            "messageText": "Cannot find module '../toolsResolver'.",
+            "category": 1,
+            "code": 2307
+          }
+        ]
+      ],
+      [
+        "./src/resolvers/directives/index.ts",
+        [
+          {
+            "file": "./src/resolvers/directives/index.ts",
+            "start": 43,
+            "length": 10,
+            "messageText": "Cannot find module '../hygen'.",
+            "category": 1,
+            "code": 2307
+          },
+          {
+            "file": "./src/resolvers/directives/index.ts",
+            "start": 83,
+            "length": 10,
+            "messageText": "Cannot find module '../utils'.",
+            "category": 1,
+            "code": 2307
+          }
+        ]
+      ],
+      [
+        "./src/resolvers/directives/__tests__/directives.spec.ts",
+        [
+          {
+            "file": "./src/resolvers/directives/__tests__/directives.spec.ts",
+            "start": 31,
+            "length": 63,
+            "messageText": "Cannot find module '/home/scottp/code/workspace/hygen/src/v5/resolvers/directives'.",
+            "category": 1,
+            "code": 2307
+          }
+        ]
+      ],
+      [
+        "./src/resolvers/file/__tests__/file.spec.ts",
+        [
+          {
+            "file": "./src/resolvers/file/__tests__/file.spec.ts",
+            "start": 25,
+            "length": 9,
+            "messageText": "Cannot find module '../file'.",
+            "category": 1,
+            "code": 2307
+          }
+        ]
+      ],
+      [
+        "./src/resolvers/generator/index.ts",
+        [
+          {
+            "file": "./src/resolvers/generator/index.ts",
+            "start": 43,
+            "length": 16,
+            "messageText": "Cannot find module '../hygen/index'.",
+            "category": 1,
+            "code": 2307
+          }
+        ]
+      ],
+      [
+        "./src/resolvers/generator/__tests__/generator.spec.ts",
+        [
+          {
+            "file": "./src/resolvers/generator/__tests__/generator.spec.ts",
+            "start": 30,
+            "length": 62,
+            "messageText": "Cannot find module '/home/scottp/code/workspace/hygen/src/v5/resolvers/generator'.",
+            "category": 1,
+            "code": 2307
+          }
+        ]
+      ],
+      [
+        "./src/resolvers/hooks/__tests__/hooks.spec.ts",
+        [
+          {
+            "file": "./src/resolvers/hooks/__tests__/hooks.spec.ts",
+            "start": 26,
+            "length": 10,
+            "messageText": "Cannot find module '../hooks'.",
+            "category": 1,
+            "code": 2307
+          }
+        ]
+      ],
+      [
+        "./src/resolvers/logger/__tests__/logger.spec.ts",
+        [
+          {
+            "file": "./src/resolvers/logger/__tests__/logger.spec.ts",
+            "start": 27,
+            "length": 11,
+            "messageText": "Cannot find module '../logger'.",
+            "category": 1,
+            "code": 2307
+          }
+        ]
+      ],
+      [
+        "./src/resolvers/modules/__tests__/modules.spec.ts",
+        [
+          {
+            "file": "./src/resolvers/modules/__tests__/modules.spec.ts",
+            "start": 28,
+            "length": 28,
+            "messageText": "Cannot find module './src/v5/resolvers/modules'.",
+            "category": 1,
+            "code": 2307
+          }
+        ]
+      ],
+      [
+        "./src/resolvers/params/index.ts",
+        [
+          {
+            "file": "./src/resolvers/params/index.ts",
+            "start": 43,
+            "length": 10,
+            "messageText": "Cannot find module '../hygen'.",
+            "category": 1,
+            "code": 2307
+          },
+          {
+            "file": "./src/resolvers/params/index.ts",
+            "start": 83,
+            "length": 10,
+            "messageText": "Cannot find module '../utils'.",
+            "category": 1,
+            "code": 2307
+          }
+        ]
+      ],
+      [
+        "./src/resolvers/params/__tests__/params.spec.ts",
+        [
+          {
+            "file": "./src/resolvers/params/__tests__/params.spec.ts",
+            "start": 27,
+            "length": 59,
+            "messageText": "Cannot find module '/home/scottp/code/workspace/hygen/src/v5/resolvers/params'.",
+            "category": 1,
+            "code": 2307
+          }
+        ]
+      ],
+      [
+        "./src/resolvers/render/index.ts",
+        [
+          {
+            "file": "./src/resolvers/render/index.ts",
+            "start": 9,
+            "length": 11,
+            "messageText": "Duplicate identifier 'HygenConfig'.",
+            "category": 1,
+            "code": 2300
+          },
+          {
+            "file": "./src/resolvers/render/index.ts",
+            "start": 787,
+            "length": 11,
+            "messageText": "Duplicate identifier 'HygenConfig'.",
+            "category": 1,
+            "code": 2300
+          },
+          {
+            "file": "./src/resolvers/render/index.ts",
+            "start": 22,
+            "length": 13,
+            "messageText": "Duplicate identifier 'HygenResolver'.",
+            "category": 1,
+            "code": 2300
+          },
+          {
+            "file": "./src/resolvers/render/index.ts",
+            "start": 800,
+            "length": 13,
+            "messageText": "Duplicate identifier 'HygenResolver'.",
+            "category": 1,
+            "code": 2300
+          },
+          {
+            "file": "./src/resolvers/render/index.ts",
+            "start": 63,
+            "length": 12,
+            "messageText": "Duplicate identifier 'chainPromise'.",
+            "category": 1,
+            "code": 2300
+          },
+          {
+            "file": "./src/resolvers/render/index.ts",
+            "start": 841,
+            "length": 12,
+            "messageText": "Duplicate identifier 'chainPromise'.",
+            "category": 1,
+            "code": 2300
+          },
+          {
+            "file": "./src/resolvers/render/index.ts",
+            "start": 623,
+            "length": 8,
+            "messageText": "Cannot redeclare block-scoped variable 'resolver'.",
+            "category": 1,
+            "code": 2451
+          },
+          {
+            "file": "./src/resolvers/render/index.ts",
+            "start": 997,
+            "length": 8,
+            "messageText": "Cannot redeclare block-scoped variable 'resolver'.",
+            "category": 1,
+            "code": 2451
+          },
+          {
+            "file": "./src/resolvers/render/index.ts",
+            "start": 762,
+            "length": 14,
+            "messageText": "A module cannot have multiple default exports.",
+            "category": 1,
+            "code": 2528,
+            "relatedInformation": [
+              {
+                "file": "./src/resolvers/render/index.ts",
+                "start": 1148,
+                "length": 17,
+                "messageText": "Another export default is here.",
+                "category": 1,
+                "code": 2753
+              }
+            ]
+          },
+          {
+            "file": "./src/resolvers/render/index.ts",
+            "start": 1148,
+            "length": 17,
+            "messageText": "A module cannot have multiple default exports.",
+            "category": 1,
+            "code": 2528,
+            "relatedInformation": [
+              {
+                "file": "./src/resolvers/render/index.ts",
+                "start": 762,
+                "length": 14,
+                "messageText": "The first export default is here.",
+                "category": 1,
+                "code": 2752
+              }
+            ]
+          },
+          {
+            "file": "./src/resolvers/render/index.ts",
+            "start": 43,
+            "length": 10,
+            "messageText": "Cannot find module '../hygen'.",
+            "category": 1,
+            "code": 2307
+          },
+          {
+            "file": "./src/resolvers/render/index.ts",
+            "start": 83,
+            "length": 10,
+            "messageText": "Cannot find module '../utils'.",
+            "category": 1,
+            "code": 2307
+          },
+          {
+            "file": "./src/resolvers/render/index.ts",
+            "start": 821,
+            "length": 10,
+            "messageText": "Cannot find module '../hygen'.",
+            "category": 1,
+            "code": 2307
+          },
+          {
+            "file": "./src/resolvers/render/index.ts",
+            "start": 861,
+            "length": 10,
+            "messageText": "Cannot find module '../utils'.",
+            "category": 1,
+            "code": 2307
+          }
+        ]
+      ],
+      [
+        "./src/resolvers/render/__tests__/render.spec.ts",
+        [
+          {
+            "file": "./src/resolvers/render/__tests__/render.spec.ts",
+            "start": 27,
+            "length": 59,
+            "messageText": "Cannot find module '/home/scottp/code/workspace/hygen/src/v5/resolvers/render'.",
+            "category": 1,
+            "code": 2307
+          }
+        ]
+      ],
+      [
+        "./src/resolvers/templates/index.ts",
+        [
+          {
+            "file": "./src/resolvers/templates/index.ts",
+            "start": 43,
+            "length": 10,
+            "messageText": "Cannot find module '../hygen'.",
+            "category": 1,
+            "code": 2307
+          },
+          {
+            "file": "./src/resolvers/templates/index.ts",
+            "start": 83,
+            "length": 10,
+            "messageText": "Cannot find module '../utils'.",
+            "category": 1,
+            "code": 2307
+          }
+        ]
+      ],
+      [
+        "./src/resolvers/templates/__tests__/templates.spec.ts",
+        [
+          {
+            "file": "./src/resolvers/templates/__tests__/templates.spec.ts",
+            "start": 30,
+            "length": 62,
+            "messageText": "Cannot find module '/home/scottp/code/workspace/hygen/src/v5/resolvers/templates'.",
+            "category": 1,
+            "code": 2307
+          }
+        ]
+      ],
+      [
+        "./src/resolvers/yargs/__tests__/yargs.spec.ts",
+        [
+          {
+            "file": "./src/resolvers/yargs/__tests__/yargs.spec.ts",
+            "start": 26,
+            "length": 58,
+            "messageText": "Cannot find module '/home/scottp/code/workspace/hygen/src/v5/resolvers/yargs'.",
+            "category": 1,
+            "code": 2307
+          }
+        ]
+      ],
+      [
+        "./src/utils/__tests__/mergeConfig.spec.ts",
+        [
+          {
+            "file": "./src/utils/__tests__/mergeConfig.spec.ts",
+            "start": 1497,
+            "length": 4,
+            "messageText": "Parameter 'orig' implicitly has an 'any' type.",
+            "category": 1,
+            "code": 7006
+          }
+        ]
+      ],
+      [
+        "./src/utils/__tests__/pathTo.spec.ts",
+        [
+          {
+            "file": "./src/utils/__tests__/pathTo.spec.ts",
+            "start": 373,
+            "length": 4,
+            "messageText": "Variable 'base' implicitly has type 'any' in some locations where its type cannot be determined.",
+            "category": 1,
+            "code": 7034
+          },
+          {
+            "file": "./src/utils/__tests__/pathTo.spec.ts",
+            "start": 379,
+            "length": 5,
+            "messageText": "Variable 'paths' implicitly has type 'any' in some locations where its type cannot be determined.",
+            "category": 1,
+            "code": 7034
+          },
+          {
+            "file": "./src/utils/__tests__/pathTo.spec.ts",
+            "start": 386,
+            "length": 3,
+            "messageText": "Variable 'obj' implicitly has type 'any' in some locations where its type cannot be determined.",
+            "category": 1,
+            "code": 7034
+          },
+          {
+            "file": "./src/utils/__tests__/pathTo.spec.ts",
+            "start": 615,
+            "length": 3,
+            "messageText": "Variable 'obj' implicitly has an 'any' type.",
+            "category": 1,
+            "code": 7005
+          },
+          {
+            "file": "./src/utils/__tests__/pathTo.spec.ts",
+            "start": 640,
+            "length": 4,
+            "messageText": "Variable 'base' implicitly has an 'any' type.",
+            "category": 1,
+            "code": 7005
+          },
+          {
+            "file": "./src/utils/__tests__/pathTo.spec.ts",
+            "start": 1001,
+            "length": 3,
+            "messageText": "Variable 'obj' implicitly has an 'any' type.",
+            "category": 1,
+            "code": 7005
+          },
+          {
+            "file": "./src/utils/__tests__/pathTo.spec.ts",
+            "start": 1012,
+            "length": 5,
+            "messageText": "Variable 'paths' implicitly has an 'any' type.",
+            "category": 1,
+            "code": 7005
+          },
+          {
+            "file": "./src/utils/__tests__/pathTo.spec.ts",
+            "start": 1112,
+            "length": 3,
+            "messageText": "Variable 'obj' implicitly has an 'any' type.",
+            "category": 1,
+            "code": 7005
+          },
+          {
+            "file": "./src/utils/__tests__/pathTo.spec.ts",
+            "start": 1211,
+            "length": 3,
+            "messageText": "Variable 'obj' implicitly has an 'any' type.",
+            "category": 1,
+            "code": 7005
+          },
+          {
+            "file": "./src/utils/__tests__/pathTo.spec.ts",
+            "start": 1222,
+            "length": 5,
+            "messageText": "Variable 'paths' implicitly has an 'any' type.",
+            "category": 1,
+            "code": 7005
+          },
+          {
+            "file": "./src/utils/__tests__/pathTo.spec.ts",
+            "start": 1274,
+            "length": 4,
+            "messageText": "Variable 'base' implicitly has an 'any' type.",
+            "category": 1,
+            "code": 7005
+          },
+          {
+            "file": "./src/utils/__tests__/pathTo.spec.ts",
+            "start": 1331,
+            "length": 5,
+            "messageText": "Variable 'paths' implicitly has an 'any' type.",
+            "category": 1,
+            "code": 7005
+          },
+          {
+            "file": "./src/utils/__tests__/pathTo.spec.ts",
+            "start": 1464,
+            "length": 3,
+            "messageText": "Variable 'obj' implicitly has an 'any' type.",
+            "category": 1,
+            "code": 7005
+          },
+          {
+            "file": "./src/utils/__tests__/pathTo.spec.ts",
+            "start": 1645,
+            "length": 3,
+            "messageText": "Variable 'obj' implicitly has an 'any' type.",
+            "category": 1,
+            "code": 7005
+          },
+          {
+            "file": "./src/utils/__tests__/pathTo.spec.ts",
+            "start": 1677,
+            "length": 3,
+            "messageText": "Variable 'obj' implicitly has an 'any' type.",
+            "category": 1,
+            "code": 7005
+          },
+          {
+            "file": "./src/utils/__tests__/pathTo.spec.ts",
+            "start": 1712,
+            "length": 3,
+            "messageText": "Variable 'obj' implicitly has an 'any' type.",
+            "category": 1,
+            "code": 7005
+          },
+          {
+            "file": "./src/utils/__tests__/pathTo.spec.ts",
+            "start": 1730,
+            "length": 3,
+            "messageText": "Variable 'obj' implicitly has an 'any' type.",
+            "category": 1,
+            "code": 7005
+          }
+        ]
+      ],
+      "./node_modules/@types/node/globals.d.ts",
+      "./node_modules/@types/node/assert.d.ts",
+      "./node_modules/@types/node/async_hooks.d.ts",
+      "./node_modules/@types/node/buffer.d.ts",
+      "./node_modules/@types/node/child_process.d.ts",
+      "./node_modules/@types/node/cluster.d.ts",
+      "./node_modules/@types/node/console.d.ts",
+      "./node_modules/@types/node/constants.d.ts",
+      "./node_modules/@types/node/crypto.d.ts",
+      "./node_modules/@types/node/dgram.d.ts",
+      "./node_modules/@types/node/dns.d.ts",
+      "./node_modules/@types/node/domain.d.ts",
+      "./node_modules/@types/node/events.d.ts",
+      "./node_modules/@types/node/fs.d.ts",
+      "./node_modules/@types/node/http.d.ts",
+      "./node_modules/@types/node/http2.d.ts",
+      "./node_modules/@types/node/https.d.ts",
+      "./node_modules/@types/node/inspector.d.ts",
+      "./node_modules/@types/node/module.d.ts",
+      "./node_modules/@types/node/net.d.ts",
+      "./node_modules/@types/node/os.d.ts",
+      "./node_modules/@types/node/path.d.ts",
+      "./node_modules/@types/node/perf_hooks.d.ts",
+      "./node_modules/@types/node/process.d.ts",
+      "./node_modules/@types/node/punycode.d.ts",
+      "./node_modules/@types/node/querystring.d.ts",
+      "./node_modules/@types/node/readline.d.ts",
+      "./node_modules/@types/node/repl.d.ts",
+      "./node_modules/@types/node/stream.d.ts",
+      "./node_modules/@types/node/string_decoder.d.ts",
+      "./node_modules/@types/node/timers.d.ts",
+      "./node_modules/@types/node/tls.d.ts",
+      "./node_modules/@types/node/trace_events.d.ts",
+      "./node_modules/@types/node/tty.d.ts",
+      "./node_modules/@types/node/url.d.ts",
+      "./node_modules/@types/node/util.d.ts",
+      "./node_modules/@types/node/v8.d.ts",
+      "./node_modules/@types/node/vm.d.ts",
+      "./node_modules/@types/node/worker_threads.d.ts",
+      "./node_modules/@types/node/zlib.d.ts",
+      "./node_modules/@types/node/base.d.ts",
+      "./node_modules/@types/node/ts3.2/util.d.ts",
+      "./node_modules/@types/node/ts3.2/globals.d.ts",
+      "./node_modules/@types/node/ts3.2/index.d.ts",
+      "./node_modules/front-matter/index.d.ts",
+      "./node_modules/@types/jest-diff/index.d.ts",
+      "./node_modules/jest-diff/build/types.d.ts",
+      "./node_modules/jest-diff/build/index.d.ts",
+      "./node_modules/@types/jest/index.d.ts",
+      "./src/hygen/config.d.ts",
+      "./src/hygen/index.d.ts",
+      "./src/hygen/logger.d.ts",
+      "./src/hygen/utils.d.ts",
+      "./src/hygen/hooks.d.ts",
+      "./src/hygen/resolvers.d.ts",
+      "./src/hygen/actions.d.ts",
+      "./src/utils/chainPromise.ts",
+      [
+        "./src/utils/logger.ts",
+        [
+          {
+            "file": "./src/utils/logger.ts",
+            "start": 1627,
+            "length": 18,
+            "code": 2345,
+            "category": 1,
+            "messageText": {
+              "messageText": "Argument of type '{ logLevel: { default: number; describe: string; type: string; }; trace: { alias: string; describe: string; type: string; }; debug: { alias: string; describe: string; type: string; }; verbose: { alias: string[]; type: string; describe: string; }; quiet: { ...; }; error: { ...; }; silent: { ...; }; }' is not assignable to parameter of type '{ [key: string]: Options; }'.",
+              "category": 1,
+              "code": 2345,
+              "next": [
+                {
+                  "messageText": "Property 'logLevel' is incompatible with index signature.",
+                  "category": 1,
+                  "code": 2530,
+                  "next": [
+                    {
+                      "messageText": "Type '{ default: number; describe: string; type: string; }' is not assignable to type 'Options'.",
+                      "category": 1,
+                      "code": 2322,
+                      "next": [
+                        {
+                          "messageText": "Types of property 'type' are incompatible.",
+                          "category": 1,
+                          "code": 2326,
+                          "next": [
+                            {
+                              "messageText": "Type 'string' is not assignable to type '\"string\" | \"number\" | \"boolean\" | \"array\" | \"count\" | undefined'.",
+                              "category": 1,
+                              "code": 2322
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          },
+          {
+            "file": "./src/utils/logger.ts",
+            "start": 1721,
+            "length": 3,
+            "code": 2559,
+            "category": 1,
+            "messageText": "Type 'EnvConfig' has no properties in common with type 'LogYargs'."
+          },
+          {
+            "file": "./src/utils/logger.ts",
+            "start": 2438,
+            "length": 13,
+            "code": 7053,
+            "category": 1,
+            "messageText": {
+              "messageText": "Element implicitly has an 'any' type because expression of type 'string' can't be used to index type 'Logger'.",
+              "category": 1,
+              "code": 7053,
+              "next": [
+                {
+                  "messageText": "No index signature with a parameter of type 'string' was found on type 'Logger'.",
+                  "category": 1,
+                  "code": 7054
+                }
+              ]
+            }
+          },
+          {
+            "file": "./src/utils/logger.ts",
+            "start": 2463,
+            "length": 6,
+            "messageText": "Rest parameter 'msg' implicitly has an 'any[]' type.",
+            "category": 1,
+            "code": 7019
+          }
+        ]
+      ],
+      [
+        "./src/utils/pathTo.ts",
+        [
+          {
+            "file": "./src/utils/pathTo.ts",
+            "start": 331,
+            "length": 6,
+            "messageText": "'pathTo' refers to a value, but is being used as a type here.",
+            "category": 1,
+            "code": 2749
+          }
+        ]
+      ],
+      [
+        "./src/utils/walkers.ts",
+        [
+          {
+            "file": "./src/utils/walkers.ts",
+            "start": 412,
+            "length": 5,
+            "code": 2339,
+            "category": 1,
+            "messageText": "Property 'win32' does not exist on type 'Pathlike'."
+          },
+          {
+            "file": "./src/utils/walkers.ts",
+            "start": 664,
+            "length": 30,
+            "code": 2345,
+            "category": 1,
+            "messageText": "Argument of type 'string' is not assignable to parameter of type 'never'."
+          }
+        ]
+      ],
+      "./src/utils/index.ts",
+      [
+        "./src/defaultConfig.ts",
+        [
+          {
+            "file": "./src/defaultConfig.ts",
+            "start": 1570,
+            "length": 6,
+            "code": 2339,
+            "category": 1,
+            "messageText": "Property 'logger' does not exist on type 'BinConfig'."
+          },
+          {
+            "file": "./src/defaultConfig.ts",
+            "start": 1580,
+            "length": 10,
+            "messageText": "Expected 1 arguments, but got 0.",
+            "category": 1,
+            "code": 2554,
+            "relatedInformation": [
+              {
+                "file": "./src/utils/logger.ts",
+                "start": 1538,
+                "length": 14,
+                "messageText": "An argument for 'env' was not provided.",
+                "category": 3,
+                "code": 6210
+              }
+            ]
+          }
+        ]
+      ],
+      "./src/utils/exec.ts",
+      [
+        "./src/index.ts",
+        [
+          {
+            "file": "./src/index.ts",
+            "start": 625,
+            "length": 20,
+            "messageText": "A function whose declared type is neither 'void' nor 'any' must return a value.",
+            "category": 1,
+            "code": 2355
+          }
+        ]
+      ],
+      "./src/bin.ts",
+      [
+        "./src/yLog.ts",
+        [
+          {
+            "file": "./src/yLog.ts",
+            "start": 77,
+            "length": 2,
+            "code": 2345,
+            "category": 1,
+            "messageText": {
+              "messageText": "Argument of type '{}' is not assignable to parameter of type 'EnvConfig'.",
+              "category": 1,
+              "code": 2345,
+              "next": [
+                {
+                  "messageText": "Type '{}' is missing the following properties from type 'EnvConfig': cwd, argv, templateDirs, configFiles, vars",
+                  "category": 1,
+                  "code": 2739
+                }
+              ]
+            }
+          }
+        ]
+      ],
+      [
+        "./src/modules/logging.ts",
+        [
+          {
+            "file": "./src/modules/logging.ts",
+            "start": 198,
+            "length": 13,
+            "messageText": "Object is possibly 'undefined'.",
+            "category": 1,
+            "code": 2532
+          },
+          {
+            "file": "./src/modules/logging.ts",
+            "start": 225,
+            "length": 13,
+            "code": 2345,
+            "category": 1,
+            "messageText": {
+              "messageText": "Argument of type 'object | undefined' is not assignable to parameter of type 'LogYargs'.",
+              "category": 1,
+              "code": 2345,
+              "next": [
+                {
+                  "messageText": "Type 'undefined' is not assignable to type 'LogYargs'.",
+                  "category": 1,
+                  "code": 2322
+                }
+              ]
+            }
+          },
+          {
+            "file": "./src/modules/logging.ts",
+            "start": 385,
+            "length": 5,
+            "code": 2339,
+            "category": 1,
+            "messageText": "Property 'group' does not exist on type 'CommandModule<{}, {}>'."
+          }
+        ]
+      ],
+      [
+        "./src/modules/pathTo.ts",
+        [
+          {
+            "file": "./src/modules/pathTo.ts",
+            "start": 9,
+            "length": 6,
+            "messageText": "Module '\"../utils/pathTo\"' has no exported member 'PathTo'.",
+            "category": 1,
+            "code": 2305
+          },
+          {
+            "file": "./src/modules/pathTo.ts",
+            "start": 171,
+            "length": 12,
+            "messageText": "Object is possibly 'undefined'.",
+            "category": 1,
+            "code": 2532
+          },
+          {
+            "file": "./src/modules/pathTo.ts",
+            "start": 195,
+            "length": 14,
+            "messageText": "Object is possibly 'undefined'.",
+            "category": 1,
+            "code": 2532
+          },
+          {
+            "file": "./src/modules/pathTo.ts",
+            "start": 226,
+            "length": 10,
+            "messageText": "Object is possibly 'undefined'.",
+            "category": 1,
+            "code": 2532
+          },
+          {
+            "file": "./src/modules/pathTo.ts",
+            "start": 244,
+            "length": 14,
+            "messageText": "Object is possibly 'undefined'.",
+            "category": 1,
+            "code": 2532
+          },
+          {
+            "file": "./src/modules/pathTo.ts",
+            "start": 275,
+            "length": 10,
+            "messageText": "Object is possibly 'undefined'.",
+            "category": 1,
+            "code": 2532
+          },
+          {
+            "file": "./src/modules/pathTo.ts",
+            "start": 286,
+            "length": 4,
+            "code": 2339,
+            "category": 1,
+            "messageText": "Property 'path' does not exist on type 'EnvConfig'."
+          },
+          {
+            "file": "./src/modules/pathTo.ts",
+            "start": 294,
+            "length": 14,
+            "messageText": "Object is possibly 'undefined'.",
+            "category": 1,
+            "code": 2532
+          },
+          {
+            "file": "./src/modules/pathTo.ts",
+            "start": 323,
+            "length": 14,
+            "messageText": "Object is possibly 'undefined'.",
+            "category": 1,
+            "code": 2532
+          },
+          {
+            "file": "./src/modules/pathTo.ts",
+            "start": 347,
+            "length": 14,
+            "messageText": "Object is possibly 'undefined'.",
+            "category": 1,
+            "code": 2532
+          },
+          {
+            "file": "./src/modules/pathTo.ts",
+            "start": 372,
+            "length": 14,
+            "messageText": "Object is possibly 'undefined'.",
+            "category": 1,
+            "code": 2532
+          },
+          {
+            "file": "./src/modules/pathTo.ts",
+            "start": 407,
+            "length": 14,
+            "messageText": "Object is possibly 'undefined'.",
+            "category": 1,
+            "code": 2532
+          },
+          {
+            "file": "./src/modules/pathTo.ts",
+            "start": 433,
+            "length": 14,
+            "messageText": "Object is possibly 'undefined'.",
+            "category": 1,
+            "code": 2532
+          },
+          {
+            "file": "./src/modules/pathTo.ts",
+            "start": 475,
+            "length": 14,
+            "messageText": "Object is possibly 'undefined'.",
+            "category": 1,
+            "code": 2532
+          },
+          {
+            "file": "./src/modules/pathTo.ts",
+            "start": 506,
+            "length": 14,
+            "messageText": "Object is possibly 'undefined'.",
+            "category": 1,
+            "code": 2532
+          },
+          {
+            "file": "./src/modules/pathTo.ts",
+            "start": 542,
+            "length": 10,
+            "messageText": "Object is possibly 'undefined'.",
+            "category": 1,
+            "code": 2532
+          },
+          {
+            "file": "./src/modules/pathTo.ts",
+            "start": 553,
+            "length": 12,
+            "code": 2551,
+            "category": 1,
+            "messageText": "Property 'templatedDir' does not exist on type 'EnvConfig'. Did you mean 'templateDirs'?",
+            "relatedInformation": [
+              {
+                "file": "./src/hygen/config.d.ts",
+                "start": 760,
+                "length": 12,
+                "messageText": "'templateDirs' is declared here.",
+                "category": 3,
+                "code": 2728
+              }
+            ]
+          }
+        ]
+      ],
+      [
+        "./src/resolvers/yargs/index.ts",
+        [
+          {
+            "file": "./src/resolvers/yargs/index.ts",
+            "start": 66,
+            "length": 12,
+            "messageText": "Module '\"../../utils\"' has no exported member 'chainPromise'.",
+            "category": 1,
+            "code": 2305
+          },
+          {
+            "file": "./src/resolvers/yargs/index.ts",
+            "start": 163,
+            "length": 9,
+            "messageText": "Parameter 'baseYargs' implicitly has an 'any' type.",
+            "category": 1,
+            "code": 7006
+          },
+          {
+            "file": "./src/resolvers/yargs/index.ts",
+            "start": 174,
+            "length": 8,
+            "messageText": "Parameter 'commands' implicitly has an 'any' type.",
+            "category": 1,
+            "code": 7006
+          },
+          {
+            "file": "./src/resolvers/yargs/index.ts",
+            "start": 206,
+            "length": 5,
+            "messageText": "Parameter 'yargs' implicitly has an 'any' type.",
+            "category": 1,
+            "code": 7006
+          },
+          {
+            "file": "./src/resolvers/yargs/index.ts",
+            "start": 213,
+            "length": 7,
+            "messageText": "Parameter 'command' implicitly has an 'any' type.",
+            "category": 1,
+            "code": 7006
+          },
+          {
+            "file": "./src/resolvers/yargs/index.ts",
+            "start": 400,
+            "length": 10,
+            "messageText": "Object is possibly 'undefined'.",
+            "category": 1,
+            "code": 2532
+          },
+          {
+            "file": "./src/resolvers/yargs/index.ts",
+            "start": 549,
+            "length": 12,
+            "messageText": "Object is possibly 'undefined'.",
+            "category": 1,
+            "code": 2532
+          },
+          {
+            "file": "./src/resolvers/yargs/index.ts",
+            "start": 707,
+            "length": 13,
+            "messageText": "Object is possibly 'undefined'.",
+            "category": 1,
+            "code": 2532
+          },
+          {
+            "file": "./src/resolvers/yargs/index.ts",
+            "start": 721,
+            "length": 5,
+            "code": 2339,
+            "category": 1,
+            "messageText": "Property 'yargs' does not exist on type 'object'."
+          },
+          {
+            "file": "./src/resolvers/yargs/index.ts",
+            "start": 729,
+            "length": 12,
+            "messageText": "Object is possibly 'undefined'.",
+            "category": 1,
+            "code": 2532
+          },
+          {
+            "file": "./src/resolvers/yargs/index.ts",
+            "start": 749,
+            "length": 4,
+            "code": 2339,
+            "category": 1,
+            "messageText": "Property 'argv' does not exist on type 'Parser'."
+          }
+        ]
+      ],
+      "./src/resolvers/hooks/index.ts",
+      [
+        "./src/resolvers/config/index.ts",
+        [
+          {
+            "file": "./src/resolvers/config/index.ts",
+            "start": 806,
+            "length": 23,
+            "code": 2322,
+            "category": 1,
+            "messageText": {
+              "messageText": "Type '{ resolve: (config: HygenConfig) => Promise<HygenConfig>; name: string; hooks: string[]; }' is not assignable to type 'HygenResolver'.",
+              "category": 1,
+              "code": 2322,
+              "next": [
+                {
+                  "messageText": "Object literal may only specify known properties, and 'resolve' does not exist in type 'HygenResolver'.",
+                  "category": 1,
+                  "code": 2353
+                }
+              ]
+            }
+          }
+        ]
+      ],
+      [
+        "./src/resolvers/defaults/helpModule.ts",
+        [
+          {
+            "file": "./src/resolvers/defaults/helpModule.ts",
+            "start": 66,
+            "length": 12,
+            "messageText": "Module '\"../../utils\"' has no exported member 'chainPromise'.",
+            "category": 1,
+            "code": 2305
+          },
+          {
+            "file": "./src/resolvers/defaults/helpModule.ts",
+            "start": 324,
+            "length": 28,
+            "code": 2322,
+            "category": 1,
+            "messageText": {
+              "messageText": "Type '{ resolver: (config: HygenConfig) => Promise<HygenConfig>; name: string; hooks: string[]; }' is not assignable to type 'HygenResolver'.",
+              "category": 1,
+              "code": 2322,
+              "next": [
+                {
+                  "messageText": "Object literal may only specify known properties, and 'resolver' does not exist in type 'HygenResolver'.",
+                  "category": 1,
+                  "code": 2353
+                }
+              ]
+            }
+          }
+        ]
+      ],
+      [
+        "./src/resolvers/defaults/helpers.ts",
+        [
+          {
+            "file": "./src/resolvers/defaults/helpers.ts",
+            "start": 244,
+            "length": 1,
+            "messageText": "Parameter 'w' implicitly has an 'any' type.",
+            "category": 1,
+            "code": 7006
+          }
+        ]
+      ],
+      [
+        "./src/resolvers/defaults/logger.ts",
+        [
+          {
+            "file": "./src/resolvers/defaults/logger.ts",
+            "start": 45,
+            "length": 12,
+            "messageText": "Module '\"../../utils\"' has no exported member 'chainPromise'.",
+            "category": 1,
+            "code": 2305
+          },
+          {
+            "file": "./src/resolvers/defaults/logger.ts",
+            "start": 197,
+            "length": 12,
+            "messageText": "Cannot find name 'HyQgenConfig'.",
+            "category": 1,
+            "code": 2304
+          },
+          {
+            "file": "./src/resolvers/defaults/logger.ts",
+            "start": 291,
+            "length": 14,
+            "messageText": "Cannot find name 'mergeLogModule'.",
+            "category": 1,
+            "code": 2304
+          },
+          {
+            "file": "./src/resolvers/defaults/logger.ts",
+            "start": 342,
+            "length": 11,
+            "messageText": "Cannot find name 'setupLogger'.",
+            "category": 1,
+            "code": 2304
+          }
+        ]
+      ],
+      [
+        "./src/resolvers/defaults/tools.ts",
+        [
+          {
+            "file": "./src/resolvers/defaults/tools.ts",
+            "start": 66,
+            "length": 12,
+            "messageText": "Module '\"../../utils\"' has no exported member 'chainPromise'.",
+            "category": 1,
+            "code": 2305
+          },
+          {
+            "file": "./src/resolvers/defaults/tools.ts",
+            "start": 325,
+            "length": 23,
+            "code": 2322,
+            "category": 1,
+            "messageText": {
+              "messageText": "Type '{ resolver: (config: HygenConfig) => Promise<HygenConfig>; name: string; hooks: string[]; }' is not assignable to type 'HygenResolver'.",
+              "category": 1,
+              "code": 2322,
+              "next": [
+                {
+                  "messageText": "Object literal may only specify known properties, and 'resolver' does not exist in type 'HygenResolver'.",
+                  "category": 1,
+                  "code": 2353
+                }
+              ]
+            }
+          }
+        ]
+      ],
+      "./src/resolvers/defaults/index.ts",
+      "./src/resolvers/defaults/__tests__/helpModule.spec.ts",
+      "./src/resolvers/defaults/__tests__/helpersResolver.spec.ts",
+      "./src/resolvers/defaults/__tests__/logger.spec.ts",
+      [
+        "./src/resolvers/modules/index.ts",
+        [
+          {
+            "file": "./src/resolvers/modules/index.ts",
+            "start": 508,
+            "length": 14,
+            "messageText": "Object is possibly 'undefined'.",
+            "category": 1,
+            "code": 2532
+          },
+          {
+            "file": "./src/resolvers/modules/index.ts",
+            "start": 705,
+            "length": 30,
+            "code": 2322,
+            "category": 1,
+            "messageText": {
+              "messageText": "Type 'Promise<HygenResolver>' is not assignable to type 'Promise<HygenConfig>'.",
+              "category": 1,
+              "code": 2322,
+              "next": [
+                {
+                  "messageText": "Type 'HygenResolver' has no properties in common with type 'HygenConfig'.",
+                  "category": 1,
+                  "code": 2559
+                }
+              ]
+            }
+          },
+          {
+            "file": "./src/resolvers/modules/index.ts",
+            "start": 767,
+            "length": 27,
+            "code": 2322,
+            "category": 1,
+            "messageText": {
+              "messageText": "Type 'Promise<HygenConfig[]>' is not assignable to type 'Promise<HygenConfig>'.",
+              "category": 1,
+              "code": 2322,
+              "next": [
+                {
+                  "messageText": "Type 'HygenConfig[]' has no properties in common with type 'HygenConfig'.",
+                  "category": 1,
+                  "code": 2559
+                }
+              ]
+            }
+          },
+          {
+            "file": "./src/resolvers/modules/index.ts",
+            "start": 866,
+            "length": 82,
+            "code": 2345,
+            "category": 1,
+            "messageText": {
+              "messageText": "Argument of type '(modules: HygenResolver[]) => HygenResolver' is not assignable to parameter of type '(value: HygenConfig) => HygenResolver | PromiseLike<HygenResolver>'.",
+              "category": 1,
+              "code": 2345,
+              "next": [
+                {
+                  "messageText": "Types of parameters 'modules' and 'value' are incompatible.",
+                  "category": 1,
+                  "code": 2328,
+                  "next": [
+                    {
+                      "messageText": "Type 'HygenConfig' is missing the following properties from type 'HygenResolver[]': length, pop, push, concat, and 26 more.",
+                      "category": 1,
+                      "code": 2740
+                    }
+                  ]
+                }
+              ]
+            }
+          },
+          {
+            "file": "./src/resolvers/modules/index.ts",
+            "start": 924,
+            "length": 13,
+            "messageText": "Cannot find name 'mergeResolver'.",
+            "category": 1,
+            "code": 2304
+          },
+          {
+            "file": "./src/resolvers/modules/index.ts",
+            "start": 1118,
+            "length": 5,
+            "code": 2322,
+            "category": 1,
+            "messageText": {
+              "messageText": "Type 'string[]' is not assignable to type 'HooksConfig'.",
+              "category": 1,
+              "code": 2322,
+              "next": [
+                {
+                  "messageText": "Index signature is missing in type 'string[]'.",
+                  "category": 1,
+                  "code": 2329
+                }
+              ]
+            },
+            "relatedInformation": [
+              {
+                "file": "./src/hygen/config.d.ts",
+                "start": 1193,
+                "length": 5,
+                "messageText": "The expected type comes from property 'hooks' which is declared here on type 'HygenConfig'",
+                "category": 3,
+                "code": 6500
+              }
+            ]
+          }
+        ]
+      ],
+      "./src/utils/nameMaker.ts",
+      [
+        "./src/utils/__tests__/chainPromise.spec.ts",
+        [
+          {
+            "file": "./src/utils/__tests__/chainPromise.spec.ts",
+            "start": 167,
+            "length": 12,
+            "code": 2339,
+            "category": 1,
+            "messageText": "Property 'toBeFunction' does not exist on type 'Matchers<any>'."
+          }
+        ]
+      ],
+      [
+        "./src/utils/__tests__/logger.spec.ts",
+        [
+          {
+            "file": "./src/utils/__tests__/logger.spec.ts",
+            "start": 7,
+            "length": 6,
+            "messageText": "Module '\"/home/scottp/code/workspace/hygen/src/utils/logger\"' has no default export.",
+            "category": 1,
+            "code": 1192
+          },
+          {
+            "file": "./src/utils/__tests__/logger.spec.ts",
+            "start": 1917,
+            "length": 17,
+            "code": 2322,
+            "category": 1,
+            "messageText": "Type 'true' is not assignable to type 'string | undefined'."
+          },
+          {
+            "file": "./src/utils/__tests__/logger.spec.ts",
+            "start": 2664,
+            "length": 3,
+            "messageText": "Parameter 'msg' implicitly has an 'any' type.",
+            "category": 1,
+            "code": 7006
+          }
+        ]
+      ],
+      "./src/utils/__tests__/nameMaker.spec.ts",
+      [
+        "./src/utils/__tests__/walkers.spec.ts",
+        [
+          {
+            "file": "./src/utils/__tests__/walkers.spec.ts",
+            "start": 9,
+            "length": 9,
+            "messageText": "Module '\"../walkers\"' has no exported member 'walkDirUp'.",
+            "category": 1,
+            "code": 2305
+          }
+        ]
+      ]
+    ]
+  },
+  "version": "3.6.4"
+}
