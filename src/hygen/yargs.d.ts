@@ -1,7 +1,7 @@
 import {Parser} from 'yargs-parser'
 
 export declare type YargsBuilder = (p: Parser) => Parser
-exoport declare enum YargsType {
+export declare enum YargsType {
   'boolean','number','string',''
 }
 export declare interface YargsConfig {
@@ -20,7 +20,7 @@ export declare interface YargsOption {
   alias?: string
   default?: YargsValue
   describe: string
-  type:
+  type: YargsType
 }
 export declare interface YargsOptions {
   [s: string]: YargsOption
