@@ -1,6 +1,5 @@
+import resolve from './ops'
 import { RunnerConfig, RenderedAction, ActionResult } from './types'
-
-const resolve = require('./ops')
 
 const execute = async (
   renderedActions: RenderedAction[],

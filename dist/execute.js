@@ -8,8 +8,11 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 Object.defineProperty(exports, "__esModule", { value: true });
-const resolve = require('./ops');
+const ops_1 = __importDefault(require("./ops"));
 const execute = (renderedActions, args, config) => __awaiter(void 0, void 0, void 0, function* () {
     const { logger } = config;
     const messages = [];
@@ -19,7 +22,7 @@ const execute = (renderedActions, args, config) => __awaiter(void 0, void 0, voi
         if (message) {
             messages.push(message);
         }
-        const ops = resolve(action.attributes);
+        const ops = ops_1.default(action.attributes);
         for (const op of ops) {
             results.push(yield op(action, args, config));
         }

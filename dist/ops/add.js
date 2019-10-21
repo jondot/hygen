@@ -46,5 +46,5 @@ const add = (action, args, { logger, cwd, createPrompter }) => __awaiter(void 0,
     logger.ok(`       added: ${to}`);
     return result('added');
 });
-module.exports = add;
+exports.default = add;
 //# sourceMappingURL=add.js.map

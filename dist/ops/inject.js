@@ -12,27 +12,27 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+const fs_extra_1 = __importDefault(require("fs-extra"));
+const path_1 = __importDefault(require("path"));
 const result_1 = __importDefault(require("./result"));
-const fs = require('fs-extra');
-const path = require('path');
-const injector = require('./injector');
+const injector_1 = __importDefault(require("./injector"));
 const injectOp = (action, args, { logger, cwd }) => __awaiter(void 0, void 0, void 0, function* () {
     const { attributes: { to, inject }, } = action;
     const result = result_1.default('inject', to);
     if (!(inject && to)) {
         return result('ignored');
     }
-    const absTo = path.resolve(cwd, to);
-    if (!(yield fs.exists(absTo))) {
+    const absTo = path_1.default.resolve(cwd, to);
+    if (!(yield fs_extra_1.default.exists(absTo))) {
         logger.err(`Cannot inject to ${to}: doesn't exist.`);
         return result('error', {
             error: `Cannot inject to ${to}: doesn't exist.`,
         });
     }
-    const content = (yield fs.readFile(absTo)).toString();
-    const injectResult = injector(action, content);
+    const content = (yield fs_extra_1.default.readFile(absTo)).toString();
+    const injectResult = injector_1.default(action, content);
     if (!args.dry) {
-        yield fs.writeFile(absTo, injectResult);
+        yield fs_extra_1.default.writeFile(absTo, injectResult);
     }
     logger.notice(`      inject: ${to}`);
     return result('inject');

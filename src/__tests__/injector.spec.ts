@@ -1,4 +1,4 @@
-const injector = require('../ops/injector')
+import injector from '../ops/injector'
 
 const gemfile = `
     source 'http://rubygems.org'

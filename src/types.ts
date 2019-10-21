@@ -10,18 +10,18 @@ export interface Prompter {
   prompt: (arg0: any) => Promise<any>
 }
 export interface RenderedAction {
-  file: string
+  file?: string
   attributes: any
   body: string
 }
 export interface RunnerConfig {
-  exec: (sh: string, body: string) => void
-  templates: string
-  cwd: string
-  logger: Logger
-  debug: boolean
+  exec?: (sh: string, body: string) => void
+  templates?: string
+  cwd?: string
+  logger?: Logger
+  debug?: boolean
   helpers?: any
-  createPrompter: () => Prompter
+  createPrompter?: () => Prompter
 }
 
 export interface ResolverIO {

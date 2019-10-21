@@ -47,4 +47,4 @@ const add = async (
   return result('added')
 }
 
-module.exports = add
+export default add

@@ -1,17 +1,17 @@
 const resolve = attributes => {
   const ops = []
   if (attributes.to && !attributes.inject) {
-    const add = require('./add')
+    const add = require('./add').default
     ops.push(add)
   }
   if (attributes.to && attributes.inject) {
-    const inject = require('./inject')
+    const inject = require('./inject').default
     ops.push(inject)
   }
   if (attributes.sh) {
-    const shell = require('./shell')
+    const shell = require('./shell').default
     ops.push(shell)
   }
   return ops
 }
-module.exports = resolve
+export default resolve

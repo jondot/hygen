@@ -19,4 +19,4 @@ const shell = async (
   return result('ignored')
 }
 
-module.exports = shell
+export default shell

@@ -25,5 +25,5 @@ const shell = ({ attributes: { sh }, body }, args, { logger, exec }) => __awaite
     }
     return result('ignored');
 });
-module.exports = shell;
+exports.default = shell;
 //# sourceMappingURL=shell.js.map

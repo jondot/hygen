@@ -1,9 +1,8 @@
+import fs from 'fs-extra'
+import path from 'path'
 import { ActionResult, RenderedAction, RunnerConfig } from '../types'
 import createResult from './result'
-
-const fs = require('fs-extra')
-const path = require('path')
-const injector = require('./injector')
+import injector from './injector'
 
 const injectOp = async (
   action: RenderedAction,
