@@ -1,27 +1,27 @@
 {
   "name": "hygen",
-  "version": "4.0.11",
-  "main": "lib/index.js",
+  "version": "5.0.0",
+  "main": "dist/index.js",
   "repository": "https://github.com/jondot/hygen",
   "bin": {
-    "hygen": "./lib/bin.js"
+    "hygen": "./dist/bin.js"
   },
   "scripts": {
     "standalone": "rm -rf standalone; yarn build:lib && yarn pkg package.json --out-path standalone && node scripts/standalone.js",
     "standalone:brew-sha": "shasum -a 256 standalone/*.macos.*.tar.gz",
     "build:changelog": "conventional-changelog -i CHANGELOG.md -p angular > CHANGELOG.md",
-    "build:lib": "babel src --out-dir lib --ignore src/__tests__",
+    "build:lib": "tsc",
     "build": "yarn build:lib && yarn build:changelog",
     "release": "yarn build && git commit -am 'build'; yarn version && git push --tags && git push origin master",
     "test": "yarn test:code && yarn test:require",
     "test:win32": "node node_modules/jest/bin/jest.js --runInBand metaverse",
     "test:code": "node node_modules/.bin/jest",
     "test:metaverse": "node node_modules/.bin/jest metaverse",
-    "test:require": "babel-node src/bin.timed.js; babel-node src/bin.timed.js; babel-node src/bin.timed.js init self; rm -rf _templates",
+    "test:require": "node dist/bin.timed.js; node dist/bin.timed.js; node dist/bin.timed.js init self; rm -rf _templates",
     "watch": "node node_modules/.bin/jest --watch",
-    "flow:sync": "flow-typed install",
-    "hygen": "babel-node src/bin.js",
-    "hygen:timed": "babel-node src/bin.timed.js",
+    "hygen": "ts-node src/bin.ts",
+    "hygen:build": "node dist/bin.js",
+    "hygen:timed": "node dist/bin.timed.js",
     "docs:prepare": "cd hygen.io && yarn",
     "docs:watch": "cd hygen.io && yarn gatsby develop",
     "docs:build": "cd hygen.io && yarn build",
@@ -37,37 +37,43 @@
     "fs-extra": "^7.0.1",
     "ignore-walk": "^3.0.2",
     "inflection": "^1.12.0",
+    "ts-jest": "^24.1.0",
     "yargs-parser": "^13.0.0"
   },
   "devDependencies": {
-    "@babel/node": "^7.0.0",
-    "babel-core": "7.0.0-bridge.0",
+    "@types/jest": "^24.0.19",
     "conventional-changelog-cli": "^2.0.11",
     "dir-compare": "^1.4.0",
-    "flow-bin": "0.68.0",
-    "flow-typed": "^2.2.3",
     "gh-pages": "^1.1.0",
-    "goddamn-javascript-babel": "1.0.1",
-    "goddamn-javascript-eslint": "^1.0.1",
     "jest": "^24.3.1",
-    "pkg": "^4.3.5",
-    "time-require": "^0.1.2"
+    "pkg": "^4.4.0",
+    "time-require": "^0.1.2",
+    "ts-node": "^8.4.1",
+    "typescript": "^3.6.4",
+    "zeroconf-typescript-eslint": "^2.0.0"
   },
   "jest": {
-    "testURL": "http://localhost/",
-    "testRegex": "src/__tests__/.*\\.spec\\.js$",
     "transform": {
-      "^.+\\.jsx?$": "babel-jest"
-    }
+      "^.+\\.tsx?$": "ts-jest"
+    },
+    "testRegex": "src/__tests__/.*\\.spec\\.ts$",
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js",
+      "jsx",
+      "json",
+      "node"
+    ]
   },
   "pkg": {
-    "scripts": "lib/**/*.js",
+    "scripts": "dist/**/*.js",
     "assets": "src/**/*",
     "outPath": "standalone",
     "targets": [
-      "node10-macos",
-      "node10-linux",
-      "node10-win"
+      "node12-macos",
+      "node12-linux",
+      "node12-win"
     ]
   },
   "license": "MIT",

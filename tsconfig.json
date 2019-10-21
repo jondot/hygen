@@ -1,5 +1,24 @@
 {
-    "compilerOptions": {
-        "allowJs": true
-    }
+  "compilerOptions": {
+    "module": "commonjs",
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "target": "es6",
+    "moduleResolution": "node",
+    "sourceMap": true,
+    "outDir": "dist",
+    "baseUrl": ".",
+    "esModuleInterop": true,
+    "declaration": true,
+    "strict": false,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true
+  },
+  "include": [
+    "src/**/*"
+  ],
+  "exclude": [
+    "src/__tests__/",
+    "src/**/*.spec.ts"
+  ]
 }

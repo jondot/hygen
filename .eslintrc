@@ -1,20 +1,45 @@
 {
-  "parser": "babel-eslint",
+  "parser": "@typescript-eslint/parser",
   "extends": [
     "airbnb",
-    "prettier"
+    "plugin:@typescript-eslint/recommended",
+    "prettier",
+    "prettier/react"
   ],
   "plugins": [
     "jest",
-    "flowtype",
+    "@typescript-eslint",
     "prettier"
   ],
   "settings": {
-    "flowtype": {
-      "onlyFilesWithFlowAnnotation": false
+    "import/resolver": {
+      "typescript": {}
     }
   },
   "rules": {
+    "@typescript-eslint/camelcase": 0,
+    "@typescript-eslint/no-var-requires": 0,
+    "no-unused-vars": 0,
+    "import/no-dynamic-require": 0,
+    "no-console": 0,
+    "global-require": 0,
+    "no-await-in-loop": 0,
+    "no-restricted-syntax": 0,
+    "@typescript-eslint/type-annotation-spacing": 0,
+    "import/prefer-default-export": 0,
+    "class-methods-use-this": 0,
+    "react/prop-types": 0,
+    "@typescript-eslint/explicit-member-accessibility": 0,
+    "@typescript-eslint/explicit-function-return-type": 0,
+    "@typescript-eslint/member-delimiter-style": 0,
+    "@typescript-eslint/no-unused-vars": [
+      "error",
+      {
+        "argsIgnorePattern": "^_",
+        "varsIgnorePattern": "^_"
+      }
+    ],
+    "@typescript-eslint/indent": 0,
     "prettier/prettier": [
       "error",
       {
