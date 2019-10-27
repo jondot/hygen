@@ -137,6 +137,15 @@ const resolver: HygenResolver = (config) => Promise.resolve(config)
 
 ## Other standardization
 
+### Promises
+A consistent use of promises makes chaining parts of the program flow much easier, and the
+ advantages for async operations and error handling should be obvious.
+ 
+### Yargs
+Expand the use of yargs makes a number of things easier and nicer.  The ability to define options
+and commands improves the utility of the help function, allow shell completion, and allow users
+to define command modules for their own generators and templates
+
 ### Directives
 A Directive is a specific way to render a file. I'd like to change the frontmatter structure to
 provide a clearer separation of rendering and template data.  Deprecation city though.
