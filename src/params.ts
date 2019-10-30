@@ -1,12 +1,12 @@
 import path from 'path'
 import yargs from 'yargs-parser'
-import { RunnerConfig } from './types'
+import { RunnerConfig, ParamsResult } from './types'
 import prompt from './prompt'
 
 const params = async (
   { templates, createPrompter }: RunnerConfig,
   externalArgv: string[],
-): Promise<any> => {
+): Promise<ParamsResult> => {
   const argv = yargs(externalArgv)
 
   const [generator, action, name] = argv._

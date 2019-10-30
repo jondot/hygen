@@ -6,8 +6,8 @@ export interface Logger {
   log: (msg: string) => void
   colorful: (msg: string) => void
 }
-export interface Prompter {
-  prompt: (arg0: any) => Promise<any>
+export interface Prompter<Q, T> {
+  prompt: (arg0: Q) => Promise<T>
 }
 export interface RenderedAction {
   file?: string
@@ -21,7 +21,7 @@ export interface RunnerConfig {
   logger?: Logger
   debug?: boolean
   helpers?: any
-  createPrompter?: () => Prompter
+  createPrompter?: <Q, T>() => Prompter<Q, T>
 }
 
 export interface ResolverIO {
@@ -41,3 +41,12 @@ export interface RunnerResult {
     availableActions: string[]
   }
 }
+
+export type ParamsResult = {
+  templates: string
+  generator: string
+  action: string
+  subaction?: string
+  actionfolder?: string
+  name?: string
+} & object

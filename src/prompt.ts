@@ -3,11 +3,11 @@ import fs from 'fs'
 import { Prompter } from './types'
 
 const hooksfiles = ['prompt.js', 'index.js']
-const prompt = (
-  createPrompter: () => Prompter,
+const prompt = <Q, T>(
+  createPrompter: () => Prompter<Q, T>,
   actionfolder: string,
   args: Record<string, any>,
-): Promise<any> => {
+): Promise<T | object> => {
   const hooksfile = hooksfiles
     .map(f => path.resolve(path.join(actionfolder, f)))
     .find(f => fs.existsSync(f))
