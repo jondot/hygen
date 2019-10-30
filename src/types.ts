@@ -49,4 +49,5 @@ export type ParamsResult = {
   subaction?: string
   actionfolder?: string
   name?: string
+  dry?: boolean
 } & object
