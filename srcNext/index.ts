@@ -1,12 +1,11 @@
 import { HygenResolver } from './types'
-
-const noopResolver: HygenResolver = (config) => Promise.resolve(config)
-
-const configResolver = noopResolver
-const generatorResolver = noopResolver
-const promptResolver = noopResolver
-const paramsResolver = noopResolver
-const renderResolver = noopResolver
+import {
+  configResolver,
+  generatorResolver,
+  promptResolver,
+  paramsResolver,
+  renderResolver,
+} from './resolvers'
 
 const resolvers = [configResolver, generatorResolver, promptResolver, paramsResolver, renderResolver]
 
