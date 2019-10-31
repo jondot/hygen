@@ -28,6 +28,7 @@
     "docs:publish": "cd hygen.io && yarn build:gh"
   },
   "dependencies": {
+    "@types/inflection": "^1.5.28",
     "chalk": "^2.4.2",
     "change-case": "^3.1.0",
     "ejs": "^2.6.1",

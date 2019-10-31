@@ -3,6 +3,7 @@ import Enquirer from 'enquirer'
 
 export type ShellFn = (action: string, body: string) => string
 export type prompterFn = () => Enquirer
+
 export interface IoConfig {
   exec: ShellFn
   load: (string) => Promise<unknown>
@@ -18,7 +19,11 @@ export interface GeneratorConfig {
   templates: Array<string>
   prompts: Array<string>
   params: Array<string>
-  all: Array<string>
+  all: SummaryObject
+}
+
+export interface GeneratorMinConfig {
+  all?: SummaryObject
 }
 
 export interface RenderConfig {
@@ -26,13 +31,16 @@ export interface RenderConfig {
   inject: HygenRenderer
   shell: HygenRenderer
   message: HygenRenderer
+
   [s: string]: HygenRenderer
 }
+
 export type HygenRenderer = () => any
 
 export interface ToolsConfig {
   prompter: prompterFn
   render: RenderConfig
+
   [s: string]: any
 }
 
@@ -55,14 +63,33 @@ export interface EnvFunctionsConfig {
   prompter: prompterFn
   io: IoConfig
 }
+
 export type EnvConfig = EnvValuesConfig & EnvFunctionsConfig
 
-
-export interface HygenConfig  {
+export interface HygenConfig {
   env?: EnvConfig
   tools?: object
-  helpers?: object
+  helpers?: HelpersConfig
   generators?: object
   params?: any
+  modules: Array<UserConfig>
 }
+
+export interface UserConfig {
+  prompt?: HygenResolver
+  params?: HygenResolver
+  helpers?: HelpersConfig
+}
+
+export interface HelpersConfig {
+  [s: string]: unknown
+}
+
+
 export type HygenResolver = (config: HygenConfig) => Promise<HygenConfig>
+
+export interface SummaryObject {
+  [s: string]: {
+    [s: string]: Array<string>
+  }
+}
