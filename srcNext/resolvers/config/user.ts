@@ -1,7 +1,7 @@
-import { HygenResolver } from '../../types'
+import { HygenBuildConfig, UserConfig } from '../../types'
 
-export const fetchUser: HygenResolver = (config)  => {
+export const fetchUser = (config: HygenBuildConfig): Promise<Array<UserConfig>>  => {
   config.env.logger.notice('fetchUser')
 
-  return Promise.resolve(config)
+  return Promise.resolve([])
 }

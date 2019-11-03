@@ -1,7 +1,7 @@
 #!/usr/bin/env node
-import { HygenConfig, HygenResolver } from './types'
+import { HygenBuildConfig, HygenResolver } from './types'
 
-export const hygenYargs: HygenResolver = (config: HygenConfig) => {
+export const hygenYargs: HygenResolver = (config: HygenBuildConfig) => {
   const yargv = require('yargs/yargs')(config.env.argv)
     .scriptName('hygen')
     .version(false)

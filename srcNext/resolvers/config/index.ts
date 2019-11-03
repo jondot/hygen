@@ -1,5 +1,6 @@
 import {
-  GeneratorConfig, HygenConfig,
+  GeneratorSummaryConfig,
+  HygenBuildConfig,
   HygenResolver,
   UserConfig,
 } from '../../types'
@@ -8,11 +9,10 @@ import { fetchTools } from './tools'
 import { fetchGenerators } from './generators'
 import { fetchUser } from './user'
 
-export const configResolver: HygenResolver = (config) => {
+export let configResolver: HygenResolver
+configResolver = (config) => {
   config.env = config.env || fetchEnv()
   config.tools = config.tools || fetchTools()
-  config.modules = []
-
 
   // build tools config
   // find template files, config files
@@ -20,11 +20,17 @@ export const configResolver: HygenResolver = (config) => {
     fetchGenerators(config),
     fetchUser(config),
   ])
-    .catch(err => console.error(err))
-    .then((resultsArr: [Partial<GeneratorConfig>, Array<UserConfig>]): HygenConfig => {
-      const [generators, userConfig] = resultsArr
-      config.generators = generators
+    .catch(err => {
+      console.error(err)
+      throw new Error(err)
+    })
+    .then((resultsArr: [GeneratorSummaryConfig, Array<UserConfig>]): HygenBuildConfig => {
+      // @ts-ignore
+      const [generator, userConfig] = resultsArr
+      console.log('configResolver', generator.summary.gen)
+      // config.generator = summary
       config.modules = userConfig
+      config.generator = generator
       return config
 
     }).then(() => config)

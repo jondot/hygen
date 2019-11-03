@@ -15,15 +15,19 @@ An update for hygen.js that expands functionality, composition, and
  
 ## Config Object
  The Config Object is passed through the whole sytem, carrying data and
-functions with it.  The Object has 5 keys that it uses as it's first level of
- organization:
+functions with it.
+
+
+
 ```js
 const config = {
   "env": {/* contains data about environment, config, Io methods */},
-  "tools": {/* contains functions to be used by other parts of the system, and rendering */},
-  "params": {/* data for templates including user input */},
-  "helpers": {/* contains functions to be used within templates */},
   "generator": {/* contains information about the generate/action/templates */},
+  "io": {/* contains functions and modules to interact with the file system */ },
+  "helpers": {/* contains functions to be used within templates */},
+  "params": {/* data for templates including user input */},
+  "render": {/* contains functions for rendering templates for various directives */},
+  "tools": {/* contains functions to be used by other parts of the system, and rendering */},
 }
 ```
 

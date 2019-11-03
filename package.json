@@ -25,7 +25,8 @@
     "docs:prepare": "cd hygen.io && yarn",
     "docs:watch": "cd hygen.io && yarn gatsby develop",
     "docs:build": "cd hygen.io && yarn build",
-    "docs:publish": "cd hygen.io && yarn build:gh"
+    "docs:publish": "cd hygen.io && yarn build:gh",
+    "try": "ts-node srcNext/try.ts"
   },
   "dependencies": {
     "@types/inflection": "^1.5.28",
@@ -47,6 +48,7 @@
     "dir-compare": "^1.4.0",
     "gh-pages": "^1.1.0",
     "jest": "^24.3.1",
+    "jsdoc": "^3.6.3",
     "pkg": "^4.4.0",
     "time-require": "^0.1.2",
     "ts-node": "^8.4.1",
