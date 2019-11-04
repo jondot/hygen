@@ -1,37 +1,23 @@
-import {
-  GeneratorSummaryConfig,
-  HygenBuildConfig,
-  HygenResolver,
-  UserConfig,
-} from '../../types'
-import { fetchEnv } from './env'
-import { fetchTools } from './tools'
+import { HygenResolver } from '../../types'
+import { fetchConfigFiles } from './configFiles'
+import { GeneratorSummaryConfig, HygenBuildConfig, UserConfig } from '../../types'
 import { fetchGenerators } from './generators'
-import { fetchUser } from './user'
 
-export let configResolver: HygenResolver
-configResolver = (config) => {
-  config.env = config.env || fetchEnv()
-  config.tools = config.tools || fetchTools()
+export const configResolver: HygenResolver = (config) => Promise.all([
+  fetchGenerators(config),
+  fetchConfigFiles(config),
+])
+  .catch(err => {
+    console.error(err)
+    throw new Error(err)
+  })
+  .then((resultsArr: [GeneratorSummaryConfig, Array<UserConfig>]): HygenBuildConfig => {
+    // @ts-ignore
+    const [generator, userConfig] = resultsArr
+    // config.generator = summary
+    config.modules = userConfig
+    config.generator = generator
+    return config
 
-  // build tools config
-  // find template files, config files
-  return Promise.all([
-    fetchGenerators(config),
-    fetchUser(config),
-  ])
-    .catch(err => {
-      console.error(err)
-      throw new Error(err)
-    })
-    .then((resultsArr: [GeneratorSummaryConfig, Array<UserConfig>]): HygenBuildConfig => {
-      // @ts-ignore
-      const [generator, userConfig] = resultsArr
-      console.log('configResolver', generator.summary.gen)
-      // config.generator = summary
-      config.modules = userConfig
-      config.generator = generator
-      return config
-
-    }).then(() => config)
-}
+  })
+  .then(config => Promise.resolve(config))

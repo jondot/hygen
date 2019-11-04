@@ -1,4 +1,4 @@
-import { HygenResolver, IoConfig } from '../../types'
+import { HygenResolver, IoConfig } from '../types'
 import fs from 'fs-extra'
 import path from 'path'
 
@@ -12,7 +12,6 @@ const asyncRequire = (pkg: string): Promise<unknown> => Promise.resolve(require(
 // no idea if this works yet
 const defaultIoWin32 = {
   path: path.win32,
-  exists: fs.exists,
 }
 
 const defaultIoPosix: Partial<IoConfig> = {
@@ -24,10 +23,10 @@ const defaultCommonIo: Partial<IoConfig> = {
   consoleWrite: (...msg: Array<unknown>): void => console.log(...msg),
   exec: shellFunction,
   none: () => Promise.resolve({}),
-  exists: fs.exists,
+  exists: fs.pathExists,
 }
 
-export const ioResolver: HygenResolver = config => {
+export const resolveIo: HygenResolver = config => {
   config.io = ({
     ...(config.env.platform === 'win32' ? defaultIoWin32 : defaultIoPosix),
     ...defaultCommonIo,

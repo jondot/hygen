@@ -1,11 +1,7 @@
-import { EnvConfig, HygenBuildConfig, ReversePathWalkFn } from '../../types'
-import os from 'os'
+import { HygenResolver, ReversePathWalkFn } from '../types'
+import Logger from '../../src/logger'
 
-function arrayFromEnv(value: string | Array<string>, separator: string = ':'): Array<string> | false {
-  if (!value) return false
-  return (Array.isArray(value)) ? value : value.split(separator)
-}
-
+export const createPrompter = () => require('enquirer')
 // folders default is ['.hygen.js']
 // if folders begins with '/' or '~', assume it is an absolute(ish) path
 // if folder begins with anything else, it is assumed to be a filename
@@ -16,7 +12,7 @@ function arrayFromEnv(value: string | Array<string>, separator: string = ':'): A
 // @param {string} [to=path.parse(process.cwd()).root] a directory to stop searching at
 // @param {object} [path=require('path')] a pathlike object supporting path.resolve & path.sep
 // @return {[string]} an array of files that may be a config file to load
-const reversePathsToWalk: ReversePathWalkFn = ({ files, path, from, to }) => {
+export const reversePathsToWalk: ReversePathWalkFn = ({ files, path, from, to }) => {
   const start = path.resolve(from || process.cwd())
   const stop = path.resolve(to || path.parse(start)).root
 
@@ -43,22 +39,12 @@ const reversePathsToWalk: ReversePathWalkFn = ({ files, path, from, to }) => {
   }, []).reverse()
 }
 
-
-export const fetchEnv = (config: Partial<HygenBuildConfig>): HygenBuildConfig => {
-  config.env = {
-    argv: process.argv.slice(2),
-    cwd: process.cwd(),
-    templates: arrayFromEnv(process.env.HYGEN_TMPLS) || ['_templates'],
-    configFile: arrayFromEnv(process.env.HYGEN_CONFIG) || ['.hygen.js'],
-    ignoreFile: arrayFromEnv(process.env.HYGEN_IGNORE) || ['.hygenignore'],
-    paramsFile: arrayFromEnv(process.env.HYGEN_PARAMS) || ['index.js'],
-    platform: os.platform(),
-    promptFile: arrayFromEnv(process.env.HYGEN_PARAMS) || ['index.js'],
-    yargsModuleFile: arrayFromEnv(process.env.HYGEN_YARGS_MODULE) || ['yargs.module.js'],
-    debug: !!process.env.HYGEN_DEBUG || !!process.env.DEBUG,
-    ...config.env
+export const resolveTools: HygenResolver = config => {
+  config.tools = {
+    prompter: createPrompter,
+    logger: new Logger(config.io.consoleWrite),
+    reversePathsToWalk,
+    ...(config.tools || {}),
   }
-
-  return config
+  return Promise.resolve(config)
 }
-

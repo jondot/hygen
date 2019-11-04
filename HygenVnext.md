@@ -18,7 +18,6 @@ An update for hygen.js that expands functionality, composition, and
 functions with it.
 
 
-
 ```js
 const config = {
   "env": {/* contains data about environment, config, Io methods */},

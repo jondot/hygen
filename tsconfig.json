@@ -13,7 +13,7 @@
     "strict": false,
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
-    "types": ["chalk","yargs","change-case","inflection", "Enquirer","node"]
+    "types": ["chalk","yargs","change-case","inflection", "Enquirer","node","fs-extra"]
   },
   "include": [
     "src/**/*"

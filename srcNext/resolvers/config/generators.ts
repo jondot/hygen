@@ -9,7 +9,7 @@ export const fetchGenerators = (config: HygenBuildConfig): Promise<GeneratorSumm
     })
   ))
     .catch(err => {
-      config.env.logger.err(`fetchGenerators: ${err}`)
+      config.tools.logger.err(`fetchGenerators: ${err}`)
       throw new Error(err)
     })
     .then((files: Array<Array<string>>) => [].concat(...files))

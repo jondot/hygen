@@ -26,9 +26,11 @@
     "docs:watch": "cd hygen.io && yarn gatsby develop",
     "docs:build": "cd hygen.io && yarn build",
     "docs:publish": "cd hygen.io && yarn build:gh",
-    "try": "ts-node srcNext/try.ts"
+    "try": "ts-node srcNext/try.ts",
+    "woot": "ts-node srcNext/bin.ts who me yes --wooticus Prime --no-frank"
   },
   "dependencies": {
+    "@types/fs-extra": "^8.0.1",
     "@types/inflection": "^1.5.28",
     "chalk": "^2.4.2",
     "change-case": "^3.1.0",
