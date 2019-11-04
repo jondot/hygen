@@ -8,9 +8,11 @@ export const fetchConfigFiles = (config: HygenBuildConfig): Promise<Array<HygenB
       from: env.cwd,
       path: io.path,
     }))
+    .catch(err => {throw new Error(err)})
     .then(files => files.reduce((promises: Array<Promise<HygenBuildConfig>>, file: string): Array<Promise<HygenBuildConfig>> => {
           io.exists(file).then(flag => {
             if (!flag) return promises
+            console.log(`file: ${file}`)
             promises.push(io.load(file).then(module => module as HygenBuildConfig))
           })
             .catch(err => {
@@ -21,5 +23,4 @@ export const fetchConfigFiles = (config: HygenBuildConfig): Promise<Array<HygenB
         }, [] as Array<Promise<HygenBuildConfig>>)
     )
     .then(promises => Promise.all(promises))
-
 }

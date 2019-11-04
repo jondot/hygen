@@ -14,7 +14,7 @@ export const createPrompter = () => require('enquirer')
 // @return {[string]} an array of files that may be a config file to load
 export const reversePathsToWalk: ReversePathWalkFn = ({ files, path, from, to }) => {
   const start = path.resolve(from || process.cwd())
-  const stop = path.resolve(to || path.parse(start)).root
+  const stop = path.parse(path.resolve(to || start)).root
 
   return files.reduce((all, file) => {
     // if file starts with ['/','~','../','./']

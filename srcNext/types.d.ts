@@ -69,16 +69,19 @@ export interface EnvConfig {
   yargsModuleFile: Array<string>
 }
 
-export type ConfigFileLoader = (Array<Promise<HygenBuildConfig>>, string) => Array<Promise<HygenBuildConfig>>
-
 export interface HygenBuildConfig {
   env?: EnvConfig
   io?: IoConfig
   tools?: ToolsConfig
   helpers?: HelpersConfig
-  modules?: Array<UserConfig>
-  params?: any
+  prompts?: Array<HygenResolver>
+  params?: Array<HygenResolver>
+  args?: Args
   generator?: GeneratorConfig
+
+}
+export interface Args {
+  [s: string]: unknown
 }
 
 export interface UserConfig {

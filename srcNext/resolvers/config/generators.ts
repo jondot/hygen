@@ -17,6 +17,10 @@ export const fetchGenerators = (config: HygenBuildConfig): Promise<GeneratorSumm
       if (files.length === 0) throw new Error('No templates found')
       return files
     })
+    .catch(err => {
+      console.error('noTemplates', err)
+      throw new Error(err)
+    })
     .then(files =>
       files.reduce((found, file) => {
         const [generator, action] = file.split('/')

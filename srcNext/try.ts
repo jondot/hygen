@@ -1,8 +1,4 @@
-import { fetchEnv } from './resolvers/config/env'
-import path from 'path'
+import { resolveEnv } from './resolvers/env'
 
-const env = fetchEnv({})
+resolveEnv({}).then(env => {console.log(env);  return env})
 
-const result = env.io.reversePathsToWalk({ folders: ['~/.hygen.conf', '~/hygen.conf'], path })
-
-console.log('try:', result)

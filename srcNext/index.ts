@@ -3,6 +3,8 @@ import {
   resolveEnv,
   resolveIo,
   resolveTools,
+  resolveHelpers,
+  resolveConfig
   // configResolver,
   // generatorResolver,
   // promptResolver,
@@ -11,7 +13,7 @@ import {
 } from './resolvers'
 
 const resolvers = [
-  resolveEnv, resolveIo, resolveTools
+  resolveEnv, resolveIo, resolveTools, resolveHelpers, resolveConfig
  ]
 
 export const runner: HygenResolver = async (initial) => resolvers.reduce(
