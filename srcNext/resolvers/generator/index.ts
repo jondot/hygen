@@ -1,4 +1,7 @@
-import { noopResolver } from '../common'
+import { HygenResolver } from '../../types'
 
-export const generatorResolver = noopResolver
+export const resolveGenerator: HygenResolver = config => {
+
+  return Promise.resolve(config)
+}
 
