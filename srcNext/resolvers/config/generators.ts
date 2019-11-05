@@ -2,15 +2,17 @@ import { GeneratorSummaryConfig, HygenBuildConfig, SummaryObject } from '../../t
 import walk from 'ignore-walk'
 
 export const fetchGenerators = (config: HygenBuildConfig): Promise<GeneratorSummaryConfig> =>
-  Promise.all(config.env.templates.map( templatePath =>
-    walk({
-      path: templatePath,
-      ignoreFiles: config.env.ignoreFile,
-    })
+  Promise.all(config.env.templates.map(templatePath => {
+      config.tools.logger.notice(`Scanning ${templatePath}`)
+      return walk({
+        path: templatePath,
+        ignoreFiles: config.env.ignoreFile,
+      })
+    },
   ))
     .catch(err => {
       config.tools.logger.err(`fetchGenerators: ${err}`)
-      throw new Error(err)
+      throw err
     })
     .then((files: Array<Array<string>>) => [].concat(...files))
     .then(files => {

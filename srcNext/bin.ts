@@ -19,4 +19,5 @@ runner({
   tools: {} as Partial<ToolsConfig>,  // functions to enable and extend config, params, prompts and
   // renderers
 } as HygenBuildConfig)
-  .then(final => console.debug('final config', final))
+  .then(final => console.debug('final config', final.generator))
+  .catch((err: Error) => console.error(err.message))

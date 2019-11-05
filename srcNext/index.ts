@@ -4,12 +4,8 @@ import {
   resolveIo,
   resolveTools,
   resolveHelpers,
-  resolveConfig
-  // configResolver,
-  // generatorResolver,
-  // promptResolver,
-  // paramsResolver,
-  // renderResolver,
+  resolveConfig,
+
 } from './resolvers'
 
 const resolvers = [
@@ -17,6 +13,6 @@ const resolvers = [
  ]
 
 export const runner: HygenResolver = async (initial) => resolvers.reduce(
-  (main, resolver) => main.then(resolver),
+  (main, resolver) => main.then(resolver).then(mod => {return mod}),
   Promise.resolve(initial),
 )

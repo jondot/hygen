@@ -7,7 +7,12 @@ const shellFunction = (action, body) => {
   return require('execa').shell(action, opts)
 }
 
-const asyncRequire = (pkg: string): Promise<unknown> => Promise.resolve(require(pkg))
+const asyncRequire = (pkg: string): Promise<unknown> =>
+  Promise.resolve(require(pkg))
+    .catch(err => {
+      console.error(`Config file loading Error: ${pkg}`)
+      throw err
+    })
 
 // no idea if this works yet
 const defaultIoWin32 = {

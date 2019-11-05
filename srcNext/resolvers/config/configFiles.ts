@@ -1,26 +1,33 @@
 import { HygenBuildConfig } from '../../types'
 
 export const fetchConfigFiles = (config: HygenBuildConfig): Promise<Array<HygenBuildConfig>> => {
-  const {io, env, tools} = config
+  const { io, env, tools } = config
+
   return Promise.resolve(
     tools.reversePathsToWalk({
       files: env.configFile,
       from: env.cwd,
       path: io.path,
     }))
-    .catch(err => {throw new Error(err)})
-    .then(files => files.reduce((promises: Array<Promise<HygenBuildConfig>>, file: string): Array<Promise<HygenBuildConfig>> => {
-          io.exists(file).then(flag => {
-            if (!flag) return promises
-            console.log(`file: ${file}`)
-            promises.push(io.load(file).then(module => module as HygenBuildConfig))
-          })
-            .catch(err => {
-              console.log(`configFile Loading ${file}: ${err}`)
-              throw new Error(err)
-            })
-          return promises
-        }, [] as Array<Promise<HygenBuildConfig>>)
+    .catch(err => {
+      throw new Error(err)
+    })
+    .then((files: Array<string>): Promise<Array<string>> =>
+      Promise.all(files.map(
+        (file: string): Promise<string> =>
+          io.exists(file).then((flag: boolean): string => flag ? file : ''),
+        ),
+      ).then((files: Array<string>): Array<string> => files.filter(f => f.length > 0)),
     )
-    .then(promises => Promise.all(promises))
+    .then((files: Array<string>): Promise<Array<HygenBuildConfig>> =>
+      Promise.all(files.map(
+        (file: string): Promise<HygenBuildConfig> => {
+          tools.logger.notice(`Loading ${file}`)
+          return io.load(file)
+            .catch(err => {
+              tools.logger.err(`Config file loading Error: ${file}`)
+              throw err
+            })
+        }
+      )))
 }
