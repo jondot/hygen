@@ -30,6 +30,7 @@ export const resolveYargs: HygenResolver = config => {
   allActions.forEach((cmd) => yargs.command(cmd))
 
   const yargv = yargs
+    .demandCommand()
     .fail((msg, err) => {
       console.log(msg)
       console.log(err)
