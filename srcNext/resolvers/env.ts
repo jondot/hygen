@@ -23,6 +23,7 @@ export const resolveEnv: HygenResolver = config => {
   config.params = []
   config.prompts = []
   config.yargs = []
+  config.args = {}
 
   return Promise.resolve(config)
 }

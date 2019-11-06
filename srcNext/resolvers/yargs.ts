@@ -1,5 +1,6 @@
 import { HygenResolver } from '../types'
 import yargs = require('yargs')
+import { resolveCustomYargs } from './common'
 
 export const resolveYargs: HygenResolver = config => {
   const yargv = yargs(config.env.argv)
@@ -35,8 +36,11 @@ export const resolveYargs: HygenResolver = config => {
         console.log('command handled')
       },
     )
-    .commandDir(config.env.cwd + '/_templates', {recurse: true, extensions: ['yargs']})
-    .demandCommand(1,2,'You must supply a <generator> and an <action>')
+    .commandDir(config.env.cwd + '/_templates', { recurse: true, extensions: ['yargs'] })
+
+  resolveCustomYargs(config.yargs)(yargv)
+
+  yargv.demandCommand(1, 2, 'You must supply a <generator> and an <action>')
     .check(yargv => {
       if (!yargv.generator) throw new Error('No generator')
       if (!yargv.action) throw new Error('No action')
@@ -48,16 +52,19 @@ export const resolveYargs: HygenResolver = config => {
       }
       return true
     })
-    .fail((msg, _, yargs) => {
 
-      config.tools.logger.warn(msg.startsWith('Not enough') ? 'You must supply a <generator> and an <action>' : msg)
-      // console.error(err)
-      console.log(yargs.help())
-      process.exit(1)
-    })
-    .argv
+  config.yargs && config.yargs
 
-  config.args = { ...yargv, ...(config.args || {}) }
+  yargv.fail((msg, _, yargs) => {
+
+    config.tools.logger.warn(msg.startsWith('Not enough') ? 'You must supply a <generator> and an <action>' : msg)
+    // console.error(err)
+    console.log(yargs.help())
+    process.exit(1)
+  })
+
+  const args = { ...yargv.argv, ...(config.args || {}) }
+  config.args = args
   // TODO or { ...(config.params || {}), ...yargv }
   return Promise.resolve(config)
 }

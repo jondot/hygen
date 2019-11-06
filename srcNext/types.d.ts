@@ -74,8 +74,11 @@ export interface HygenBuildConfig {
   io?: IoConfig
   tools?: ToolsConfig
   helpers?: HelpersConfig
+  init?: Array<HygenResolver>
   inits?: Array<HygenResolver>
+  prompt?: Array<HygenResolver>
   prompts?: Array<HygenResolver>
+  param?: Array<HygenResolver>
   params?: Array<HygenResolver>
   args?: Args
   generator?: GeneratorConfig
