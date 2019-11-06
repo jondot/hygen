@@ -66,6 +66,7 @@ export interface EnvConfig {
   platform: string
   promptFile: Array<string>
   templates: Array<string>
+  notTemplateFiles: Array<string>
   yargsModuleFile: string
   yargsModuleExt: string
 }
@@ -106,7 +107,10 @@ export type HygenResolver = (config: HygenBuildConfig) => Promise<HygenBuildConf
 
 export interface SummaryObject {
   [s: string]: {
-    [s: string]: Array<string>
+    [s: string]: {
+      modules: Array<string>
+      templates: Array<string>
+    }
   }
 }
 export interface ReversePathWalkFnArgs {

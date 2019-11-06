@@ -5,6 +5,7 @@ function arrayFromEnv(value: string | Array<string>, separator: string = ':'): A
   if (!value) return false
   return (Array.isArray(value)) ? value : value.split(separator)
 }
+
 export const resolveEnv: HygenResolver = config => {
   config.env = {
     argv: process.argv.slice(2),
@@ -12,6 +13,7 @@ export const resolveEnv: HygenResolver = config => {
     cwd: process.cwd(),
     debug: !!process.env.HYGEN_DEBUG || !!process.env.DEBUG,
     ignoreFile: arrayFromEnv(process.env.HYGEN_IGNORE) || ['.hygenignore'],
+    notTemplateFiles: [],
     paramsFile: arrayFromEnv(process.env.HYGEN_PARAMS) || ['index.js'],
     platform: process.env.HYGEN_OS || os.platform(),
     promptFile: arrayFromEnv(process.env.HYGEN_PARAMS) || ['index.js'],
@@ -20,6 +22,13 @@ export const resolveEnv: HygenResolver = config => {
     yargsModuleExt: 'yargs.module.js'.match('\.(.[^.]$)')[1],
     ...(config.env || {}),
   }
+  config.env.notTemplateFiles = [
+    ...config.env.ignoreFile,
+    ...config.env.paramsFile,
+    ...config.env.promptFile,
+    config.env.yargsModuleFile,
+  ]
+
   config.inits = []
   config.params = []
   config.prompts = []
