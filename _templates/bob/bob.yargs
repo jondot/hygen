@@ -16,5 +16,5 @@ module.exports = {
       type: 'string',
     })
 },
-  handler: yargv => console.log(yargv)
+  handler: yargv => console.log('bob handled')
 }

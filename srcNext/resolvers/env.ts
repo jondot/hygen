@@ -19,5 +19,10 @@ export const resolveEnv: HygenResolver = config => {
     yargsModuleFile: arrayFromEnv(process.env.HYGEN_YARGS_MODULE) || ['yargs.module.js'],
     ...(config.env || {}),
   }
+  config.inits = []
+  config.params = []
+  config.prompts = []
+  config.yargs = []
+
   return Promise.resolve(config)
 }

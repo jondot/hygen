@@ -27,7 +27,8 @@
     "docs:build": "cd hygen.io && yarn build",
     "docs:publish": "cd hygen.io && yarn build:gh",
     "try": "ts-node srcNext/try.ts",
-    "woot": "ts-node srcNext/bin.ts who me yes --wooticus Prime --no-frank"
+    "woot": "ts-node srcNext/bin.ts who me yes --wooticus Prime --no-frank",
+    "crap": "ts-node srcNext/bin.ts  --wooticus Prime --no-frank"
   },
   "dependencies": {
     "@types/fs-extra": "^8.0.1",

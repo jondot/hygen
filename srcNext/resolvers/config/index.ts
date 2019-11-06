@@ -2,9 +2,8 @@ import { HygenResolver } from '../../types'
 import { fetchConfigFiles } from './configFiles'
 import { GeneratorSummaryConfig, HygenBuildConfig } from '../../types'
 import { fetchGenerators } from './generators'
+import { mergeConfig } from '../common'
 
-const mergeObjectKeys = ['env', 'io', 'tools', 'helpers', 'generator']
-const mergeArrayKeys = ['init', 'prompt', 'params']
 
 export const resolveConfig: HygenResolver = (config) => Promise.all([
   fetchGenerators(config),
@@ -19,21 +18,5 @@ export const resolveConfig: HygenResolver = (config) => Promise.all([
     const [generator, mods] = resultsArr
     config.generator = generator
 
-    mods.forEach((mod: HygenBuildConfig): void => {
-      mergeObjectKeys.forEach(section => {
-        if (!(mod[section])) return
-        config[section] = { ...config[section], ...mod[section] }
-      })
-      mergeArrayKeys.forEach(section => {
-        if (!mod[section]) return
-        if (!config[section]) config[section] = []
-        if (!Array.isArray(mod[section])) {
-          config[section].push(...mod[section])
-          return
-        }
-        config[section].push(mod[section])
-      })
-    })
-
-    return Promise.resolve(config)
+    return Promise.resolve(mods.reduce((config, mod) => mergeConfig(config, mod), config))
   })
