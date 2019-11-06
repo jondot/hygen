@@ -17,14 +17,11 @@ export const resolveConfig: HygenResolver = (config) => Promise.all([
   .then((resultsArr: [GeneratorSummaryConfig, Array<HygenBuildConfig>]): Promise<HygenBuildConfig> => {
     // @ts-ignore
     const [generator, mods] = resultsArr
-    console.log('resolveConfig','MODS',resultsArr)
     config.generator = generator
 
     mods.forEach((mod: HygenBuildConfig): void => {
-      console.log('mod', mod)
       mergeObjectKeys.forEach(section => {
         if (!(mod[section])) return
-        console.log('mergeObject', mod, section)
         config[section] = { ...config[section], ...mod[section] }
       })
       mergeArrayKeys.forEach(section => {

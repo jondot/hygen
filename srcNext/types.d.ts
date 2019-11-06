@@ -108,3 +108,7 @@ export interface ReversePathWalkFnArgs {
   to?: string
 }
 export type ReversePathWalkFn =  (ReversePathWalkFnArgs) => Array<string>
+
+export interface Params {
+  [s: string]: unknown
+}
