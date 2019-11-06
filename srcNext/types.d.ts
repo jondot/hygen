@@ -66,7 +66,8 @@ export interface EnvConfig {
   platform: string
   promptFile: Array<string>
   templates: Array<string>
-  yargsModuleFile: Array<string>
+  yargsModuleFile: string
+  yargsModuleExt: string
 }
 
 export interface HygenBuildConfig {
@@ -85,6 +86,9 @@ export interface HygenBuildConfig {
   yargs?: Array<HygenResolver>
 }
 export interface Args {
+  generator?: string
+  action?: string
+  subaction?: string
   [s: string]: unknown
 }
 

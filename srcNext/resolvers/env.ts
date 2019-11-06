@@ -16,7 +16,8 @@ export const resolveEnv: HygenResolver = config => {
     platform: process.env.HYGEN_OS || os.platform(),
     promptFile: arrayFromEnv(process.env.HYGEN_PARAMS) || ['index.js'],
     templates: arrayFromEnv(process.env.HYGEN_TMPLS) || ['_templates'],
-    yargsModuleFile: arrayFromEnv(process.env.HYGEN_YARGS_MODULE) || ['yargs.module.js'],
+    yargsModuleFile: process.env.HYGEN_YARGS_MODULE || 'yargs.module.js',
+    yargsModuleExt: 'yargs.module.js'.match('\.(.[^.]$)')[1],
     ...(config.env || {}),
   }
   config.inits = []

@@ -13,30 +13,34 @@ export const resolveYargs: HygenResolver = config => {
       describe: 'Run all steps but do not generate files',
     })
     .command(
-      '$0 <generator> <action> [name]',
+      '$0 <generator> <action | action:subaction> [name]',
       'generate templates from generator/action',
       //@ts-ignore
       yargs => {
         yargs
-          .usage('$0 [generator] [action] <name> [options]')
           .positional('generator', {
             describe: 'generator (_templates/myGenerator)',
             type: 'string',
           })
           .positional('action', {
-            describe: 'action (_templates/myGenerator/myAction)',
+            describe: 'action or action:subaction (_templates/myGenerator/myAction)',
             type: 'string',
           })
           .positional('name', {
             describe: 'name for the generated templates',
             type: 'string',
           })
+
       },
       () => {
         console.log('command handled')
       },
     )
-    .commandDir(config.env.cwd + '/_templates', { recurse: true, extensions: ['yargs'] })
+    .commandDir(config.env.cwd + '/_templates', {
+      recurse: true,
+      extensions: [config.env.yargsModuleExt],
+      include: new RegExp(config.env.yargsModuleFile)
+    })
 
   resolveCustomYargs(config.yargs)(yargv)
 
@@ -44,6 +48,10 @@ export const resolveYargs: HygenResolver = config => {
     .check(yargv => {
       if (!yargv.generator) throw new Error('No generator')
       if (!yargv.action) throw new Error('No action')
+      if (yargv.action.includes(':')) {
+        yargv.subaction = yargv.action.split(':')[1]
+        yargv.action = yargv.action.split(':')[0]
+      }
       if (yargv.generator && !(config.generator.summary[yargv.generator])) {
         throw new Error(`No such generator: ${yargv.generator}`)
       }

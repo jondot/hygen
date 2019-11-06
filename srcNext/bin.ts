@@ -8,7 +8,7 @@ import { EnvConfig, HygenBuildConfig, IoConfig, ToolsConfig } from './types'
 // HYGEN_IGNORE.split(':') || ['.hygenignore']
 // HYGEN_PARAMS.split(':') || ['index.js']
 // HYGEN_PROMPT.split(':') || ['prompt.js']
-// HYGEN_YARGS_MODULE.split(':') || ['yargs.module.js']
+// HYGEN_YARGS_MODULE || 'yargs.module.js'
 // HYGEN_DEBUG || DEBUG
 
 // initialConfig can be used to set env, io, and tool
@@ -19,5 +19,5 @@ runner({
   tools: {} as Partial<ToolsConfig>,  // functions to enable and extend config, params, prompts and
   // renderers
 } as HygenBuildConfig)
-  .then(final => console.debug('final config', final.args))
+  .then(final => console.debug('final config', final.env))
   .catch((err: Error) => console.error(err.message))
