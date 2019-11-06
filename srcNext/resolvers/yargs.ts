@@ -2,21 +2,6 @@ import { HygenResolver } from '../types'
 import yargs = require('yargs')
 
 export const resolveYargs: HygenResolver = config => {
-  const allActions = Object.entries(config.generator.summary).reduce((all, [gen, actions]) => {
-    Object.keys(actions).forEach(action => all.push({
-      command: `\$0 ${gen} ${action} [name]`,
-      describe: `$0 ${gen} ${action} <name> [options]`,
-      builder: y => {
-        return y.positional('name', {
-            describe: 'name for the generated templates',
-            type: 'string',
-          })
-      },
-      handler: yargv => console.log(yargv)
-    }))
-    return all as Array<[string, string, number]>
-  }, [])
-
   yargs(config.env.argv)
     .scriptName('hygen')
     .version(false)
@@ -25,12 +10,29 @@ export const resolveYargs: HygenResolver = config => {
     .option('dry', {
       describe: 'Run all steps but do not generate files',
     })
-    // .commandDir(config.env.cwd + '/_templates', {recurse: true, extensions: ['yargs']})
+    .command({
+      command: '<generator> <action> [name]',
+      describe: 'Generate templates',
+      builder: y => {
+        return y.positional('generator', {
+          describe: 'generator to use',
+          type: 'string',
+        })
+        .positional('action', {
+          describe: 'action to use',
+          type: 'string',
+        })
+        .positional('name', {
+          describe: 'name for the generated templates',
+          type: 'string',
+        })
+      },
+      handler: yargv => console.log(yargv)
+    })
+    .commandDir(config.env.cwd + '/_templates', {recurse: true, extensions: ['yargs']})
 
-  allActions.forEach((cmd) => yargs.command(cmd))
 
   const yargv = yargs
-    .demandCommand()
     .fail((msg, err) => {
       console.log(msg)
       console.log(err)
