@@ -7,7 +7,10 @@ import {
   resolveConfig,
   resolveGenerator,
   resolveYargs,
+  resolveArray,
 } from './resolvers'
+
+const initResolver = resolveArray('inits')
 
 const resolvers = [
   resolveEnv,
@@ -17,6 +20,7 @@ const resolvers = [
   resolveConfig,
   resolveGenerator,
   resolveYargs,
+  initResolver
 ]
 
 export const runner: HygenResolver = async (initial) => resolvers.reduce(

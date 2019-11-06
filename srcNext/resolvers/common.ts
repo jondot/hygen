@@ -21,3 +21,14 @@ export const mergeConfig = (config: HygenBuildConfig, mod: HygenBuildConfig): Hy
   })
   return config
 }
+
+export const resolveArray = (field: string): HygenResolver => {
+  return (config) => {
+    if (!(config[field] && Array.isArray(config[field]))) return Promise.resolve(config)
+
+    config[field].reduce((main, resolver) => main.then(resolver(main)),
+      Promise.resolve(config),
+    )
+
+  }
+}
