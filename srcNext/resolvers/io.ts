@@ -1,6 +1,6 @@
 import { HygenResolver, IoConfig } from '../types'
-import fs from 'fs-extra'
-import path from 'path'
+import * as fs from 'fs-extra'
+import * as path from 'path'
 
 const shellFunction = (action, body) => {
   const opts = body && body.length > 0 ? { input: body } : {}

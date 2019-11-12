@@ -1,5 +1,5 @@
 import { HygenResolver } from '../types'
-import os from 'os'
+import * as os from 'os'
 
 function arrayFromEnv(value: string | Array<string>, separator: string = ':'): Array<string> | false {
   if (!value) return false

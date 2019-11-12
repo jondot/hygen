@@ -1,6 +1,6 @@
 import { HygenResolver } from '../types'
-import inflect from 'inflection'
-import changeCase from 'change-case'
+import * as inflect from 'inflection'
+import * as changeCase from 'change-case'
 
 export const resolveHelpers: HygenResolver = config => {
 

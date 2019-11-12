@@ -1,6 +1,5 @@
 import { Logger } from '../src/types'
-import Enquirer from 'enquirer'
-import {pathExists} from 'fs-extra'
+import * as Enquirer from 'enquirer'
 
 export type ShellFn = (action: string, body: string) => string
 export type prompterFn = () => Enquirer
