@@ -51,15 +51,12 @@ const render = async (
     .then(
       map(({ file, attributes, body }) => ({
         file,
-        attributes: Object.entries(attributes).reduce(
-          (obj, [key, value]) => {
-            // eslint-disable-next-line no-param-reassign
-            obj[key] = renderTemplate(value, args, config)
-            return obj[key] && obj
-          },
-
-          {},
-        ),
+        attributes: Object.entries(attributes).reduce((obj, [key, value]) => {
+          return {
+            ...obj,
+            [key]: renderTemplate(value, args, config),
+          }
+        }, {}),
         body: renderTemplate(body, args, config),
       })),
     )
