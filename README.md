@@ -283,7 +283,7 @@ Also you can insert or remove empty line to injection body. That feature very us
 ### Build Your Own
 
 `hygen` is highly embeddable. You should be able to use it by simply listing it
-as a dependency and having [this kind of workflow](src/bin.js) in your binary.
+as a dependency and having [this kind of workflow](src/bin.ts) in your binary.
 
 ```javascript
 const { runner } = require('hygen')
