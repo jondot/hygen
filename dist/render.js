@@ -50,9 +50,7 @@ const render = (args, config) => __awaiter(void 0, void 0, void 0, function* () 
         .then(map(({ file, attributes, body }) => ({
         file,
         attributes: Object.entries(attributes).reduce((obj, [key, value]) => {
-            // eslint-disable-next-line no-param-reassign
-            obj[key] = renderTemplate(value, args, config);
-            return obj[key] && obj;
+            return Object.assign(Object.assign({}, obj), { [key]: renderTemplate(value, args, config) });
         }, {}),
         body: renderTemplate(body, args, config),
     })));

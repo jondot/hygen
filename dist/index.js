@@ -28,7 +28,7 @@ const runner = (argv, config) => __awaiter(void 0, void 0, void 0, function* () 
     }
     catch (err) {
         logger.log(err.toString());
-        if (config.debug) {
+        if (resolvedConfig.debug) {
             logger.log('details -----------');
             logger.log(err.stack);
             logger.log('-------------------');
