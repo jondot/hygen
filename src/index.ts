@@ -16,7 +16,7 @@ const runner = async (
     return { success: true, actions, time: 0 }
   } catch (err) {
     logger.log(err.toString())
-    if (config.debug) {
+    if (resolvedConfig.debug) {
       logger.log('details -----------')
       logger.log(err.stack)
       logger.log('-------------------')
