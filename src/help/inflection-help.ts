@@ -1,5 +1,5 @@
 export function inflectionHelp() {
-  return `inflection - https://github.com/dreamerslab/node.inflection
+  return `# inflection - https://github.com/dreamerslab/node.inflection
 
     indexOf
     

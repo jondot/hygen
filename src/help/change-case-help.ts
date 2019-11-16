@@ -1,5 +1,5 @@
 export function changeCaseHelp() {
-  return `change-case - https://github.com/blakeembrey/change-case
+  return `# change-case - https://github.com/blakeembrey/change-case
 
     camelCase
 
