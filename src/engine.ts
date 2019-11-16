@@ -1,6 +1,8 @@
 import fs from 'fs-extra'
 import { ActionResult, RunnerConfig } from './types'
 import params from './params'
+import { mainHelp } from './help/main-help'
+import { templatesHelp } from './help/templates-help';
 
 const engine = async (
   argv: string[],
@@ -11,13 +13,12 @@ const engine = async (
   const { generator, action, actionfolder } = args
 
   if (['-h', '--help'].includes(argv[0])) {
-    logger.log(`
-Usage:
-  hygen [option] GENERATOR ACTION [--name NAME] [data-options]
+    logger.log(mainHelp());
+    process.exit(0)
+  }
 
-Options:
-  -h, --help # Show this message and quit
-  --dry      # Perform a dry run.  Files will be generated but not saved.`)
+  if (['--help-templates'].includes(argv[0])) {
+    logger.log(templatesHelp());
     process.exit(0)
   }
 
