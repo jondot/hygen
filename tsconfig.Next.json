@@ -6,20 +6,20 @@
     "target": "es6",
     "moduleResolution": "node",
     "sourceMap": true,
-    "outDir": "dist",
+    "outDir": "distNext",
     "baseUrl": ".",
     "esModuleInterop": true,
     "declaration": true,
     "strict": false,
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
-    "types": ["chalk","yargs","change-case","inflection","node","fs-extra"]
+    "types": ["chalk","yargs","change-case","inflection", "node","fs-extra"]
   },
   "include": [
-    "src/**/*"
+    "srcNext/**/*"
   ],
   "exclude": [
-    "src/__tests__/",
-    "src/**/*.spec.ts"
-  ]
+    "srcNext/__tests__/",
+    "srcNext/**/*.spec.ts"
+  ],
 }

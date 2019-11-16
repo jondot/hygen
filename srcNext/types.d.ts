@@ -1,5 +1,7 @@
 import { Logger } from '../src/types'
 import * as Enquirer from 'enquirer'
+import * as yargs from 'yargs'
+import { Chalk, ColorSupport } from 'chalk/types/index.d'
 
 export type ShellFn = (action: string, body: string) => string
 export type prompterFn = () => Enquirer
@@ -52,6 +54,7 @@ export interface ToolsConfig {
   logger: Logger,
   prompter: prompterFn
   reversePathsToWalk: ReversePathWalkFn
+
   [s: string]: any
 }
 
@@ -85,10 +88,12 @@ export interface HygenBuildConfig {
   generator?: GeneratorConfig
   yargs?: Array<HygenResolver>
 }
+
 export interface Args {
   generator?: string
   action?: string
   subaction?: string
+
   [s: string]: unknown
 }
 
@@ -112,14 +117,31 @@ export interface SummaryObject {
     }
   }
 }
+
 export interface ReversePathWalkFnArgs {
   folders: Array<string>
   path: Pathlike
   from?: string
   to?: string
 }
-export type ReversePathWalkFn =  (ReversePathWalkFnArgs) => Array<string>
+
+export type ReversePathWalkFn = (ReversePathWalkFnArgs) => Array<string>
 
 export interface Params {
   [s: string]: unknown
 }
+
+export type ShowOutput = (msg: string, ...other: Array<any>) => void
+
+export interface LogLevel {
+  name: string
+  level: number
+  msgFormat: chalk | ((string) => string)
+  otherFormat?: ([any]) => any
+}
+
+export interface AllLogLevels {
+  [s: string]: LogLevel
+}
+
+export type ChalkFn = Chalk & { supportsColor: ColorSupport }

@@ -4,7 +4,7 @@ import { RunnerConfig } from './types'
 import { ConfigResolver } from './config'
 
 const configResolver = new ConfigResolver('.hygen.js', {
-  exists: fs.exists,
+  exists: fs.pathExists,
   // $FlowFixMe
   load: f => Promise.resolve(require(f)),
   none: _ => ({}),

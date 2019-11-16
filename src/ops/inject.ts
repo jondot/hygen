@@ -21,6 +21,7 @@ const injectOp = async (
 
   const absTo = path.resolve(cwd, to)
 
+  // @ts-ignore
   if (!(await fs.exists(absTo))) {
     logger.err(`Cannot inject to ${to}: doesn't exist.`)
     return result('error', {

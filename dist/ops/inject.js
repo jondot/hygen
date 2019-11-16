@@ -23,6 +23,7 @@ const injectOp = (action, args, { logger, cwd }) => __awaiter(void 0, void 0, vo
         return result('ignored');
     }
     const absTo = path_1.default.resolve(cwd, to);
+    // @ts-ignore
     if (!(yield fs_extra_1.default.exists(absTo))) {
         logger.err(`Cannot inject to ${to}: doesn't exist.`);
         return result('error', {

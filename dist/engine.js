@@ -36,6 +36,7 @@ Options:
         throw new Error(`please specify an action for ${generator}.`);
     }
     logger.log(`Loaded templates: ${templates.replace(`${cwd}/`, '')}`);
+    // @ts-ignore
     if (!(yield fs_extra_1.default.exists(actionfolder))) {
         throw new Error(`I can't find action '${action}' for generator '${generator}'.
 

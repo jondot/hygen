@@ -39,7 +39,7 @@ export const resolveYargs: HygenResolver = config => {
     .commandDir(config.env.cwd + '/_templates', {
       recurse: true,
       extensions: [config.env.yargsModuleExt],
-      include: new RegExp(config.env.yargsModuleFile)
+      include: new RegExp(config.env.yargsModuleFile),
     })
 
   resolveCustomYargs(config.yargs)(yargv)
