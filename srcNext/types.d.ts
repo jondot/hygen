@@ -1,7 +1,7 @@
 import { Logger } from '../src/types'
 import * as Enquirer from 'enquirer'
 import * as yargs from 'yargs'
-import { Chalk, ColorSupport } from 'chalk/types/index.d'
+import * as chalk from 'chalk'
 
 export type ShellFn = (action: string, body: string) => string
 export type prompterFn = () => Enquirer
@@ -134,14 +134,25 @@ export interface Params {
 export type ShowOutput = (msg: string, ...other: Array<any>) => void
 
 export interface LogLevel {
+  dataLevel?: number
+  dataFormat?: ([any]) => any
   name: string
-  level: number
-  msgFormat: chalk | ((string) => string)
-  otherFormat?: ([any]) => any
+  msgLevel?: number
+  msgFormat?: ChalkObjType | ((string) => string)
+}
+
+export type ChalkObjType = chalk.Chalk & chalk.ChalkFunction & {
+  supportsColor: chalk.ColorSupport | false;
+  gray: chalk.ChalkFunction
+  white: chalk.ChalkFunction
+  // Level: typeof LevelEnum;
+  // Color: Color;
+  // ForegroundColor: ForegroundColor;
+  // BackgroundColor: BackgroundColor;
+  // Modifiers: Modifiers;
+  // stderr: chalk.Chalk & { supportsColor: chalk.ColorSupport | false };
 }
 
 export interface AllLogLevels {
   [s: string]: LogLevel
 }
-
-export type ChalkFn = Chalk & { supportsColor: ColorSupport }
