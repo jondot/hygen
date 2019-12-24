@@ -9,7 +9,15 @@ const SKIP_ON_WINDOWS = process.platform === 'win32' ? ['shell'] : []
 const path = require('path')
 const dirCompare = require('dir-compare')
 
-const opts = { compareContent: true }
+const opts = {
+  compareContent: true,
+  compareFileSync:
+    dirCompare.fileCompareHandlers.defaultFileCompare.compareSync,
+  compareFileAsync:
+    dirCompare.fileCompareHandlers.defaultFileCompare.compareAsync,
+  ignoreLineEnding: true,
+  ignoreWhiteSpaces: true
+}
 const fs = require('fs-extra')
 const enquirer = require('enquirer')
 const { runner } = require('../index')
@@ -72,6 +80,9 @@ const metaverse = (folder, cmds, promptResponse = null) =>
       [expectedDir]: fs.readdirSync(expectedDir),
     })
     const res = dirCompare.compareSync(givenDir, expectedDir, opts)
+    console.log("!!!!!!!!!!!!!!!!!")
+    console.log(res)
+    console.log("!!!!!!!!!!!!!!!!!")
     res.diffSet = res.diffSet.filter(d => d.state !== 'equal')
     if (!res.same) {
       console.log(res)
