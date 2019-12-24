@@ -314,39 +314,6 @@ Object {
 }
 `;
 
-exports[`metaverse hygen-templates: shell new --name foo 1`] = `
-Object {
-  "actions": Array [
-    Object {
-      "status": "executed",
-      "subject": "/__tests__/metaverse/hygen-templates/given/shell/hello.piped",
-      "timing": -1,
-      "type": "shell",
-    },
-    Object {
-      "status": "executed",
-      "subject": "/__tests__/metaverse/hygen-templates/given/shell/foo.hello",
-      "timing": -1,
-      "type": "shell",
-    },
-    Object {
-      "status": "added",
-      "subject": "given/shell/hmm.txt",
-      "timing": -1,
-      "type": "add",
-    },
-    Object {
-      "status": "executed",
-      "subject": "/__tests__/metaverse/hygen-templates/given/shell/side-effect.hello",
-      "timing": -1,
-      "type": "shell",
-    },
-  ],
-  "success": true,
-  "time": 0,
-}
-`;
-
 exports[`metaverse hygen-templates: worker new --name foo 1`] = `
 Object {
   "actions": Array [
