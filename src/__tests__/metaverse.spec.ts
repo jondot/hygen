@@ -80,9 +80,6 @@ const metaverse = (folder, cmds, promptResponse = null) =>
       [expectedDir]: fs.readdirSync(expectedDir),
     })
     const res = dirCompare.compareSync(givenDir, expectedDir, opts)
-    console.log("!!!!!!!!!!!!!!!!!")
-    console.log(res)
-    console.log("!!!!!!!!!!!!!!!!!")
     res.diffSet = res.diffSet.filter(d => d.state !== 'equal')
     if (!res.same) {
       console.log(res)

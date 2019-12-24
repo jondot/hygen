@@ -891,7 +891,15 @@ boom@5.x.x:
   dependencies:
     hoek "4.x.x"
 
-brace-expansion@^1.0.0, brace-expansion@^1.1.7:
+brace-expansion@^1.0.0:
+  version "1.1.11"
+  resolved "https://registry.yarnpkg.com/brace-expansion/-/brace-expansion-1.1.11.tgz#3c7fcbf529d87226f3d2f52b966ff5271eb441dd"
+  integrity sha512-iCuPHDFgrHX7H2vEI/5xpz07zSHB00TpugqhmYtVmMO6518mCuRMoOYFldEBl0g187ufozdaHgWKcYFb61qGiA==
+  dependencies:
+    balanced-match "^1.0.0"
+    concat-map "0.0.1"
+
+brace-expansion@^1.1.7:
   version "1.1.8"
   resolved "https://registry.yarnpkg.com/brace-expansion/-/brace-expansion-1.1.8.tgz#c07b211c7c952ec1f8efd51a77ef0d1d3990a292"
   integrity sha1-wHshHHyVLsH479Uad+8NHTmQopI=
@@ -1589,9 +1597,9 @@ diff@^4.0.1:
   integrity sha512-s2+XdvhPCOF01LRQBC8hf4vhbVmI2CGS5aZnxLJlT5FtdhPCDFq80q++zK2KlrVorVDdL5BOGZ/VfLrVtYNF+Q==
 
 dir-compare@^1.4.0:
-  version "1.4.0"
-  resolved "https://registry.yarnpkg.com/dir-compare/-/dir-compare-1.4.0.tgz#afa00ab99c0fb1c412b48dc65e8f4378d257f006"
-  integrity sha1-r6AKuZwPscQStI3GXo9DeNJX8AY=
+  version "1.8.0"
+  resolved "https://registry.yarnpkg.com/dir-compare/-/dir-compare-1.8.0.tgz#5dbc06682c0492519c733f76f43452414d8167d0"
+  integrity sha512-Ork/J37pKE6M+Fvl98OB+iAuZ5CG7d2d8DIMmiCDEZVAbEWn2lp+ghSbc1lgkgVX91p8jMQs2DeTMJvpMeU9+A==
   dependencies:
     bluebird "3.4.1"
     buffer-equal "1.0.0"
