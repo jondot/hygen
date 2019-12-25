@@ -46,6 +46,7 @@
     "dir-compare": "^1.4.0",
     "gh-pages": "^1.1.0",
     "jest": "^24.3.1",
+    "jest-serializer-html": "^7.0.0",
     "pkg": "^4.4.0",
     "time-require": "^0.1.2",
     "ts-node": "^8.4.1",
@@ -53,6 +54,7 @@
     "zeroconf-typescript-eslint": "^2.0.0"
   },
   "jest": {
+    "snapshotSerializers": ["jest-serializer-html"],
     "transform": {
       "^.+\\.tsx?$": "ts-jest"
     },
