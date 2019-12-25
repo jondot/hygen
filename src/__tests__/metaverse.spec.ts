@@ -53,6 +53,7 @@ const metaverse = (folder, cmds, promptResponse = null) =>
         console.log(`skipping ${cmd} (windows!)`)
         await fs.remove(path.join(metaDir, 'expected', cmd[0]))
         continue
+
       }
 
       enquirer.prompt = failPrompt

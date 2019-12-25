@@ -16,7 +16,7 @@ shallow_clone: true
 test_script:
   - node --version
   - yarn --version
-  - yarn test:win32
+  - yarn test:win32 -u
   - yarn hygen
   - yarn hygen init self
 cache:
