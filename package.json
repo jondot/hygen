@@ -54,7 +54,9 @@
     "zeroconf-typescript-eslint": "^2.0.0"
   },
   "jest": {
-    "snapshotSerializers": ["jest-serializer-html"],
+    "snapshotSerializers": [
+      "jest-serializer-html"
+    ],
     "transform": {
       "^.+\\.tsx?$": "ts-jest"
     },
