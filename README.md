@@ -14,19 +14,19 @@
 
 ## Features
 
-✅ Build ad-hoc generators quickly and full on project scaffolds.  
-✅ Local generators per project (and global, if you must)  
-✅ Built-in scaffolds to quickly create generators  
-✅ Full logic templates and rendering  
-✅ Prompts and flows for taking in arguments  
-✅ Automatic CLI arguments  
-✅ Adding new files  
-✅ Injecting into existing files  
-✅ Running shell commands  
-✅ Super fast, constantly optimized for speed  
+✅ Build ad-hoc generators quickly and full on project scaffolds.
+✅ Local generators per project (and global, if you must)
+✅ Built-in scaffolds to quickly create generators
+✅ Full logic templates and rendering
+✅ Prompts and flows for taking in arguments
+✅ Automatic CLI arguments
+✅ Adding new files
+✅ Injecting into existing files
+✅ Running shell commands
+✅ Super fast, constantly optimized for speed
 
 
-> New in hygen v4.0.0: a positional `NAME` parameter. 
+> New in hygen v4.0.0: a positional `NAME` parameter.
 > Now you can use `$ hygen component new MyComponent` instead of `$ hygen component new --name MyComponent`.
 
 ## Used By
@@ -43,6 +43,8 @@
 <Image alt="Chat Logs" height="50" src="https://avatars1.githubusercontent.com/u/37252774?s=200&v=4"/>
 
 <Image alt="Stelace" height="70" src="https://avatars1.githubusercontent.com/u/32740360?s=400&v=4"/>
+
+<Image alt="Echobind." height="70" src="https://avatars0.githubusercontent.com/u/570840?s=200&v=4"/>
 
 ## Quick Start
 
