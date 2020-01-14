@@ -87,6 +87,26 @@ module.exports = {
     ],
   ],
   customFields: {
+    features: [
+      {
+        image: 'simple.svg',
+        title: 'Simplicity is Key',
+        content:
+          'Generators are self-contained and folder structure makes up the command structure. Complex is easy but simple is hard.',
+      },
+      {
+        image: 'scalable.svg',
+        title: 'Scales With Any Team',
+        content:
+          'Contextual template lookup, pull requests that look nice and clean, structured file organization, make generators fun again!',
+      },
+      {
+        image: 'fast.svg',
+        title: 'Fast is a Feature',
+        content:
+          'Constantly benchmarked and dependencies are carefully considered to shorten startup and generation time.',
+      },
+    ],
     stories: [
       {
         title: 'Speeding up your project’s development with scaffolds',

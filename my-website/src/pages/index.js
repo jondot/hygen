@@ -1,91 +1,68 @@
 import React from 'react'
 import styled from 'styled-components'
-import classnames from 'classnames'
 import Layout from '@theme/Layout'
 import Link from '@docusaurus/Link'
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext'
 import useBaseUrl from '@docusaurus/useBaseUrl'
-import styles from './styles.module.css'
-
-const features = [
-  {
-    title: <>Simplicity is Key</>,
-    imageUrl: 'img/simple.svg',
-    description: (
-      <>
-        Generators are self-contained and folder structure makes up the command
-        structure. Complex is easy but simple is hard.
-      </>
-    ),
-  },
-  {
-    title: <>Scales with any team</>,
-    imageUrl: 'img/scalable.svg',
-    description: (
-      <>
-        Contextual template lookup, pull requests that look nice and clean,
-        structured file organization, make generators fun again!
-      </>
-    ),
-  },
-  {
-    title: <>Fast is a Feature</>,
-    imageUrl: 'img/fast.svg',
-    description: (
-      <>
-        Constantly benchmarked and dependencies are carefully considered to
-        shorten startup and generation time.
-      </>
-    ),
-  },
-]
+import '../css/prism.css'
+import '../css/docsearch.min.css'
+import '../css/docsearch.custom.css'
+import CtaButton from '../components/cta-button'
+import Shell from '../components/shell'
 
 function Home() {
   const context = useDocusaurusContext()
   const { siteConfig = {} } = context
-  console.log(useBaseUrl('img/fast.svg'), 'joe')
-  console.log('damn you', siteConfig.customFields.usedIn)
+  const gitHubURL = `https://github.com/${siteConfig.organizationName}/${siteConfig.projectName}`
   return (
     <Layout
       title={siteConfig.title}
       description="Description will go into a meta tag in <head />"
     >
-      <header className={classnames('hero hero--primary', styles.heroBanner)}>
-        <div className="container">
-          <h1 className="hero__title">{siteConfig.title}</h1>
-          <p className="hero__subtitle">{siteConfig.tagline}</p>
-          <div className={styles.buttons}>
-            <Link
-              className={classnames(
-                'button button--outline button--secondary button--lg',
-                styles.getStarted,
-              )}
-              to={useBaseUrl('docs/quick-start')}
-            >
-              Get Started
-            </Link>
-          </div>
-        </div>
-      </header>
+      <IndexHeadContainer>
+        <Hero>
+          <img
+            src={useBaseUrl('img/hygen.svg')}
+            width="150px"
+            alt={`${siteConfig.title} logo.`}
+          />
+          <h1 style={{ fontSize: '2rem', fontWeight: 'lighter' }}>
+            {siteConfig.title}
+          </h1>
+          <Subtitle>The scalable code generator that saves you time.</Subtitle>
+          <Shell style={{ margin: '5.5rem 0 2rem 0' }} />
+          <CtaButton to="quick-start">Quick Start</CtaButton>
+          <Or>&mdash; or &mdash;</Or>
+          <TtaLink href={gitHubURL}>Github &rarr;</TtaLink>
+        </Hero>
+      </IndexHeadContainer>
       <main>
         <BodyContainer>
-          {features && features.length && (
-            <Section>
-              <Triplet>
-                {features.map(({ imageUrl, title, description }, idx) => (
-                  <Feature key={idx}>
-                    <img src={useBaseUrl(imageUrl)} width="100px" alt={title} />
-                    <Subtitle>{title}</Subtitle>
-                    <p>{description}</p>
-                  </Feature>
-                ))}
-              </Triplet>
-            </Section>
-          )}
+          {siteConfig.customFields.features &&
+            siteConfig.customFields.features.length && (
+              <Section>
+                <Triplet>
+                  {siteConfig.customFields.features.map(
+                    ({ image, title, content }) => (
+                      <Feature key={title}>
+                        <img
+                          src={useBaseUrl(`img/${image}`)}
+                          width="100px"
+                          alt={title}
+                        />
+                        <Subtitle>{title}</Subtitle>
+                        <Description>{content}</Description>
+                      </Feature>
+                    ),
+                  )}
+                </Triplet>
+              </Section>
+            )}
           <Section>
             {siteConfig.customFields.stories.map(
               ({ link, tagline, avatar, title }) => (
                 <div
+                  key={title}
                   style={{
                     maxWidth: 700,
                     textAlign: 'left',
@@ -119,7 +96,7 @@ function Home() {
             <Triplet>
               {siteConfig.customFields.usedIn.map(
                 ({ width, image, title, link }) => (
-                  <Feature>
+                  <Feature key={title}>
                     <Link to={useBaseUrl(`docs/${link}`)}>
                       <Subtitle>{title}</Subtitle>
                       <img
@@ -143,13 +120,14 @@ export default Home
 
 const Section = styled.section`
   border-bottom: 1px solid #f0f0f0;
-  padding: 4rem 0;
-  padding-bottom: 6rem;
+  padding: 2.666666667rem 0;
+  padding-bottom: 4rem;
   text-align: center;
 `
 
 const TtaLink = styled.a`
   color: var(--ifm-color-primary);
+  font-size: 1.2rem;
 `
 
 const ArticleTagline = styled.div`
@@ -159,11 +137,11 @@ const ArticleTagline = styled.div`
 `
 
 const Or = styled.div`
-  margin: 0 2rem;
-  color: ${({ theme: { brandSecondary } }) => brandSecondary};
+  margin: 0 1.333333333rem;
+  color: var(--brand-secondary);
   display: inline-block;
   font-family: Georgia, serif;
-  font-size: 1.8em;
+  font-size: 1.2rem;
   font-style: italic;
 `
 
@@ -172,20 +150,14 @@ const Hero = styled.div`
   & > h1 {
     font-weight: 300;
     font-size: 3.2rem;
-    color: #f722b1;
+    color: var(--ifm-color-primary);
     margin: 0;
   }
-`
-
-const Container = styled.div`
-  flex: 0.333333;
-  text-align: center;
-  padding: 1rem;
 `
 const Subtitle = styled.h2`
   color: var(--brand-secondary);
   font-weight: lighter;
-  margin: 2rem 0;
+  margin: 1.2rem 0;
 `
 
 const Description = styled.p`
@@ -212,4 +184,10 @@ const Feature = styled.div`
   flex: 0.333333;
   text-align: center;
   padding: 1rem;
+`
+const IndexHeadContainer = styled.div`
+  background: white;
+  padding: 20px;
+  text-align: center;
+  border-bottom: 1px solid #f0f0f0;
 `
