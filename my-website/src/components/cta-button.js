@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React from 'react'
 import Link from '@docusaurus/Link'
 import styled from 'styled-components'
 

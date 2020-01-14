@@ -31,7 +31,7 @@ function Home() {
           </h1>
           <Subtitle>The scalable code generator that saves you time.</Subtitle>
           <Shell style={{ margin: '5.5rem 0 2rem 0' }} />
-          <CtaButton to="quick-start">Quick Start</CtaButton>
+          <CtaButton to={useBaseUrl('docs/quick-start')}>Quick Start</CtaButton>
           <Or>&mdash; or &mdash;</Or>
           <TtaLink href={gitHubURL}>Github &rarr;</TtaLink>
         </Hero>
