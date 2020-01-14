@@ -6,7 +6,6 @@ import Link from '@docusaurus/Link'
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext'
 import useBaseUrl from '@docusaurus/useBaseUrl'
 import styles from './styles.module.css'
-import Feature from '../components/feature'
 
 const features = [
   {
@@ -44,6 +43,8 @@ const features = [
 function Home() {
   const context = useDocusaurusContext()
   const { siteConfig = {} } = context
+  console.log(useBaseUrl('img/fast.svg'), 'joe')
+  console.log('damn you', siteConfig.customFields.usedIn)
   return (
     <Layout
       title={siteConfig.title}
@@ -67,49 +68,72 @@ function Home() {
         </div>
       </header>
       <main>
-        {features && features.length && (
-          <section className={styles.features}>
-            <div className="container">
-              <div className="row">
-                {features.map((props, idx) => (
-                  <Feature key={idx} {...props} />
+        <BodyContainer>
+          {features && features.length && (
+            <Section>
+              <Triplet>
+                {features.map(({ imageUrl, title, description }, idx) => (
+                  <Feature key={idx}>
+                    <img src={useBaseUrl(imageUrl)} width="100px" alt={title} />
+                    <Subtitle>{title}</Subtitle>
+                    <p>{description}</p>
+                  </Feature>
                 ))}
-              </div>
-            </div>
-          </section>
-        )}
-        <Section>
-          {siteConfig.customFields.stories.map(
-            ({ link, tagline, avatar, title }) => (
-              <div
-                style={{
-                  maxWidth: 700,
-                  textAlign: 'left',
-                  padding: '10px',
-                  margin: '4rem auto',
-                }}
-              >
-                <TtaLink href={link}>
-                  <img
-                    src={avatar}
-                    style={{
-                      float: 'left',
-                      borderRadius: 32,
-                      width: 64,
-                      height: 64,
-                      marginRight: 10,
-                    }}
-                    alt={`Author for story ${title}.`}
-                  />
-                  <div style={{}}>
-                    {title} &rarr;
-                    <ArticleTagline>{tagline}</ArticleTagline>
-                  </div>
-                </TtaLink>
-              </div>
-            ),
+              </Triplet>
+            </Section>
           )}
-        </Section>
+          <Section>
+            {siteConfig.customFields.stories.map(
+              ({ link, tagline, avatar, title }) => (
+                <div
+                  style={{
+                    maxWidth: 700,
+                    textAlign: 'left',
+                    padding: '10px',
+                    margin: '4rem auto',
+                  }}
+                >
+                  <TtaLink href={link}>
+                    <img
+                      src={avatar}
+                      style={{
+                        float: 'left',
+                        borderRadius: 32,
+                        width: 64,
+                        height: 64,
+                        marginRight: 10,
+                      }}
+                      alt={`Author for story ${title}.`}
+                    />
+                    <div style={{}}>
+                      {title} &rarr;
+                      <ArticleTagline>{tagline}</ArticleTagline>
+                    </div>
+                  </TtaLink>
+                </div>
+              ),
+            )}
+          </Section>
+          <Section>
+            <h1>See how to use with:</h1>
+            <Triplet>
+              {siteConfig.customFields.usedIn.map(
+                ({ width, image, title, link }) => (
+                  <Feature>
+                    <Link to={useBaseUrl(`docs/${link}`)}>
+                      <Subtitle>{title}</Subtitle>
+                      <img
+                        src={useBaseUrl(`img/${image}`)}
+                        width={width}
+                        alt={`${title} logo.`}
+                      />
+                    </Link>
+                  </Feature>
+                ),
+              )}
+            </Triplet>
+          </Section>
+        </BodyContainer>
       </main>
     </Layout>
   )
@@ -132,4 +156,60 @@ const ArticleTagline = styled.div`
   color: var(--brand-secondary);
   font-weight: 300;
   font-style: italic;
+`
+
+const Or = styled.div`
+  margin: 0 2rem;
+  color: ${({ theme: { brandSecondary } }) => brandSecondary};
+  display: inline-block;
+  font-family: Georgia, serif;
+  font-size: 1.8em;
+  font-style: italic;
+`
+
+const Hero = styled.div`
+  padding: 50px 0;
+  & > h1 {
+    font-weight: 300;
+    font-size: 3.2rem;
+    color: #f722b1;
+    margin: 0;
+  }
+`
+
+const Container = styled.div`
+  flex: 0.333333;
+  text-align: center;
+  padding: 1rem;
+`
+const Subtitle = styled.h2`
+  color: var(--brand-secondary);
+  font-weight: lighter;
+  margin: 2rem 0;
+`
+
+const Description = styled.p`
+  color: var(--ink);
+  /* font-size: 1.125rem; */
+  font-size: 1.05rem;
+  margin: 2rem 0;
+`
+
+const BodyContainer = styled.div``
+
+const Triplet = styled.div`
+  margin: 0 auto;
+  display: flex;
+  max-width: 1100px;
+  h2 {
+  }
+  @media screen and (max-width: 600px) {
+    display: block;
+  }
+`
+
+const Feature = styled.div`
+  flex: 0.333333;
+  text-align: center;
+  padding: 1rem;
 `

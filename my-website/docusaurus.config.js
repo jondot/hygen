@@ -121,5 +121,31 @@ module.exports = {
         tagline: 'By Dotan Nahum on Medium.com',
       },
     ],
+    usedIn: [
+      {
+        image: 'redux.svg',
+        width: 100,
+        title: 'Redux',
+        link: 'redux',
+        content:
+          'Generators are self-contained and folder structure makes up the command structure. Complex is easy but simple is hard.',
+      },
+      {
+        image: 'node.svg',
+        width: 95,
+        title: 'Express.js',
+        link: 'express',
+        content:
+          'Contextual template lookup, pull requests that look nice and clean, structured file organization, make generators fun again!',
+      },
+      {
+        image: 'react.svg',
+        width: 175,
+        title: 'React Native',
+        link: 'react-native',
+        content:
+          'Constantly benchmarked and dependencies are carefully considered to shorten startup and generation time.',
+      },
+    ],
   },
 }
