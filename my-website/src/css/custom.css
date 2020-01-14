@@ -25,3 +25,7 @@
   padding: 0 var(--ifm-pre-padding);
 }
 
+.footer.footer--dark {
+  background-color: var(--ink);
+}
+
