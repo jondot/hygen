@@ -1,4 +1,5 @@
 import React from 'react'
+import styled from 'styled-components'
 import classnames from 'classnames'
 import Layout from '@theme/Layout'
 import Link from '@docusaurus/Link'
@@ -77,9 +78,58 @@ function Home() {
             </div>
           </section>
         )}
+        <Section>
+          {siteConfig.customFields.stories.map(
+            ({ link, tagline, avatar, title }) => (
+              <div
+                style={{
+                  maxWidth: 700,
+                  textAlign: 'left',
+                  padding: '10px',
+                  margin: '4rem auto',
+                }}
+              >
+                <TtaLink href={link}>
+                  <img
+                    src={avatar}
+                    style={{
+                      float: 'left',
+                      borderRadius: 32,
+                      width: 64,
+                      height: 64,
+                      marginRight: 10,
+                    }}
+                    alt={`Author for story ${title}.`}
+                  />
+                  <div style={{}}>
+                    {title} &rarr;
+                    <ArticleTagline>{tagline}</ArticleTagline>
+                  </div>
+                </TtaLink>
+              </div>
+            ),
+          )}
+        </Section>
       </main>
     </Layout>
   )
 }
 
 export default Home
+
+const Section = styled.section`
+  border-bottom: 1px solid #f0f0f0;
+  padding: 4rem 0;
+  padding-bottom: 6rem;
+  text-align: center;
+`
+
+const TtaLink = styled.a`
+  color: var(--ifm-color-primary);
+`
+
+const ArticleTagline = styled.div`
+  color: var(--brand-secondary);
+  font-weight: 300;
+  font-style: italic;
+`
