@@ -1,9 +1,6 @@
 ---
 title: Generators
-doc: 3
-section: 1
-category: "tech"
-type: "doc"
+id: generators
 ---
 
 With `hygen`, every time you spot a repetitive task, or a hidden structure in files you're editing, you'll quickly make a new generator.
@@ -112,7 +109,7 @@ Try making the text variant yourself by editing `text.ejs.t`. Note: you want to 
 
 ## Interactive Prompt
 
-To create an interactive generator, add `prompt.js` file to the generator root directory. 
+To create an interactive generator, add `prompt.js` file to the generator root directory.
 
 ```bash{3,4}
 _templates/

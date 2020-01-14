@@ -1,9 +1,6 @@
 ---
 title: Express
-doc: 3
-section: 3
-category: "tech"
-type: "doc"
+id: express
 ---
 
 [Express.js](https://expressjs.com/) is arguably the most popular web framework for Node.js

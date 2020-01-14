@@ -1,9 +1,6 @@
 ---
 title: Quick Start
-doc: 1
-section: 1
-category: "tech"
-type: "doc"
+id: quick-start
 ---
 
 You can have plenty of ways to run `hygen`. Pick one of the following:

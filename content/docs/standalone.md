@@ -1,9 +1,6 @@
 ---
 title: Standalone
-doc: 2
-section: 2
-category: "tech"
-type: "doc"
+id: standalone
 ---
 
 If you don't have Node.js installed you can install the `hygen` binary in standalone mode. Depending on your operating system, you have a few options.

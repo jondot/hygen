@@ -1,9 +1,6 @@
 ---
 title: Packages
-doc: 1
-section: 2
-category: "tech"
-type: "doc"
+id: packages
 ---
 
 Sharing generators cross-projects and cross-teams can be done simply by copying or any custom tooling your teams come up with that perfectly fits your workflow.

@@ -1,9 +1,6 @@
 ---
 title: Extensibility
-doc: 4
-section: 1
-category: "tech"
-type: "doc"
+id: extensibility
 ---
 
 You can extend these properties of Hygen, using a special `.hygen.js` file:

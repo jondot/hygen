@@ -1,9 +1,6 @@
 ---
 title: React Native
-doc: 2
-section: 3
-category: "tech"
-type: "doc"
+id: react-native
 ---
 
 While the [Redux use case](/redux) is more than suitable to use for React Native, we have one unique (and arguably limiting) property of the React Native packager which is: you can't require anything dynamically.

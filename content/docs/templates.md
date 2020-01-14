@@ -1,9 +1,6 @@
 ---
 title: Templates
-doc: 2
-section: 1
-category: "tech"
-type: "doc"
+id: templates
 ---
 
 A `hygen` template is a header of a markdown-like frontmatter and a body of an ejs templating engine.

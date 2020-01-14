@@ -1,9 +1,6 @@
 ---
 title: FAQ
-doc: 5
-section: 1
-category: "tech"
-type: "doc"
+id: faq
 ---
 
 ## Why Should I use Hygen?
@@ -39,9 +36,9 @@ Hello <%= defaulted %>.
 
 ## Can I inject using regular expressions that span across newlines in the target file?
 
-`hygen` is designed to work on a line-by-line basis. Injection inserts the _lines_ of the template _between lines_ (by `\n`) of the target file according to the expression supplied. 
+`hygen` is designed to work on a line-by-line basis. Injection inserts the _lines_ of the template _between lines_ (by `\n`) of the target file according to the expression supplied.
 
-However, as of v2.1.2 or later, `hygen` supports multi-line regular expressions in the `before`, `after`, and `skip_if` injection properties.  This works in the following ways: 
+However, as of v2.1.2 or later, `hygen` supports multi-line regular expressions in the `before`, `after`, and `skip_if` injection properties.  This works in the following ways:
 
 * `skip-if` is now always evaluated as a potentially multi-line expression across the entire target file.
 

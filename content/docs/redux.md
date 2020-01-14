@@ -1,9 +1,6 @@
 ---
 title: Redux
-doc: 1
-section: 3
-category: "tech"
-type: "doc"
+id: redux
 ---
 
 Redux is the posterchild of `hygen`. It doesn't matter what level of granularity you select for your Redux architecture, you're still going to end up with a lot of boilerplate.

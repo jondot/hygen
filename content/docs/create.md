@@ -1,9 +1,6 @@
 ---
-title: "Create"
-doc: 2
-section: 2
-category: "tech"
-type: "doc"
+title: Create
+id: create
 ---
 
 Maintaining code generators over time can be a challenge in some cases. If you have a bug in the generator, you need to modify your templates, run the modified generator, and then manually import your changes back into the templates while remembering to replace keywords with ejs placeholders.
@@ -36,7 +33,7 @@ $ npm install --global hygen-create
 
 * String variations (UPPERCASED, CamelCased, etc.) are automatically recognized.  For example:
 ```json
-// if the following 'package.json' is used as a generator source 
+// if the following 'package.json' is used as a generator source
 // with 'MyPackage' as the templatization string:
 {
     "name": "MyPackage",
