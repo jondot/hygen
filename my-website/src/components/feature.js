@@ -28,5 +28,7 @@ const Subtitle = styled.h2`
 
 const Description = styled.p`
   color: var(--ink);
-  margin: 3rem 0;
+  /* font-size: 1.125rem; */
+  font-size: 1.05rem;
+  margin: 2rem 0;
 `
