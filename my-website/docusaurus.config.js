@@ -1,5 +1,5 @@
 module.exports = {
-  title: 'hygen',
+  title: 'Hygen',
   tagline: 'The scalable code generator that saves you time.',
   url: 'https://www.hygen.io/',
   baseUrl: '/',
@@ -69,7 +69,7 @@ module.exports = {
           ],
         },
       ],
-      copyright: `Copyright © ${new Date().getFullYear()} Dotan J. Nahum.! Built with Docusaurus.`,
+      copyright: `Copyright © ${new Date().getFullYear()} Dotan J. Nahum. Built with Docusaurus.`,
     },
   },
   presets: [
