@@ -29,3 +29,20 @@
   background-color: var(--ink);
 }
 
+code {
+  font-family: Monaco, 'Lucida Console', monospace;
+  color: var(--ifm-color-primary);
+  margin: 0;
+  padding: 0;
+  background-color: transparent;
+  font-size: 1rem !important; /* important to override Prism*/
+}
+pre[class*='language-'] {
+  font-family: Monaco, 'Lucida Console', monospace;
+  background: #fff;
+  border: 1px solid #dae4ed;
+  padding: 2rem;
+  box-shadow: 0 2px 6px 0 #eff5fa;
+  border-radius: 3px;
+}
+
