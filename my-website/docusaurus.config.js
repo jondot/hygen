@@ -73,7 +73,7 @@ module.exports = {
     },
     prism: {
       defaultLanguage: 'bash',
-      theme: require('prism-react-renderer/themes/duotoneLight'), // eslint-disable-line import/no-extraneous-dependencies
+      theme: require('prism-react-renderer/themes/ultramin'), // eslint-disable-line import/no-extraneous-dependencies
     },
   },
   presets: [
