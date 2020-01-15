@@ -71,6 +71,10 @@ module.exports = {
       ],
       copyright: `Copyright © ${new Date().getFullYear()} Dotan J. Nahum. Built with Docusaurus.`,
     },
+    prism: {
+      defaultLanguage: 'bash',
+      theme: require('prism-react-renderer/themes/duotoneLight'), // eslint-disable-line import/no-extraneous-dependencies
+    },
   },
   presets: [
     [
