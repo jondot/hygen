@@ -1,0 +1,25 @@
+{
+  "compilerOptions": {
+    "module": "commonjs",
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "target": "es6",
+    "moduleResolution": "node",
+    "sourceMap": true,
+    "outDir": "distNext",
+    "baseUrl": ".",
+    "esModuleInterop": true,
+    "declaration": true,
+    "strict": false,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "types": ["chalk","yargs","change-case","inflection", "node","fs-extra"]
+  },
+  "include": [
+    "srcNext/**/*"
+  ],
+  "exclude": [
+    "srcNext/__tests__/",
+    "srcNext/**/*.spec.ts"
+  ],
+}

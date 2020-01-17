@@ -12,7 +12,8 @@
     "declaration": true,
     "strict": false,
     "emitDecoratorMetadata": true,
-    "experimentalDecorators": true
+    "experimentalDecorators": true,
+    "types": ["chalk","yargs","change-case","inflection","node","fs-extra"]
   },
   "include": [
     "src/**/*"

@@ -31,6 +31,7 @@ Options:
   }
 
   logger.log(`Loaded templates: ${templates.replace(`${cwd}/`, '')}`)
+  // @ts-ignore
   if (!(await fs.exists(actionfolder))) {
     throw new Error(`I can't find action '${action}' for generator '${generator}'.
 

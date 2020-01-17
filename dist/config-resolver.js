@@ -16,7 +16,7 @@ const path_1 = __importDefault(require("path"));
 const fs_extra_1 = __importDefault(require("fs-extra"));
 const config_1 = require("./config");
 const configResolver = new config_1.ConfigResolver('.hygen.js', {
-    exists: fs_extra_1.default.exists,
+    exists: fs_extra_1.default.pathExists,
     // $FlowFixMe
     load: f => Promise.resolve(require(f)),
     none: _ => ({}),

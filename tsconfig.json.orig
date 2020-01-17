@@ -1,0 +1,17 @@
+{
+  "compilerOptions": {
+    "allowJs": true,
+    "allowSyntheticDefaultImports": true,
+    "resolveJsonModule": true,
+    "baseUrl": "src/",
+    "types": ["chalk","yargs", "yargs-parser", "node","change-case", "enquirer", "front-matter",
+    "jest", "inflection", "path"],
+    "lib": [
+      "es5",
+      "es6",
+      "es2015.promise"
+    ]
+  },
+  "include": ["src/**/*.ts"],
+  "exclude": ["node_modules", "src/v4/**/*.ts"]
+}
