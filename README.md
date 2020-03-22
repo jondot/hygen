@@ -14,16 +14,16 @@
 
 ## Features
 
-✅ Build ad-hoc generators quickly and full on project scaffolds.
-✅ Local generators per project (and global, if you must)
-✅ Built-in scaffolds to quickly create generators
-✅ Full logic templates and rendering
-✅ Prompts and flows for taking in arguments
-✅ Automatic CLI arguments
-✅ Adding new files
-✅ Injecting into existing files
-✅ Running shell commands
-✅ Super fast, constantly optimized for speed
+- ✅ Build ad-hoc generators quickly and full on project scaffolds.
+- ✅ Local generators per project (and global, if you must)
+- ✅ Built-in scaffolds to quickly create generators
+- ✅ Full logic templates and rendering
+- ✅ Prompts and flows for taking in arguments
+- ✅ Automatic CLI arguments
+- ✅ Adding new files
+- ✅ Injecting into existing files
+- ✅ Running shell commands
+- ✅ Super fast, constantly optimized for speed
 
 
 > New in hygen v4.0.0: a positional `NAME` parameter.
