@@ -4,7 +4,7 @@ jest.mock('enquirer', () => ({
   prompt: null,
 }))
 
-const SKIP_ON_WINDOWS = process.platform === 'win32' ? ['shell'] : []
+// const SKIP_ON_WINDOWS = process.platform === 'win32' ? ['shell'] : []
 
 const path = require('path')
 const dirCompare = require('dir-compare')
@@ -38,14 +38,14 @@ const metaverse = (folder, cmds, promptResponse = null) =>
     console.log('before', fs.readdirSync(metaDir))
     for (let cmd of cmds) {
       console.log('testing', cmd)
-      if (
-        process.platform === 'win32' &&
-        SKIP_ON_WINDOWS.find(c => cmd[0] === c)
-      ) {
-        console.log(`skipping ${cmd} (windows!)`)
-        await fs.remove(path.join(metaDir, 'expected', cmd[0]))
-        continue
-      }
+      // if (
+      //   process.platform === 'win32' &&
+      //   SKIP_ON_WINDOWS.find(c => cmd[0] === c)
+      // ) {
+      //   console.log(`skipping ${cmd} (windows!)`)
+      //   await fs.remove(path.join(metaDir, 'expected', cmd[0]))
+      //   continue
+      // }
 
       enquirer.prompt = failPrompt
       if (promptResponse) {
