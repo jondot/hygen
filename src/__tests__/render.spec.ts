@@ -157,4 +157,25 @@ describe('render ng', () => {
     expect(actualFile).toMatch(expectedFile)
     expect(actualBody).toMatch(expectedBody)
   })
+
+  it('should use config.localsDefaults for not passed parameters', async () => {
+    // setup
+    const expectedFile = /full/
+    const expectedBody = /localsDefaultBill/
+    const config = {
+      localsDefaults: {
+        name: 'localsDefaultFileName',
+        bill: 'localsDefaultBill',
+      },
+    }
+    // act
+    const response = await render({
+      actionfolder: fixture('app/action-full'),
+    }, config)
+    const actualFile = response[0].file
+    const actualBody = response[0].body
+    // assert
+    expect(actualFile).toMatch(expectedFile)
+    expect(actualBody).toMatch(expectedBody)
+  })
 })

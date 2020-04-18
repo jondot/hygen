@@ -30,8 +30,8 @@ const localsDefaults = {
 
 const capitalizedLocals = (locals: any) => Object.entries(locals).reduce(doCapitalization, {});
 
-const context = (locals: any, config: RunnerConfig) => {
-  const localsWithDefaults = Object.assign({}, localsDefaults, locals);
+const context = (locals: any, config: RunnerConfig = {}) => {
+  const localsWithDefaults = Object.assign({}, localsDefaults, config.localsDefaults, locals);
   const configHelpers = config && (typeof config.helpers === "function" ? config.helpers(locals, config) : config.helpers) || {};
   return Object.assign(localsWithDefaults, capitalizedLocals(localsWithDefaults), {
     h: { ...helpers, ...configHelpers }
