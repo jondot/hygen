@@ -14,16 +14,16 @@
 
 ## Features
 
-✅ Build ad-hoc generators quickly and full on project scaffolds.
-✅ Local generators per project (and global, if you must)
-✅ Built-in scaffolds to quickly create generators
-✅ Full logic templates and rendering
-✅ Prompts and flows for taking in arguments
-✅ Automatic CLI arguments
-✅ Adding new files
-✅ Injecting into existing files
-✅ Running shell commands
-✅ Super fast, constantly optimized for speed
+✅ Build ad-hoc generators quickly and full on project scaffolds. <br/>
+✅ Local generators per project (and global, if you must) <br/>
+✅ Built-in scaffolds to quickly create generators <br/>
+✅ Full logic templates and rendering <br/>
+✅ Prompts and flows for taking in arguments <br/>
+✅ Automatic CLI arguments <br/>
+✅ Adding new files <br/>
+✅ Injecting into existing files <br/>
+✅ Running shell commands <br/>
+✅ Super fast, constantly optimized for speed <br/>
 
 
 > New in hygen v4.0.0: a positional `NAME` parameter.
@@ -31,6 +31,7 @@
 
 ## Used By
 
+<p align="center">
 <Image alt="Wix" height="32" src="https://upload.wikimedia.org/wikipedia/en/7/76/Wix.com_website_logo.svg"/> &nbsp; &nbsp; <Image alt="Airbnb" height="50" src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/Airbnb_Logo_B%C3%A9lo.svg/512px-Airbnb_Logo_B%C3%A9lo.svg.png"/> &nbsp; &nbsp; <Image alt="Open Data Institute" height="60" src="https://luminategroup.com/storage/538/c/opendatainstitute%28ODI%29-logo%402x-logo.png"/> &nbsp; &nbsp;  <Image alt="Ableneo" height="80" src="https://www.ableneo.com/web/images/logo.svg"/> &nbsp;
 <Image alt="City of Amsterdam" height="70" src="https://avatars3.githubusercontent.com/u/14022058?s=200&v=4"/> &nbsp; &nbsp; <Image alt="Accenture" height="80" src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/Accenture.svg/512px-Accenture.svg.png"/>  &nbsp; <Image alt="Birdie" height="60" src="https://assets.website-files.com/5d07a11d8195605723dbff07/5d09430b3d6e1c5d28a6e2b6_global%E2%80%94birdie_logo_black.svg"/> &nbsp; &nbsp;
 <Image alt="Kind" height="80" src="https://madebykind.com/dist/images/logos/site-logo-green-e0e983ec46.svg"/> &nbsp; &nbsp;  <Image alt="Ackee" height="80" src="https://avatars3.githubusercontent.com/u/1728223?s=400&v=4"/> &nbsp;
@@ -45,6 +46,8 @@
 <Image alt="Stelace" height="70" src="https://avatars1.githubusercontent.com/u/32740360?s=400&v=4"/>
 
 <Image alt="Echobind." height="70" src="https://avatars0.githubusercontent.com/u/570840?s=200&v=4"/>
+
+</p>
 
 ## Quick Start
 
