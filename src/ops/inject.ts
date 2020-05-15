@@ -34,7 +34,8 @@ const injectOp = async (
   if (!args.dry) {
     await fs.writeFile(absTo, injectResult)
   }
-  logger.notice(`      inject: ${to}`)
+  const pathToLog = process.env.HYGEN_OUTPUT_ABS_PATH ? absTo : to
+  logger.notice(`      inject: ${pathToLog}`)
 
   return result('inject')
 }
