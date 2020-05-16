@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.printHelp = exports.availableActions = void 0;
 const fs = require('fs');
 const path = require('path');
 const chalk = require('chalk');

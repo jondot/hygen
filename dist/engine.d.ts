@@ -1,3 +1,3 @@
-import { RunnerConfig } from './types';
-declare const engine: (argv: string[], config: RunnerConfig) => Promise<any[]>;
+import { ActionResult, RunnerConfig } from './types';
+declare const engine: (argv: string[], config: RunnerConfig) => Promise<ActionResult[]>;
 export default engine;

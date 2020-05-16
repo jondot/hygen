@@ -1,3 +1,4 @@
+import { ActionResult } from '../types';
 declare const shell: ({ attributes: { sh }, body }: {
     attributes: {
         sh: any;
@@ -6,5 +7,5 @@ declare const shell: ({ attributes: { sh }, body }: {
 }, args: any, { logger, exec }: {
     logger: any;
     exec: any;
-}) => Promise<any>;
+}) => Promise<ActionResult>;
 export default shell;
