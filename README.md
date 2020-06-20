@@ -5,7 +5,7 @@
 [![build status](https://img.shields.io/travis/jondot/hygen/master.svg)](https://travis-ci.org/jondot/hygen)
 [![npm version](https://img.shields.io/npm/v/hygen.svg)](https://www.npmjs.com/package/hygen)
 
-`hygen` is the simple, fast, and scalable code generator that lives _in_ your project.
+`hygen` is the simple, fast, and scalable code generator that lives _in_ your project.  
 
 <div align="center">
   <img src="https://raw.githubusercontent.com/jondot/hygen/master/media/hygen.gif" width=600/>
@@ -14,20 +14,20 @@
 
 ## Features
 
-✅ Build ad-hoc generators quickly and full on project scaffolds.
-✅ Local generators per project (and global, if you must)
-✅ Built-in scaffolds to quickly create generators
-✅ Full logic templates and rendering
-✅ Prompts and flows for taking in arguments
-✅ Automatic CLI arguments
-✅ Adding new files
-✅ Injecting into existing files
-✅ Running shell commands
-✅ Super fast, constantly optimized for speed
+✅ Build ad-hoc generators quickly and full on project scaffolds.  
+✅ Local generators per project (and global, if you must)  
+✅ Built-in scaffolds to quickly create generators  
+✅ Full logic templates and rendering  
+✅ Prompts and flows for taking in arguments  
+✅ Automatic CLI arguments  
+✅ Adding new files  
+✅ Injecting into existing files  
+✅ Running shell commands  
+✅ Super fast, constantly optimized for speed  
 
 
-> New in hygen v4.0.0: a positional `NAME` parameter.
-> Now you can use `$ hygen component new MyComponent` instead of `$ hygen component new --name MyComponent`.
+> New in hygen v4.0.0: a positional `NAME` parameter.  
+> Now you can use `$ hygen component new MyComponent` instead of `$ hygen component new --name MyComponent`.  
 
 ## Used By
 
