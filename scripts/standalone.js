@@ -6,10 +6,11 @@ const path = require('path')
 const package = require(path.join(__dirname, '../package.json'))
 const wd = path.join(__dirname, '../standalone')
 const v = package.version
-const name = package.name
+const { name } = package
 
 const plats = ['macos', 'win.exe', 'linux']
 const repo = 'github.com/jondot/homebrew-tap'
+const opts = { shell: true }
 
 const main = async () => {
   for (const plat of plats) {
@@ -19,27 +20,29 @@ const main = async () => {
     await fs.remove(`${wd}/tar-${file}`)
     await fs.mkdir(`${wd}/tar-${file}`)
     // give Windows special treatment: it should be a zip file and keep an .exe suffix
-    if(plat === 'win.exe'){
+    if (plat === 'win.exe') {
       await fs.move(`${wd}/${file}`, `${wd}/tar-${file}/hygen.exe`)
-      await execa.shell(
-        `cd ${wd}/tar-${file} && zip ../hygen.${plat}.v${v}.zip hygen.exe`
+      await execa.command(
+        `cd ${wd}/tar-${file} && zip ../hygen.${plat}.v${v}.zip hygen.exe`,
+        opts,
       )
     } else {
       await fs.move(`${wd}/${file}`, `${wd}/tar-${file}/hygen`)
-      await execa.shell(
-        `cd ${wd}/tar-${file} && tar -czvf ../hygen.${plat}.v${v}.tar.gz hygen`
+      await execa.command(
+        `cd ${wd}/tar-${file} && tar -czvf ../hygen.${plat}.v${v}.tar.gz hygen`,
+        opts,
       )
     }
     await fs.remove(`${wd}/tar-${file}`)
   }
 
   console.log('standalone: done.')
-  console.log((await execa.shell(`ls ${wd}`)).stdout)
+  console.log((await execa.command(`ls ${wd}`, opts)).stdout)
 
   console.log('standalone: publishing to homebrew tap...')
-  const matches = (await execa.shell(
-    `shasum -a 256 ${wd}/hygen.macos.v${v}.tar.gz`
-  )).stdout.match(/([a-f0-9]+)\s+/)
+  const matches = (
+    await execa.command(`shasum -a 256 ${wd}/hygen.macos.v${v}.tar.gz`, opts)
+  ).stdout.match(/([a-f0-9]+)\s+/)
   console.log(matches)
   if (matches && matches.length > 1) {
     const sha = matches[1]
@@ -53,9 +56,9 @@ const main = async () => {
       `git config user.name 'Dotan Nahum'`,
       `git add .`,
       `git commit -m 'hygen: auto-release'`,
-      `git push https://${process.env.GITHUB_TOKEN}@${repo}`
+      `git push https://${process.env.GITHUB_TOKEN}@${repo}`,
     ].join(' && ')
-    console.log(await execa.shell(cmd).stdout)
+    console.log(await execa.command(cmd, opts).stdout)
 
     console.log('standalone: publish done.')
   }
