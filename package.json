@@ -23,9 +23,9 @@
     "hygen:build": "node dist/bin.js",
     "hygen:timed": "node dist/bin.timed.js",
     "docs:prepare": "cd hygen.io && yarn",
-    "docs:watch": "cd hygen.io && yarn gatsby develop",
+    "docs:watch": "cd hygen.io && yarn start",
     "docs:build": "cd hygen.io && yarn build",
-    "docs:publish": "cd hygen.io && yarn build:gh"
+    "docs:publish": "cd hygen.io && yarn deploy"
   },
   "dependencies": {
     "@types/node": "^14.0.14",
