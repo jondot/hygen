@@ -12,8 +12,16 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.ShowHelpError = void 0;
 const fs_extra_1 = __importDefault(require("fs-extra"));
 const params_1 = __importDefault(require("./params"));
+class ShowHelpError extends Error {
+    constructor(message) {
+        super(message);
+        Object.setPrototypeOf(this, ShowHelpError.prototype);
+    }
+}
+exports.ShowHelpError = ShowHelpError;
 const engine = (argv, config) => __awaiter(void 0, void 0, void 0, function* () {
     const { cwd, templates, logger } = config;
     const args = Object.assign(yield params_1.default(config, argv), { cwd });
@@ -30,14 +38,14 @@ Options:
     }
     logger.log(args.dry ? '(dry mode)' : '');
     if (!generator) {
-        throw new Error('please specify a generator.');
+        throw new ShowHelpError('please specify a generator.');
     }
     if (!action) {
-        throw new Error(`please specify an action for ${generator}.`);
+        throw new ShowHelpError(`please specify an action for ${generator}.`);
     }
     logger.log(`Loaded templates: ${templates.replace(`${cwd}/`, '')}`);
     if (!(yield fs_extra_1.default.exists(actionfolder))) {
-        throw new Error(`I can't find action '${action}' for generator '${generator}'.
+        throw new ShowHelpError(`I can't find action '${action}' for generator '${generator}'.
 
       You can try:
       1. 'hygen init self' to initialize your project, and

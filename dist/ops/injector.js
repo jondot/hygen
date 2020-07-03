@@ -1,18 +1,19 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+const os_1 = require("os");
 const getPragmaticIndex = (pattern, lines, isBefore) => {
     const oneLineMatchIndex = lines.findIndex(l => l.match(pattern));
     if (oneLineMatchIndex < 0) {
-        const fullText = lines.join('\n');
+        const fullText = lines.join(os_1.EOL);
         const fullMatch = fullText.match(new RegExp(pattern, 'm'));
         if (fullMatch && fullMatch.length) {
             if (isBefore) {
                 const fullTextUntilMatchStart = fullText.substring(0, fullMatch.index);
-                return fullTextUntilMatchStart.split('\n').length - 1;
+                return fullTextUntilMatchStart.split(os_1.EOL).length - 1;
             }
             const matchEndIndex = fullMatch.index + fullMatch.toString().length;
             const fullTextUntilMatchEnd = fullText.substring(0, matchEndIndex);
-            return fullTextUntilMatchEnd.split('\n').length;
+            return fullTextUntilMatchEnd.split(os_1.EOL).length;
         }
     }
     return oneLineMatchIndex + (isBefore ? 0 : 1);
@@ -34,7 +35,7 @@ const indexByLocation = (attributes, lines) => {
 };
 const injector = (action, content) => {
     const { attributes: { skip_if, eof_last }, attributes, body, } = action;
-    const lines = content.split('\n');
+    const lines = content.split(os_1.EOL);
     // eslint-disable-next-line
     const shouldSkip = skip_if && !!content.match(skip_if);
     if (!shouldSkip) {

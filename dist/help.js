@@ -1,10 +1,12 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.printHelp = exports.availableActions = void 0;
+exports.VERSION = exports.printHelp = exports.availableActions = void 0;
 const fs = require('fs');
 const path = require('path');
 const chalk = require('chalk');
 const pkg = require('../package.json');
+const VERSION = pkg.version;
+exports.VERSION = VERSION;
 const availableActions = (templates) => {
     const generators = fs
         .readdirSync(templates)
@@ -17,7 +19,7 @@ const availableActions = (templates) => {
 };
 exports.availableActions = availableActions;
 const printHelp = (templates, logger) => {
-    logger.log(`Hygen v${pkg.version}`);
+    logger.log(`Hygen v${VERSION}`);
     logger.log('\nAvailable actions:');
     if (!templates) {
         logger.log(`No generators or actions found. 

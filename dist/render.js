@@ -43,17 +43,22 @@ const render = (args, config) => __awaiter(void 0, void 0, void 0, function* () 
         .then(things => things.sort((a, b) => a.localeCompare(b))) // TODO: add a test to verify this sort
         .then(filter(f => !ignores.find(ig => f.endsWith(ig)))) // TODO: add a
         // test for ignoring prompt.js and index.js
-        .then(filter(file => (args.subaction ? file.match(args.subaction) : true)))
+        .then(filter(file => args.subaction
+        ? file.replace(args.actionfolder, '').match(args.subaction)
+        : true))
         .then(map(file => fs.readFile(file).then(text => ({ file, text: text.toString() }))))
         .then(_ => Promise.all(_))
         .then(map(({ file, text }) => (Object.assign({ file }, fm(text, { allowUnsafe: true })))))
-        .then(map(({ file, attributes, body }) => ({
-        file,
-        attributes: Object.entries(attributes).reduce((obj, [key, value]) => {
+        .then(map(({ file, attributes, body }) => {
+        const renderedAttrs = Object.entries(attributes).reduce((obj, [key, value]) => {
             return Object.assign(Object.assign({}, obj), { [key]: renderTemplate(value, args, config) });
-        }, {}),
-        body: renderTemplate(body, args, config),
-    })));
+        }, {});
+        return {
+            file,
+            attributes: renderedAttrs,
+            body: renderTemplate(body, Object.assign(Object.assign({}, args), { attributes: renderedAttrs }), config),
+        };
+    }));
 });
 module.exports = render;
 //# sourceMappingURL=render.js.map
