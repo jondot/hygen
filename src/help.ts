@@ -5,6 +5,8 @@ const path = require('path')
 const chalk = require('chalk')
 const pkg = require('../package.json')
 
+const VERSION = pkg.version
+
 const availableActions = (templates: string) => {
   const generators = fs
     .readdirSync(templates)
@@ -17,7 +19,7 @@ const availableActions = (templates: string) => {
 }
 
 const printHelp = (templates: string, logger: Logger) => {
-  logger.log(`Hygen v${pkg.version}`)
+  logger.log(`Hygen v${VERSION}`)
   logger.log('\nAvailable actions:')
   if (!templates) {
     logger.log(`No generators or actions found. 
@@ -45,4 +47,4 @@ const printHelp = (templates: string, logger: Logger) => {
   })
 }
 
-export { availableActions, printHelp }
+export { availableActions, printHelp, VERSION }

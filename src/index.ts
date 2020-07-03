@@ -3,7 +3,7 @@ import resolve from './config-resolver'
 
 import engine, { ShowHelpError } from './engine'
 
-import { printHelp, availableActions } from './help'
+import { printHelp, availableActions, VERSION } from './help'
 
 const runner = async (
   argv: string[],
@@ -28,4 +28,4 @@ const runner = async (
   }
 }
 
-export { runner, engine, resolve, printHelp, availableActions }
+export { runner, engine, resolve, printHelp, availableActions, VERSION }
