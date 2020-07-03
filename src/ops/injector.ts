@@ -1,20 +1,21 @@
+import { EOL } from 'os'
 import { RenderedAction } from '../types'
 
 const getPragmaticIndex = (pattern, lines, isBefore) => {
   const oneLineMatchIndex = lines.findIndex(l => l.match(pattern))
 
   if (oneLineMatchIndex < 0) {
-    const fullText = lines.join('\n')
+    const fullText = lines.join(EOL)
     const fullMatch = fullText.match(new RegExp(pattern, 'm'))
 
     if (fullMatch && fullMatch.length) {
       if (isBefore) {
         const fullTextUntilMatchStart = fullText.substring(0, fullMatch.index)
-        return fullTextUntilMatchStart.split('\n').length - 1
+        return fullTextUntilMatchStart.split(EOL).length - 1
       }
       const matchEndIndex = fullMatch.index + fullMatch.toString().length
       const fullTextUntilMatchEnd = fullText.substring(0, matchEndIndex)
-      return fullTextUntilMatchEnd.split('\n').length
+      return fullTextUntilMatchEnd.split(EOL).length
     }
   }
 
@@ -41,7 +42,7 @@ const injector = (action: RenderedAction, content: string): string => {
     attributes,
     body,
   } = action
-  const lines = content.split('\n')
+  const lines = content.split(EOL)
   // eslint-disable-next-line
   const shouldSkip = skip_if && !!content.match(skip_if);
 
