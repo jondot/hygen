@@ -46,7 +46,7 @@ const render = (args, config) => __awaiter(void 0, void 0, void 0, function* () 
         .then(filter(file => (args.subaction ? file.match(args.subaction) : true)))
         .then(map(file => fs.readFile(file).then(text => ({ file, text: text.toString() }))))
         .then(_ => Promise.all(_))
-        .then(map(({ file, text }) => Object.assign({ file }, fm(text))))
+        .then(map(({ file, text }) => (Object.assign({ file }, fm(text, { allowUnsafe: true })))))
         .then(map(({ file, attributes, body }) => ({
         file,
         attributes: Object.entries(attributes).reduce((obj, [key, value]) => {
