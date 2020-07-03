@@ -33,9 +33,9 @@ const params = async (
       action,
       subaction,
     },
-    promptArgs,
     cleanArgv,
     name && { name },
+    promptArgs,
   )
 
   return args

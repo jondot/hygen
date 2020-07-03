@@ -1,1 +1,1 @@
-foobar
+message
