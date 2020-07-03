@@ -22,8 +22,8 @@ const localsDefaults = {
     name: 'unnamed'
 };
 const capitalizedLocals = (locals) => Object.entries(locals).reduce(doCapitalization, {});
-const context = (locals, config) => {
-    const localsWithDefaults = Object.assign({}, localsDefaults, locals);
+const context = (locals, config = {}) => {
+    const localsWithDefaults = Object.assign({}, localsDefaults, config.localsDefaults, locals);
     const configHelpers = config && (typeof config.helpers === "function" ? config.helpers(locals, config) : config.helpers) || {};
     return Object.assign(localsWithDefaults, capitalizedLocals(localsWithDefaults), {
         h: Object.assign(Object.assign({}, helpers), configHelpers)

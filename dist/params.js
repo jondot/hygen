@@ -42,7 +42,7 @@ const params = ({ templates, createPrompter }, externalArgv) => __awaiter(void 0
         generator,
         action,
         subaction,
-    }, promptArgs, cleanArgv, name && { name });
+    }, cleanArgv, name && { name }, promptArgs);
     return args;
 });
 exports.default = params;

@@ -47,7 +47,9 @@ const render = async (
       ),
     )
     .then(_ => Promise.all(_))
-    .then(map(({ file, text }) => Object.assign({ file }, fm(text))))
+    .then(
+      map(({ file, text }) => ({ file, ...fm(text, { allowUnsafe: true }) })),
+    )
     .then(
       map(({ file, attributes, body }) => ({
         file,

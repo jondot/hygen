@@ -12,7 +12,7 @@ runner(process.argv.slice(2), {
   debug: !!process.env.DEBUG,
   exec: (action, body) => {
     const opts = body && body.length > 0 ? { input: body } : {}
-    return require('execa').shell(action, opts)
+    return require('execa').command(action, { ...opts, shell: true })
   },
   createPrompter: () => require('enquirer'),
 })

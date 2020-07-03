@@ -28,31 +28,31 @@
     "docs:publish": "cd hygen.io && yarn build:gh"
   },
   "dependencies": {
-    "@types/node": "^14.0.1",
-    "chalk": "^2.4.2",
+    "@types/node": "^14.0.14",
+    "chalk": "^4.1.0",
     "change-case": "^3.1.0",
-    "ejs": "^2.6.1",
-    "enquirer": "^2.3.0",
-    "execa": "^1.0.0",
-    "front-matter": "^2.3.0",
-    "fs-extra": "^7.0.1",
-    "ignore-walk": "^3.0.2",
+    "ejs": "^3.1.3",
+    "enquirer": "^2.3.6",
+    "execa": "^4.0.2",
+    "front-matter": "^4.0.2",
+    "fs-extra": "^9.0.1",
+    "ignore-walk": "^3.0.3",
     "inflection": "^1.12.0",
-    "yargs-parser": "^13.0.0"
+    "yargs-parser": "^18.1.3"
   },
   "devDependencies": {
-    "@types/jest": "^24.0.19",
-    "@types/node": "^13.13.0",
-    "conventional-changelog-cli": "^2.0.11",
-    "dir-compare": "^1.4.0",
-    "gh-pages": "^1.1.0",
-    "jest": "^24.3.1",
-    "pkg": "^4.4.0",
+    "@types/jest": "^26.0.3",
+    "@types/node": "^14.0.14",
+    "conventional-changelog-cli": "^2.0.34",
+    "dir-compare": "^2.3.0",
+    "gh-pages": "^3.1.0",
+    "jest": "^26.1.0",
+    "pkg": "^4.4.9",
     "time-require": "^0.1.2",
-    "ts-jest": "^24.1.0",
-    "ts-node": "^8.4.1",
-    "typescript": "^3.6.4",
-    "zeroconf-typescript-eslint": "^2.0.0"
+    "ts-jest": "^26.1.1",
+    "ts-node": "^8.10.2",
+    "typescript": "^3.9.6",
+    "zeroconf-typescript-eslint": "^2.2.0"
   },
   "jest": {
     "transform": {

@@ -2,7 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 const chalk = require('chalk');
 const { yellow, red, green, magenta } = chalk;
-const template = require('chalk/templates');
+const { template } = require('chalk');
 class Logger {
     constructor(log) {
         this.log = log;

@@ -29,7 +29,7 @@ const metaverse = (folder, cmds, promptResponse = null) =>
       cwd: metaDir,
       exec: (action, body) => {
         const opts = body && body.length > 0 ? { input: body } : {}
-        return require('execa').shell(action, opts)
+        return require('execa').command(action, { ...opts, shell: true })
       },
       logger,
       createPrompter: () => require('enquirer'),

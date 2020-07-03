@@ -21,6 +21,7 @@ export interface RunnerConfig {
     logger?: Logger;
     debug?: boolean;
     helpers?: any;
+    localsDefaults?: any;
     createPrompter?: <Q, T>() => Prompter<Q, T>;
 }
 export interface ResolverIO {

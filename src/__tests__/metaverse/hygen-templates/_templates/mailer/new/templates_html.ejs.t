@@ -5,8 +5,8 @@ to: given/app/mailers/<%= message || 'unnamed' %>/html.ejs
 This is the html email template.
 Find me at <i>app/mailers/<%= message || 'unnamed' %>/html.ejs</i>
 
-<br/> 
-<br/> 
+<br />
+<br />
 
 You owe
 <%%= bill %%>

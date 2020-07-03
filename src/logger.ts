@@ -1,7 +1,7 @@
 const chalk = require('chalk')
 
 const { yellow, red, green, magenta } = chalk
-const template = require('chalk/templates')
+const { template } = require('chalk')
 
 class Logger {
   log: (message?: any, ...optionalParams: any[]) => void
