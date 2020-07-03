@@ -49,7 +49,9 @@ const add = async (
     await fs.ensureDir(path.dirname(absTo))
     await fs.writeFile(absTo, action.body)
   }
-  logger.ok(`       ${force ? 'FORCED' : 'added'}: ${to}`)
+  const pathToLog = process.env.HYGEN_OUTPUT_ABS_PATH ? absTo : to
+  logger.ok(`       ${force ? 'FORCED' : 'added'}: ${pathToLog}`)
+
   return result('added')
 }
 
