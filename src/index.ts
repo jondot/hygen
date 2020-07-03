@@ -23,7 +23,6 @@ const runner = async (
     }
     printHelp(templates, logger)
     return { success: false, actions: [], time: 0 }
-    // process.exit(1)
   }
 }
 
