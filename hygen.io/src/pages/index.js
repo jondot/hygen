@@ -26,10 +26,10 @@ function Home() {
             width="150px"
             alt={`${siteConfig.title} logo.`}
           />
-          <h1 style={{ fontSize: '2rem', fontWeight: 'lighter' }}>
-            {siteConfig.title}
-          </h1>
-          <Subtitle>The scalable code generator that saves you time.</Subtitle>
+          <h1>{siteConfig.title}</h1>
+          <Subtitle style={{ color: '#666', fontWeight: 400 }}>
+            The scalable code generator that saves you time.
+          </Subtitle>
           <Shell style={{ margin: '5.5rem 0 2rem 0' }} />
           <CtaButton to={useBaseUrl('docs/quick-start')}>Quick Start</CtaButton>
           <Or>&mdash; or &mdash;</Or>
@@ -148,16 +148,18 @@ const Or = styled.div`
 const Hero = styled.div`
   padding: 50px 0;
   & > h1 {
-    font-weight: 300;
-    font-size: 3.2rem;
-    color: var(--ifm-color-primary);
+    font-weight: 600;
+    letter-spacing: -4px;
+    font-size: 56px;
     margin: 0;
+    margin-top: 15px;
   }
 `
 const Subtitle = styled.h2`
-  color: var(--brand-secondary);
-  font-weight: lighter;
+  color: #000;
+  font-weight: 600;
   margin: 1.2rem 0;
+  letter-spacing: -1px;
 `
 
 const Description = styled.p`

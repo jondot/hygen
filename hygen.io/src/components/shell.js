@@ -20,10 +20,10 @@ const Cmd = styled.div`
   margin-bottom: 1rem;
 `
 const Add = styled.div`
-  color: #34c749;
+  color: #34f749;
 `
 const Inject = styled.div`
-  color: magenta;
+  color: #ff33ff;
 `
 const FauxChrome = () => (
   <Bar>
@@ -35,14 +35,16 @@ const FauxChrome = () => (
 
 // we can't wait for prism to initialize, so we're inlining styles here
 const FauxWindow = styled.pre`
+  font-weight: 700;
   font-family: Monaco, 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande',
     'Lucida Sans Unicode', monospace;
-  background: #fff;
+  background: #111;
+  color: #fff;
   border: 1px solid #dae4ed;
   padding: 1.2rem;
   margin: 0px -2rem;
-  box-shadow: 0 2px 6px 0 #eff5fa;
-  border-radius: 3px;
+  box-shadow: 1px 12px 30px rgba(102, 102, 102, 0.24);
+  border-radius: 8px;
   max-width: 500px;
   overflow: auto;
   height: 200px;

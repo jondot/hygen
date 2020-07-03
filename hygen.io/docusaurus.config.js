@@ -6,9 +6,10 @@ module.exports = {
   favicon: 'img/favicon.ico',
   organizationName: 'jondot', // Usually your GitHub org/user name.
   projectName: 'hygen', // Usually your repo name.
+  stylesheets: ['https://fonts.googleapis.com/css?family=Inter:400,600,700'],
   themeConfig: {
     navbar: {
-      title: 'hygen',
+      title: 'Hygen',
       logo: {
         alt: 'hygen logo',
         src: 'img/logo.png',
