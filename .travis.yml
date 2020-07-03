@@ -25,15 +25,15 @@ jobs:
           on:
             tags: true
             skip_cleanup: true
-    - stage: docs
-      script: yarn docs:prepare && yarn docs:build
-      node_js: "14"
-      deploy:
-        provider: pages
-        local-dir: hygen.io/public
-        skip-cleanup: true
-        github-token: $GITHUB_TOKEN  # Set in travis-ci.org dashboard, marked secure
-        keep-history: true
+    # - stage: docs
+    #   script: yarn docs:prepare && yarn docs:build
+    #   node_js: "14"
+    #   deploy:
+    #     provider: pages
+    #     local-dir: hygen.io/public
+    #     skip-cleanup: true
+    #     github-token: $GITHUB_TOKEN  # Set in travis-ci.org dashboard, marked secure
+    #     keep-history: true
     - stage: binary releases
       script: yarn standalone
       if: tag =~ ^v\d.*
