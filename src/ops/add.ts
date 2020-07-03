@@ -11,7 +11,7 @@ const add = async (
   { logger, cwd, createPrompter }: RunnerConfig,
 ): Promise<ActionResult> => {
   const {
-    attributes: { to, inject, unless_exists },
+    attributes: { to, inject, unless_exists, force, from },
   } = action
   const result = createResult('add', to)
   const prompter = createPrompter()
@@ -19,10 +19,10 @@ const add = async (
     return result('ignored')
   }
   const absTo = path.resolve(cwd, to)
-  const shouldNotOverwrite =
+  const shouldNotOverwrite = !force &&
     unless_exists !== undefined && unless_exists === true
 
-  if (!process.env.HYGEN_OVERWRITE && (await fs.exists(absTo))) {
+  if (!process.env.HYGEN_OVERWRITE && !force && (await fs.exists(absTo))) {
     if (
       shouldNotOverwrite ||
       !(await prompter
@@ -39,11 +39,17 @@ const add = async (
     }
   }
 
+  if (from) {
+    const from_path = path.join(args.templates, from)
+    const file = fs.readFileSync(from_path).toString()
+    action.body = file
+  }
+
   if (!args.dry) {
     await fs.ensureDir(path.dirname(absTo))
     await fs.writeFile(absTo, action.body)
   }
-  logger.ok(`       added: ${to}`)
+  logger.ok(`       ${force ? 'FORCED' : 'added'}: ${to}`)
   return result('added')
 }
 
