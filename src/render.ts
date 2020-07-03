@@ -40,7 +40,13 @@ const render = async (
     .then(things => things.sort((a, b) => a.localeCompare(b))) // TODO: add a test to verify this sort
     .then(filter(f => !ignores.find(ig => f.endsWith(ig)))) // TODO: add a
     // test for ignoring prompt.js and index.js
-    .then(filter(file => (args.subaction ? file.match(args.subaction) : true)))
+    .then(
+      filter(file =>
+        args.subaction
+          ? file.replace(args.actionfolder, '').match(args.subaction)
+          : true,
+      ),
+    )
     .then(
       map(file =>
         fs.readFile(file).then(text => ({ file, text: text.toString() })),
