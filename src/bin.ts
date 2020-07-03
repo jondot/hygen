@@ -15,4 +15,4 @@ runner(process.argv.slice(2), {
     return require('execa').command(action, { ...opts, shell: true })
   },
   createPrompter: () => require('enquirer'),
-})
+}).then(({ success }) => process.exit(success ? 0 : 1))
