@@ -2,6 +2,7 @@ import { RunnerConfig } from './types'
 
 const inflection = require('inflection')
 const changeCase = require('change-case')
+const path = require('path')
 
 const localsToCapitalize = ['name']
 const localsDefaults = {
@@ -20,6 +21,7 @@ const helpers = {
   },
   inflection,
   changeCase,
+  path,
 }
 
 const doCapitalization = (hsh, [key, value]) => {
