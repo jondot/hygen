@@ -324,7 +324,7 @@ If you'd like to render a certain template based on the value of a variable, the
 
 ```yaml
 ---
-to: "<%= message ? 'where/to/render' : null %>"
+to: "<%= message ? `where/to/render/${name}.js` : null %>"
 ---
 conditionally rendering template
 ```
