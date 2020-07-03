@@ -51,16 +51,26 @@ const render = async (
       map(({ file, text }) => ({ file, ...fm(text, { allowUnsafe: true }) })),
     )
     .then(
-      map(({ file, attributes, body }) => ({
-        file,
-        attributes: Object.entries(attributes).reduce((obj, [key, value]) => {
-          return {
-            ...obj,
-            [key]: renderTemplate(value, args, config),
-          }
-        }, {}),
-        body: renderTemplate(body, args, config),
-      })),
+      map(({ file, attributes, body }) => {
+        const renderedAttrs = Object.entries(attributes).reduce(
+          (obj, [key, value]) => {
+            return {
+              ...obj,
+              [key]: renderTemplate(value, args, config),
+            }
+          },
+          {},
+        )
+        return {
+          file,
+          attributes: renderedAttrs,
+          body: renderTemplate(
+            body,
+            { ...args, attributes: renderedAttrs },
+            config,
+          ),
+        }
+      }),
     )
 
 module.exports = render

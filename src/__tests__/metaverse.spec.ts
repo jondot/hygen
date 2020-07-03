@@ -114,6 +114,7 @@ describe('metaverse', () => {
       ],
       ['recursive-prompt', 'new'],
       ['positional-name', 'new', 'acmecorp'],
+      ['attrs-in-body', 'new'],
       ['existing-params', 'new', '--email', 'premade-email@foobar.com'],
       [
         'existing-params',

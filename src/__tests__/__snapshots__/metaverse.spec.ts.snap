@@ -50,6 +50,21 @@ Object {
 }
 `;
 
+exports[`metaverse hygen-templates: attrs-in-body new 1`] = `
+Object {
+  "actions": Array [
+    Object {
+      "status": "added",
+      "subject": "given/attrs-in-body/hello.txt",
+      "timing": -1,
+      "type": "add",
+    },
+  ],
+  "success": true,
+  "time": 0,
+}
+`;
+
 exports[`metaverse hygen-templates: cli-prefill-prompt-vars falsy-values-are-ok foobar --include_something false 1`] = `
 Object {
   "actions": Array [
