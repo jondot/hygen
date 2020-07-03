@@ -27,7 +27,7 @@ jobs:
             skip_cleanup: true
     - stage: docs
       script: yarn docs:prepare && yarn docs:build
-      node_js: "10"
+      node_js: "14"
       deploy:
         provider: pages
         local-dir: hygen.io/public
