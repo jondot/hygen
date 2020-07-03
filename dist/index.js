@@ -12,13 +12,14 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.availableActions = exports.printHelp = exports.resolve = exports.engine = exports.runner = void 0;
 const config_resolver_1 = __importDefault(require("./config-resolver"));
 exports.resolve = config_resolver_1.default;
 const engine_1 = __importDefault(require("./engine"));
 exports.engine = engine_1.default;
 const help_1 = require("./help");
-exports.printHelp = help_1.printHelp;
-exports.availableActions = help_1.availableActions;
+Object.defineProperty(exports, "printHelp", { enumerable: true, get: function () { return help_1.printHelp; } });
+Object.defineProperty(exports, "availableActions", { enumerable: true, get: function () { return help_1.availableActions; } });
 const runner = (argv, config) => __awaiter(void 0, void 0, void 0, function* () {
     const resolvedConfig = yield config_resolver_1.default(config);
     const { templates, logger } = resolvedConfig;

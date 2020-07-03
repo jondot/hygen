@@ -21,10 +21,14 @@ const add = async (
   const absTo = path.resolve(cwd, to)
   const shouldNotOverwrite = !force &&
     unless_exists !== undefined && unless_exists === true
+  const fileExists = (await fs.exists(absTo))
 
-  if (!process.env.HYGEN_OVERWRITE && !force && (await fs.exists(absTo))) {
+  if (shouldNotOverwrite && fileExists) {
+    logger.warn(`     skipped: ${to}`)
+    return result('skipped')
+  }
+  if (!process.env.HYGEN_OVERWRITE && fileExists) {
     if (
-      shouldNotOverwrite ||
       !(await prompter
         .prompt({
           prefix: '',
@@ -38,6 +42,7 @@ const add = async (
       return result('skipped')
     }
   }
+
 
   if (from) {
     const from_path = path.join(args.templates, from)

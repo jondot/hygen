@@ -25,16 +25,20 @@ const add = (action, args, { logger, cwd, createPrompter }) => __awaiter(void 0,
     }
     const absTo = path.resolve(cwd, to);
     const shouldNotOverwrite = unless_exists !== undefined && unless_exists === true;
-    if (!process.env.HYGEN_OVERWRITE && (yield fs.exists(absTo))) {
-        if (shouldNotOverwrite ||
-            !(yield prompter
-                .prompt({
-                prefix: '',
-                type: 'confirm',
-                name: 'overwrite',
-                message: red(`     exists: ${to}. Overwrite? (y/N): `),
-            })
-                .then(({ overwrite }) => overwrite))) {
+    const fileExists = (yield fs.exists(absTo));
+    if (shouldNotOverwrite && fileExists) {
+        logger.warn(`     skipped: ${to}`);
+        return result('skipped');
+    }
+    if (!process.env.HYGEN_OVERWRITE && fileExists) {
+        if (!(yield prompter
+            .prompt({
+            prefix: '',
+            type: 'confirm',
+            name: 'overwrite',
+            message: red(`     exists: ${to}. Overwrite? (y/N): `),
+        })
+            .then(({ overwrite }) => overwrite))) {
             logger.warn(`     skipped: ${to}`);
             return result('skipped');
         }
