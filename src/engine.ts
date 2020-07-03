@@ -2,6 +2,13 @@ import fs from 'fs-extra'
 import { ActionResult, RunnerConfig } from './types'
 import params from './params'
 
+class ShowHelpError extends Error {
+  constructor(message: string) {
+    super(message)
+    Object.setPrototypeOf(this, ShowHelpError.prototype)
+  }
+}
+
 const engine = async (
   argv: string[],
   config: RunnerConfig,
@@ -23,16 +30,16 @@ Options:
 
   logger.log(args.dry ? '(dry mode)' : '')
   if (!generator) {
-    throw new Error('please specify a generator.')
+    throw new ShowHelpError('please specify a generator.')
   }
 
   if (!action) {
-    throw new Error(`please specify an action for ${generator}.`)
+    throw new ShowHelpError(`please specify an action for ${generator}.`)
   }
 
   logger.log(`Loaded templates: ${templates.replace(`${cwd}/`, '')}`)
   if (!(await fs.exists(actionfolder))) {
-    throw new Error(`I can't find action '${action}' for generator '${generator}'.
+    throw new ShowHelpError(`I can't find action '${action}' for generator '${generator}'.
 
       You can try:
       1. 'hygen init self' to initialize your project, and
@@ -49,4 +56,5 @@ Options:
   return execute(await render(args, config), args, config)
 }
 
+export { ShowHelpError }
 export default engine

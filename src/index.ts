@@ -1,7 +1,7 @@
 import { RunnerResult, RunnerConfig } from './types'
 import resolve from './config-resolver'
 
-import engine from './engine'
+import engine, { ShowHelpError } from './engine'
 
 import { printHelp, availableActions } from './help'
 
@@ -21,9 +21,10 @@ const runner = async (
       logger.log(err.stack)
       logger.log('-------------------')
     }
-    printHelp(templates, logger)
+    if (err instanceof ShowHelpError) {
+      printHelp(templates, logger)
+    }
     return { success: false, actions: [], time: 0 }
-    // process.exit(1)
   }
 }
 
