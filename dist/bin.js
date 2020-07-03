@@ -18,5 +18,5 @@ index_1.runner(process.argv.slice(2), {
         return require('execa').command(action, Object.assign(Object.assign({}, opts), { shell: true }));
     },
     createPrompter: () => require('enquirer'),
-});
+}).then(({ success }) => process.exit(success ? 0 : 1));
 //# sourceMappingURL=bin.js.map

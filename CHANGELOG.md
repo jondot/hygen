@@ -4,6 +4,7 @@
 ### Bug Fixes
 
 * missing dev dependency @types/node ([c500162](https://github.com/jondot/hygen/commit/c5001627ee0d932d5ab5f7c740ac9594eafceaed))
+* proper exit code ([a4eb0f3](https://github.com/jondot/hygen/commit/a4eb0f37749256a4f72ece2e1dd59988e00fe133))
 
 
 ### Features
