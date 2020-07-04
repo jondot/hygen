@@ -1,5 +1,6 @@
 import { RunnerResult, RunnerConfig } from './types'
 import resolve from './config-resolver'
+import Logger from './logger'
 
 import engine, { ShowHelpError } from './engine'
 
@@ -28,4 +29,4 @@ const runner = async (
   }
 }
 
-export { runner, engine, resolve, printHelp, availableActions, VERSION }
+export { runner, engine, resolve, printHelp, availableActions, Logger, VERSION }
