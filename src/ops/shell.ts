@@ -13,6 +13,7 @@ const shell = async (
       try {
         await exec(sh, body)
       } catch (error) {
+        logger.err(error.stderr)
         process.exit(1)
       }
     }
