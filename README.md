@@ -48,7 +48,7 @@
 
 ## Quick Start
 
-Hygen can be used to supercharge your workflow with [Redux](http://www.hygen.io/redux), [React Native](http://www.hygen.io/react-native), [Express](http://www.hygen.io/express) and more, by allowing you avoid manual work and generate, add, inject and perform custom operations on your codebase.
+Hygen can be used to supercharge your workflow with [Redux](http://www.hygen.io/docs/redux), [React Native](http://www.hygen.io/docs/react-native), [Express](http://www.hygen.io/docs/express) and more, by allowing you avoid manual work and generate, add, inject and perform custom operations on your codebase.
 
 If you're on macOS and have Homebrew:
 
@@ -120,13 +120,13 @@ Loaded templates: _templates
 
 ## What's Next?
 
-Go to the [documentation](http://www.hygen.io/quick-start) to get to know the rest of Hygen and generators.
+Go to the [documentation](http://www.hygen.io/docs/quick-start) to get to know the rest of Hygen and generators.
 
 If you're in a hurry:
 
-* To learn how to edit generator templates, [look here](http://www.hygen.io/templates)
-* To see how to use generators [look here](http://www.hygen.io/generators)
-* Take a look at the [ecosystem](http://www.hygen.io/packages) and tooling built around Hygen.
+* To learn how to edit generator templates, [look here](http://www.hygen.io/docs/templates)
+* To see how to use generators [look here](http://www.hygen.io/docs/generators)
+* Take a look at the [ecosystem](http://www.hygen.io/docs/packages) and tooling built around Hygen.
 
 ## A Different Kind of a Generator
 
