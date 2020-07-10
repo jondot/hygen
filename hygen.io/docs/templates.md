@@ -248,7 +248,7 @@ will not render if target exists
 
 ## From & Shared Templates
 
-By default the body of the template is used as input to create the target file. By specifying a `from:` frontmatter property, we're telling `hygen` from which external file to load the body from. E.g. `from: shared/docs/readme.md` will tell `hygen` to load the body from `_templates/shared/docs/readme.md`. The body of this template is ignored.
+By default the body of the template is used as input to create the target file. By specifying a `from:` frontmatter property, we're telling `hygen` from which external file to load the body from. E.g. `from: shared/docs/readme.md` will tell `hygen` to load the body from `_templates/shared/docs/readme.md`. The body of this template is ignored:
 
 ```yaml
 ---
