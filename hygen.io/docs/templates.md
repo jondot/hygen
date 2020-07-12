@@ -277,7 +277,7 @@ In almost all cases you want to ensure you're not injecting content twice:
 
 * `skip_if` which contains a regular expression / text. If exists, injection is skipped.
 
-Let's see how these play out in the [Redux](/redux) use case.
+Let's see how these play out in the [Redux](/docs/redux) use case.
 
 ## Shell
 
@@ -328,4 +328,4 @@ conditionally rendering template
 
 When `hygen` meets a `to:` value that is `null`, it will skip the output of that template, meaning it won't get rendered at all.
 
-Next up, we'll move on to [generators](/generators).
+Next up, we'll move on to [generators](/docs/generators).

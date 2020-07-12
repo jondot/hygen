@@ -56,7 +56,7 @@ We use a `.t` suffix because it disables our editor trying to be smart - use wha
 | ###### Creative Freedom
 | hygen doesn't care about file names or file types in your generator folders. It only cares about folder structure and the _contents_ of your files.
 
-Also note that each template has a _frontmatter_ delimited by a pair of `---`'s. In our example, we have a special `to:` property which tells `hygen` where to put the generated file. We'll see more of these in [templates](/templates).
+Also note that each template has a _frontmatter_ delimited by a pair of `---`'s. In our example, we have a special `to:` property which tells `hygen` where to put the generated file. We'll see more of these in [templates](/docs/templates).
 
 ## Structure
 
@@ -293,4 +293,4 @@ $ hygen mailer new:.*xt --name textual-mailer
 
 That's about it for generators.
 
-That's it for now, you're invited to take a look at the [FAQ](/faq), and [Packages](/packages).
+That's it for now, you're invited to take a look at the [FAQ](/docs/faq), and [Packages](/docs/packages).
