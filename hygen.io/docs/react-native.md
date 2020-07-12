@@ -3,7 +3,7 @@ title: React Native
 id: react-native
 ---
 
-While the [Redux use case](/redux) is more than suitable to use for React Native, we have one unique (and arguably limiting) property of the React Native packager which is: you can't require anything dynamically.
+While the [Redux use case](/docs/redux) is more than suitable to use for React Native, we have one unique (and arguably limiting) property of the React Native packager which is: you can't require anything dynamically.
 
 So all of the fancy glob-and-require code that's supposed to glue up many files can't be done. This means more manual work and bookkeeping.
 
