@@ -226,11 +226,12 @@ For example to use `actionfolder` say:
 
 ## Addition
 
-By default templates are 'added' to your project as a new target file. By specifying a `to:` frontmatter property, we're telling `hygen` where to put it.
+By default templates are 'added' to your project as a new target file. By specifying a `to:` frontmatter property, we're telling `hygen` where to put it. `force: true` will tell `hygen` to overwrite an existing file without prompting the user ( default is `force: false` ).
 
 ```yaml
 ---
 to: app/index.js
+force: true
 ---
 console.log('this is index!')
 ```
@@ -243,6 +244,18 @@ to: app/index.js
 unless_exists: true
 ---
 will not render if target exists
+```
+
+## From & Shared Templates
+
+By default the body of the template is used as input to create the target file. By specifying a `from:` frontmatter property, we're telling `hygen` from which external file to load the body from. E.g. `from: shared/docs/readme.md` will tell `hygen` to load the body from `_templates/shared/docs/readme.md`. The body of this template is ignored:
+
+```yaml
+---
+to: app/readme.md
+from: shared/docs/readme.md
+---
+THIS BODY IS IGNORED !!!
 ```
 
 ## Injection
