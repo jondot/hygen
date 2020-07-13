@@ -3,7 +3,7 @@ title: Templates
 id: templates
 ---
 
-A `hygen` template is a header of a markdown-like frontmatter and a body of an ejs templating engine.
+A `hygen` template is a header of a markdown-like [frontmatter](templates/#all-frontmatter-properties) and a body of an ejs templating engine.
 
 ```yaml
 ---                            <----- frontmatter section
@@ -342,3 +342,17 @@ conditionally rendering template
 When `hygen` meets a `to:` value that is `null`, it will skip the output of that template, meaning it won't get rendered at all.
 
 Next up, we'll move on to [generators](/docs/generators).
+
+
+## All Frontmatter Properties
+
+| Property                                          | Type         | Default   | Example                                |
+|---------------------------------------------------|--------------|-----------|----------------------------------------|
+| [`to:`](templates/#addition)                 | String (url) | undefined | my-project/readme.md                   |
+| [`from:`](templates/#from--shared-templates) | String (url) | undefined | shared/docs/readme.md                  |
+| [`force:`](templates/#addition)              | Boolean      | false     | true                                   |
+| [`unless_exists:`](templates/#addition)      | Boolean      | false     | true                                   |
+| [`inject:`](templates/#injection)            | Boolean      | false     | true                                   |
+| [`after:`](templates/#injection)             | Regex        | undefined | devDependencies                        |
+| [`skip_if:`](templates/#injection)           | Regex        | undefined | myPackage                              |
+| [`sh:`](templates/#shell)                    | String       | undefined | echo: "Hello this is a shell command!" |
