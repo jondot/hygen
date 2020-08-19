@@ -1,6 +1,8 @@
 import { EOL } from 'os'
 import { RenderedAction } from '../types'
 
+const EOLRegex = /\r?\n/
+
 const getPragmaticIndex = (pattern, lines, isBefore) => {
   const oneLineMatchIndex = lines.findIndex(l => l.match(pattern))
 
@@ -11,11 +13,11 @@ const getPragmaticIndex = (pattern, lines, isBefore) => {
     if (fullMatch && fullMatch.length) {
       if (isBefore) {
         const fullTextUntilMatchStart = fullText.substring(0, fullMatch.index)
-        return fullTextUntilMatchStart.split(EOL).length - 1
+        return fullTextUntilMatchStart.split(EOLRegex).length - 1
       }
       const matchEndIndex = fullMatch.index + fullMatch.toString().length
       const fullTextUntilMatchEnd = fullText.substring(0, matchEndIndex)
-      return fullTextUntilMatchEnd.split(EOL).length
+      return fullTextUntilMatchEnd.split(EOLRegex).length
     }
   }
 
@@ -42,7 +44,7 @@ const injector = (action: RenderedAction, content: string): string => {
     attributes,
     body,
   } = action
-  const lines = content.split(EOL)
+  const lines = content.split(EOLRegex)
   // eslint-disable-next-line
   const shouldSkip = skip_if && !!content.match(skip_if);
 
