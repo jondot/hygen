@@ -27,7 +27,7 @@ const add = async (
     logger.warn(`     skipped: ${to}`)
     return result('skipped')
   }
-  if (!process.env.HYGEN_OVERWRITE && fileExists) {
+  if (!process.env.HYGEN_OVERWRITE && !force && fileExists) {
     if (
       !(await prompter
         .prompt({
