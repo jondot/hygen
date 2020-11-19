@@ -31,7 +31,7 @@ const add = (action, args, { logger, cwd, createPrompter }) => __awaiter(void 0,
         logger.warn(`     skipped: ${to}`);
         return result('skipped');
     }
-    if (!process.env.HYGEN_OVERWRITE && fileExists) {
+    if (!process.env.HYGEN_OVERWRITE && !force && fileExists) {
         if (!(yield prompter
             .prompt({
             prefix: '',
