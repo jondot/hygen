@@ -15,6 +15,8 @@ const filter = f => arr => arr.filter(f)
 const ignores = [
   'prompt.js',
   'index.js',
+  'prompt.ts',
+  'index.ts',
   '.hygenignore',
   '.DS_Store',
   '.Spotlight-V100',
