@@ -62,7 +62,7 @@ const injector = (action: RenderedAction, content: string): string => {
     }
   }
 
-  return lines.join('\n')
+  return lines.join(EOL)
 }
 
 export default injector
