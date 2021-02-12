@@ -51,7 +51,8 @@
     "space-before-function-paren": 0,
     "comma-dangle": 0,
     "jsx-quotes": 0,
-    "react/jsx-filename-extension": "off"
+    "react/jsx-filename-extension": "off",
+    "import/extensions": "off"
   },
   "env": {
     "es6": true,

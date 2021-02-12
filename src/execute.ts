@@ -5,24 +5,26 @@ const execute = async (
   renderedActions: RenderedAction[],
   args: any,
   config: RunnerConfig,
-): Promise<ActionResult[]> => {
+) => {
   const { logger } = config
-  const messages = []
   const results = []
+  if (renderedActions.some((a) => a.attributes.message)) {
+    logger.colorful(`${args.action}:\n`)
+  }
   for (const action of renderedActions) {
     const { message } = action.attributes
-    if (message) {
-      messages.push(message)
-    }
+
     const ops = resolve(action.attributes)
     for (const op of ops) {
       results.push(await op(action, args, config))
     }
-  }
-  if (messages.length > 0) {
-    logger.colorful(`${args.action}:\n${messages.join('\n')}`)
+
+    if (message) {
+      logger.colorful(`${message}\n`)
+    }
   }
 
-  return results
+  return results as ActionResult[]
 }
-module.exports = execute
+
+export default execute

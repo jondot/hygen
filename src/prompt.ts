@@ -9,8 +9,8 @@ const prompt = <Q, T>(
   args: Record<string, any>,
 ): Promise<T | object> => {
   const hooksfile = hooksfiles
-    .map(f => path.resolve(path.join(actionfolder, f)))
-    .find(f => fs.existsSync(f))
+    .map((f) => path.resolve(path.join(actionfolder, f)))
+    .find((f) => fs.existsSync(f))
 
   if (!hooksfile) {
     return Promise.resolve({})
@@ -33,7 +33,7 @@ const prompt = <Q, T>(
   return prompter.prompt(
     // prompt _only_ for things we've not seen on the CLI
     hooksModule.filter(
-      p =>
+      (p) =>
         args[p.name] === undefined ||
         args[p.name] === null ||
         args[p.name].length === 0,

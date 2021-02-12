@@ -15,7 +15,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.reversePathsToWalk = exports.ConfigResolver = exports.configLookup = void 0;
 const path_1 = __importDefault(require("path"));
 // inline fp methods due to perf
-const uniq = arr => arr.filter((elem, pos, a) => a.indexOf(elem) === pos);
+const uniq = (arr) => arr.filter((elem, pos, a) => a.indexOf(elem) === pos);
 const reversePathsToWalk = ({ folder, path }) => {
     const resolved = path.resolve(folder);
     const parts = resolved.split(path.sep);
@@ -24,7 +24,7 @@ const reversePathsToWalk = ({ folder, path }) => {
     return results.reverse();
 };
 exports.reversePathsToWalk = reversePathsToWalk;
-const configLookup = (file, folder, path = path_1.default) => uniq(reversePathsToWalk({ folder, path }).map(p => path.join(p, file)));
+const configLookup = (file, folder, path = path_1.default) => uniq(reversePathsToWalk({ folder, path }).map((p) => path.join(p, file)));
 exports.configLookup = configLookup;
 class ConfigResolver {
     constructor(configFile, io) {

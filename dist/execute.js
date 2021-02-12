@@ -15,22 +15,21 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const ops_1 = __importDefault(require("./ops"));
 const execute = (renderedActions, args, config) => __awaiter(void 0, void 0, void 0, function* () {
     const { logger } = config;
-    const messages = [];
     const results = [];
+    if (renderedActions.some((a) => a.attributes.message)) {
+        logger.colorful(`${args.action}:\n`);
+    }
     for (const action of renderedActions) {
         const { message } = action.attributes;
-        if (message) {
-            messages.push(message);
-        }
         const ops = ops_1.default(action.attributes);
         for (const op of ops) {
             results.push(yield op(action, args, config));
         }
-    }
-    if (messages.length > 0) {
-        logger.colorful(`${args.action}:\n${messages.join('\n')}`);
+        if (message) {
+            logger.colorful(`${message}\n`);
+        }
     }
     return results;
 });
-module.exports = execute;
+exports.default = execute;
 //# sourceMappingURL=execute.js.map

@@ -2,9 +2,10 @@
 
 import path from 'path'
 import Logger from './logger'
-import { runner } from './index'
+import { runner } from '.'
 
 const defaultTemplates = path.join(__dirname, '../src/templates')
+
 runner(process.argv.slice(2), {
   templates: defaultTemplates,
   cwd: process.cwd(),

@@ -1,7 +1,7 @@
 import path from 'path'
 import params from '../params'
 
-const fixture = dir => path.join(__dirname, 'fixtures/templates', dir)
+const fixture = (dir) => path.join(__dirname, 'fixtures/templates', dir)
 
 describe('params', () => {
   beforeEach(() => {
