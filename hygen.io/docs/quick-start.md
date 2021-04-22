@@ -78,7 +78,7 @@ $ hygen init self
 
 Loaded templates: src/templates
        added: _templates/generator/with-prompt/hello.ejs.t
-       added: _templates/generator/with-prompt/prompt.ejs.t
+       added: _templates/generator/with-prompt/prompt.js
        added: _templates/generator/new/hello.ejs.t
 ```
 

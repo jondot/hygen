@@ -1,5 +1,5 @@
 ---
-to: _templates/generator/with-prompt/prompt.ejs.t
+to: _templates/generator/with-prompt/prompt.js
 ---
 ---
 to: _templates/<%%= name %%>/<%%= action || 'new' %%>/prompt.js
