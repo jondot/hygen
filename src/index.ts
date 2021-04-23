@@ -14,14 +14,14 @@ const runner = async (
   try {
     const actions = await engine(argv, resolvedConfig)
     return { success: true, actions, time: 0 }
-  } catch (err) {
-    logger.log(err.toString())
+  } catch (error) {
+    logger.log(error.toString())
     if (resolvedConfig.debug) {
       logger.log('details -----------')
-      logger.log(err.stack)
+      logger.log(error.stack)
       logger.log('-------------------')
     }
-    if (err instanceof ShowHelpError) {
+    if (error instanceof ShowHelpError) {
       printHelp(templates, logger)
     }
     return { success: false, actions: [], time: 0 }

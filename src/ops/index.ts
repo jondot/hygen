@@ -1,4 +1,4 @@
-const resolve = attributes => {
+const resolve = (attributes) => {
   const ops = []
   if (attributes.to && !attributes.inject) {
     const add = require('./add').default

@@ -12,7 +12,8 @@
     "declaration": true,
     "strict": false,
     "emitDecoratorMetadata": true,
-    "experimentalDecorators": true
+    "experimentalDecorators": true,
+    "resolveJsonModule": true
   },
   "include": [
     "src/**/*"

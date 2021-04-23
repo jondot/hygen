@@ -18,12 +18,12 @@ const config_1 = require("./config");
 const configResolver = new config_1.ConfigResolver('.hygen.js', {
     exists: fs_extra_1.default.exists,
     // $FlowFixMe
-    load: f => Promise.resolve(require(f)),
-    none: _ => ({}),
+    load: (f) => Promise.resolve(require(f)),
+    none: (_) => ({}),
 });
 exports.default = (config) => __awaiter(void 0, void 0, void 0, function* () {
     const { cwd, templates } = config;
-    const resolvedTemplates = [process.env.HYGEN_TMPLS, path_1.default.join(cwd, '_templates')].find(_ => _ && fs_extra_1.default.existsSync(_)) || templates;
+    const resolvedTemplates = [process.env.HYGEN_TMPLS, path_1.default.join(cwd, '_templates')].find((_) => _ && fs_extra_1.default.existsSync(_)) || templates;
     return Object.assign(Object.assign(Object.assign({}, config), { templates: resolvedTemplates }), (yield configResolver.resolve(cwd)));
 });
 //# sourceMappingURL=config-resolver.js.map

@@ -36,13 +36,11 @@ const params = ({ templates, createPrompter }, externalArgv) => __awaiter(void 0
     const actionfolder = path_1.default.join(templates, generator, mainAction);
     const { _ } = argv, cleanArgv = __rest(argv, ["_"]);
     const promptArgs = yield prompt_1.default(createPrompter, actionfolder, Object.assign(Object.assign({}, (name ? { name } : {})), cleanArgv));
-    const args = Object.assign({
-        templates,
+    const args = Object.assign(Object.assign(Object.assign({ templates,
         actionfolder,
         generator,
         action,
-        subaction,
-    }, cleanArgv, name && { name }, promptArgs);
+        subaction }, cleanArgv), (name ? { name } : {})), promptArgs);
     return args;
 });
 exports.default = params;

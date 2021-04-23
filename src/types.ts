@@ -6,6 +6,17 @@ export interface Logger {
   log: (msg: string) => void
   colorful: (msg: string) => void
 }
+export interface Attribute {
+  inject?: boolean
+  to?: string
+  after?: string
+  from?: string
+  force?: boolean
+  unless_exists?: boolean
+  skip_if?: string
+  sh?: string
+}
+
 export interface Prompter<Q, T> {
   prompt: (arg0: Q) => Promise<T>
 }

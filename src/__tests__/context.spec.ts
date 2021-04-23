@@ -1,13 +1,13 @@
-const context = require('../context')
+import context from '../context'
 
 describe('context', () => {
   it('should populate with capitalized keys', () => {
     expect(context({ name: 'foobar' })).toMatchSnapshot()
   })
   it('allows helpers to be initialized with current context', () => {
-    const helpers = (args, context) => ({
+    const helpers = (args, helpersCtx) => ({
       testArgs: () => args,
-      testCtx: () => context,
+      testCtx: () => helpersCtx,
     })
     const locals = {}
     const config = {

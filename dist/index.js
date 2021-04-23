@@ -47,14 +47,14 @@ const runner = (argv, config) => __awaiter(void 0, void 0, void 0, function* () 
         const actions = yield engine_1.default(argv, resolvedConfig);
         return { success: true, actions, time: 0 };
     }
-    catch (err) {
-        logger.log(err.toString());
+    catch (error) {
+        logger.log(error.toString());
         if (resolvedConfig.debug) {
             logger.log('details -----------');
-            logger.log(err.stack);
+            logger.log(error.stack);
             logger.log('-------------------');
         }
-        if (err instanceof engine_1.ShowHelpError) {
+        if (error instanceof engine_1.ShowHelpError) {
             help_1.printHelp(templates, logger);
         }
         return { success: false, actions: [], time: 0 };

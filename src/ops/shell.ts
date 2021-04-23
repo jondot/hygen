@@ -1,7 +1,8 @@
 import { ActionResult } from '../types'
 import createResult from './result'
 
-const notEmpty = x => x && x.length > 0
+const notEmpty = (x) => x && x.length > 0
+
 const shell = async (
   { attributes: { sh }, body },
   args,
