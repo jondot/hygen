@@ -12,7 +12,7 @@ const dirCompare = require('dir-compare')
 const opts = { compareContent: true }
 const fs = require('fs-extra')
 const enquirer = require('enquirer')
-const { runner } = require('../index')
+import { runner } from '../index'
 
 const logger = new Logger(console.log)
 const failPrompt = () => {

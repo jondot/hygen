@@ -14,7 +14,7 @@ var __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (
 var __importStar = (this && this.__importStar) || function (mod) {
     if (mod && mod.__esModule) return mod;
     var result = {};
-    if (mod != null) for (var k in mod) if (k !== "default" && Object.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
+    if (mod != null) for (var k in mod) if (k !== "default" && Object.prototype.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
     __setModuleDefault(result, mod);
     return result;
 };
@@ -31,9 +31,11 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.VERSION = exports.availableActions = exports.printHelp = exports.resolve = exports.engine = exports.runner = void 0;
+exports.VERSION = exports.Logger = exports.availableActions = exports.printHelp = exports.resolve = exports.engine = exports.runner = void 0;
 const config_resolver_1 = __importDefault(require("./config-resolver"));
 exports.resolve = config_resolver_1.default;
+const logger_1 = __importDefault(require("./logger"));
+exports.Logger = logger_1.default;
 const engine_1 = __importStar(require("./engine"));
 exports.engine = engine_1.default;
 const help_1 = require("./help");

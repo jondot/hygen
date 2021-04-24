@@ -13,9 +13,9 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const result_1 = __importDefault(require("./result"));
-const path = require('path');
-const fs = require('fs-extra');
-const { red } = require('chalk');
+const path_1 = __importDefault(require("path"));
+const fs_extra_1 = __importDefault(require("fs-extra"));
+const chalk_1 = require("chalk");
 const add = (action, args, { logger, cwd, createPrompter }) => __awaiter(void 0, void 0, void 0, function* () {
     const { attributes: { to, inject, unless_exists, force, from }, } = action;
     const result = result_1.default('add', to);
@@ -23,21 +23,21 @@ const add = (action, args, { logger, cwd, createPrompter }) => __awaiter(void 0,
     if (!to || inject) {
         return result('ignored');
     }
-    const absTo = path.resolve(cwd, to);
+    const absTo = path_1.default.resolve(cwd, to);
     const shouldNotOverwrite = !force &&
         unless_exists !== undefined && unless_exists === true;
-    const fileExists = (yield fs.exists(absTo));
+    const fileExists = (yield fs_extra_1.default.exists(absTo));
     if (shouldNotOverwrite && fileExists) {
         logger.warn(`     skipped: ${to}`);
         return result('skipped');
     }
-    if (!process.env.HYGEN_OVERWRITE && fileExists) {
+    if (!process.env.HYGEN_OVERWRITE && fileExists && !force) {
         if (!(yield prompter
             .prompt({
             prefix: '',
             type: 'confirm',
             name: 'overwrite',
-            message: red(`     exists: ${to}. Overwrite? (y/N): `),
+            message: chalk_1.red(`     exists: ${to}. Overwrite? (y/N): `),
         })
             .then(({ overwrite }) => overwrite))) {
             logger.warn(`     skipped: ${to}`);
@@ -45,13 +45,13 @@ const add = (action, args, { logger, cwd, createPrompter }) => __awaiter(void 0,
         }
     }
     if (from) {
-        const from_path = path.join(args.templates, from);
-        const file = fs.readFileSync(from_path).toString();
+        const from_path = path_1.default.join(args.templates, from);
+        const file = fs_extra_1.default.readFileSync(from_path).toString();
         action.body = file;
     }
     if (!args.dry) {
-        yield fs.ensureDir(path.dirname(absTo));
-        yield fs.writeFile(absTo, action.body);
+        yield fs_extra_1.default.ensureDir(path_1.default.dirname(absTo));
+        yield fs_extra_1.default.writeFile(absTo, action.body);
     }
     const pathToLog = process.env.HYGEN_OUTPUT_ABS_PATH ? absTo : to;
     logger.ok(`       ${force ? 'FORCED' : 'added'}: ${pathToLog}`);

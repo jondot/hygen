@@ -25,4 +25,5 @@ const execute = async (
 
   return results
 }
-module.exports = execute
+
+export default execute

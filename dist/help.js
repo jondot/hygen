@@ -1,18 +1,21 @@
 "use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.VERSION = exports.printHelp = exports.availableActions = void 0;
-const fs = require('fs');
-const path = require('path');
-const chalk = require('chalk');
+const fs_1 = __importDefault(require("fs"));
+const path_1 = __importDefault(require("path"));
+const chalk_1 = __importDefault(require("chalk"));
 const pkg = require('../package.json');
 const VERSION = pkg.version;
 exports.VERSION = VERSION;
 const availableActions = (templates) => {
-    const generators = fs
+    const generators = fs_1.default
         .readdirSync(templates)
-        .filter(_ => fs.lstatSync(path.join(templates, _)).isDirectory());
+        .filter(_ => fs_1.default.lstatSync(path_1.default.join(templates, _)).isDirectory());
     return generators.reduce((acc, generator) => {
-        const actions = fs.readdirSync(path.join(templates, generator));
+        const actions = fs_1.default.readdirSync(path_1.default.join(templates, generator));
         acc[generator] = actions;
         return acc;
     }, {});
@@ -43,7 +46,7 @@ const printHelp = (templates, logger) => {
     }
     Object.entries(availableActions(templates)).forEach(([k, v]) => {
         // @ts-ignore
-        logger.log(`${chalk.bold(k)}: ${v.join(', ')}`);
+        logger.log(`${chalk_1.default.bold(k)}: ${v.join(', ')}`);
     });
 };
 exports.printHelp = printHelp;

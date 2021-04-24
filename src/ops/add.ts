@@ -1,9 +1,9 @@
 import { ActionResult, RunnerConfig, RenderedAction } from '../types'
 import createResult from './result'
 
-const path = require('path')
-const fs = require('fs-extra')
-const { red } = require('chalk')
+import path from 'path'
+import fs from 'fs-extra'
+import { red } from 'chalk'
 
 const add = async (
   action: RenderedAction,

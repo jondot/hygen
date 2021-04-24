@@ -1,24 +1,27 @@
 "use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 Object.defineProperty(exports, "__esModule", { value: true });
-const inflection = require('inflection');
-const changeCase = require('change-case');
-const path = require('path');
+const inflection_1 = __importDefault(require("inflection"));
+const change_case_1 = __importDefault(require("change-case"));
+const path_1 = __importDefault(require("path"));
 const localsToCapitalize = ['name'];
 const localsDefaults = {
     name: 'unnamed',
 };
 // supports kebab-case to KebabCase
-inflection.undasherize = str => str
+inflection_1.default.undasherize = (str) => str
     .split(/[-_]/)
-    .map(w => w[0].toUpperCase() + w.slice(1).toLowerCase())
+    .map((w) => w[0].toUpperCase() + w.slice(1).toLowerCase())
     .join('');
 const helpers = {
     capitalize(string) {
         return string.charAt(0).toUpperCase() + string.slice(1);
     },
-    inflection,
-    changeCase,
-    path,
+    inflection: inflection_1.default,
+    changeCase: change_case_1.default,
+    path: path_1.default,
 };
 const doCapitalization = (hsh, [key, value]) => {
     hsh[key] = value;
@@ -38,5 +41,5 @@ const context = (locals, config = {}) => {
         h: Object.assign(Object.assign({}, helpers), configHelpers),
     });
 };
-module.exports = context;
+exports.default = context;
 //# sourceMappingURL=context.js.map

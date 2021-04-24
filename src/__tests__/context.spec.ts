@@ -1,4 +1,4 @@
-const context = require('../context')
+import context from '../context'
 
 describe('context', () => {
   it('should populate with capitalized keys', () => {

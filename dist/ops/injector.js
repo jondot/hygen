@@ -1,6 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 const os_1 = require("os");
+const EOLRegex = /\r?\n/;
 const getPragmaticIndex = (pattern, lines, isBefore) => {
     const oneLineMatchIndex = lines.findIndex(l => l.match(pattern));
     if (oneLineMatchIndex < 0) {
@@ -9,11 +10,11 @@ const getPragmaticIndex = (pattern, lines, isBefore) => {
         if (fullMatch && fullMatch.length) {
             if (isBefore) {
                 const fullTextUntilMatchStart = fullText.substring(0, fullMatch.index);
-                return fullTextUntilMatchStart.split(os_1.EOL).length - 1;
+                return fullTextUntilMatchStart.split(EOLRegex).length - 1;
             }
             const matchEndIndex = fullMatch.index + fullMatch.toString().length;
             const fullTextUntilMatchEnd = fullText.substring(0, matchEndIndex);
-            return fullTextUntilMatchEnd.split(os_1.EOL).length;
+            return fullTextUntilMatchEnd.split(EOLRegex).length;
         }
     }
     return oneLineMatchIndex + (isBefore ? 0 : 1);
@@ -35,7 +36,7 @@ const indexByLocation = (attributes, lines) => {
 };
 const injector = (action, content) => {
     const { attributes: { skip_if, eof_last }, attributes, body, } = action;
-    const lines = content.split(os_1.EOL);
+    const lines = content.split(EOLRegex);
     // eslint-disable-next-line
     const shouldSkip = skip_if && !!content.match(skip_if);
     if (!shouldSkip) {
@@ -54,7 +55,7 @@ const injector = (action, content) => {
             lines.splice(idx, 0, body);
         }
     }
-    return lines.join('\n');
+    return lines.join(os_1.EOL);
 };
 exports.default = injector;
 //# sourceMappingURL=injector.js.map

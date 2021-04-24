@@ -18,7 +18,13 @@ const shell = ({ attributes: { sh }, body }, args, { logger, exec }) => __awaite
     const result = result_1.default('shell', sh);
     if (notEmpty(sh)) {
         if (!args.dry) {
-            yield exec(sh, body);
+            try {
+                yield exec(sh, body);
+            }
+            catch (error) {
+                logger.err(error.stderr);
+                process.exit(1);
+            }
         }
         logger.ok(`       shell: ${sh}`);
         return result('executed');

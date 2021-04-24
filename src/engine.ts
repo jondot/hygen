@@ -51,8 +51,8 @@ Options:
 
   // lazy loading these dependencies gives a better feel once
   // a user is exploring hygen (not specifying what to execute)
-  const execute = require('./execute')
-  const render = require('./render')
+  const execute = require('./execute').default
+  const render = require('./render').default
   return execute(await render(args, config), args, config)
 }
 

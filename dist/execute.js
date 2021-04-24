@@ -32,5 +32,5 @@ const execute = (renderedActions, args, config) => __awaiter(void 0, void 0, voi
     }
     return results;
 });
-module.exports = execute;
+exports.default = execute;
 //# sourceMappingURL=execute.js.map

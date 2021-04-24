@@ -1,11 +1,11 @@
 import { RenderedAction, RunnerConfig } from './types'
+import fs from 'fs-extra'
+import ejs from 'ejs'
+import fm from 'front-matter'
+import path from 'path'
+import walk from 'ignore-walk'
+import context from './context'
 
-const fs = require('fs-extra')
-const ejs = require('ejs')
-const fm = require('front-matter')
-const path = require('path')
-const walk = require('ignore-walk')
-const context = require('./context')
 
 // for some reason lodash/fp takes 90ms to load.
 // inline what we use here with the regular lodash.
@@ -79,4 +79,4 @@ const render = async (
       }),
     )
 
-module.exports = render
+export default render

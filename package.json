@@ -1,6 +1,6 @@
 {
   "name": "hygen",
-  "version": "6.0.3",
+  "version": "6.1.0",
   "main": "dist/index.js",
   "repository": "https://github.com/jondot/hygen",
   "bin": {
@@ -28,31 +28,31 @@
     "docs:publish": "cd hygen.io && yarn deploy"
   },
   "dependencies": {
-    "@types/node": "^14.0.14",
-    "chalk": "^4.1.0",
+    "@types/node": "^14.14.41",
+    "chalk": "^4.1.1",
     "change-case": "^3.1.0",
-    "ejs": "^3.1.3",
+    "ejs": "^3.1.6",
     "enquirer": "^2.3.6",
-    "execa": "^4.0.2",
+    "execa": "^5.0.0",
     "front-matter": "^4.0.2",
-    "fs-extra": "^9.0.1",
+    "fs-extra": "^9.1.0",
     "ignore-walk": "^3.0.3",
     "inflection": "^1.12.0",
-    "yargs-parser": "^18.1.3"
+    "yargs-parser": "^20.2.7"
   },
   "devDependencies": {
-    "@types/jest": "^26.0.3",
-    "@types/node": "^14.0.14",
+    "@types/jest": "^26.0.22",
+    "@types/node": "^14.14.41",
     "conventional-changelog-cli": "^2.0.34",
     "dir-compare": "^2.3.0",
     "gh-pages": "^3.1.0",
-    "jest": "^26.1.0",
-    "pkg": "^4.4.9",
+    "jest": "^26.6.3",
+    "pkg": "^5.0.0",
     "time-require": "^0.1.2",
-    "ts-jest": "^26.1.1",
-    "ts-node": "^8.10.2",
-    "typescript": "^3.9.6",
-    "zeroconf-typescript-eslint": "^2.2.0"
+    "ts-jest": "^26.5.5",
+    "ts-node": "^9.1.1",
+    "typescript": "^4.2.4",
+    "zeroconf-typescript-eslint": "^2.4.0"
   },
   "jest": {
     "transform": {
@@ -73,9 +73,9 @@
     "assets": "src/**/*",
     "outPath": "standalone",
     "targets": [
-      "node12-macos",
-      "node12-linux",
-      "node12-win"
+      "node14-macos",
+      "node14-linux",
+      "node14-win"
     ]
   },
   "license": "MIT",

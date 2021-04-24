@@ -3,20 +3,15 @@
   "extends": [
     "airbnb",
     "plugin:@typescript-eslint/recommended",
-    "prettier",
-    "prettier/react"
+    "prettier"
   ],
   "plugins": [
     "jest",
     "@typescript-eslint",
     "prettier"
   ],
-  "settings": {
-    "import/resolver": {
-      "typescript": {}
-    }
-  },
   "rules": {
+    "import/extensions": "never",
     "@typescript-eslint/camelcase": 0,
     "@typescript-eslint/no-var-requires": 0,
     "no-unused-vars": 0,

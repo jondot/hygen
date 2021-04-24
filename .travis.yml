@@ -2,6 +2,7 @@ language: node_js
 cache: yarn
 node_js:
   - "10"
+  - "14"
   - node
 
 before_install:
@@ -14,7 +15,7 @@ script: yarn test
 jobs:
   include:
     - stage: npm
-      node_js: "10"
+      node_js: "14"
       if: tag =~ ^v\d.*
       deploy:
           provider: npm
@@ -37,7 +38,7 @@ jobs:
     - stage: binary releases
       script: yarn standalone
       if: tag =~ ^v\d.*
-      node_js: "10"
+      node_js: "14"
       deploy:
         provider: releases
         api_key: $GITHUB_TOKEN

@@ -1,8 +1,7 @@
 import { Logger } from './types'
-
-const fs = require('fs')
-const path = require('path')
-const chalk = require('chalk')
+import fs from 'fs'
+import path from 'path'
+import chalk from 'chalk'
 const pkg = require('../package.json')
 
 const VERSION = pkg.version

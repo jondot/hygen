@@ -1,18 +1,17 @@
 import { RunnerConfig } from './types'
-
-const inflection = require('inflection')
-const changeCase = require('change-case')
-const path = require('path')
+import inflection from 'inflection'
+import changeCase from 'change-case'
+import path from 'path'
 
 const localsToCapitalize = ['name']
 const localsDefaults = {
   name: 'unnamed',
 }
 // supports kebab-case to KebabCase
-inflection.undasherize = str =>
+inflection.undasherize = (str) =>
   str
     .split(/[-_]/)
-    .map(w => w[0].toUpperCase() + w.slice(1).toLowerCase())
+    .map((w) => w[0].toUpperCase() + w.slice(1).toLowerCase())
     .join('')
 
 const helpers = {
@@ -56,4 +55,5 @@ const context = (locals: any, config: RunnerConfig = {}) => {
     },
   )
 }
-module.exports = context
+
+export default context
