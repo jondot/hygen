@@ -1,11 +1,11 @@
 import path from 'path'
 import { configLookup, ConfigResolver, reversePathsToWalk } from '../config'
 
-const sep = path.sep
+const { sep } = path
 describe(`config lookup with separator '${sep}'`, () => {
   if (process.platform !== 'win32') {
     it('sanitizes bad "from" path', () => {
-      const p = configLookup('.myconfig', 'foo').find(f =>
+      const p = configLookup('.myconfig', 'foo').find((f) =>
         f.match(/foo\/\.myconfig/),
       )
       expect(p).toBeDefined()
@@ -54,27 +54,31 @@ describe('resolver', () => {
     load.mockReturnValue(Promise.resolve({ param: 1 }))
 
     const resolver = new ConfigResolver('.hygen.js', {
-      none: _ => ({}),
+      none: (_) => ({}),
       exists,
       load,
     })
-    const config = await resolver.resolve('/foo/bar')
+    const config = await resolver.resolve(path.join('foo', 'bar'))
 
     expect(config).toEqual({ param: 1 })
   })
 
   it('resolves a file in the walk path', async () => {
-    const exists = jest.fn(f => Promise.resolve(f === '/foo/.hygen.js'))
+    const exists = jest.fn((f) => {
+      console.log('f', f)
+
+      return Promise.resolve(f.includes(path.join('foo', '.hygen.js')))
+    })
 
     const load = jest.fn()
     load.mockReturnValue(Promise.resolve({ param: 1 }))
 
     const resolver = new ConfigResolver('.hygen.js', {
-      none: _ => ({}),
+      none: (_) => ({}),
       exists,
       load,
     })
-    const config = await resolver.resolve('/foo/bar')
+    const config = await resolver.resolve(path.join('foo', 'bar'))
 
     expect(config).toEqual({ param: 1 })
   })
@@ -85,6 +89,6 @@ describe('reversePathsToWalk({folder, path})', () => {
     const folder = '/where/the/code/lives'
     const result = reversePathsToWalk({ folder, path })
     expect(result.length).toEqual(5)
-    expect(result[2]).toEqual('/where/the')
+    expect(result[2]).toContain(path.join('where', 'the'))
   })
 })

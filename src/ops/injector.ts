@@ -1,13 +1,16 @@
-import { EOL } from 'os'
 import { RenderedAction } from '../types'
+import newline from '../newline'
 
 const EOLRegex = /\r?\n/
 
 const getPragmaticIndex = (pattern, lines, isBefore) => {
   const oneLineMatchIndex = lines.findIndex(l => l.match(pattern))
 
+  // joins the text and looks for line number,
+  // we dont care about platform line-endings correctness other than joining/splitting
+  // for all platforms
   if (oneLineMatchIndex < 0) {
-    const fullText = lines.join(EOL)
+    const fullText = lines.join("\n")
     const fullMatch = fullText.match(new RegExp(pattern, 'm'))
 
     if (fullMatch && fullMatch.length) {
@@ -44,12 +47,22 @@ const injector = (action: RenderedAction, content: string): string => {
     attributes,
     body,
   } = action
-  const lines = content.split(EOLRegex)
   // eslint-disable-next-line
   const shouldSkip = skip_if && !!content.match(skip_if);
 
   if (!shouldSkip) {
+    //
+    // we care about producing platform-correct line endings.
+    // however the "correct" line endings should be detected from the actual
+    // CONTENT given, and not the underlying operating system.
+    // this is similar to how a text editor behaves.
+    //
+    const NL = newline(content)
+    const lines = content.split(NL)
+
+    // returns -1 (end) if no attrs
     const idx = indexByLocation(attributes, lines)
+
     // eslint-disable-next-line
     const trimEOF = idx >= 0 && eof_last === false && /\r?\n$/.test(body);
     // eslint-disable-next-line
@@ -58,13 +71,14 @@ const injector = (action: RenderedAction, content: string): string => {
     if (trimEOF) {
       lines.splice(idx, 0, body.replace(/\r?\n$/, ''))
     } else if (insertEOF) {
-      lines.splice(idx, 0, `${body}\n`)
+      lines.splice(idx, 0, `${body}${NL}`)
     } else if (idx >= 0) {
       lines.splice(idx, 0, body)
     }
+   return lines.join(NL)
+  } else {
+    return content
   }
-
-  return lines.join(EOL)
 }
 
 export default injector

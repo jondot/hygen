@@ -2,12 +2,14 @@ import context from '../context'
 
 describe('context', () => {
   it('should populate with capitalized keys', () => {
-    expect(context({ name: 'foobar' })).toMatchSnapshot()
+    const ctx = context({ name: 'foobar' })
+    delete ctx.h.path // platform dependent
+    expect(ctx).toMatchSnapshot()
   })
   it('allows helpers to be initialized with current context', () => {
-    const helpers = (args, context) => ({
+    const helpers = (args, ctx) => ({
       testArgs: () => args,
-      testCtx: () => context,
+      testCtx: () => ctx,
     })
     const locals = {}
     const config = {

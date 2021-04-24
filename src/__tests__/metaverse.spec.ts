@@ -1,10 +1,9 @@
 import Logger from '../logger'
+import { runner } from '../index'
 
 jest.mock('enquirer', () => ({
   prompt: null,
 }))
-
-const SKIP_ON_WINDOWS = process.platform === 'win32' ? ['shell'] : []
 
 const path = require('path')
 const dirCompare = require('dir-compare')
@@ -12,41 +11,33 @@ const dirCompare = require('dir-compare')
 const opts = { compareContent: true }
 const fs = require('fs-extra')
 const enquirer = require('enquirer')
-import { runner } from '../index'
 
 const logger = new Logger(console.log)
 const failPrompt = () => {
   throw new Error('set up prompt in testing')
 }
 
-const dir = m => path.join(__dirname, 'metaverse', m)
-const metaverse = (folder, cmds, promptResponse = null) =>
+const createConfig = (metaDir) => ({
+  templates: '_templates',
+  cwd: metaDir,
+  exec: (action, body) => {
+    const execOpts = body && body.length > 0 ? { input: body } : {}
+    return require('execa').command(action, { ...execOpts, shell: true })
+  },
+  logger,
+  createPrompter: () => require('enquirer'),
+})
+const dir = (m) => path.join(__dirname, 'metaverse', m)
+
+const metaverse = (folder, cmds, promptResponse = null) => {
   it(folder, async () => {
     const metaDir = dir(folder)
     console.log('metaverse test in:', metaDir)
-    const config = {
-      templates: '_templates',
-      cwd: metaDir,
-      exec: (action, body) => {
-        const opts = body && body.length > 0 ? { input: body } : {}
-        return require('execa').command(action, { ...opts, shell: true })
-      },
-      logger,
-      createPrompter: () => require('enquirer'),
-    }
-    // await fs.remove(path.join(metaDir, 'given'))
+    const config = createConfig(metaDir)
     console.log('before', fs.readdirSync(metaDir))
+
     for (let cmd of cmds) {
       console.log('testing', cmd)
-      if (
-        process.platform === 'win32' &&
-        SKIP_ON_WINDOWS.find(c => cmd[0] === c)
-      ) {
-        console.log(`skipping ${cmd} (windows!)`)
-        await fs.remove(path.join(metaDir, 'expected', cmd[0]))
-        continue
-      }
-
       enquirer.prompt = failPrompt
       if (promptResponse) {
         const last = cmd[cmd.length - 1]
@@ -59,12 +50,13 @@ const metaverse = (folder, cmds, promptResponse = null) =>
         }
       }
       const res = await runner(cmd, config)
-      res.actions.forEach(a => {
+      res.actions.forEach((a) => {
         a.timing = -1
         a.subject = a.subject.replace(/.*hygen\/src/, '')
       })
-      expect(res).toMatchSnapshot(cmd.join(' '))
+      expect(res).toMatchSnapshot(`${cmd.join(' ')}`)
     }
+
     const givenDir = path.join(metaDir, 'given')
     const expectedDir = path.join(metaDir, 'expected')
     console.log('after', {
@@ -72,18 +64,20 @@ const metaverse = (folder, cmds, promptResponse = null) =>
       [expectedDir]: fs.readdirSync(expectedDir),
     })
     const res = dirCompare.compareSync(givenDir, expectedDir, opts)
-    res.diffSet = res.diffSet.filter(d => d.state !== 'equal')
+    res.diffSet = res.diffSet.filter((d) => d.state !== 'equal')
     if (!res.same) {
       console.log(res)
     }
     expect(res.same).toEqual(true)
   })
+}
 
 describe('metaverse', () => {
   beforeEach(() => {
     enquirer.prompt = failPrompt
   })
   metaverse('hygen-extension', [['hygen-js', 'new']], { overwrite: true })
+
   metaverse(
     'hygen-templates',
     [
@@ -94,7 +88,6 @@ describe('metaverse', () => {
       ['overwrite-no', 'over', { overwrite: false }],
       ['mailer', 'new'],
       ['worker', 'new', '--name', 'foo'],
-      ['shell', 'new', '--name', 'foo'],
       ['inflection', 'new', '--name', 'person'],
       ['conditional-rendering', 'new', '--notGiven'],
       ['add-unless-exists', 'new', '--message', 'foo'],
@@ -149,3 +142,5 @@ describe('metaverse', () => {
     },
   )
 })
+
+export { metaverse }

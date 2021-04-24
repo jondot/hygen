@@ -7,6 +7,7 @@ install:
   - npm install --global npm@latest
   - set PATH=%APPDATA%\npm;%PATH%
   - npm install -g yarn
+  - yarn install
 matrix:
   fast_finish: true
 build: off
@@ -15,7 +16,6 @@ test_script:
   - node --version
   - yarn --version
   - yarn test:win32
-  - yarn hygen
   - yarn hygen init self
 cache:
   - '%APPDATA%\npm-cache'

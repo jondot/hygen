@@ -343,3 +343,36 @@ Object {
   "time": 0,
 }
 `;
+
+exports[`metaverse-conditional hygen-templates-unix: shell new --name foo 1`] = `
+Object {
+  "actions": Array [
+    Object {
+      "status": "executed",
+      "subject": "/__tests__/metaverse/hygen-templates-unix/given/shell/hello.piped",
+      "timing": -1,
+      "type": "shell",
+    },
+    Object {
+      "status": "executed",
+      "subject": "/__tests__/metaverse/hygen-templates-unix/given/shell/foo.hello",
+      "timing": -1,
+      "type": "shell",
+    },
+    Object {
+      "status": "added",
+      "subject": "given/shell/hmm.txt",
+      "timing": -1,
+      "type": "add",
+    },
+    Object {
+      "status": "executed",
+      "subject": "/__tests__/metaverse/hygen-templates-unix/given/shell/side-effect.hello",
+      "timing": -1,
+      "type": "shell",
+    },
+  ],
+  "success": true,
+  "time": 0,
+}
+`;
