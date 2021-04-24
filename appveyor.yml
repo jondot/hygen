@@ -7,8 +7,9 @@ install:
   - ps: Install-Product node $env:nodejs_version
   - npm install --global npm@latest
   - set PATH=%APPDATA%\npm;%PATH%
-  - npm install
+  # - npm install
   - npm install -g yarn
+  - yarn
 matrix:
   fast_finish: true
 build: off
