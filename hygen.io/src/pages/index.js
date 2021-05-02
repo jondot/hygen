@@ -155,8 +155,8 @@ const Hero = styled.div`
     margin-top: 15px;
   }
 `
+
 const Subtitle = styled.h2`
-  color: #000;
   font-weight: 600;
   margin: 1.2rem 0;
   letter-spacing: -1px;
@@ -188,7 +188,6 @@ const Feature = styled.div`
   padding: 1rem;
 `
 const IndexHeadContainer = styled.div`
-  background: white;
   padding: 20px;
   text-align: center;
   border-bottom: 1px solid #f0f0f0;
