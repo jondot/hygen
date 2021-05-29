@@ -200,6 +200,36 @@ Object {
 }
 `;
 
+exports[`metaverse hygen-templates: inflection-in-params new --name person 1`] = `
+Object {
+  "actions": Array [
+    Object {
+      "status": "added",
+      "subject": "given/inflection-in-params/new.md",
+      "timing": -1,
+      "type": "add",
+    },
+  ],
+  "success": true,
+  "time": 0,
+}
+`;
+
+exports[`metaverse hygen-templates: inflection-in-prompt new 1`] = `
+Object {
+  "actions": Array [
+    Object {
+      "status": "added",
+      "subject": "given/inflection-in-prompt/new.md",
+      "timing": -1,
+      "type": "add",
+    },
+  ],
+  "success": true,
+  "time": 0,
+}
+`;
+
 exports[`metaverse hygen-templates: init self 1`] = `
 Object {
   "actions": Array [

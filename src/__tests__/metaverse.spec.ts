@@ -89,6 +89,7 @@ describe('metaverse', () => {
       ['mailer', 'new'],
       ['worker', 'new', '--name', 'foo'],
       ['inflection', 'new', '--name', 'person'],
+      ['inflection-in-params', 'new', '--name', 'person'],
       ['inflection-in-prompt', 'new'],
       ['conditional-rendering', 'new', '--notGiven'],
       ['add-unless-exists', 'new', '--message', 'foo'],
