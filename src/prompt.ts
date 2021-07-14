@@ -1,12 +1,13 @@
 import path from 'path'
 import fs from 'fs'
-import { Prompter } from './types'
+import { Prompter, RunnerConfig } from './types'
 
 const hooksfiles = ['prompt.js', 'index.js']
 const prompt = <Q, T>(
   createPrompter: () => Prompter<Q, T>,
   actionfolder: string,
   args: Record<string, any>,
+  config: RunnerConfig,
 ): Promise<T | object> => {
   const hooksfile = hooksfiles
     .map(f => path.resolve(path.join(actionfolder, f)))
@@ -20,14 +21,14 @@ const prompt = <Q, T>(
   // $FlowFixMe
   const hooksModule = require(hooksfile)
   if (hooksModule.params) {
-    return hooksModule.params({ args })
+    return hooksModule.params({ args, config })
   }
 
   // lazy loads prompter
   // everything below requires it
   const prompter = createPrompter()
   if (hooksModule.prompt) {
-    return hooksModule.prompt({ prompter, inquirer: prompter, args })
+    return hooksModule.prompt({ prompter, inquirer: prompter, args, config })
   }
 
   return prompter.prompt(
