@@ -4,9 +4,10 @@ import { RunnerConfig, ParamsResult } from './types'
 import prompt from './prompt'
 
 const params = async (
-  { templates, createPrompter }: RunnerConfig,
+  config: RunnerConfig,
   externalArgv: string[],
 ): Promise<ParamsResult> => {
+  const { templates, createPrompter } = config
   const argv = yargs(externalArgv)
 
   const [generator, action, name] = argv._
@@ -23,7 +24,7 @@ const params = async (
     // but theres no usecase yet
     ...(name ? { name } : {}),
     ...cleanArgv,
-  })
+  }, config)
 
   const args = Object.assign(
     {
