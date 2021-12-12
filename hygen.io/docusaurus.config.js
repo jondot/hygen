@@ -83,7 +83,7 @@ module.exports = {
       {
         docs: {
           sidebarPath: require.resolve('./sidebar.js'),
-          editUrl: 'https://github.com/jondot/hygen/edit/master/website/',
+          editUrl: 'https://github.com/jondot/hygen/edit/master/hygen.io/',
         },
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
