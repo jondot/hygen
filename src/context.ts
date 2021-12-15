@@ -15,8 +15,9 @@ inflection.undasherize = (str) =>
     .join('')
 
 const helpers = {
-  capitalize(string) {
-    return string.charAt(0).toUpperCase() + string.slice(1)
+  capitalize(str) {
+    const toBeCapitalized = String(str)
+    return toBeCapitalized.charAt(0).toUpperCase() + toBeCapitalized.slice(1)
   },
   inflection,
   changeCase,
