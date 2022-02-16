@@ -1,0 +1,10 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`add should return "skipped" if skip_if has value  1`] = `
+Object {
+  "status": "ignored",
+  "subject": undefined,
+  "timing": Any<Number>,
+  "type": "add",
+}
+`;
