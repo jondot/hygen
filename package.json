@@ -1,8 +1,8 @@
 {
-  "name": "hygen",
-  "version": "6.1.0",
+  "name": "@handfish/hygen",
+  "version": "6.1.1",
   "main": "dist/index.js",
-  "repository": "https://github.com/jondot/hygen",
+  "repository": "https://github.com/handfish/hygen",
   "bin": {
     "hygen": "./dist/bin.js"
   },
