@@ -3,7 +3,7 @@ title: Templates
 id: templates
 ---
 
-A `hygen` template is a header of a markdown-like [frontmatter](templates/#all-frontmatter-properties) and a body of an ejs templating engine.
+A `hygen` template is a header of a markdown-like [frontmatter](#all-frontmatter-properties) and a body of an ejs templating engine.
 
 ```yaml
 ---                            <----- frontmatter section
