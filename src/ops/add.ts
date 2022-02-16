@@ -43,7 +43,8 @@ const add = async (
     }
   }
 
-  const shouldSkip = !!skip_if;
+  const shouldSkip = skip_if === 'true'
+
   if(shouldSkip) {
     return result('skipped')
   }
