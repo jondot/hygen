@@ -2,8 +2,11 @@
   <img src="https://raw.githubusercontent.com/jondot/hygen/master/media/hygen.png" alt="hygen logo" width=400 />
 </h3>
 
-[![build status](https://img.shields.io/travis/jondot/hygen/master.svg)](https://travis-ci.org/jondot/hygen)
-[![npm version](https://img.shields.io/npm/v/hygen.svg)](https://www.npmjs.com/package/hygen)
+## Installing this Fork
+
+`yarn add @handfish/hygen`
+
+[![npm version](https://img.shields.io/npm/v/hygen.svg)](https://www.npmjs.com/package/@handfish/hygen)
 
 `hygen` is the simple, fast, and scalable code generator that lives _in_ your project.
 
