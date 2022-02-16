@@ -3,7 +3,7 @@ title: Templates
 id: templates
 ---
 
-A `hygen` template is a header of a markdown-like [frontmatter](templates/#all-frontmatter-properties) and a body of an ejs templating engine.
+A `hygen` template is a header of a markdown-like [frontmatter](#all-frontmatter-properties) and a body of an ejs templating engine.
 
 ```yaml
 ---                            <----- frontmatter section
@@ -346,13 +346,13 @@ Next up, we'll move on to [generators](/docs/generators).
 
 ## All Frontmatter Properties
 
-| Property                                          | Type         | Default   | Example                                |
-|---------------------------------------------------|--------------|-----------|----------------------------------------|
-| [`to:`](templates/#addition)                 | String (url) | undefined | my-project/readme.md                   |
-| [`from:`](templates/#from--shared-templates) | String (url) | undefined | shared/docs/readme.md                  |
-| [`force:`](templates/#addition)              | Boolean      | false     | true                                   |
-| [`unless_exists:`](templates/#addition)      | Boolean      | false     | true                                   |
-| [`inject:`](templates/#injection)            | Boolean      | false     | true                                   |
-| [`after:`](templates/#injection)             | Regex        | undefined | devDependencies                        |
-| [`skip_if:`](templates/#injection)           | Regex        | undefined | myPackage                              |
-| [`sh:`](templates/#shell)                    | String       | undefined | echo: "Hello this is a shell command!" |
+| Property                           | Type         | Default   | Example                                |
+|------------------------------------|--------------|-----------|----------------------------------------|
+| [`to:`](#addition)                 | String (url) | undefined | my-project/readme.md                   |
+| [`from:`](#from--shared-templates) | String (url) | undefined | shared/docs/readme.md                  |
+| [`force:`](#addition)              | Boolean      | false     | true                                   |
+| [`unless_exists:`](#addition)      | Boolean      | false     | true                                   |
+| [`inject:`](#injection)            | Boolean      | false     | true                                   |
+| [`after:`](#injection)             | Regex        | undefined | devDependencies                        |
+| [`skip_if:`](#injection)           | Regex        | undefined | myPackage                              |
+| [`sh:`](#shell)                    | String       | undefined | echo: "Hello this is a shell command!" |
