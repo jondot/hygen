@@ -11,7 +11,7 @@ const add = async (
   { logger, cwd, createPrompter }: RunnerConfig,
 ): Promise<ActionResult> => {
   const {
-    attributes: { to, inject, unless_exists, force, from },
+    attributes: { to, inject, unless_exists, force, from, skip_if },
   } = action
   const result = createResult('add', to)
   const prompter = createPrompter()
@@ -43,6 +43,11 @@ const add = async (
     }
   }
 
+  const shouldSkip = skip_if === 'true'
+
+  if(shouldSkip) {
+    return result('skipped')
+  }
 
   if (from) {
     const from_path = path.join(args.templates, from)

@@ -15,6 +15,8 @@ const filter = f => arr => arr.filter(f)
 const ignores = [
   'prompt.js',
   'index.js',
+  'prompt.ts',
+  'index.ts',
   '.hygenignore',
   '.DS_Store',
   '.Spotlight-V100',
@@ -54,7 +56,10 @@ const render = async (
     )
     .then(_ => Promise.all(_))
     .then(
-      map(({ file, text }) => ({ file, ...fm(text, { allowUnsafe: true }) })),
+      map(({ file, text }) => {
+          if(config.debug) console.debug('Pre-formatting file:', file)
+          return { file, ...fm(text, { allowUnsafe: true }) }
+      }),
     )
     .then(
       map(({ file, attributes, body }) => {
@@ -67,6 +72,7 @@ const render = async (
           },
           {},
         )
+        if(config.debug) console.debug('Rendering file:', file)
         return {
           file,
           attributes: renderedAttrs,
