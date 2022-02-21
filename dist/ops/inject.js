@@ -18,7 +18,7 @@ const result_1 = __importDefault(require("./result"));
 const injector_1 = __importDefault(require("./injector"));
 const injectOp = (action, args, { logger, cwd }) => __awaiter(void 0, void 0, void 0, function* () {
     const { attributes: { to, inject }, } = action;
-    const result = result_1.default('inject', to);
+    const result = (0, result_1.default)('inject', to);
     if (!(inject && to)) {
         return result('ignored');
     }
@@ -30,7 +30,7 @@ const injectOp = (action, args, { logger, cwd }) => __awaiter(void 0, void 0, vo
         });
     }
     const content = (yield fs_extra_1.default.readFile(absTo)).toString();
-    const injectResult = injector_1.default(action, content);
+    const injectResult = (0, injector_1.default)(action, content);
     if (!args.dry) {
         yield fs_extra_1.default.writeFile(absTo, injectResult);
     }

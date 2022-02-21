@@ -8,7 +8,7 @@ const path_1 = __importDefault(require("path"));
 const logger_1 = __importDefault(require("./logger"));
 const index_1 = require("./index");
 const defaultTemplates = path_1.default.join(__dirname, '../src/templates');
-index_1.runner(process.argv.slice(2), {
+(0, index_1.runner)(process.argv.slice(2), {
     templates: defaultTemplates,
     cwd: process.cwd(),
     logger: new logger_1.default(console.log.bind(console)),

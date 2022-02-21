@@ -22,7 +22,7 @@ const execute = (renderedActions, args, config) => __awaiter(void 0, void 0, voi
         if (message) {
             messages.push(message);
         }
-        const ops = ops_1.default(action.attributes);
+        const ops = (0, ops_1.default)(action.attributes);
         for (const op of ops) {
             results.push(yield op(action, args, config));
         }

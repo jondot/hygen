@@ -1,8 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 const chalk = require('chalk');
-const { yellow, red, green, magenta } = chalk;
-const template = require('chalk/source/templates');
+const { yellow, red, green, magenta, template } = chalk;
 class Logger {
     constructor(log) {
         this.log = log;

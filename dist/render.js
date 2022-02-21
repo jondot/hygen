@@ -25,6 +25,8 @@ const filter = f => arr => arr.filter(f);
 const ignores = [
     'prompt.js',
     'index.js',
+    'prompt.ts',
+    'index.ts',
     '.hygenignore',
     '.DS_Store',
     '.Spotlight-V100',
@@ -32,7 +34,7 @@ const ignores = [
     'ehthumbs.db',
     'Thumbs.db',
 ];
-const renderTemplate = (tmpl, locals, config) => typeof tmpl === 'string' ? ejs_1.default.render(tmpl, context_1.default(locals, config)) : tmpl;
+const renderTemplate = (tmpl, locals, config) => typeof tmpl === 'string' ? ejs_1.default.render(tmpl, (0, context_1.default)(locals, config)) : tmpl;
 function getFiles(dir) {
     return __awaiter(this, void 0, void 0, function* () {
         const files = ignore_walk_1.default
@@ -51,11 +53,17 @@ const render = (args, config) => __awaiter(void 0, void 0, void 0, function* () 
         : true))
         .then(map(file => fs_extra_1.default.readFile(file).then(text => ({ file, text: text.toString() }))))
         .then(_ => Promise.all(_))
-        .then(map(({ file, text }) => (Object.assign({ file }, front_matter_1.default(text, { allowUnsafe: true })))))
+        .then(map(({ file, text }) => {
+        if (config.debug)
+            console.debug('Pre-formatting file:', file);
+        return Object.assign({ file }, (0, front_matter_1.default)(text, { allowUnsafe: true }));
+    }))
         .then(map(({ file, attributes, body }) => {
         const renderedAttrs = Object.entries(attributes).reduce((obj, [key, value]) => {
             return Object.assign(Object.assign({}, obj), { [key]: renderTemplate(value, args, config) });
         }, {});
+        if (config.debug)
+            console.debug('Rendering file:', file);
         return {
             file,
             attributes: renderedAttrs,

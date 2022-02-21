@@ -17,8 +17,8 @@ const path_1 = __importDefault(require("path"));
 const fs_extra_1 = __importDefault(require("fs-extra"));
 const chalk_1 = require("chalk");
 const add = (action, args, { logger, cwd, createPrompter }) => __awaiter(void 0, void 0, void 0, function* () {
-    const { attributes: { to, inject, unless_exists, force, from }, } = action;
-    const result = result_1.default('add', to);
+    const { attributes: { to, inject, unless_exists, force, from, skip_if }, } = action;
+    const result = (0, result_1.default)('add', to);
     const prompter = createPrompter();
     if (!to || inject) {
         return result('ignored');
@@ -37,12 +37,16 @@ const add = (action, args, { logger, cwd, createPrompter }) => __awaiter(void 0,
             prefix: '',
             type: 'confirm',
             name: 'overwrite',
-            message: chalk_1.red(`     exists: ${to}. Overwrite? (y/N): `),
+            message: (0, chalk_1.red)(`     exists: ${to}. Overwrite? (y/N): `),
         })
             .then(({ overwrite }) => overwrite))) {
             logger.warn(`     skipped: ${to}`);
             return result('skipped');
         }
+    }
+    const shouldSkip = skip_if === 'true';
+    if (shouldSkip) {
+        return result('skipped');
     }
     if (from) {
         const from_path = path_1.default.join(args.templates, from);

@@ -24,7 +24,7 @@ class ShowHelpError extends Error {
 exports.ShowHelpError = ShowHelpError;
 const engine = (argv, config) => __awaiter(void 0, void 0, void 0, function* () {
     const { cwd, templates, logger } = config;
-    const args = Object.assign(yield params_1.default(config, argv), { cwd });
+    const args = Object.assign(yield (0, params_1.default)(config, argv), { cwd });
     const { generator, action, actionfolder } = args;
     if (['-h', '--help'].includes(argv[0])) {
         logger.log(`
