@@ -62,4 +62,3 @@ const add = (action, args, { logger, cwd, createPrompter }) => __awaiter(void 0,
     return result('added');
 });
 exports.default = add;
-//# sourceMappingURL=add.js.map

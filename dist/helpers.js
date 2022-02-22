@@ -21,4 +21,3 @@ const helpers = {
     path: path_1.default,
 };
 exports.default = helpers;
-//# sourceMappingURL=helpers.js.map

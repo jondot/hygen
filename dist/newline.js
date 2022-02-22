@@ -11,4 +11,3 @@ const newline = string => {
     return crlf > lf ? '\r\n' : '\n';
 };
 exports.default = newline;
-//# sourceMappingURL=newline.js.map

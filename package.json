@@ -32,6 +32,7 @@
     "change-case": "^3.1.0",
     "ejs": "^3.1.6",
     "enquirer": "^2.3.6",
+    "eslint-plugin-prettier": "^4.0.0",
     "execa": "^5.0.0",
     "front-matter": "^4.0.2",
     "fs-extra": "^10.0.0",
@@ -47,12 +48,13 @@
     "gh-pages": "^3.1.0",
     "jest": "^27.5.1",
     "pkg": "^5.5.2",
+    "react": "17.0.2",
+    "stylomatic": "^0.3.0",
     "time-require": "^0.1.2",
     "ts-jest": "^27.1.3",
     "ts-node": "^10.5.0",
     "typescript": "^4.5.5",
-    "zeroconf-typescript-eslint": "^2.4.0",
-    "react": "17.0.2"
+    "zeroconf-typescript-eslint": "^2.4.0"
   },
   "jest": {
     "transform": {

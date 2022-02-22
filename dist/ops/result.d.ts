@@ -6,3 +6,4 @@ declare const _default: (type: any, subject: any, start?: Date) => (status: any,
     timing: number;
 };
 export default _default;
+//# sourceMappingURL=result.d.ts.map

@@ -27,4 +27,3 @@ const context = (locals, config = {}) => {
     });
 };
 exports.default = context;
-//# sourceMappingURL=context.js.map

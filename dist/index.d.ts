@@ -5,3 +5,4 @@ import engine from './engine';
 import { printHelp, availableActions, VERSION } from './help';
 declare const runner: (argv: string[], config: RunnerConfig) => Promise<RunnerResult>;
 export { runner, engine, resolve, printHelp, availableActions, Logger, VERSION };
+//# sourceMappingURL=index.d.ts.map

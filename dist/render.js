@@ -72,4 +72,3 @@ const render = (args, config) => __awaiter(void 0, void 0, void 0, function* () 
     }));
 });
 exports.default = render;
-//# sourceMappingURL=render.js.map

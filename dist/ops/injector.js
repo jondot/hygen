@@ -75,4 +75,3 @@ const injector = (action, content) => {
     }
 };
 exports.default = injector;
-//# sourceMappingURL=injector.js.map

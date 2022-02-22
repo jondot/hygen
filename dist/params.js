@@ -46,4 +46,3 @@ const params = ({ templates, createPrompter }, externalArgv) => __awaiter(void 0
     return args;
 });
 exports.default = params;
-//# sourceMappingURL=params.js.map

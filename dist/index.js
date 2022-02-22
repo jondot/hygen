@@ -63,4 +63,3 @@ const runner = (argv, config) => __awaiter(void 0, void 0, void 0, function* () 
     }
 });
 exports.runner = runner;
-//# sourceMappingURL=index.js.map

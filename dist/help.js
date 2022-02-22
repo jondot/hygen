@@ -50,4 +50,3 @@ const printHelp = (templates, logger) => {
     });
 };
 exports.printHelp = printHelp;
-//# sourceMappingURL=help.js.map

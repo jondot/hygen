@@ -17,4 +17,3 @@ const resolve = attributes => {
     return ops;
 };
 exports.default = resolve;
-//# sourceMappingURL=index.js.map

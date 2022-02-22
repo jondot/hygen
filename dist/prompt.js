@@ -46,4 +46,3 @@ const prompt = (createPrompter, actionfolder, args) => {
         args[p.name].length === 0));
 };
 exports.default = prompt;
-//# sourceMappingURL=prompt.js.map

@@ -39,4 +39,3 @@ const injectOp = (action, args, { logger, cwd }) => __awaiter(void 0, void 0, vo
     return result('inject');
 });
 exports.default = injectOp;
-//# sourceMappingURL=inject.js.map

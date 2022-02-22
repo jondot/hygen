@@ -61,4 +61,3 @@ Options:
     return execute(yield render(args, config), args, config);
 });
 exports.default = engine;
-//# sourceMappingURL=engine.js.map

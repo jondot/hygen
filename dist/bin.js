@@ -19,4 +19,3 @@ const defaultTemplates = path_1.default.join(__dirname, '../src/templates');
     },
     createPrompter: () => require('enquirer'),
 }).then(({ success }) => process.exit(success ? 0 : 1));
-//# sourceMappingURL=bin.js.map

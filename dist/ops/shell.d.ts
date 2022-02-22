@@ -9,3 +9,4 @@ declare const shell: ({ attributes: { sh }, body }: {
     exec: any;
 }) => Promise<ActionResult>;
 export default shell;
+//# sourceMappingURL=shell.d.ts.map

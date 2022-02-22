@@ -26,4 +26,3 @@ exports.default = (config) => __awaiter(void 0, void 0, void 0, function* () {
     const resolvedTemplates = [process.env.HYGEN_TMPLS, path_1.default.join(cwd, '_templates')].find(_ => _ && fs_extra_1.default.existsSync(_)) || templates;
     return Object.assign(Object.assign(Object.assign({}, config), { templates: resolvedTemplates }), (yield configResolver.resolve(cwd)));
 });
-//# sourceMappingURL=config-resolver.js.map
