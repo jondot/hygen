@@ -8,6 +8,10 @@ const resolve = attributes => {
     const inject = require('./inject').default
     ops.push(inject)
   }
+  if (attributes.echo) {
+    const echo = require('./echo').default
+    ops.push(echo)
+  }
   if (attributes.sh) {
     const shell = require('./shell').default
     ops.push(shell)
