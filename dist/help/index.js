@@ -8,7 +8,7 @@ const fs_1 = __importDefault(require("fs"));
 const path_1 = __importDefault(require("path"));
 const chalk_1 = __importDefault(require("chalk"));
 const errors_1 = require("./errors");
-const VERSION = '6.0.3';
+const VERSION = '6.1.1';
 exports.VERSION = VERSION;
 const availableActions = (templates) => {
     const generators = fs_1.default
