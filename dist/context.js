@@ -24,10 +24,11 @@ const helpers = {
     path: path_1.default,
 };
 const doCapitalization = (hsh, [key, value]) => {
-    hsh[key] = value;
+    const newHsh = Object.assign({}, hsh);
+    newHsh[key] = value;
     if (localsToCapitalize.includes(key))
-        hsh[helpers.capitalize(key)] = helpers.capitalize(value);
-    return hsh;
+        newHsh[helpers.capitalize(key)] = helpers.capitalize(value);
+    return newHsh;
 };
 const capitalizedLocals = (locals) => Object.entries(locals).reduce(doCapitalization, {});
 const context = (locals, config = {}) => {

@@ -3,7 +3,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const os_1 = require("os");
 const EOLRegex = /\r?\n/;
 const getPragmaticIndex = (pattern, lines, isBefore) => {
-    const oneLineMatchIndex = lines.findIndex(l => l.match(pattern));
+    const oneLineMatchIndex = lines.findIndex((l) => l.match(pattern));
     if (oneLineMatchIndex < 0) {
         const fullText = lines.join(os_1.EOL);
         const fullMatch = fullText.match(new RegExp(pattern, 'm'));
@@ -20,8 +20,8 @@ const getPragmaticIndex = (pattern, lines, isBefore) => {
     return oneLineMatchIndex + (isBefore ? 0 : 1);
 };
 const locations = {
-    at_line: _ => _,
-    prepend: _ => 0,
+    at_line: (_) => _,
+    prepend: (_) => 0,
     append: (_, lines) => lines.length - 1,
     before: (_, lines) => getPragmaticIndex(_, lines, true),
     after: (_, lines) => getPragmaticIndex(_, lines, false),

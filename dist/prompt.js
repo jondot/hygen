@@ -8,8 +8,8 @@ const fs_1 = __importDefault(require("fs"));
 const hooksfiles = ['prompt.js', 'index.js'];
 const prompt = (createPrompter, actionfolder, args) => {
     const hooksfile = hooksfiles
-        .map(f => path_1.default.resolve(path_1.default.join(actionfolder, f)))
-        .find(f => fs_1.default.existsSync(f));
+        .map((f) => path_1.default.resolve(path_1.default.join(actionfolder, f)))
+        .find((f) => fs_1.default.existsSync(f));
     if (!hooksfile) {
         return Promise.resolve({});
     }
@@ -27,7 +27,7 @@ const prompt = (createPrompter, actionfolder, args) => {
     }
     return prompter.prompt(
     // prompt _only_ for things we've not seen on the CLI
-    hooksModule.filter(p => args[p.name] === undefined ||
+    hooksModule.filter((p) => args[p.name] === undefined ||
         args[p.name] === null ||
         args[p.name].length === 0));
 };

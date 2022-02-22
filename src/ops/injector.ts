@@ -4,7 +4,7 @@ import newline from '../newline'
 const EOLRegex = /\r?\n/
 
 const getPragmaticIndex = (pattern, lines, isBefore) => {
-  const oneLineMatchIndex = lines.findIndex(l => l.match(pattern))
+  const oneLineMatchIndex = lines.findIndex((l) => l.match(pattern))
 
   // joins the text and looks for line number,
   // we dont care about platform line-endings correctness other than joining/splitting
@@ -26,13 +26,15 @@ const getPragmaticIndex = (pattern, lines, isBefore) => {
 
   return oneLineMatchIndex + (isBefore ? 0 : 1)
 }
+
 const locations = {
-  at_line: _ => _,
-  prepend: _ => 0,
+  at_line: (_) => _,
+  prepend: (_) => 0,
   append: (_, lines) => lines.length - 1,
   before: (_, lines) => getPragmaticIndex(_, lines, true),
   after: (_, lines) => getPragmaticIndex(_, lines, false),
 }
+
 const indexByLocation = (attributes: any, lines: string[]): number => {
   const pair = Object.entries(attributes).find(([k, _]) => locations[k])
   if (pair) {
@@ -41,6 +43,7 @@ const indexByLocation = (attributes: any, lines: string[]): number => {
   }
   return -1
 }
+
 const injector = (action: RenderedAction, content: string): string => {
   const {
     attributes: { skip_if, eof_last },

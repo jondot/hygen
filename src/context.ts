@@ -1,3 +1,6 @@
+import inflection from 'inflection'
+import changeCase from 'change-case'
+import path from 'path'
 import { RunnerConfig } from './types'
 import helpers from './helpers'
 
@@ -7,12 +10,14 @@ const localsDefaults = {
 }
 
 const doCapitalization = (hsh, [key, value]) => {
-  hsh[key] = value
+  const newHsh = { ...hsh }
+
+  newHsh[key] = value
 
   if (localsToCapitalize.includes(key))
-    hsh[helpers.capitalize(key)] = helpers.capitalize(value)
+    newHsh[helpers.capitalize(key)] = helpers.capitalize(value)
 
-  return hsh
+  return newHsh
 }
 
 const capitalizedLocals = (locals: any) =>

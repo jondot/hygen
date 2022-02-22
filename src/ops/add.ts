@@ -5,47 +5,63 @@ import path from 'path'
 import fs from 'fs-extra'
 import { red } from 'chalk'
 
+const askForOverwrite = async (prompter, to) => {
+  const { overwrite } = await prompter.prompt({
+    prefix: '',
+    type: 'confirm',
+    name: 'overwrite',
+    message: red(`     exists: ${to}. Overwrite? (y/N): `),
+  })
+
+  return overwrite
+}
+
+const getShouldSkip = async (absTo, attributes, createPrompter) => {
+  const { to, unless_exists, force } = attributes
+
+  const fileExists = await fs.exists(absTo)
+  const shouldNotOverwrite =
+    !force && unless_exists !== undefined && unless_exists === true
+
+  if (shouldNotOverwrite && fileExists) {
+    return true
+  }
+
+  const prompter = createPrompter()
+
+  if (
+    !process.env.HYGEN_OVERWRITE &&
+    fileExists &&
+    !(await askForOverwrite(prompter, to))
+  ) {
+    return true
+  }
+
+  return false
+}
+
 const add = async (
   action: RenderedAction,
   args: any,
   { logger, cwd, createPrompter }: RunnerConfig,
 ): Promise<ActionResult> => {
   const {
-    attributes: { to, inject, unless_exists, force, from, skip_if },
+    attributes: { to, inject, force, from },
   } = action
   const result = createResult('add', to)
-  const prompter = createPrompter()
+
   if (!to || inject) {
     return result('ignored')
   }
   const absTo = path.resolve(cwd, to)
-  const shouldNotOverwrite = !force &&
-    unless_exists !== undefined && unless_exists === true
-  const fileExists = (await fs.exists(absTo))
+  const shouldSkip = await getShouldSkip(
+    absTo,
+    action.attributes,
+    createPrompter,
+  )
 
-  if (shouldNotOverwrite && fileExists) {
+  if (shouldSkip) {
     logger.warn(`     skipped: ${to}`)
-    return result('skipped')
-  }
-  if (!process.env.HYGEN_OVERWRITE && fileExists && !force) {
-    if (
-      !(await prompter
-        .prompt({
-          prefix: '',
-          type: 'confirm',
-          name: 'overwrite',
-          message: red(`     exists: ${to}. Overwrite? (y/N): `),
-        })
-        .then(({ overwrite }) => overwrite))
-    ) {
-      logger.warn(`     skipped: ${to}`)
-      return result('skipped')
-    }
-  }
-
-  const shouldSkip = skip_if === 'true'
-
-  if(shouldSkip) {
     return result('skipped')
   }
 
@@ -59,6 +75,7 @@ const add = async (
     await fs.ensureDir(path.dirname(absTo))
     await fs.writeFile(absTo, action.body)
   }
+
   const pathToLog = process.env.HYGEN_OUTPUT_ABS_PATH ? absTo : to
   logger.ok(`       ${force ? 'FORCED' : 'added'}: ${pathToLog}`)
 
