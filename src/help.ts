@@ -4,8 +4,7 @@ import path from 'path'
 import chalk from 'chalk'
 import { Logger } from './types'
 import { getNoGeneratorsFoundMessage } from './errors'
-
-const VERSION = '6.0.3'
+import { version as VERSION } from '../package.json';
 
 const availableActions = (templates: string) => {
   const generators = fs
