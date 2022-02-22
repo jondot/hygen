@@ -17,7 +17,7 @@ const askForOverwrite = async (prompter, to) => {
 }
 
 const getShouldSkip = async (absTo, attributes, createPrompter) => {
-  const { to, unless_exists, force } = attributes
+  const { to, unless_exists, force, skip_if } = attributes
 
   const fileExists = await fs.exists(absTo)
   const shouldNotOverwrite =
@@ -32,7 +32,8 @@ const getShouldSkip = async (absTo, attributes, createPrompter) => {
   if (
     !process.env.HYGEN_OVERWRITE &&
     fileExists &&
-    !(await askForOverwrite(prompter, to))
+    !(await askForOverwrite(prompter, to)) ||
+    skip_if === 'true'
   ) {
     return true
   }
