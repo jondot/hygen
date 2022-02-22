@@ -1,3 +1,3 @@
-import { RunnerConfig, RenderedAction, ActionResult } from './types';
-declare const execute: (renderedActions: RenderedAction[], args: any, config: RunnerConfig) => Promise<ActionResult[]>;
+import { RunnerConfig, RenderedAction } from './types';
+declare const execute: (renderedActions: RenderedAction[], args: any, config: RunnerConfig) => Promise<any[]>;
 export default execute;

@@ -8,13 +8,15 @@ class ShowHelpError extends Error {
     }
 }
 exports.ShowHelpError = ShowHelpError;
-exports.getNoGeneratorError = () => {
+const getNoGeneratorError = () => {
     return new ShowHelpError('please specify a generator.');
 };
-exports.getNoActionError = () => {
+exports.getNoGeneratorError = getNoGeneratorError;
+const getNoActionError = () => {
     return new ShowHelpError('please specify a generator.');
 };
-exports.getActionNotFoundError = (generator, action) => {
+exports.getNoActionError = getNoActionError;
+const getActionNotFoundError = (generator, action) => {
     return new ShowHelpError(`I can't find action '${action}' for generator '${generator}'.
 
   You can try:
@@ -24,7 +26,8 @@ exports.getActionNotFoundError = (generator, action) => {
   Check out the quickstart for more: http://www.hygen.io/quick-start
   `);
 };
-exports.getNoGeneratorsFoundMessage = () => `No generators or actions found. 
+exports.getActionNotFoundError = getActionNotFoundError;
+const getNoGeneratorsFoundMessage = () => `No generators or actions found. 
 
       This means I didn't find a _templates folder right here, 
       or anywhere up the folder tree starting here.
@@ -41,4 +44,5 @@ exports.getNoGeneratorsFoundMessage = () => `No generators or actions found.
       See http://hygen.io for more.
       
       `;
+exports.getNoGeneratorsFoundMessage = getNoGeneratorsFoundMessage;
 //# sourceMappingURL=errors.js.map

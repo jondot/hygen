@@ -23,13 +23,7 @@ const readFiles = (files) => {
 };
 const renderTemplate = (tmpl, locals, config) => {
     const renderContext = context_1.default(locals, config);
-    return typeof tmpl === 'string'
-        ? // TODO: hotfix for ejs template relative include which crash if no filename
-            // should find a better way
-            ejs_1.default.render(tmpl, renderContext.filename
-                ? renderContext
-                : Object.assign(Object.assign({}, renderContext), { filename: 'unknown' }))
-        : tmpl;
+    return typeof tmpl === 'string' ? ejs_1.default.render(tmpl, renderContext) : tmpl;
 };
 const renderAttrs = (attributes, args, config) => {
     return Object.entries(attributes).reduce((obj, [key, value]) => {

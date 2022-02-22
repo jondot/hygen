@@ -7,13 +7,13 @@ exports.VERSION = exports.printHelp = exports.availableActions = void 0;
 const fs_1 = __importDefault(require("fs"));
 const path_1 = __importDefault(require("path"));
 const chalk_1 = __importDefault(require("chalk"));
-const pkg = require('../package.json');
-const VERSION = pkg.version;
+const errors_1 = require("./errors");
+const VERSION = '6.0.3';
 exports.VERSION = VERSION;
 const availableActions = (templates) => {
     const generators = fs_1.default
         .readdirSync(templates)
-        .filter(_ => fs_1.default.lstatSync(path_1.default.join(templates, _)).isDirectory());
+        .filter((_) => fs_1.default.lstatSync(path_1.default.join(templates, _)).isDirectory());
     return generators.reduce((acc, generator) => {
         const actions = fs_1.default.readdirSync(path_1.default.join(templates, generator));
         acc[generator] = actions;
@@ -25,27 +25,10 @@ const printHelp = (templates, logger) => {
     logger.log(`Hygen v${VERSION}`);
     logger.log('\nAvailable actions:');
     if (!templates) {
-        logger.log(`No generators or actions found. 
-
-      This means I didn't find a _templates folder right here, 
-      or anywhere up the folder tree starting here.
-
-      Here's how to start using Hygen:
-
-      $ hygen init self
-      $ hygen with-prompt new --name my-generator
-
-      (edit your generator in _templates/my-generator)
-
-      $ hygen my-generator 
-
-      See http://hygen.io for more.
-      
-      `);
+        logger.log(errors_1.getNoGeneratorsFoundMessage());
         return;
     }
     Object.entries(availableActions(templates)).forEach(([k, v]) => {
-        // @ts-ignore
         logger.log(`${chalk_1.default.bold(k)}: ${v.join(', ')}`);
     });
 };

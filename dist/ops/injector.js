@@ -1,11 +1,17 @@
 "use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 Object.defineProperty(exports, "__esModule", { value: true });
-const os_1 = require("os");
+const newline_1 = __importDefault(require("../newline"));
 const EOLRegex = /\r?\n/;
 const getPragmaticIndex = (pattern, lines, isBefore) => {
     const oneLineMatchIndex = lines.findIndex((l) => l.match(pattern));
+    // joins the text and looks for line number,
+    // we dont care about platform line-endings correctness other than joining/splitting
+    // for all platforms
     if (oneLineMatchIndex < 0) {
-        const fullText = lines.join(os_1.EOL);
+        const fullText = lines.join("\n");
         const fullMatch = fullText.match(new RegExp(pattern, 'm'));
         if (fullMatch && fullMatch.length) {
             if (isBefore) {
@@ -36,10 +42,18 @@ const indexByLocation = (attributes, lines) => {
 };
 const injector = (action, content) => {
     const { attributes: { skip_if, eof_last }, attributes, body, } = action;
-    const lines = content.split(EOLRegex);
     // eslint-disable-next-line
     const shouldSkip = skip_if && !!content.match(skip_if);
     if (!shouldSkip) {
+        //
+        // we care about producing platform-correct line endings.
+        // however the "correct" line endings should be detected from the actual
+        // CONTENT given, and not the underlying operating system.
+        // this is similar to how a text editor behaves.
+        //
+        const NL = newline_1.default(content);
+        const lines = content.split(NL);
+        // returns -1 (end) if no attrs
         const idx = indexByLocation(attributes, lines);
         // eslint-disable-next-line
         const trimEOF = idx >= 0 && eof_last === false && /\r?\n$/.test(body);
@@ -49,13 +63,16 @@ const injector = (action, content) => {
             lines.splice(idx, 0, body.replace(/\r?\n$/, ''));
         }
         else if (insertEOF) {
-            lines.splice(idx, 0, `${body}\n`);
+            lines.splice(idx, 0, `${body}${NL}`);
         }
         else if (idx >= 0) {
             lines.splice(idx, 0, body);
         }
+        return lines.join(NL);
     }
-    return lines.join(os_1.EOL);
+    else {
+        return content;
+    }
 };
 exports.default = injector;
 //# sourceMappingURL=injector.js.map

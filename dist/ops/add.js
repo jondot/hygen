@@ -16,8 +16,6 @@ const result_1 = __importDefault(require("./result"));
 const path_1 = __importDefault(require("path"));
 const fs_extra_1 = __importDefault(require("fs-extra"));
 const chalk_1 = require("chalk");
-<<<<<<< Updated upstream
-=======
 const askForOverwrite = (prompter, to) => __awaiter(void 0, void 0, void 0, function* () {
     const { overwrite } = yield prompter.prompt({
         prefix: '',
@@ -43,34 +41,17 @@ const getShouldSkip = (absTo, attributes, createPrompter) => __awaiter(void 0, v
     }
     return false;
 });
->>>>>>> Stashed changes
 const add = (action, args, { logger, cwd, createPrompter }) => __awaiter(void 0, void 0, void 0, function* () {
-    const { attributes: { to, inject, unless_exists, force, from }, } = action;
+    const { attributes: { to, inject, force, from }, } = action;
     const result = result_1.default('add', to);
-    const prompter = createPrompter();
     if (!to || inject) {
         return result('ignored');
     }
     const absTo = path_1.default.resolve(cwd, to);
-    const shouldNotOverwrite = !force &&
-        unless_exists !== undefined && unless_exists === true;
-    const fileExists = (yield fs_extra_1.default.exists(absTo));
-    if (shouldNotOverwrite && fileExists) {
+    const shouldSkip = yield getShouldSkip(absTo, action.attributes, createPrompter);
+    if (shouldSkip) {
         logger.warn(`     skipped: ${to}`);
         return result('skipped');
-    }
-    if (!process.env.HYGEN_OVERWRITE && fileExists && !force) {
-        if (!(yield prompter
-            .prompt({
-            prefix: '',
-            type: 'confirm',
-            name: 'overwrite',
-            message: chalk_1.red(`     exists: ${to}. Overwrite? (y/N): `),
-        })
-            .then(({ overwrite }) => overwrite))) {
-            logger.warn(`     skipped: ${to}`);
-            return result('skipped');
-        }
     }
     if (from) {
         const from_path = path_1.default.join(args.templates, from);
