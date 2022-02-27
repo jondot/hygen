@@ -1,4 +1,4 @@
-import { ResolverIO } from './types';
+import type { ResolverIO } from './types';
 declare const reversePathsToWalk: ({ folder, path }: {
     folder: any;
     path: any;

@@ -12,10 +12,10 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const result_1 = __importDefault(require("./result"));
 const path_1 = __importDefault(require("path"));
 const fs_extra_1 = __importDefault(require("fs-extra"));
 const chalk_1 = require("chalk");
+const result_1 = __importDefault(require("./result"));
 const add = (action, args, { logger, cwd, createPrompter }) => __awaiter(void 0, void 0, void 0, function* () {
     const { attributes: { to, inject, unless_exists, force, from, skip_if }, } = action;
     const result = (0, result_1.default)('add', to);
@@ -24,9 +24,8 @@ const add = (action, args, { logger, cwd, createPrompter }) => __awaiter(void 0,
         return result('ignored');
     }
     const absTo = path_1.default.resolve(cwd, to);
-    const shouldNotOverwrite = !force &&
-        unless_exists !== undefined && unless_exists === true;
-    const fileExists = (yield fs_extra_1.default.exists(absTo));
+    const shouldNotOverwrite = !force && unless_exists !== undefined && unless_exists === true;
+    const fileExists = yield fs_extra_1.default.exists(absTo);
     if (shouldNotOverwrite && fileExists) {
         logger.warn(`     skipped: ${to}`);
         return result('skipped');

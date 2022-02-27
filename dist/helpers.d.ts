@@ -1,6 +1,6 @@
 /// <reference types="node" />
-import changeCase from 'change-case';
 import path from 'path';
+import changeCase from 'change-case';
 declare const helpers: {
     capitalize(str: any): string;
     inflection: any;

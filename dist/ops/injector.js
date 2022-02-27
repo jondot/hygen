@@ -6,12 +6,12 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const newline_1 = __importDefault(require("../newline"));
 const EOLRegex = /\r?\n/;
 const getPragmaticIndex = (pattern, lines, isBefore) => {
-    const oneLineMatchIndex = lines.findIndex(l => l.match(pattern));
+    const oneLineMatchIndex = lines.findIndex((l) => l.match(pattern));
     // joins the text and looks for line number,
     // we dont care about platform line-endings correctness other than joining/splitting
     // for all platforms
     if (oneLineMatchIndex < 0) {
-        const fullText = lines.join("\n");
+        const fullText = lines.join('\n');
         const fullMatch = fullText.match(new RegExp(pattern, 'm'));
         if (fullMatch && fullMatch.length) {
             if (isBefore) {
@@ -26,8 +26,8 @@ const getPragmaticIndex = (pattern, lines, isBefore) => {
     return oneLineMatchIndex + (isBefore ? 0 : 1);
 };
 const locations = {
-    at_line: _ => _,
-    prepend: _ => 0,
+    at_line: (_) => _,
+    prepend: (_) => 0,
     append: (_, lines) => lines.length - 1,
     before: (_, lines) => getPragmaticIndex(_, lines, true),
     after: (_, lines) => getPragmaticIndex(_, lines, false),
@@ -42,7 +42,6 @@ const indexByLocation = (attributes, lines) => {
 };
 const injector = (action, content) => {
     const { attributes: { skip_if, eof_last }, attributes, body, } = action;
-    // eslint-disable-next-line
     const shouldSkip = skip_if && !!content.match(skip_if);
     if (!shouldSkip) {
         //
@@ -55,9 +54,7 @@ const injector = (action, content) => {
         const lines = content.split(NL);
         // returns -1 (end) if no attrs
         const idx = indexByLocation(attributes, lines);
-        // eslint-disable-next-line
         const trimEOF = idx >= 0 && eof_last === false && /\r?\n$/.test(body);
-        // eslint-disable-next-line
         const insertEOF = idx >= 0 && eof_last === true && !/\r?\n$/.test(body);
         if (trimEOF) {
             lines.splice(idx, 0, body.replace(/\r?\n$/, ''));

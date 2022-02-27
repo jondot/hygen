@@ -1,16 +1,16 @@
-import { RenderedAction } from '../types'
+import type { RenderedAction } from '../types'
 import newline from '../newline'
 
 const EOLRegex = /\r?\n/
 
 const getPragmaticIndex = (pattern, lines, isBefore) => {
-  const oneLineMatchIndex = lines.findIndex(l => l.match(pattern))
+  const oneLineMatchIndex = lines.findIndex((l) => l.match(pattern))
 
   // joins the text and looks for line number,
   // we dont care about platform line-endings correctness other than joining/splitting
   // for all platforms
   if (oneLineMatchIndex < 0) {
-    const fullText = lines.join("\n")
+    const fullText = lines.join('\n')
     const fullMatch = fullText.match(new RegExp(pattern, 'm'))
 
     if (fullMatch && fullMatch.length) {
@@ -27,8 +27,8 @@ const getPragmaticIndex = (pattern, lines, isBefore) => {
   return oneLineMatchIndex + (isBefore ? 0 : 1)
 }
 const locations = {
-  at_line: _ => _,
-  prepend: _ => 0,
+  at_line: (_) => _,
+  prepend: (_) => 0,
   append: (_, lines) => lines.length - 1,
   before: (_, lines) => getPragmaticIndex(_, lines, true),
   after: (_, lines) => getPragmaticIndex(_, lines, false),
@@ -47,8 +47,7 @@ const injector = (action: RenderedAction, content: string): string => {
     attributes,
     body,
   } = action
-  // eslint-disable-next-line
-  const shouldSkip = skip_if && !!content.match(skip_if);
+  const shouldSkip = skip_if && !!content.match(skip_if)
 
   if (!shouldSkip) {
     //
@@ -63,10 +62,8 @@ const injector = (action: RenderedAction, content: string): string => {
     // returns -1 (end) if no attrs
     const idx = indexByLocation(attributes, lines)
 
-    // eslint-disable-next-line
-    const trimEOF = idx >= 0 && eof_last === false && /\r?\n$/.test(body);
-    // eslint-disable-next-line
-    const insertEOF = idx >= 0 && eof_last === true && !/\r?\n$/.test(body);
+    const trimEOF = idx >= 0 && eof_last === false && /\r?\n$/.test(body)
+    const insertEOF = idx >= 0 && eof_last === true && !/\r?\n$/.test(body)
 
     if (trimEOF) {
       lines.splice(idx, 0, body.replace(/\r?\n$/, ''))
@@ -75,7 +72,7 @@ const injector = (action: RenderedAction, content: string): string => {
     } else if (idx >= 0) {
       lines.splice(idx, 0, body)
     }
-   return lines.join(NL)
+    return lines.join(NL)
   } else {
     return content
   }

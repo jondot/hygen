@@ -3,9 +3,9 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+const path_1 = __importDefault(require("path"));
 const inflection_1 = __importDefault(require("inflection"));
 const change_case_1 = __importDefault(require("change-case"));
-const path_1 = __importDefault(require("path"));
 // supports kebab-case to KebabCase
 inflection_1.default.undasherize = (str) => str
     .split(/[-_]/)

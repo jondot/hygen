@@ -1,4 +1,4 @@
-import { ActionResult } from '../types';
+import type { ActionResult } from '../types';
 declare const shell: ({ attributes: { sh }, body }: {
     attributes: {
         sh: any;

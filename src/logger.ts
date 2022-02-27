@@ -1,6 +1,7 @@
-const chalk = require('chalk')
+import chalk from 'chalk'
 
-const { yellow, red, green, magenta, template } = chalk
+// chalk 4.1.2 doesn't type template property
+const { yellow, red, green, magenta, template }: any = chalk
 
 class Logger {
   log: (message?: any, ...optionalParams: any[]) => void

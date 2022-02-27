@@ -39,9 +39,9 @@ exports.Logger = logger_1.default;
 const engine_1 = __importStar(require("./engine"));
 exports.engine = engine_1.default;
 const help_1 = require("./help");
-Object.defineProperty(exports, "printHelp", { enumerable: true, get: function () { return help_1.printHelp; } });
-Object.defineProperty(exports, "availableActions", { enumerable: true, get: function () { return help_1.availableActions; } });
 Object.defineProperty(exports, "VERSION", { enumerable: true, get: function () { return help_1.VERSION; } });
+Object.defineProperty(exports, "availableActions", { enumerable: true, get: function () { return help_1.availableActions; } });
+Object.defineProperty(exports, "printHelp", { enumerable: true, get: function () { return help_1.printHelp; } });
 const runner = (argv, config) => __awaiter(void 0, void 0, void 0, function* () {
     const resolvedConfig = yield (0, config_resolver_1.default)(config);
     const { templates, logger } = resolvedConfig;

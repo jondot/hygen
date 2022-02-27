@@ -1,8 +1,8 @@
 import importedPath from 'path'
-import { ResolverIO } from './types'
+import type { ResolverIO } from './types'
 
 // inline fp methods due to perf
-const uniq = arr => arr.filter((elem, pos, a) => a.indexOf(elem) === pos)
+const uniq = (arr) => arr.filter((elem, pos, a) => a.indexOf(elem) === pos)
 const reversePathsToWalk = ({ folder, path }) => {
   const resolved = path.resolve(folder)
   const parts = resolved.split(path.sep)
@@ -14,7 +14,7 @@ const reversePathsToWalk = ({ folder, path }) => {
 }
 
 const configLookup = (file: string, folder: string, path: any = importedPath) =>
-  uniq(reversePathsToWalk({ folder, path }).map(p => path.join(p, file)))
+  uniq(reversePathsToWalk({ folder, path }).map((p) => path.join(p, file)))
 
 class ConfigResolver {
   configFile: string

@@ -2588,7 +2588,7 @@ dateformat@^3.0.0:
   resolved "https://registry.yarnpkg.com/dateformat/-/dateformat-3.0.3.tgz#a6e37499a4d9a9cf85ef5872044d62901c9889ae"
   integrity sha512-jyCETtSl3VMZMWeRo7iY1FL19ges1t55hMo5yaam4Jrsm5EPL89UQkoQRyiI+Yf4k8r2ZpdngkV8hr1lIdjb3Q==
 
-debug@4, debug@^4.3.1, debug@^4.3.2:
+debug@4, debug@^4.3.1, debug@^4.3.2, debug@^4.3.3:
   version "4.3.3"
   resolved "https://registry.yarnpkg.com/debug/-/debug-4.3.3.tgz#04266e0b70a98d4462e6e288e38259213332b664"
   integrity sha512-/zxw5+vh1Tfv+4Qn7a5nsbcJKPaSvCDhojn6FEl9vupwK2VCSDtEiEtqr8DFtzYFOdz63LBkxec7DYuc2jon6Q==
@@ -8002,10 +8002,10 @@ strip-url-auth@^1.0.0:
   resolved "https://registry.yarnpkg.com/strip-url-auth/-/strip-url-auth-1.0.1.tgz#22b0fa3a41385b33be3f331551bbb837fa0cd7ae"
   integrity sha1-IrD6OkE4WzO+PzMVUbu4N/oM164=
 
-stylomatic@^0.3.0:
-  version "0.3.0"
-  resolved "https://registry.yarnpkg.com/stylomatic/-/stylomatic-0.3.0.tgz#f4724c27039827286190b99a9ad6360f46fa6a17"
-  integrity sha512-jHr4EpoNTbMzmkvw9586owaLO8Arj21QtlPn8RjGp69nZ+PuRVcMb6E+EOc5JzFSSF4Vl6eJxMomcBMmusYgNw==
+stylomatic@^0.3.1:
+  version "0.3.1"
+  resolved "https://registry.yarnpkg.com/stylomatic/-/stylomatic-0.3.1.tgz#cd691afa429ebd7ae54ecb71e42ad567a06485d6"
+  integrity sha512-mzf+KalvZ6zfL9tdMPlcojsBuBonjYx1TYaZyJTUJyMatHAdtkz9Xv3HTVr35LCY37c3ih2wMOB4xK0P/nmSgQ==
   dependencies:
     "@antfu/eslint-config" "^0.16.1"
     "@swc/jest" "^0.2.17"

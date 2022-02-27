@@ -1,6 +1,6 @@
+import path from 'path'
 import inflection from 'inflection'
 import changeCase from 'change-case'
-import path from 'path'
 
 // supports kebab-case to KebabCase
 inflection.undasherize = (str) =>

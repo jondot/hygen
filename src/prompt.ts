@@ -1,10 +1,10 @@
 import path from 'path'
 import fs from 'fs'
-import { Prompter } from './types'
+import type { Prompter } from './types'
 import helpers from './helpers'
 
-const hooksfiles = ['prompt.js', 'index.js', 'prompt.ts', 'index.ts'];
-const prompt = <Q, T>(
+const hooksfiles = ['prompt.js', 'index.js', 'prompt.ts', 'index.ts']
+const prompt = async <Q, T>(
   createPrompter: () => Prompter<Q, T>,
   actionfolder: string,
   args: Record<string, any>,
@@ -20,13 +20,12 @@ const prompt = <Q, T>(
 
   // Lazily support TS hook files
   if (isTypeScriptHook) {
-    require('ts-node/register/transpile-only');
+    require('ts-node/register/transpile-only')
   }
   // shortcircuit without prompter
-  // $FlowFixMe
-  let hooksModule = require(hooksfile)
-  if (isTypeScriptHook && hooksModule.default) {
-    hooksModule = hooksModule.default;
+  let hooksModule = await import(hooksfile)
+  if (hooksModule.default) {
+    hooksModule = hooksModule.default
   }
 
   if (hooksModule.params) {

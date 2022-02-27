@@ -1,13 +1,12 @@
 import path from 'path'
 import fs from 'fs-extra'
-import { RunnerConfig } from './types'
+import type { RunnerConfig } from './types'
 import { ConfigResolver } from './config'
 
 const configResolver = new ConfigResolver('.hygen.js', {
   exists: fs.exists,
-  // $FlowFixMe
-  load: f => Promise.resolve(require(f)),
-  none: _ => ({}),
+  load: async (f) => await import(f),
+  none: (_) => ({}),
 })
 
 export default async (config: RunnerConfig): Promise<RunnerConfig> => {
@@ -15,7 +14,7 @@ export default async (config: RunnerConfig): Promise<RunnerConfig> => {
 
   const resolvedTemplates =
     [process.env.HYGEN_TMPLS, path.join(cwd, '_templates')].find(
-      _ => _ && fs.existsSync(_),
+      (_) => _ && fs.existsSync(_),
     ) || templates
 
   return {

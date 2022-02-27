@@ -1,4 +1,4 @@
-import { ActionResult, RunnerConfig } from './types';
+import type { ActionResult, RunnerConfig } from './types';
 declare class ShowHelpError extends Error {
     constructor(message: string);
 }

@@ -12,14 +12,18 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+const debug_1 = __importDefault(require("debug"));
 const result_1 = __importDefault(require("./result"));
-const notEmpty = x => x && x.length > 0;
+const debug = (0, debug_1.default)('hygen:ops:shell');
+const notEmpty = (x) => x && x.length > 0;
 const shell = ({ attributes: { sh }, body }, args, { logger, exec }) => __awaiter(void 0, void 0, void 0, function* () {
     const result = (0, result_1.default)('shell', sh);
     if (notEmpty(sh)) {
         if (!args.dry) {
             try {
-                yield exec(sh, body);
+                debug('exec %o %o', sh, body);
+                const res = yield exec(sh, body);
+                debug('result %o', res);
             }
             catch (error) {
                 logger.err(error.stderr);
