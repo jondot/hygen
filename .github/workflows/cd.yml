@@ -1,0 +1,35 @@
+name: CD
+
+# secrets setup:
+# - NODE_AUTH_TOKEN: ${{secrets.npm_token}}
+# - GITHUB_TOKEN (inherent in the CI and no need to set up, used by standalone.js + gh releaser)
+
+on:
+  push:
+    tags:
+      - 'v[0-9]+.[0-9]+.[0-9]+'
+
+jobs:
+  build-before-publish:
+    uses: ./.github/workflows/ci.yml
+  publish:
+    needs: build-before-publish
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Use Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: 17.x
+          cache: 'yarn'
+      - run: yarn install
+      - run: yarn build
+      - run: hygen:build # smoke test the built bundle
+      - run: npm publish # add the package to npm
+        env:
+          NODE_AUTH_TOKEN: ${{secrets.npm_token}}
+      - run: yarn standalone # creates binaries + updates homebrew
+      - name: Github Release # adds the binaries to github release
+        uses: softprops/action-gh-release@v1
+        with:
+          files: "standalone/*"
