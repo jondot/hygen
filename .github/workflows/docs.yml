@@ -1,0 +1,24 @@
+name: Docs
+
+on:
+  push:
+    tags:
+      - 'docs-*'
+
+jobs:
+  publish-docs:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Use Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: 17.x
+          cache: 'yarn'
+      - run: yarn install
+      - run: yarn docs:prepare && yarn docs:build
+      - name: deploy docs
+        uses: JamesIves/github-pages-deploy-action@v4.2.5
+        with:
+          branch: gh-pages
+          folder: hygen.io/build

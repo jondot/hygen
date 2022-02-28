@@ -1,11 +1,11 @@
-const resolve = attributes => {
+const resolve = async (attributes) => {
   const ops = []
   if (attributes.to && !attributes.inject) {
-    const add = require('./add').default
+    const add = (await import('./add')).default
     ops.push(add)
   }
   if (attributes.to && attributes.inject) {
-    const inject = require('./inject').default
+    const inject = (await import('./inject')).default
     ops.push(inject)
   }
   if (attributes.echo) {
@@ -13,7 +13,7 @@ const resolve = attributes => {
     ops.push(echo)
   }
   if (attributes.sh) {
-    const shell = require('./shell').default
+    const shell = (await import('./shell')).default
     ops.push(shell)
   }
   return ops

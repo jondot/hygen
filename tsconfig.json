@@ -1,24 +1,17 @@
 {
+  "//extends": "pick from: stylomatic/{node-library|react-library|nextjs|base}.json",
+  "extends": "stylomatic/node-library.json",
   "compilerOptions": {
-    "module": "commonjs",
-    "noUnusedLocals": true,
-    "noUnusedParameters": true,
-    "target": "es6",
-    "moduleResolution": "node",
-    "sourceMap": true,
     "outDir": "dist",
-    "baseUrl": ".",
-    "esModuleInterop": true,
-    "declaration": true,
     "strict": false,
-    "emitDecoratorMetadata": true,
-    "experimentalDecorators": true
+    "isolatedModules": false
   },
   "include": [
-    "src/**/*"
+    "./src"
   ],
   "exclude": [
-    "src/__tests__/",
+    "**/__tests__/",
+    "test/fixtures",
     "src/**/*.spec.ts"
   ]
 }

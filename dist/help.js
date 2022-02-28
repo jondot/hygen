@@ -7,13 +7,13 @@ exports.VERSION = exports.printHelp = exports.availableActions = void 0;
 const fs_1 = __importDefault(require("fs"));
 const path_1 = __importDefault(require("path"));
 const chalk_1 = __importDefault(require("chalk"));
-const pkg = require('../package.json');
+const pkg = require('../package.json'); // eslint-disable-line @typescript-eslint/no-var-requires
 const VERSION = pkg.version;
 exports.VERSION = VERSION;
 const availableActions = (templates) => {
     const generators = fs_1.default
         .readdirSync(templates)
-        .filter(_ => fs_1.default.lstatSync(path_1.default.join(templates, _)).isDirectory());
+        .filter((_) => fs_1.default.lstatSync(path_1.default.join(templates, _)).isDirectory());
     return generators.reduce((acc, generator) => {
         const actions = fs_1.default.readdirSync(path_1.default.join(templates, generator));
         acc[generator] = actions;
@@ -45,9 +45,7 @@ const printHelp = (templates, logger) => {
         return;
     }
     Object.entries(availableActions(templates)).forEach(([k, v]) => {
-        // @ts-ignore
         logger.log(`${chalk_1.default.bold(k)}: ${v.join(', ')}`);
     });
 };
 exports.printHelp = printHelp;
-//# sourceMappingURL=help.js.map

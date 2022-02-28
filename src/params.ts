@@ -1,6 +1,7 @@
 import path from 'path'
 import yargs from 'yargs-parser'
-import { RunnerConfig, ParamsResult } from './types'
+import type { ParamsResult, RunnerConfig } from './types'
+
 import prompt from './prompt'
 
 const params = async (
@@ -10,6 +11,7 @@ const params = async (
   const argv = yargs(externalArgv)
 
   const [generator, action, name] = argv._
+
   if (!generator || !action) {
     return { generator, action, templates }
   }

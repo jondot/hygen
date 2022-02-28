@@ -1,0 +1,1 @@
+{"version":3,"file":"add.d.ts","sourceRoot":"","sources":["../../src/ops/add.ts"],"names":[],"mappings":"AAGA,OAAO,KAAK,EAAE,YAAY,EAAE,cAAc,EAAE,YAAY,EAAE,MAAM,UAAU,CAAA;AAG1E,QAAA,MAAM,GAAG,WACC,cAAc,QAChB,GAAG,mCACwB,YAAY,KAC5C,QAAQ,YAAY,CAsDtB,CAAA;AAED,eAAe,GAAG,CAAA"}

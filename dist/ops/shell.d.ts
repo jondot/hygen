@@ -1,4 +1,4 @@
-import { ActionResult } from '../types';
+import type { ActionResult } from '../types';
 declare const shell: ({ attributes: { sh }, body }: {
     attributes: {
         sh: any;
@@ -9,3 +9,4 @@ declare const shell: ({ attributes: { sh }, body }: {
     exec: any;
 }) => Promise<ActionResult>;
 export default shell;
+//# sourceMappingURL=shell.d.ts.map

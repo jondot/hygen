@@ -1,5 +1,5 @@
 import resolve from './ops'
-import { RunnerConfig, RenderedAction, ActionResult } from './types'
+import type { ActionResult, RenderedAction, RunnerConfig } from './types'
 
 const execute = async (
   renderedActions: RenderedAction[],
@@ -14,7 +14,7 @@ const execute = async (
     if (message) {
       messages.push(message)
     }
-    const ops = resolve(action.attributes)
+    const ops = await resolve(action.attributes)
     for (const op of ops) {
       results.push(await op(action, args, config))
     }

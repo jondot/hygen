@@ -22,7 +22,7 @@ const execute = (renderedActions, args, config) => __awaiter(void 0, void 0, voi
         if (message) {
             messages.push(message);
         }
-        const ops = ops_1.default(action.attributes);
+        const ops = yield (0, ops_1.default)(action.attributes);
         for (const op of ops) {
             results.push(yield op(action, args, config));
         }
@@ -33,4 +33,3 @@ const execute = (renderedActions, args, config) => __awaiter(void 0, void 0, voi
     return results;
 });
 exports.default = execute;
-//# sourceMappingURL=execute.js.map

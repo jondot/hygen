@@ -27,7 +27,7 @@ const path_1 = __importDefault(require("path"));
 const yargs_parser_1 = __importDefault(require("yargs-parser"));
 const prompt_1 = __importDefault(require("./prompt"));
 const params = ({ templates, createPrompter }, externalArgv) => __awaiter(void 0, void 0, void 0, function* () {
-    const argv = yargs_parser_1.default(externalArgv);
+    const argv = (0, yargs_parser_1.default)(externalArgv);
     const [generator, action, name] = argv._;
     if (!generator || !action) {
         return { generator, action, templates };
@@ -35,7 +35,7 @@ const params = ({ templates, createPrompter }, externalArgv) => __awaiter(void 0
     const [mainAction, subaction] = action.split(':');
     const actionfolder = path_1.default.join(templates, generator, mainAction);
     const { _ } = argv, cleanArgv = __rest(argv, ["_"]);
-    const promptArgs = yield prompt_1.default(createPrompter, actionfolder, Object.assign(Object.assign({}, (name ? { name } : {})), cleanArgv));
+    const promptArgs = yield (0, prompt_1.default)(createPrompter, actionfolder, Object.assign(Object.assign({}, (name ? { name } : {})), cleanArgv));
     const args = Object.assign({
         templates,
         actionfolder,
@@ -46,4 +46,3 @@ const params = ({ templates, createPrompter }, externalArgv) => __awaiter(void 0
     return args;
 });
 exports.default = params;
-//# sourceMappingURL=params.js.map

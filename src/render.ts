@@ -1,16 +1,17 @@
-import { RenderedAction, RunnerConfig } from './types'
+import path from 'path'
 import fs from 'fs-extra'
 import ejs from 'ejs'
 import fm from 'front-matter'
-import path from 'path'
 import walk from 'ignore-walk'
+import createDebug from 'debug'
+import type { RenderedAction, RunnerConfig } from './types'
 import context from './context'
-
+const debug = createDebug('hygen:render')
 
 // for some reason lodash/fp takes 90ms to load.
 // inline what we use here with the regular lodash.
-const map = f => arr => arr.map(f)
-const filter = f => arr => arr.filter(f)
+const map = (f) => (arr) => arr.map(f)
+const filter = (f) => (arr) => arr.filter(f)
 
 const ignores = [
   'prompt.js',
@@ -30,7 +31,7 @@ const renderTemplate = (tmpl, locals, config) =>
 async function getFiles(dir) {
   const files = walk
     .sync({ path: dir, ignoreFiles: ['.hygenignore'] })
-    .map(f => path.join(dir, f))
+    .map((f) => path.join(dir, f))
   return files
 }
 
@@ -39,26 +40,26 @@ const render = async (
   config: RunnerConfig,
 ): Promise<RenderedAction[]> =>
   getFiles(args.actionfolder)
-    .then(things => things.sort((a, b) => a.localeCompare(b))) // TODO: add a test to verify this sort
-    .then(filter(f => !ignores.find(ig => f.endsWith(ig)))) // TODO: add a
+    .then((things) => things.sort((a, b) => a.localeCompare(b))) // TODO: add a test to verify this sort
+    .then(filter((f) => !ignores.find((ig) => f.endsWith(ig)))) // TODO: add a
     // test for ignoring prompt.js and index.js
     .then(
-      filter(file =>
+      filter((file) =>
         args.subaction
           ? file.replace(args.actionfolder, '').match(args.subaction)
           : true,
       ),
     )
     .then(
-      map(file =>
-        fs.readFile(file).then(text => ({ file, text: text.toString() })),
+      map((file) =>
+        fs.readFile(file).then((text) => ({ file, text: text.toString() })),
       ),
     )
-    .then(_ => Promise.all(_))
+    .then((_) => Promise.all(_))
     .then(
       map(({ file, text }) => {
-          if(config.debug) console.debug('Pre-formatting file:', file)
-          return { file, ...fm(text, { allowUnsafe: true }) }
+        debug('Pre-formatting file: %o', file)
+        return { file, ...fm(text, { allowUnsafe: true }) }
       }),
     )
     .then(
@@ -72,7 +73,7 @@ const render = async (
           },
           {},
         )
-        if(config.debug) console.debug('Rendering file:', file)
+        debug('Rendering file: %o', file)
         return {
           file,
           attributes: renderedAttrs,

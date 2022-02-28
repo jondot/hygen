@@ -1,4 +1,4 @@
-import { RunnerConfig } from './types'
+import type { RunnerConfig } from './types'
 import helpers from './helpers'
 
 const localsToCapitalize = ['name']

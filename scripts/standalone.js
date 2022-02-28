@@ -1,7 +1,7 @@
 #!/usr/bin/env node
+const path = require('path')
 const fs = require('fs-extra')
 const execa = require('execa')
-const path = require('path')
 
 const package = require(path.join(__dirname, '../package.json'))
 const wd = path.join(__dirname, '../standalone')
@@ -46,7 +46,7 @@ const main = async () => {
   console.log(matches)
   if (matches && matches.length > 1) {
     const sha = matches[1]
-    await fs.writeFile('/tmp/hygen.rb', brewFormula(sha, v))
+    await fs.writeFile('/tmp/hygen.rb', brewFormula(sha, v)) // eslint-disable-line @typescript-eslint/no-use-before-define
     const cmd = [
       `cd /tmp`,
       `git clone git://${repo} brew-tap`,

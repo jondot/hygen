@@ -1,0 +1,33 @@
+name: CI/CD
+
+on:
+  push:
+    tags-ignore:
+    - 'v[0-9]+.[0-9]+.[0-9]+' # these will trigger this w/ workflow_call
+  pull_request:
+  schedule:
+    - cron: '0 14 3 * *' # Monthly at 2pm on the 3rd
+
+  workflow_call:
+
+jobs:
+  build:
+    runs-on: ${{matrix.os}}
+    strategy:
+      matrix:
+        node-version: [14.x, 17.x]
+        os: [ubuntu-latest, windows-latest]
+    steps:
+    - uses: actions/checkout@v2
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v2
+      with:
+        node-version: ${{ matrix.node-version }}
+        cache: 'yarn'
+    - run: yarn install
+    - run: yarn build
+    - run: yarn hygen:build -- init self
+    - run: yarn test
+      if: matrix.os == 'ubuntu-latest'
+    - run: yarn test:win32
+      if: matrix.os == 'windows-latest'

@@ -1,4 +1,4 @@
-import { ResolverIO } from './types';
+import type { ResolverIO } from './types';
 declare const reversePathsToWalk: ({ folder, path }: {
     folder: any;
     path: any;
@@ -11,3 +11,4 @@ declare class ConfigResolver {
     resolve(from: string): Promise<Record<string, any>>;
 }
 export { configLookup, ConfigResolver, reversePathsToWalk };
+//# sourceMappingURL=config.d.ts.map

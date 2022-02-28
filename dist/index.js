@@ -39,14 +39,14 @@ exports.Logger = logger_1.default;
 const engine_1 = __importStar(require("./engine"));
 exports.engine = engine_1.default;
 const help_1 = require("./help");
-Object.defineProperty(exports, "printHelp", { enumerable: true, get: function () { return help_1.printHelp; } });
-Object.defineProperty(exports, "availableActions", { enumerable: true, get: function () { return help_1.availableActions; } });
 Object.defineProperty(exports, "VERSION", { enumerable: true, get: function () { return help_1.VERSION; } });
+Object.defineProperty(exports, "availableActions", { enumerable: true, get: function () { return help_1.availableActions; } });
+Object.defineProperty(exports, "printHelp", { enumerable: true, get: function () { return help_1.printHelp; } });
 const runner = (argv, config) => __awaiter(void 0, void 0, void 0, function* () {
-    const resolvedConfig = yield config_resolver_1.default(config);
+    const resolvedConfig = yield (0, config_resolver_1.default)(config);
     const { templates, logger } = resolvedConfig;
     try {
-        const actions = yield engine_1.default(argv, resolvedConfig);
+        const actions = yield (0, engine_1.default)(argv, resolvedConfig);
         return { success: true, actions, time: 0 };
     }
     catch (err) {
@@ -57,10 +57,9 @@ const runner = (argv, config) => __awaiter(void 0, void 0, void 0, function* () 
             logger.log('-------------------');
         }
         if (err instanceof engine_1.ShowHelpError) {
-            help_1.printHelp(templates, logger);
+            (0, help_1.printHelp)(templates, logger);
         }
         return { success: false, actions: [], time: 0 };
     }
 });
 exports.runner = runner;
-//# sourceMappingURL=index.js.map
