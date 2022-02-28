@@ -27,7 +27,7 @@ jobs:
       - run: yarn hygen:build -- init self # smoke test the built bundle
       - run: npm publish # add the package to npm
         env:
-          NODE_AUTH_TOKEN: ${{secrets.npm_token}}
+          NODE_AUTH_TOKEN: ${{secrets.NODE_AUTH_TOKEN}}
       - run: yarn standalone # creates binaries + updates homebrew
       - name: Github Release # adds the binaries to github release
         uses: softprops/action-gh-release@v1

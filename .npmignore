@@ -11,3 +11,7 @@ __tests__/
 hygen.io/
 src/__tests__/
 content/
+.github/
+lib/
+_templates/
+scripts/
