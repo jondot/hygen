@@ -22,6 +22,7 @@ jobs:
         with:
           node-version: 17.x
           cache: 'yarn'
+          registry-url: 'https://registry.npmjs.org'
       - run: yarn install
       - run: yarn build
       - run: yarn hygen:build -- init self # smoke test the built bundle
