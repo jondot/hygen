@@ -43,7 +43,6 @@ const main = async () => {
   const matches = (
     await execa.command(`shasum -a 256 ${wd}/hygen.macos.v${v}.tar.gz`, opts)
   ).stdout.match(/([a-f0-9]+)\s+/)
-  console.log(matches)
   if (matches && matches.length > 1) {
     const sha = matches[1]
     await fs.writeFile('/tmp/hygen.rb', brewFormula(sha, v)) // eslint-disable-line @typescript-eslint/no-use-before-define
@@ -58,7 +57,7 @@ const main = async () => {
       `git commit -m 'hygen: auto-release'`,
       `git push https://${process.env.GITHUB_TOKEN}@${repo}`,
     ].join(' && ')
-    console.log(await execa.command(cmd, opts).stdout)
+    await execa.command(cmd, opts)
 
     console.log('standalone: publish done.')
   }
