@@ -24,7 +24,7 @@ jobs:
           cache: 'yarn'
       - run: yarn install
       - run: yarn build
-      - run: hygen:build # smoke test the built bundle
+      - run: hygen:build -- init self # smoke test the built bundle
       - run: npm publish # add the package to npm
         env:
           NODE_AUTH_TOKEN: ${{secrets.npm_token}}
