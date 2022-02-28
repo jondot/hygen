@@ -42,7 +42,7 @@ jobs:
         with:
           formula-path: hygen.rb
           homebrew-tap: jondot/homebrew-tap
-          download-url: "https://github.com/hygen/releases/download/${{ steps.extract-version.outputs.tag-name }}/hygen.macos.${{ steps.extract-version.outputs.tag-name }}.tar.gz"
+          download-url: "https://github.com/jondot/hygen/releases/download/${{ steps.extract-version.outputs.tag-name }}/hygen.macos.${{ steps.extract-version.outputs.tag-name }}.tar.gz"
           commit-message: updating formula for Hygen
         env:
           COMMITTER_TOKEN: ${{ secrets.GITHUB_TOKEN }}
