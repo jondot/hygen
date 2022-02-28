@@ -29,8 +29,20 @@ jobs:
       - run: npm publish # add the package to npm
         env:
           NODE_AUTH_TOKEN: ${{secrets.NODE_AUTH_TOKEN}}
-      - run: yarn standalone # creates binaries + updates homebrew
+      - run: yarn standalone # creates binaries
       - name: Github Release # adds the binaries to github release
         uses: softprops/action-gh-release@v1
         with:
           files: "standalone/*"
+      - name: Extract version
+        id: extract-version
+        run: |
+          printf "::set-output name=%s::%s\n" tag-name "${GITHUB_REF#refs/tags/}"
+      - uses: mislav/bump-homebrew-formula-action@v1
+        with:
+          formula-path: hygen.rb
+          homebrew-tap: jondot/homebrew-tap
+          download-url: "https://github.com/hygen/releases/download/${{ steps.extract-version.outputs.tag-name }}/hygen.macos.${{ steps.extract-version.outputs.tag-name }}.tar.gz"
+          commit-message: updating formula for Hygen
+        env:
+          COMMITTER_TOKEN: ${{ secrets.GITHUB_TOKEN }}

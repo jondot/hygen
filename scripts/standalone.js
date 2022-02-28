@@ -39,27 +39,29 @@ const main = async () => {
   console.log('standalone: done.')
   console.log((await execa.command(`ls ${wd}`, opts)).stdout)
 
-  console.log('standalone: publishing to homebrew tap...')
-  const matches = (
-    await execa.command(`shasum -a 256 ${wd}/hygen.macos.v${v}.tar.gz`, opts)
-  ).stdout.match(/([a-f0-9]+)\s+/)
-  if (matches && matches.length > 1) {
-    const sha = matches[1]
-    await fs.writeFile('/tmp/hygen.rb', brewFormula(sha, v)) // eslint-disable-line @typescript-eslint/no-use-before-define
-    const cmd = [
-      `cd /tmp`,
-      `git clone git://${repo} brew-tap`,
-      `cd brew-tap`,
-      `mv /tmp/hygen.rb .`,
-      `git config user.email jondotan@gmail.com`,
-      `git config user.name 'Dotan Nahum'`,
-      `git add .`,
-      `git commit -m 'hygen: auto-release'`,
-      `git push https://${process.env.GITHUB_TOKEN}@${repo}`,
-    ].join(' && ')
-    await execa.command(cmd, opts)
+  if (process.env.MANUAL_HB_PUBLISH) {
+    console.log('standalone: publishing to homebrew tap...')
+    const matches = (
+      await execa.command(`shasum -a 256 ${wd}/hygen.macos.v${v}.tar.gz`, opts)
+    ).stdout.match(/([a-f0-9]+)\s+/)
+    if (matches && matches.length > 1) {
+      const sha = matches[1]
+      await fs.writeFile('/tmp/hygen.rb', brewFormula(sha, v)) // eslint-disable-line @typescript-eslint/no-use-before-define
+      const cmd = [
+        `cd /tmp`,
+        `git clone git://${repo} brew-tap`,
+        `cd brew-tap`,
+        `mv /tmp/hygen.rb .`,
+        `git config user.email jondotan@gmail.com`,
+        `git config user.name 'Dotan Nahum'`,
+        `git add .`,
+        `git commit -m 'hygen: auto-release'`,
+        `git push https://${process.env.GITHUB_TOKEN}@${repo}`,
+      ].join(' && ')
+      await execa.command(cmd, opts)
 
-    console.log('standalone: publish done.')
+      console.log('standalone: publish done.')
+    }
   }
 }
 
