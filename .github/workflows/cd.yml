@@ -1,4 +1,4 @@
-name: CD
+name: Release
 
 # secrets setup:
 # - NODE_AUTH_TOKEN: ${{secrets.npm_token}}
