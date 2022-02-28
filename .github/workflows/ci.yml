@@ -5,7 +5,6 @@ on:
     tags-ignore:
     - 'v[0-9]+.[0-9]+.[0-9]+' # these will trigger this w/ workflow_call
   pull_request:
-    branches: [ $default-branch ]
   schedule:
     - cron: '0 14 3 * *' # Monthly at 2pm on the 3rd
 
