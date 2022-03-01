@@ -365,7 +365,7 @@ Object {
     Object {
       "payload": Object {
         "force": false,
-        "mode": "git",
+        "mode": "tar",
         "setup": "jondot/hygen-template-e2e",
         "to": "/Users/jondot/projects/hygen/src/__tests__/metaverse/hygen-templates",
         "verbose": false,
