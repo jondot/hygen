@@ -56,12 +56,16 @@ const metaverse = (folder, cmds, promptResponse = null) => {
       const res = await runner(cmd, config)
       res.actions.forEach((a) => {
         a.timing = -1
-        a.subject = a.subject.replace(/.*hygen\/src/, '')
+        a.subject = a.subject.replace('\\', '/').replace(/.*hygen\/src/, '')
         if (a.payload?.name) {
-          a.payload.name = a.payload.name.replace(/.*hygen\/src/, '')
+          a.payload.name = a.payload.name
+            .replace('\\', '/')
+            .replace(/.*hygen\/src/, '')
         }
         if (a.payload?.to) {
-          a.payload.to = a.payload.to.replace(/.*hygen\/src/, '')
+          a.payload.to = a.payload.to
+            .replace('\\', '/')
+            .replace(/.*hygen\/src/, '')
         }
       })
       expect(res).toMatchSnapshot(`${cmd.join(' ')}`)
