@@ -1,75 +1,8 @@
-import Logger from '../logger'
-import { runner } from '../index'
-
-jest.mock('enquirer', () => ({
-  prompt: null,
-}))
-
-const path = require('path')
-const dirCompare = require('dir-compare')
-
-const opts = { compareContent: true }
-const fs = require('fs-extra')
+import { metaverse } from './metaverse-utils'
 const enquirer = require('enquirer')
 
-const logger = new Logger(console.log)
 const failPrompt = () => {
   throw new Error('set up prompt in testing')
-}
-
-const createConfig = (metaDir) => ({
-  templates: '_templates',
-  cwd: metaDir,
-  exec: (action, body) => {
-    const execOpts = body && body.length > 0 ? { input: body } : {}
-    return require('execa').command(action, { ...execOpts, shell: true })
-  },
-  logger,
-  createPrompter: () => require('enquirer'),
-})
-const dir = (m) => path.join(__dirname, 'metaverse', m)
-
-const metaverse = (folder, cmds, promptResponse = null) => {
-  it(folder, async () => {
-    const metaDir = dir(folder)
-    console.log('metaverse test in:', metaDir)
-    const config = createConfig(metaDir)
-    console.log('before', fs.readdirSync(metaDir))
-
-    for (let cmd of cmds) {
-      console.log('testing', cmd)
-      enquirer.prompt = failPrompt
-      if (promptResponse) {
-        const last = cmd[cmd.length - 1]
-        if (typeof last === 'object') {
-          cmd = cmd.slice(cmd.length - 1)
-          enquirer.prompt = () =>
-            Promise.resolve({ ...promptResponse, ...last })
-        } else {
-          enquirer.prompt = () => Promise.resolve(promptResponse)
-        }
-      }
-      const res = await runner(cmd, config)
-      res.actions.forEach((a) => {
-        a.timing = -1
-        a.subject = a.subject.replace(/.*hygen\/src/, '')
-      })
-      expect(res).toMatchSnapshot(`${cmd.join(' ')}`)
-    }
-
-    const givenDir = path.join(metaDir, 'given')
-    const expectedDir = path.join(metaDir, 'expected')
-    console.log('after', {
-      [givenDir]: fs.readdirSync(givenDir),
-      [expectedDir]: fs.readdirSync(expectedDir),
-    })
-    const res = dirCompare.compareSync(givenDir, expectedDir, opts)
-    res.diffSet = res.diffSet.filter((d) => d.state !== 'equal')
-    if (!res.same) {
-      console.log(res)
-    }
-    expect(res.same).toEqual(true)
-  })
 }
 
 describe('metaverse', () => {
@@ -129,6 +62,7 @@ describe('metaverse', () => {
         '--email',
         'premade-email@foobar.com',
       ],
+      ['setup-new-project', 'new', 'jondot/hygen-template-e2e'],
     ], // this is all of the responses enquirer gives out from _all_ tests, ever.
     // it's best to just keep it that way to be simple, and each prompt-dealing test
     // has its own set of uniquely named variables.

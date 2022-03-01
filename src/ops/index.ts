@@ -9,12 +9,16 @@ const resolve = async (attributes) => {
     ops.push(inject)
   }
   if (attributes.echo) {
-    const echo = require('./echo').default
+    const echo = (await import('./echo')).default
     ops.push(echo)
   }
   if (attributes.sh) {
     const shell = (await import('./shell')).default
     ops.push(shell)
+  }
+  if (attributes.setup) {
+    const setup = (await import('./setup')).default
+    ops.push(setup)
   }
   return ops
 }

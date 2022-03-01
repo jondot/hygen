@@ -1,4 +1,4 @@
-import { metaverse } from './metaverse.spec'
+import { metaverse } from './metaverse-utils'
 
 jest.mock('enquirer', () => ({
   prompt: null,

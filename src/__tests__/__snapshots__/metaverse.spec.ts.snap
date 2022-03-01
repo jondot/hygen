@@ -359,6 +359,41 @@ Object {
 }
 `;
 
+exports[`metaverse hygen-templates: setup-new-project new jondot/hygen-template-e2e 1`] = `
+Object {
+  "actions": Array [
+    Object {
+      "payload": Object {
+        "force": false,
+        "mode": "git",
+        "setup": "jondot/hygen-template-e2e",
+        "to": "/Users/jondot/projects/hygen/src/__tests__/metaverse/hygen-templates",
+        "verbose": false,
+      },
+      "status": "executed",
+      "subject": "jondot/hygen-template-e2e",
+      "timing": -1,
+      "type": "setup",
+    },
+    Object {
+      "payload": Object {
+        "force": true,
+        "mode": "tar",
+        "setup": "jondot/hygen-template-e2e",
+        "to": "/Users/jondot/projects/hygen/src/__tests__/metaverse/hygen-templates",
+        "verbose": true,
+      },
+      "status": "executed",
+      "subject": "jondot/hygen-template-e2e",
+      "timing": -1,
+      "type": "setup",
+    },
+  ],
+  "success": true,
+  "time": 0,
+}
+`;
+
 exports[`metaverse hygen-templates: worker new --name foo 1`] = `
 Object {
   "actions": Array [

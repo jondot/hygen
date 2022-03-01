@@ -38,9 +38,17 @@ const resolve = (attributes) => __awaiter(void 0, void 0, void 0, function* () {
         const inject = (yield Promise.resolve().then(() => __importStar(require('./inject')))).default;
         ops.push(inject);
     }
+    if (attributes.echo) {
+        const echo = (yield Promise.resolve().then(() => __importStar(require('./echo')))).default;
+        ops.push(echo);
+    }
     if (attributes.sh) {
         const shell = (yield Promise.resolve().then(() => __importStar(require('./shell')))).default;
         ops.push(shell);
+    }
+    if (attributes.setup) {
+        const setup = (yield Promise.resolve().then(() => __importStar(require('./setup')))).default;
+        ops.push(setup);
     }
     return ops;
 });

@@ -1,5 +1,7 @@
+import createDebug from 'debug'
 import resolve from './ops'
 import type { ActionResult, RenderedAction, RunnerConfig } from './types'
+const debug = createDebug('hygen:execute')
 
 const execute = async (
   renderedActions: RenderedAction[],
@@ -15,9 +17,12 @@ const execute = async (
       messages.push(message)
     }
     const ops = await resolve(action.attributes)
+    debug('executing %o ops', ops.length)
     for (const op of ops) {
+      debug('executing: %o', op)
       results.push(await op(action, args, config))
     }
+    debug('executing ops: done')
   }
   if (messages.length > 0) {
     logger.colorful(`${args.action}:\n${messages.join('\n')}`)

@@ -118,6 +118,22 @@ Loaded templates: _templates
        added: app/hello.js
 ```
 
+## Use a template repo
+
+Want to start from a repo?
+
+```
+$ hygen init repo antfu/vitesse --to my-folder
+```
+
+Want to start from an existing repo on an existing project?
+
+```
+$ mkdir your-project && cd your-project
+$ hygen init repo antfu/vitesse
+```
+
+
 ## What's Next?
 
 Go to the [documentation](http://www.hygen.io/docs/quick-start) to get to know the rest of Hygen and generators.
