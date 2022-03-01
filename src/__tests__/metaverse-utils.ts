@@ -60,6 +60,9 @@ const metaverse = (folder, cmds, promptResponse = null) => {
         if (a.payload?.name) {
           a.payload.name = a.payload.name.replace(/.*hygen\/src/, '')
         }
+        if (a.payload?.to) {
+          a.payload.to = a.payload.to.replace(/.*hygen\/src/, '')
+        }
       })
       expect(res).toMatchSnapshot(`${cmd.join(' ')}`)
     }
