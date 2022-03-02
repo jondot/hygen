@@ -17,7 +17,7 @@ const failPrompt = () => {
   throw new Error('set up prompt in testing')
 }
 
-const normalize = (s) => s.replaceAll('\\', '/').replace(/.*hygen\/src/, '')
+const normalize = (s) => s.replace(/\\/g, '/').replace(/.*hygen\/src/, '')
 
 const createConfig = (metaDir) => ({
   templates: '_templates',
