@@ -17,6 +17,8 @@ const failPrompt = () => {
   throw new Error('set up prompt in testing')
 }
 
+const normalize = (s) => s.replaceAll('\\', '/').replace(/.*hygen\/src/, '')
+
 const createConfig = (metaDir) => ({
   templates: '_templates',
   cwd: metaDir,
@@ -56,16 +58,12 @@ const metaverse = (folder, cmds, promptResponse = null) => {
       const res = await runner(cmd, config)
       res.actions.forEach((a) => {
         a.timing = -1
-        a.subject = a.subject.replace('\\', '/').replace(/.*hygen\/src/, '')
+        a.subject = normalize(a.subject)
         if (a.payload?.name) {
-          a.payload.name = a.payload.name
-            .replace('\\', '/')
-            .replace(/.*hygen\/src/, '')
+          a.payload.name = normalize(a.payload.name)
         }
         if (a.payload?.to) {
-          a.payload.to = a.payload.to
-            .replace('\\', '/')
-            .replace(/.*hygen\/src/, '')
+          a.payload.to = normalize(a.payload.to)
         }
       })
       expect(res).toMatchSnapshot(`${cmd.join(' ')}`)
