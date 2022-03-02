@@ -18,6 +18,12 @@ jobs:
         node-version: [14.x, 17.x]
         os: [ubuntu-latest, windows-latest]
     steps:
+    - name: Set git to use LF
+      run: |
+        git config --global core.autocrlf false
+        git config --global core.eol lf
+      if: matrix.os == 'windows-latest'
+
     - uses: actions/checkout@v2
     - name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v2
@@ -27,10 +33,8 @@ jobs:
     - run: yarn install
     - run: yarn build
     - run: yarn hygen:build -- init self
+
     - run: yarn test
       if: matrix.os == 'ubuntu-latest'
-
-    - run: git config --global core.autocrlf false
-      if: matrix.os == 'windows-latest'
     - run: yarn test:win32
       if: matrix.os == 'windows-latest'
