@@ -3,7 +3,7 @@ name: Docs
 on:
   push:
     tags:
-      - 'docs-*'
+      - 'docs-[0-9]+'
 
 jobs:
   publish-docs:
@@ -13,7 +13,7 @@ jobs:
       - name: Use Node.js
         uses: actions/setup-node@v2
         with:
-          node-version: 17.x
+          node-version: 16.x
           cache: 'yarn'
       - run: yarn install
       - run: yarn docs:prepare && yarn docs:build
