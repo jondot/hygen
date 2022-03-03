@@ -12,6 +12,15 @@ const params = async (
 
   const [generator, action, name] = argv._
 
+  // yargs can throw numbers or strings, for this case we want strings
+  if (
+    typeof generator !== 'string' ||
+    typeof action !== 'string' ||
+    typeof name !== 'string'
+  ) {
+    return
+  }
+
   if (!generator || !action) {
     return { generator, action, templates }
   }
