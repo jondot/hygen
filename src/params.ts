@@ -10,7 +10,8 @@ const params = async (
 ): Promise<ParamsResult> => {
   const argv = yargs(externalArgv)
 
-  const [generator, action, name] = argv._
+  // yargs can be an array of numbers or strings, we cast everything to string
+  const [generator, action, name] = argv._ as string[]
 
   if (!generator || !action) {
     return { generator, action, templates }
