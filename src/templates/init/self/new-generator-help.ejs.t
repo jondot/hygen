@@ -1,5 +1,5 @@
 ---
-to: _templates/generator/help/index.ejs.t
+to: <%= tmplsDir %>/generator/help/index.ejs.t
 ---
 ---
 message: |

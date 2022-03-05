@@ -1,8 +1,8 @@
 ---
-to: _templates/generator/new/hello.ejs.t
+to: <%= tmplsDir %>/generator/new/hello.ejs.t
 ---
 ---
-to: _templates/<%%= name %%>/<%%= action || 'new' %%>/hello.ejs.t
+to: <%= tmplsDir %>/<%%= name %%>/<%%= action || 'new' %%>/hello.ejs.t
 ---
 ---
 to: app/hello.js

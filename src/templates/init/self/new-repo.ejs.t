@@ -1,5 +1,5 @@
 ---
-to: _templates/init/repo/new-repo.ejs.t
+to: <%= tmplsDir %>/init/repo/new-repo.ejs.t
 ---
 ---
 setup: <%%= name %%>
