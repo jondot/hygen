@@ -1,5 +1,5 @@
 ---
-to: <%= cwd %>/.hygen.js
+to: "<%= locals.tmplsDir != '_templates' ? `${cwd}/.hygen.js` : null %>"
 after: module.exports
 skip_if: <%= marker %>
 ---
