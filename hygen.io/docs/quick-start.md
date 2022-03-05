@@ -37,8 +37,10 @@ $ hygen mailer new [NAME]
          `------------ generator
 ```
 
-[[info]]
-| New in hygen 4.0.0: a positional `NAME` parameter to save a bit of typing. With versions prior to 4.0.0 you still have to use `--name NAME`.
+:::info
+New in hygen 4.0.0: a positional `NAME` parameter to save a bit of typing. With versions prior to 4.0.0 you still have to use `--name NAME`.
+:::
+
 
 Here's a quick run-down to get to your own generator:
 
@@ -65,8 +67,11 @@ Congratz! you've made a new generator called `awesome-generator`!
 
 Let's walk through what we just did.
 
-[[info]]
+:::info
 | You can also install `hygen` from Homebrew or download a standalone binary. For more, see [standalone](/docs/standalone).
+:::
+
+<br />
 
 ## Bootstrapping Your Project
 
@@ -87,9 +92,11 @@ This creates a project-local `_templates` folder for you at your source root wit
 * `hygen generator new generatorName` - builds a new generator for you
 * `hygen generator with-prompt new generatorName` - the same as before, only this one will be prompt driven.
 
-[[info]]
-|###### Template Locality
-|On multi-team projects, each team can have their own templates right there in the shared repo.
+:::info
+###### Template Locality
+On multi-team projects, each team can have their own templates right there in the shared repo.
+:::
+
 
 Still in your project root, let's create a new generator now:
 
@@ -108,12 +115,13 @@ Loaded templates: _templates
        added: app/hello.js
 ```
 
-[[info]]
-|###### Did You Notice?
-|Instead of bundling the `hygen generator new` command in `hygen`, we chose to _copy_ it to your local templates folder.
-|
-|
-|In this way you can even tweak the way `hygen` generates new generators. It scales to a set up with different teams, each with its own preference.
+:::info
+###### Did You Notice?
+Instead of bundling the `hygen generator new` command in `hygen`, we chose to _copy_ it to your local templates folder.
+
+In this way you can even tweak the way `hygen` generates new generators. It scales to a set up with different teams, each with its own preference.
+:::
+
 
 That's it! we've done a basic walkthrough of `hygen`. Next up is a detailed overview of [templates](/docs/templates) and [generators](/docs/generators).
 
