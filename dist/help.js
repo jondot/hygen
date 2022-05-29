@@ -7,6 +7,7 @@ exports.VERSION = exports.printHelp = exports.availableActions = void 0;
 const fs_1 = __importDefault(require("fs"));
 const path_1 = __importDefault(require("path"));
 const chalk_1 = __importDefault(require("chalk"));
+const params_1 = require("./params");
 const pkg = require('../package.json'); // eslint-disable-line @typescript-eslint/no-var-requires
 const VERSION = pkg.version;
 exports.VERSION = VERSION;
@@ -45,7 +46,10 @@ const printHelp = (templates, logger) => {
         return;
     }
     Object.entries(availableActions(templates)).forEach(([k, v]) => {
-        logger.log(`${chalk_1.default.bold(k)}: ${v.join(', ')}`);
+        logger.log(`${chalk_1.default.bold(k)}: ${v.find((a) => a === params_1.DEFAULT_ACTION) ? `${k}, ` : ''}${v
+            .filter((a) => a !== params_1.DEFAULT_ACTION)
+            .map((a) => `${k} ${a}`)
+            .join(', ')}`);
     });
 };
 exports.printHelp = printHelp;
