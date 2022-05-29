@@ -1,5 +1,20 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`metaverse hygen-defaults: use-defaults 1`] = `
+Object {
+  "actions": Array [
+    Object {
+      "status": "added",
+      "subject": "given/hygen-defaults/default.md",
+      "timing": -1,
+      "type": "add",
+    },
+  ],
+  "success": true,
+  "time": 0,
+}
+`;
+
 exports[`metaverse hygen-extension: hygen-js new 1`] = `
 Object {
   "actions": Array [

@@ -9,6 +9,7 @@ describe('metaverse', () => {
   beforeEach(() => {
     enquirer.prompt = failPrompt
   })
+  metaverse('hygen-defaults', [['use-defaults']], { overwrite: true })
   metaverse('hygen-extension', [['hygen-js', 'new']], { overwrite: true })
 
   metaverse(

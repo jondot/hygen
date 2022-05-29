@@ -1,8 +1,48 @@
 import path from 'path'
 import yargs from 'yargs-parser'
+import fs from 'fs-extra'
 import type { ParamsResult, RunnerConfig } from './types'
 
 import prompt from './prompt'
+export const DEFAULT_ACTION = '_default'
+
+const resolvePositionals = async (templates: string, args: string[]) => {
+  /*
+  we want a to create flexible resolution and allow both:
+
+  1. [gen] [action] [NAME]
+  2. [gen] [NAME] which, if NAME=action, has a conflict, so goes to the generator with
+      an empty name, otherwise -- goes to the new '_default' generator, with a name of 'NAME'
+
+  E.g.
+  for a template layout of:
+  init/
+    repo/
+    ..
+
+  init repo (repo exists, so goes to the repo gen, this is not a default named 'repo'!)
+  init repo MyName
+  init MyName (default, name=MyName), default because 'repo' does not exist
+  init (default, name=[empty]), default always!
+  */
+  let [generator, action, name] = args
+  if (
+    generator &&
+    action &&
+    (await fs.exists(path.join(templates, generator, action)))
+  ) {
+    return [generator, action, name]
+  }
+
+  if (
+    generator &&
+    (await fs.exists(path.join(templates, generator, DEFAULT_ACTION)))
+  ) {
+    action = DEFAULT_ACTION
+    ;[generator, name] = args
+  }
+  return [generator, action, name]
+}
 
 const params = async (
   { templates, createPrompter }: RunnerConfig,
@@ -10,7 +50,7 @@ const params = async (
 ): Promise<ParamsResult> => {
   const argv = yargs(externalArgv)
 
-  const [generator, action, name] = argv._
+  const [generator, action, name] = await resolvePositionals(templates, argv._)
 
   if (!generator || !action) {
     return { generator, action, templates }

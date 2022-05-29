@@ -2,6 +2,7 @@ import fs from 'fs'
 import path from 'path'
 import chalk from 'chalk'
 import type { Logger } from './types'
+import { DEFAULT_ACTION } from './params'
 const pkg = require('../package.json') // eslint-disable-line @typescript-eslint/no-var-requires
 
 const VERSION = pkg.version
@@ -41,7 +42,14 @@ const printHelp = (templates: string, logger: Logger) => {
     return
   }
   Object.entries(availableActions(templates)).forEach(([k, v]: [any, any]) => {
-    logger.log(`${chalk.bold(k)}: ${v.join(', ')}`)
+    logger.log(
+      `${chalk.bold(k)}: ${
+        v.find((a) => a === DEFAULT_ACTION) ? `${k}, ` : ''
+      }${v
+        .filter((a) => a !== DEFAULT_ACTION)
+        .map((a) => `${k} ${a}`)
+        .join(', ')}`,
+    )
   })
 }
 
