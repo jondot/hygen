@@ -44,7 +44,9 @@ const printHelp = (templates: string, logger: Logger) => {
   Object.entries(availableActions(templates)).forEach(([k, v]: [any, any]) => {
     logger.log(
       `${chalk.bold(k)}: ${
-        v.find((a) => a === DEFAULT_ACTION) ? `${k}, ` : ''
+        v.find((a) => a === DEFAULT_ACTION)
+          ? `${k}${v.length > 1 ? ',' : ''} `
+          : ''
       }${v
         .filter((a) => a !== DEFAULT_ACTION)
         .map((a) => `${k} ${a}`)
