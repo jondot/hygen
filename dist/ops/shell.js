@@ -13,21 +13,29 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const debug_1 = __importDefault(require("debug"));
+const ora_1 = __importDefault(require("ora"));
 const result_1 = __importDefault(require("./result"));
 const debug = (0, debug_1.default)('hygen:ops:shell');
 const notEmpty = (x) => x && x.length > 0;
-const shell = ({ attributes: { sh }, body }, args, { logger, exec }) => __awaiter(void 0, void 0, void 0, function* () {
+const shell = ({ attributes: { sh, spinner, sh_ignore_exit }, body }, args, { logger, exec }) => __awaiter(void 0, void 0, void 0, function* () {
     const result = (0, result_1.default)('shell', sh);
     if (notEmpty(sh)) {
+        const spin = (0, ora_1.default)(`     shell: ${spinner === true ? 'running...' : spinner}`);
         if (!args.dry) {
             try {
                 debug('exec %o %o', sh, body);
+                spinner && spin.start();
                 const res = yield exec(sh, body);
                 debug('result %o', res);
             }
             catch (error) {
-                logger.err(error.stderr);
-                process.exit(1);
+                if (sh_ignore_exit !== true) {
+                    logger.err(error.stderr);
+                    process.exit(1);
+                }
+            }
+            finally {
+                spinner && spin.succeed();
             }
         }
         logger.ok(`       shell: ${sh}`);

@@ -29,6 +29,7 @@ const yargs_parser_1 = __importDefault(require("yargs-parser"));
 const fs_extra_1 = __importDefault(require("fs-extra"));
 const prompt_1 = __importDefault(require("./prompt"));
 exports.DEFAULT_ACTION = '_default';
+process.env.HYGEN_TS = '1337';
 const resolvePositionals = (templates, args) => __awaiter(void 0, void 0, void 0, function* () {
     /*
     we want a to create flexible resolution and allow both:
@@ -77,7 +78,10 @@ const params = ({ templates, createPrompter }, externalArgv) => __awaiter(void 0
         generator,
         action,
         subaction,
-    }, cleanArgv, name && { name }, promptArgs);
+    }, 
+    // include positionals as special arg for templates to consume,
+    // and a unique timestamp for this run
+    { _, ts: process.env.HYGEN_TS || new Date().getTime() }, cleanArgv, name && { name }, promptArgs);
     return args;
 });
 exports.default = params;

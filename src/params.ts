@@ -5,6 +5,7 @@ import type { ParamsResult, RunnerConfig } from './types'
 
 import prompt from './prompt'
 export const DEFAULT_ACTION = '_default'
+process.env.HYGEN_TS = '1337'
 
 const resolvePositionals = async (templates: string, args: string[]) => {
   /*
@@ -75,6 +76,9 @@ const params = async (
       action,
       subaction,
     },
+    // include positionals as special arg for templates to consume,
+    // and a unique timestamp for this run
+    { _, ts: process.env.HYGEN_TS || new Date().getTime() },
     cleanArgv,
     name && { name },
     promptArgs,

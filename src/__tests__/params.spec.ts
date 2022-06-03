@@ -14,6 +14,7 @@ describe('params', () => {
       ['dont-take-this', 'foo', 'bar', 'baz'],
     )
     expect(args).toEqual({
+      _: ['dont-take-this', 'foo', 'bar', 'baz'],
       action: 'foo',
       name: 'bar',
       subaction: undefined,
@@ -25,6 +26,7 @@ describe('params', () => {
       ),
       generator: 'dont-take-this',
       templates: fixture('template-folder-in-templates', '_templates'),
+      ts: '1337',
     })
   })
 
@@ -35,6 +37,7 @@ describe('params', () => {
       ['dont-take-this', 'foo', 'bar', 'baz'],
     )
     expect(args).toEqual({
+      _: ['dont-take-this', 'foo', 'bar', 'baz'],
       action: 'foo',
       name: 'bar',
       subaction: undefined,
@@ -46,6 +49,7 @@ describe('params', () => {
         'foo',
       ),
       templates: fixture('templates-override', '_templates'),
+      ts: '1337',
     })
   })
 })
