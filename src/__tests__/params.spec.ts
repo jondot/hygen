@@ -5,6 +5,7 @@ const fixture = (...segments) =>
   path.join(__dirname, 'fixtures', 'templates', ...segments)
 
 describe('params', () => {
+  process.env.HYGEN_TS = '1337'
   beforeEach(() => {
     process.env.HYGEN_TMPLS = null
   })

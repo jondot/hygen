@@ -5,7 +5,6 @@ import type { ParamsResult, RunnerConfig } from './types'
 
 import prompt from './prompt'
 export const DEFAULT_ACTION = '_default'
-process.env.HYGEN_TS = '1337'
 
 const resolvePositionals = async (templates: string, args: string[]) => {
   /*
