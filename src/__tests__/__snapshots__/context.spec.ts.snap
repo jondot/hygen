@@ -70,5 +70,6 @@ Object {
     },
   },
   "name": "foobar",
+  "names": "foobars",
 }
 `;

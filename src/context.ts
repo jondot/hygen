@@ -2,21 +2,27 @@ import type { RunnerConfig } from './types'
 import helpers from './helpers'
 
 const localsToCapitalize = ['name']
+const localsToPluralize = ['name']
 const localsDefaults = {
   name: 'unnamed',
 }
 
-const doCapitalization = (hsh, [key, value]) => {
+const processLocals = (hsh, [key, value]) => {
   hsh[key] = value
 
-  if (localsToCapitalize.includes(key))
+  if (localsToCapitalize.includes(key)) {
     hsh[helpers.capitalize(key)] = helpers.capitalize(value)
+  }
+
+  if (localsToPluralize.includes(key)) {
+    hsh[helpers.inflection.pluralize(key)] = helpers.inflection.pluralize(value)
+  }
 
   return hsh
 }
 
-const capitalizedLocals = (locals: any) =>
-  Object.entries(locals).reduce(doCapitalization, {})
+const processedLocals = (locals: any) =>
+  Object.entries(locals).reduce(processLocals, {})
 
 const context = (locals: any, config: RunnerConfig = {}) => {
   const localsWithDefaults = {
@@ -32,7 +38,7 @@ const context = (locals: any, config: RunnerConfig = {}) => {
     {}
   return Object.assign(
     localsWithDefaults,
-    capitalizedLocals(localsWithDefaults),
+    processedLocals(localsWithDefaults),
     {
       h: { ...helpers, ...configHelpers },
     },
