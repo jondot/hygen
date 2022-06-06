@@ -16,6 +16,9 @@ const processLocals = (hsh, [key, value]) => {
 
   if (localsToPluralize.includes(key)) {
     hsh[helpers.inflection.pluralize(key)] = helpers.inflection.pluralize(value)
+    hsh[
+      helpers.capitalize(helpers.inflection.pluralize(key))
+    ] = helpers.capitalize(helpers.inflection.pluralize(value))
   }
 
   return hsh
