@@ -13,9 +13,10 @@ export default async (config: RunnerConfig): Promise<RunnerConfig> => {
   const { cwd, templates } = config
 
   const resolvedTemplates =
+    templates ||
     [process.env.HYGEN_TMPLS, path.join(cwd, '_templates')].find(
       (_) => _ && fs.existsSync(_),
-    ) || templates
+    )
 
   return {
     ...config,
