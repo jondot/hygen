@@ -30,6 +30,7 @@ const printHelp = (templates: string, logger: Logger) => {
       Here's how to start using Hygen:
 
       $ hygen init self
+      $ hygen init self --tmpls-dir <templates-dir> # To override the default templates dir
       $ hygen with-prompt new --name my-generator
 
       (edit your generator in _templates/my-generator)

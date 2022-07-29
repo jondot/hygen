@@ -1,8 +1,8 @@
 ---
-to: _templates/generator/with-prompt/prompt.ejs.t
+to: <%= tmplsDir %>/generator/with-prompt/prompt.ejs.t
 ---
 ---
-to: _templates/<%%= name %%>/<%%= action || 'new' %%>/prompt.js
+to: <%= tmplsDir %>/<%%= name %%>/<%%= action || 'new' %%>/prompt.js
 ---
 
 // see types of prompts:
