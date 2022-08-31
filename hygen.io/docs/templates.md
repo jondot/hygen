@@ -353,6 +353,11 @@ Next up, we'll move on to [generators](/docs/generators).
 | [`force:`](#addition)              | Boolean      | false     | true                                   |
 | [`unless_exists:`](#addition)      | Boolean      | false     | true                                   |
 | [`inject:`](#injection)            | Boolean      | false     | true                                   |
+| [`before:`](#injection)            | Regex        | undefined | devDependencies                        |
 | [`after:`](#injection)             | Regex        | undefined | devDependencies                        |
+| [`prepend:`](#injection)           | Boolean      | undefined | true                                   |
+| [`append:`](#injection)            | Boolean      | undefined | true                                   |
+| [`at_line:`](#injection)           | Number       | undefined | 123                                    |
+| [`eof_last:`](#injection)          | Boolean      | undefined | true                                   |
 | [`skip_if:`](#injection)           | Regex        | undefined | myPackage                              |
 | [`sh:`](#shell)                    | String       | undefined | echo: "Hello this is a shell command!" |
