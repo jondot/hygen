@@ -3,7 +3,13 @@ import fs from 'fs'
 import type { Prompter } from './types'
 import helpers from './helpers'
 
-const hooksfiles = ['prompt.js', 'index.js', 'prompt.ts', 'index.ts']
+const hooksfiles = [
+  'index.js',
+  'index.ts',
+  'prompt.cjs',
+  'prompt.js',
+  'prompt.ts',
+]
 const prompt = async <Q, T>(
   createPrompter: () => Prompter<Q, T>,
   actionfolder: string,
