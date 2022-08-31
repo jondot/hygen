@@ -52,11 +52,14 @@ $ cp _templates/mailer/new/{html.ejs.t,text.ejs.t}
 
 We use a `.t` suffix because it disables our editor trying to be smart - use what ever you like. For this example these files represent the HTML and text forms of an email sender.
 
-[[info]]
+:::info
 | ###### Creative Freedom
 | hygen doesn't care about file names or file types in your generator folders. It only cares about folder structure and the _contents_ of your files.
 
 Also note that each template has a _frontmatter_ delimited by a pair of `---`'s. In our example, we have a special `to:` property which tells `hygen` where to put the generated file. We'll see more of these in [templates](/docs/templates).
+:::
+
+<br />
 
 ## Structure
 
@@ -77,12 +80,15 @@ Every time you call it, `hygen mailer new` automagically picks up the closest `_
 
 As of [PR 102](https://github.com/jondot/hygen/pull/102) Hygen will recursively walk your template folder, so that you can structure your generators as elaborately as you wish.
 
-[[info]]
+:::info
 |###### Hygen is Contextual
 |`hygen` simplifies things by asserting "command structure is folder structure".
 |
 |
 |`hygen` will pick up the `_templates` in your current working directory.
+:::
+
+<br />
 
 ## CLI Arguments
 
@@ -220,9 +226,13 @@ module.exports = {
 }
 ```
 
-[[info]]
+:::info
 | ###### Params and Prompts are The Same
 | If you think about it, prompting for variables or reshaping CLI arguments lead to the same goal: new parameters. But to make a future-proof API, we've separated the two intents to the `prompt` and `params` functions.
+:::
+
+<br />
+
 
 ## Documenting Your Generators
 

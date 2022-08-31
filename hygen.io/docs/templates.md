@@ -43,11 +43,13 @@ foo: ping
 ---
 ```
 
-[[info]]
-|###### Frontmatter cleans up our act
-|While other generator engines use the file names, folder structure, or arbitrary configuration files to store metadata, `hygen` uses the frontmatter.
-|
-|This makes templating and generators clean and maintainable and meta data lives directly in the template it refers to.
+:::info
+###### Frontmatter cleans up our act
+While other generator engines use the file names, folder structure, or arbitrary configuration files to store metadata, `hygen` uses the frontmatter.
+
+This makes templating and generators clean and maintainable and meta data lives directly in the template it refers to.
+:::
+
 
 ## Template Body
 
@@ -276,9 +278,10 @@ skip_if: react-native-fs
 
 The new props to notice here are `after` and `skip_if`. This template will add the `react-native-fs` dependency into a `package.json` file, but it will not add it twice (because of `skip_if`).
 
-[[info]]
-|###### Regular expressions everywhere promote flexibility
-| In `after: dependencies`, 'dependencies' is actually a regular expression, so it'll find the `"dependencies":{` block in a `package.json` file
+:::info
+###### Regular expressions everywhere promote flexibility
+In `after: dependencies`, 'dependencies' is actually a regular expression, so it'll find the `"dependencies":{` block in a `package.json` file
+:::
 
 Here are the available properties for an `inject: true` template:
 
