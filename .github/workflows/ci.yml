@@ -2,6 +2,8 @@ name: CI
 
 on:
   push:
+    branches:
+      - master
     tags-ignore:
     - 'v[0-9]+.[0-9]+.[0-9]+' # these will trigger this w/ workflow_call
     - 'docs-[0-9]+'
