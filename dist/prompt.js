@@ -34,7 +34,13 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const path_1 = __importDefault(require("path"));
 const fs_1 = __importDefault(require("fs"));
 const helpers_1 = __importDefault(require("./helpers"));
-const hooksfiles = ['prompt.js', 'index.js', 'prompt.ts', 'index.ts'];
+const hooksfiles = [
+    'index.js',
+    'index.ts',
+    'prompt.cjs',
+    'prompt.js',
+    'prompt.ts',
+];
 const prompt = (createPrompter, actionfolder, args) => __awaiter(void 0, void 0, void 0, function* () {
     const hooksfile = hooksfiles
         .map((f) => path_1.default.resolve(path_1.default.join(actionfolder, f)))

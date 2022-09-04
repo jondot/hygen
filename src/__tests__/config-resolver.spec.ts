@@ -24,9 +24,12 @@ const templateParams = ({
 describe('resolve', () => {
   it('no file exists in 1/_templates so take "2"', async () => {
     expect(
-      (await templateResolver(templateParams({ cwd: '/1', templates: '2' })))
-        .templates,
-    ).toEqual('2')
+      (
+        await templateResolver(
+          templateParams({ cwd: '/1', templates: fixture('app') }),
+        )
+      ).templates,
+    ).toEqual(fixture('app'))
   })
 
   it('when templates exist', async () => {
