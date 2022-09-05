@@ -22,14 +22,17 @@ const templateParams = ({
   }
 }
 describe('resolve', () => {
-  it('no file exists in 1/_templates so take "2"', async () => {
+  it('templates explicitly given via config, so take it if it exists', async () => {
     expect(
       (
         await templateResolver(
-          templateParams({ cwd: '/1', templates: fixture('app') }),
+          templateParams({
+            cwd: '/1',
+            templates: fixture('app-custom/other-templates'),
+          }),
         )
       ).templates,
-    ).toEqual(fixture('app'))
+    ).toEqual(fixture('app-custom/other-templates'))
   })
 
   it('when templates exist', async () => {
@@ -51,6 +54,6 @@ describe('resolve', () => {
         )
       ).templates,
     ).toEqual(fixture('app-custom/other-templates'))
-    process.env.HYGEN_TMPLS = null
+    process.env.HYGEN_TMPLS = undefined
   })
 })
