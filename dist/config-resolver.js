@@ -39,9 +39,15 @@ const configResolver = new config_1.ConfigResolver('.hygen.js', {
     load: (f) => __awaiter(void 0, void 0, void 0, function* () { return yield Promise.resolve().then(() => __importStar(require(f))); }),
     none: (_) => ({}),
 });
+const resolve = (cwd, templates) => {
+    return [
+        path_1.default.resolve(cwd, templates),
+        process.env.HYGEN_TMPLS,
+        path_1.default.resolve(cwd, '_templates'),
+    ].find((_) => _ && fs_extra_1.default.existsSync(_));
+};
 exports.default = (config) => __awaiter(void 0, void 0, void 0, function* () {
     const { cwd, templates } = config;
-    const resolvedTemplates = (fs_extra_1.default.existsSync(templates) && templates) ||
-        [process.env.HYGEN_TMPLS, path_1.default.join(cwd, '_templates')].find((_) => _ && fs_extra_1.default.existsSync(_));
+    const resolvedTemplates = resolve(cwd, templates);
     return Object.assign(Object.assign(Object.assign({}, config), { templates: resolvedTemplates }), (yield configResolver.resolve(cwd)));
 });
