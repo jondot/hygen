@@ -9,18 +9,23 @@ const configResolver = new ConfigResolver('.hygen.js', {
   none: (_) => ({}),
 })
 
-const resolve = (cwd: string, templates: string | undefined) => {
+const resolve = (
+  cwd: string,
+  defaultTemplates: string | undefined,
+  templatesOverride: string | undefined,
+) => {
   return [
-    path.resolve(cwd, templates),
+    templatesOverride && path.resolve(cwd, templatesOverride),
     process.env.HYGEN_TMPLS,
     path.resolve(cwd, '_templates'),
+    path.resolve(cwd, defaultTemplates),
   ].find((_) => _ && fs.existsSync(_))
 }
 
 export default async (config: RunnerConfig): Promise<RunnerConfig> => {
-  const { cwd, templates } = config
+  const { cwd, templates: defaultTemplates, templatesOverride } = config
 
-  const resolvedTemplates = resolve(cwd, templates)
+  const resolvedTemplates = resolve(cwd, defaultTemplates, templatesOverride)
 
   return {
     ...config,

@@ -17,6 +17,7 @@ export interface RenderedAction {
 export interface RunnerConfig {
     exec?: (sh: string, body: string) => void;
     templates?: string;
+    templatesOverride?: string;
     cwd?: string;
     logger?: Logger;
     debug?: boolean;

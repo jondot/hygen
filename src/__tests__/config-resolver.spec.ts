@@ -6,22 +6,38 @@ const fixture = (dir) => path.join(__dirname, 'fixtures/templates', dir)
 const templateParams = ({
   cwd,
   templates,
+  templatesOverride,
 }: {
   cwd: string
   templates: string
+  templatesOverride?: string | undefined
 }) => {
   return {
     cwd,
     templates,
-    // eslint-disable-next-line
+    templatesOverride,
     exec: () => {},
-    logger: new Logger(console.log),
+    logger: new Logger(console.log), // eslint-disable-line no-console
     debug: false,
     helpers: {},
     createPrompter: () => require('enquirer'),
   }
 }
 describe('resolve', () => {
+  it('template overrides takes over all', async () => {
+    expect(
+      (
+        await templateResolver(
+          templateParams({
+            cwd: '/1',
+            templates: fixture('app'),
+            templatesOverride: fixture('app-custom/other-templates'),
+          }),
+        )
+      ).templates,
+    ).toEqual(fixture('app-custom/other-templates'))
+  })
+
   it('templates explicitly given via config, so take it if it exists', async () => {
     expect(
       (
