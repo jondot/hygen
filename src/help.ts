@@ -36,7 +36,7 @@ const printHelp = (templates: string, logger: Logger) => {
 
       $ hygen my-generator 
 
-      See http://hygen.io for more.
+      See https://hygen.io for more.
       
       `)
     return
