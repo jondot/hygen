@@ -92,7 +92,7 @@ After running it, we end up with this:
 // ... some bootstrapping code ...
 
 const modules = [
-  require('chat').default
+  require('chat').default,
   require('auth').default,
   require('app').default
 ]
