@@ -45,7 +45,7 @@ Options:
       1. 'hygen init self' to initialize your project, and
       2. 'hygen generator new --name ${generator}' to build the generator you wanted.
 
-      Check out the quickstart for more: http://www.hygen.io/docs/quick-start
+      Check out the quickstart for more: https://hygen.io/docs/quick-start
       `)
   }
 

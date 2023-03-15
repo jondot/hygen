@@ -71,7 +71,7 @@ SHA = "${sha}"
 
 class Hygen < Formula
   desc "The scalable code generator that saves you time."
-  homepage "http://www.hygen.io"
+  homepage "https://hygen.io"
   url "https://github.com/jondot/hygen/releases/download/v#{VER}/hygen.macos.v#{VER}.tar.gz"
   version VER
   sha256 SHA
