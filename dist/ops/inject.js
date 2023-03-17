@@ -17,6 +17,7 @@ const fs_extra_1 = __importDefault(require("fs-extra"));
 const result_1 = __importDefault(require("./result"));
 const injector_1 = __importDefault(require("./injector"));
 const injectOp = (action, args, { logger, cwd }) => __awaiter(void 0, void 0, void 0, function* () {
+    logger.log('inject');
     const { attributes: { to, inject }, } = action;
     const result = (0, result_1.default)('inject', to);
     if (!(inject && to)) {
@@ -24,10 +25,9 @@ const injectOp = (action, args, { logger, cwd }) => __awaiter(void 0, void 0, vo
     }
     const absTo = path_1.default.resolve(cwd, to);
     if (!(yield fs_extra_1.default.exists(absTo))) {
-        logger.err(`Cannot inject to ${to}: doesn't exist.`);
-        return result('error', {
-            error: `Cannot inject to ${to}: doesn't exist.`,
-        });
+        logger.warn(`${to} doesn't exist, now creating file`);
+        fs_extra_1.default.ensureFileSync(absTo);
+        logger.ok(`${to} was successfuly created`);
     }
     const content = (yield fs_extra_1.default.readFile(absTo)).toString();
     const injectResult = (0, injector_1.default)(action, content);

@@ -9,6 +9,8 @@ const injectOp = async (
   args: any,
   { logger, cwd }: RunnerConfig,
 ): Promise<ActionResult> => {
+  logger.log('inject')
+
   const {
     attributes: { to, inject },
   } = action
@@ -22,10 +24,9 @@ const injectOp = async (
   const absTo = path.resolve(cwd, to)
 
   if (!(await fs.exists(absTo))) {
-    logger.err(`Cannot inject to ${to}: doesn't exist.`)
-    return result('error', {
-      error: `Cannot inject to ${to}: doesn't exist.`,
-    })
+    logger.warn(`${to} doesn't exist, now creating file`)
+    fs.ensureFileSync(absTo)
+    logger.ok(`${to} was successfuly created`)
   }
 
   const content = (await fs.readFile(absTo)).toString()
