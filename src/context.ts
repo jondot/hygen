@@ -28,17 +28,26 @@ const processedLocals = (locals: any) =>
   Object.entries(locals).reduce(processLocals, {})
 
 const context = (locals: any, config: RunnerConfig = {}) => {
+  const configLocalsDefaults =
+    (config &&
+      (typeof config.localsDefaults === 'function'
+        ? config.localsDefaults(locals, config)
+        : config.localsDefaults)) ||
+    {}
+
   const localsWithDefaults = {
     ...localsDefaults,
-    ...config.localsDefaults,
+    ...configLocalsDefaults,
     ...locals,
   }
+
   const configHelpers =
     (config &&
       (typeof config.helpers === 'function'
         ? config.helpers(locals, config)
         : config.helpers)) ||
     {}
+
   return Object.assign(
     localsWithDefaults,
     processedLocals(localsWithDefaults),
