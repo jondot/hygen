@@ -1,6 +1,6 @@
 {
   "name": "@sprintify/hygen",
-  "version": "6.2.12",
+  "version": "6.2.13",
   "description": "The scalable code generator that saves you time.",
   "keywords": [
     "template",
