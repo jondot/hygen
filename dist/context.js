@@ -22,7 +22,12 @@ const processLocals = (hsh, [key, value]) => {
 };
 const processedLocals = (locals) => Object.entries(locals).reduce(processLocals, {});
 const context = (locals, config = {}) => {
-    const localsWithDefaults = Object.assign(Object.assign(Object.assign({}, localsDefaults), config.localsDefaults), locals);
+    const configLocalsDefaults = (config &&
+        (typeof config.localsDefaults === 'function'
+            ? config.localsDefaults(locals, config)
+            : config.localsDefaults)) ||
+        {};
+    const localsWithDefaults = Object.assign(Object.assign(Object.assign({}, localsDefaults), configLocalsDefaults), locals);
     const configHelpers = (config &&
         (typeof config.helpers === 'function'
             ? config.helpers(locals, config)

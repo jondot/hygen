@@ -1,6 +1,6 @@
 {
-  "name": "hygen",
-  "version": "6.2.11",
+  "name": "@sprintify/hygen",
+  "version": "6.2.13",
   "description": "The scalable code generator that saves you time.",
   "keywords": [
     "template",
@@ -11,7 +11,7 @@
     "react"
   ],
   "license": "MIT",
-  "repository": "https://github.com/jondot/hygen",
+  "repository": "https://github.com/witify/hygen",
   "main": "dist/index.js",
   "bin": {
     "hygen": "./dist/bin.js"
