@@ -10,7 +10,15 @@ describe('metaverse', () => {
     enquirer.prompt = failPrompt
   })
   metaverse('hygen-defaults', [['use-defaults']], { overwrite: true })
-  metaverse('hygen-extension', [['hygen-js', 'new']], { overwrite: true })
+  metaverse(
+    'hygen-extension',
+    [
+      ['hygen-js', 'new'],
+      ['helpers-in-prompt', 'new'],
+      ['helpers-in-params', 'new', '--name', 'person'],
+    ],
+    { overwrite: true, name: 'messages' },
+  )
 
   metaverse(
     'hygen-templates',

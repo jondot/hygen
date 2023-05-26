@@ -1,5 +1,5 @@
 import type { RunnerConfig } from './types'
-import helpers from './helpers'
+import { capitalize, createHelpers, inflection } from './helpers'
 
 const localsToCapitalize = ['name']
 const localsToPluralize = ['name']
@@ -11,14 +11,14 @@ const processLocals = (hsh, [key, value]) => {
   hsh[key] = value
 
   if (localsToCapitalize.includes(key)) {
-    hsh[helpers.capitalize(key)] = helpers.capitalize(value)
+    hsh[capitalize(key)] = capitalize(value)
   }
 
   if (localsToPluralize.includes(key)) {
-    hsh[helpers.inflection.pluralize(key)] = helpers.inflection.pluralize(value)
-    hsh[
-      helpers.capitalize(helpers.inflection.pluralize(key))
-    ] = helpers.capitalize(helpers.inflection.pluralize(value))
+    hsh[inflection.pluralize(key)] = inflection.pluralize(value)
+    hsh[capitalize(inflection.pluralize(key))] = capitalize(
+      inflection.pluralize(value),
+    )
   }
 
   return hsh
@@ -33,17 +33,12 @@ const context = (locals: any, config: RunnerConfig = {}) => {
     ...config.localsDefaults,
     ...locals,
   }
-  const configHelpers =
-    (config &&
-      (typeof config.helpers === 'function'
-        ? config.helpers(locals, config)
-        : config.helpers)) ||
-    {}
+
   return Object.assign(
     localsWithDefaults,
     processedLocals(localsWithDefaults),
     {
-      h: { ...helpers, ...configHelpers },
+      h: createHelpers(locals, config),
     },
   )
 }

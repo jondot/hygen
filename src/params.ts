@@ -45,9 +45,10 @@ const resolvePositionals = async (templates: string, args: string[]) => {
 }
 
 const params = async (
-  { templates, createPrompter }: RunnerConfig,
+  config: RunnerConfig,
   externalArgv: string[],
 ): Promise<ParamsResult> => {
+  const { templates, createPrompter } = config
   const argv = yargs(externalArgv)
 
   const [generator, action, name] = await resolvePositionals(templates, argv._)
@@ -60,12 +61,17 @@ const params = async (
   const actionfolder = path.join(templates, generator, mainAction)
 
   const { _, ...cleanArgv } = argv
-  const promptArgs = await prompt(createPrompter, actionfolder, {
-    // NOTE we might also want the rest of the generator/action/etc. params here
-    // but theres no usecase yet
-    ...(name ? { name } : {}),
-    ...cleanArgv,
-  })
+  const promptArgs = await prompt(
+    createPrompter,
+    actionfolder,
+    {
+      // NOTE we might also want the rest of the generator/action/etc. params here
+      // but theres no usecase yet
+      ...(name ? { name } : {}),
+      ...cleanArgv,
+    },
+    config,
+  )
 
   const args = Object.assign(
     {
