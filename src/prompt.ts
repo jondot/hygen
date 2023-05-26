@@ -1,7 +1,7 @@
 import path from 'path'
 import fs from 'fs'
-import type { Prompter } from './types'
-import helpers from './helpers'
+import type { Prompter, RunnerConfig } from './types'
+import { createHelpers } from './helpers'
 
 const hooksfiles = [
   'index.js',
@@ -14,6 +14,7 @@ const prompt = async <Q, T>(
   createPrompter: () => Prompter<Q, T>,
   actionfolder: string,
   args: Record<string, any>,
+  config: RunnerConfig,
 ): Promise<T | object> => {
   const hooksfile = hooksfiles
     .map((f) => path.resolve(path.join(actionfolder, f)))
@@ -34,8 +35,10 @@ const prompt = async <Q, T>(
     hooksModule = hooksModule.default
   }
 
+  const h = createHelpers({}, config)
+
   if (hooksModule.params) {
-    return hooksModule.params({ args, h: helpers })
+    return hooksModule.params({ args, h })
   }
 
   // lazy loads prompter
@@ -46,7 +49,7 @@ const prompt = async <Q, T>(
       prompter,
       inquirer: prompter,
       args,
-      h: helpers,
+      h,
     })
   }
 

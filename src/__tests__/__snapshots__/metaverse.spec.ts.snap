@@ -15,6 +15,36 @@ Object {
 }
 `;
 
+exports[`metaverse hygen-extension: helpers-in-params new --name person 1`] = `
+Object {
+  "actions": Array [
+    Object {
+      "status": "added",
+      "subject": "given/helpers-in-params/new.md",
+      "timing": -1,
+      "type": "add",
+    },
+  ],
+  "success": true,
+  "time": 0,
+}
+`;
+
+exports[`metaverse hygen-extension: helpers-in-prompt new 1`] = `
+Object {
+  "actions": Array [
+    Object {
+      "status": "added",
+      "subject": "given/helpers-in-prompt/new.md",
+      "timing": -1,
+      "type": "add",
+    },
+  ],
+  "success": true,
+  "time": 0,
+}
+`;
+
 exports[`metaverse hygen-extension: hygen-js new 1`] = `
 Object {
   "actions": Array [
