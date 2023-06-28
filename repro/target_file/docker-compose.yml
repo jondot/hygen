@@ -1,0 +1,8 @@
+version: "3.5"
+
+services:
+  my-app: # auto-generated
+    image: "my-image"
+    container_name: container-name
+    environment:
+      - ENV1=true

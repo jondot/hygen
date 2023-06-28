@@ -1,0 +1,10 @@
+---
+to: <%= project_path %>/docker-compose.yml
+after: >
+  services:
+inject: true
+skip_if: >
+  first_line
+---
+first_line
+last_line
