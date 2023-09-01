@@ -4,6 +4,7 @@ import type { Prompter } from './types'
 import helpers from './helpers'
 
 const hooksfiles = [
+  'index.cjs',
   'index.js',
   'index.ts',
   'prompt.cjs',
