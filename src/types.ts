@@ -52,4 +52,5 @@ export type ParamsResult = {
   actionfolder?: string
   name?: string
   dry?: boolean
+  configfile?: string
 } & object

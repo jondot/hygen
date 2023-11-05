@@ -1,6 +1,6 @@
 import fs from 'fs-extra'
 import type { ActionResult, RunnerConfig } from './types'
-import params from './params'
+import { params, configfile } from './params'
 
 class ShowHelpError extends Error {
   constructor(message: string) {
@@ -23,8 +23,9 @@ Usage:
   hygen [option] GENERATOR ACTION [--name NAME] [data-options]
 
 Options:
-  -h, --help # Show this message and quit
-  --dry      # Perform a dry run.  Files will be generated but not saved.`)
+  -h, --help   # Show this message and quit
+  --dry        # Perform a dry run.  Files will be generated but not saved.
+  --configfile # Load this file as the local parameters for the template`)
     process.exit(0)
   }
 
@@ -39,6 +40,7 @@ Options:
 
   logger.log(`Loaded templates: ${templates.replace(`${cwd}/`, '')}`)
   if (!(await fs.exists(actionfolder))) {
+    console.log(actionfolder)
     throw new ShowHelpError(`I can't find action '${action}' for generator '${generator}'.
 
       You can try:
@@ -47,6 +49,9 @@ Options:
 
       Check out the quickstart for more: https://hygen.io/docs/quick-start
       `)
+  }
+  if (args.configfile) {
+    config.localsDefaults = configfile(args.configfile)
   }
 
   // lazy loading these dependencies gives a better feel once
