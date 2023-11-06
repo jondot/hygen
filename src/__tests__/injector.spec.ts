@@ -34,6 +34,20 @@ describe('injector', () => {
       ),
     ).toMatchSnapshot()
   })
+  it('between rails', () => {
+    expect(
+      injector(
+        {
+          attributes: {
+            after: "gem 'rails'",
+            before: "gem 'httparty'",
+          },
+          body: "    gem 'kamikaze' # added by hygen",
+        },
+        gemfile,
+      ),
+    ).toMatchSnapshot()
+  })
   it('prepend top of file', () => {
     expect(
       injector(

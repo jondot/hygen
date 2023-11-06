@@ -32,13 +32,13 @@ const locations = {
     before: (_, lines) => getPragmaticIndex(_, lines, true),
     after: (_, lines) => getPragmaticIndex(_, lines, false),
 };
-const indexByLocation = (attributes, lines) => {
-    const pair = Object.entries(attributes).find(([k, _]) => locations[k]);
-    if (pair) {
+const indexesByLocation = (attributes, lines) => {
+    const pairs = Object.entries(attributes).filter(([k, _]) => locations[k]);
+    pairs.forEach((pair, i) => {
         const [k, v] = pair;
-        return locations[k](v, lines);
-    }
-    return -1;
+        pairs[i] = locations[k](v, lines);
+    })
+    return pairs;
 };
 const injector = (action, content) => {
     const { attributes: { skip_if, eof_last }, attributes, body, } = action;

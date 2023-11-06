@@ -294,6 +294,10 @@ You can guard against double injection:
 
 * `skip_if` - a regular expression / text. If exists injection is skipped.
 
+You can replace all the contents (a block) between different positions using:
+
+* `after` and `before`, or `line_at` and `after` or `before`
+
 Also you can insert or remove empty line to injection body. That feature very useful if your editor or formatter automatically insert blank line at the end of file on save:
 
 * `eof_last` - if falsy - trim blank line from the end of injection body, if truthy - insert it.
