@@ -289,6 +289,10 @@ Here are the available properties for an `inject: true` template:
 * `prepend` or `append`, when true, add a line to start or end of file respectively.
 * `at_line` which contains a line number will add a line at this exact line number.
 
+You can replace all the contents (a block) between different positions using:
+
+* `after` and `before`, or `at_line` and `after` or `before`
+
 In almost all cases you want to ensure you're not injecting content twice:
 
 * `skip_if` which contains a regular expression / text. If exists, injection is skipped.

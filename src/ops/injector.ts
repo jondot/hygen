@@ -33,14 +33,17 @@ const locations = {
   before: (_, lines) => getPragmaticIndex(_, lines, true),
   after: (_, lines) => getPragmaticIndex(_, lines, false),
 }
-const indexByLocation = (attributes: any, lines: string[]): number => {
-  const pair = Object.entries(attributes).find(([k, _]) => locations[k])
-  if (pair) {
-    const [k, v] = pair
-    return locations[k](v, lines)
+const indexesByLocation = (attributes: any, lines: string[]): number[] => {
+  const pairs = Object.entries(attributes).filter(([k, _]) => locations[k]);
+  if (pairs.length) {
+    const indexes: number[] = []
+    pairs.forEach((pair, i) => {
+        const [k, v] = pair;
+        indexes[i] = locations[k](v, lines);
+    })
+    return indexes;
   }
-  return -1
-}
+};
 const injector = (action: RenderedAction, content: string): string => {
   const {
     attributes: { skip_if, eof_last },
@@ -60,17 +63,31 @@ const injector = (action: RenderedAction, content: string): string => {
     const lines = content.split(NL)
 
     // returns -1 (end) if no attrs
-    const idx = indexByLocation(attributes, lines)
+    const idxs = indexesByLocation(attributes, lines)
+    let idx = -1
+    let deleteCount = 0
+    if (idxs.length > 2) {
+      throw new Error(`Too many injection attributes match '${attributes.join(',')}'! Don't know what to do.`)
+    }
+    if (idxs.length == 2) {
+      idxs.sort((a, b) => a - b) // numeric ascending
+      idx = idxs[0]
+      deleteCount = idxs[1] - idxs[0]
+    }
+    if (idxs.length == 1) {
+      idx = idxs[0]
+      deleteCount = 0
+    }
 
     const trimEOF = idx >= 0 && eof_last === false && /\r?\n$/.test(body)
     const insertEOF = idx >= 0 && eof_last === true && !/\r?\n$/.test(body)
 
     if (trimEOF) {
-      lines.splice(idx, 0, body.replace(/\r?\n$/, ''))
+      lines.splice(idx, deleteCount, body.replace(/\r?\n$/, ''))
     } else if (insertEOF) {
-      lines.splice(idx, 0, `${body}${NL}`)
+      lines.splice(idx, deleteCount, `${body}${NL}`)
     } else if (idx >= 0) {
-      lines.splice(idx, 0, body)
+      lines.splice(idx, deleteCount, body)
     }
     return lines.join(NL)
   } else {
