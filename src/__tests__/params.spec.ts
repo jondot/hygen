@@ -1,5 +1,5 @@
 import path from 'path'
-import params from '../params'
+import {configfile, params } from '../params'
 
 const fixture = (...segments) =>
   path.join(__dirname, 'fixtures', 'templates', ...segments)
@@ -51,6 +51,20 @@ describe('params', () => {
       ),
       templates: fixture('templates-override', '_templates'),
       ts: '1337',
+    })
+  })
+})
+
+describe('local parameters can be loaded from a yaml file', () => {
+  it('should resolve yaml file', () => {
+    const configContents = configfile(fixture("configfile","configfile.yaml"))
+    expect(configContents).toEqual({
+      comparisons: {
+        good: 1,
+        better: 2,
+        best: 3,
+        bestest: 4
+      }
     })
   })
 })

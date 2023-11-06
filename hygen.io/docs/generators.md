@@ -113,6 +113,14 @@ to: app/emails/<%= name %>.html
 
 Try making the text variant yourself by editing `text.ejs.t`. Note: you want to put it in the correct place with `to:`.
 
+## Configuration file
+
+You can load complex data structures to the template engine from a configuration file.
+
+```
+$ hygen mailer new --configfile config.yaml
+```
+
 ## Interactive Prompt
 
 To create an interactive generator, add `prompt.js` file to the generator root directory.

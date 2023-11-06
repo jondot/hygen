@@ -2,6 +2,7 @@ import path from 'path'
 import yargs from 'yargs-parser'
 import fs from 'fs-extra'
 import type { ParamsResult, RunnerConfig } from './types'
+import YAML from 'yaml'
 
 import prompt from './prompt'
 export const DEFAULT_ACTION = '_default'
@@ -44,7 +45,7 @@ const resolvePositionals = async (templates: string, args: string[]) => {
   return [generator, action, name]
 }
 
-const params = async (
+export const params = async (
   { templates, createPrompter }: RunnerConfig,
   externalArgv: string[],
 ): Promise<ParamsResult> => {
@@ -86,4 +87,7 @@ const params = async (
   return args
 }
 
-export default params
+export const configfile = (configfile: string) => {
+  const file = fs.readFileSync(configfile, 'utf8')
+  return YAML.parse(file)
+}
