@@ -19,11 +19,11 @@ const hooksfiles = [
 ]
 const prompt = async <Q, T>(
   createPrompter: () => Prompter<Q, T>,
-  actionfolder: string,
+  actionFolder: string,
   args: Record<string, any>,
 ): Promise<T | object> => {
   const hooksfile = hooksfiles
-    .map((f) => path.resolve(path.join(actionfolder, f)))
+    .map((f) => path.resolve(path.join(actionFolder, f)))
     .find((f) => fs.existsSync(f))
 
   if (!hooksfile) {

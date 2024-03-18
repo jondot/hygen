@@ -10,7 +10,7 @@ const runner = async (
   config: RunnerConfig,
 ): Promise<RunnerResult> => {
   const resolvedConfig = await resolve(config)
-  const { templates, logger } = resolvedConfig
+  const { logger } = resolvedConfig
   try {
     const actions = await engine(argv, resolvedConfig)
     return { success: true, actions, time: 0 }
@@ -22,7 +22,7 @@ const runner = async (
       logger.log('-------------------')
     }
     if (err instanceof ShowHelpError) {
-      printHelp(templates, logger)
+      printHelp(resolvedConfig, logger)
     }
     return { success: false, actions: [], time: 0 }
   }

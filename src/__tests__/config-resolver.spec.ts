@@ -24,18 +24,31 @@ const templateParams = ({
   }
 }
 describe('resolve', () => {
+  let consoleWarnMock
+
+  beforeEach(() => {
+    consoleWarnMock = jest.spyOn(console, 'warn').mockImplementation(() => {})
+  })
+
+  afterEach(() => {
+    consoleWarnMock.mockReset()
+  })
+
   it('template overrides takes over all', async () => {
-    expect(
-      (
-        await templateResolver(
-          templateParams({
-            cwd: '/1',
-            templates: fixture('app'),
-            templatesOverride: fixture('app-custom/other-templates'),
-          }),
-        )
-      ).templates,
-    ).toEqual(fixture('app-custom/other-templates'))
+    const resolvedTemplates = (
+      await templateResolver(
+        templateParams({
+          cwd: '/1',
+          templates: fixture('app'),
+          templatesOverride: fixture('app-custom/other-templates'),
+        }),
+      )
+    ).templates
+
+    expect(resolvedTemplates).toHaveLength(1)
+    expect(resolvedTemplates[0].path).toEqual(
+      fixture('app-custom/other-templates'),
+    )
   })
 
   it('templates explicitly given via config, so take it if it exists', async () => {
@@ -47,7 +60,7 @@ describe('resolve', () => {
             templates: fixture('app-custom/other-templates'),
           }),
         )
-      ).templates,
+      ).templates[0].path,
     ).toEqual(fixture('app-custom/other-templates'))
   })
 
@@ -57,18 +70,21 @@ describe('resolve', () => {
         await templateResolver(
           templateParams({ cwd: fixture('app'), templates: '2' }),
         )
-      ).templates,
+      ).templates[0].path,
     ).toEqual(fixture('/app/_templates'))
   })
 
-  it('take other_templates if explicitly given', async () => {
+  it('take templates from HYGEN_TMPLS env when it exists', async () => {
     process.env.HYGEN_TMPLS = fixture('app-custom/other-templates')
     expect(
       (
         await templateResolver(
-          templateParams({ cwd: fixture('app-custom'), templates: '2' }),
+          templateParams({
+            cwd: fixture('app-custom'),
+            templates: '2',
+          }),
         )
-      ).templates,
+      ).templates[0].path,
     ).toEqual(fixture('app-custom/other-templates'))
     process.env.HYGEN_TMPLS = undefined
   })

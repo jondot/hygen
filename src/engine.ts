@@ -1,5 +1,5 @@
 import fs from 'fs-extra'
-import type { ActionResult, RunnerConfig } from './types'
+import type { ActionResult, ResolvedRunnerConfig } from './types'
 import params from './params'
 
 class ShowHelpError extends Error {
@@ -11,11 +11,11 @@ class ShowHelpError extends Error {
 
 const engine = async (
   argv: string[],
-  config: RunnerConfig,
+  config: ResolvedRunnerConfig,
 ): Promise<ActionResult[]> => {
   const { cwd, templates, logger } = config
   const args = Object.assign(await params(config, argv), { cwd })
-  const { generator, action, actionfolder } = args
+  const { generator, action, actionFolder } = args
 
   if (['-h', '--help'].includes(argv[0])) {
     logger.log(`
@@ -37,8 +37,8 @@ Options:
     throw new ShowHelpError(`please specify an action for ${generator}.`)
   }
 
-  logger.log(`Loaded templates: ${templates.replace(`${cwd}/`, '')}`)
-  if (!(await fs.exists(actionfolder))) {
+  logger.log(`Loaded templates: ${templates.map((t) => `${t.path}/`, '')}`)
+  if (!(await fs.exists(actionFolder))) {
     throw new ShowHelpError(`I can't find action '${action}' for generator '${generator}'.
 
       You can try:

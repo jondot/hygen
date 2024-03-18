@@ -1,4 +1,4 @@
-import importedPath from 'path'
+import * as nodePath from 'path'
 import type { ResolverIO } from './types'
 
 // inline fp methods due to perf
@@ -13,7 +13,7 @@ const reversePathsToWalk = ({ folder, path }) => {
   return results.reverse()
 }
 
-const configLookup = (file: string, folder: string, path: any = importedPath) =>
+const configLookup = (file: string, folder: string, path: any = nodePath) =>
   uniq(
     reversePathsToWalk({ folder, path })
       .map((p) => [
@@ -26,6 +26,7 @@ const configLookup = (file: string, folder: string, path: any = importedPath) =>
 
 class ConfigResolver {
   configFile: string
+  loadedConfigPath: string
 
   io: ResolverIO
 
@@ -39,6 +40,7 @@ class ConfigResolver {
     const { exists, load, none } = this.io
     for (const candidate of configCandidates) {
       if (await exists(candidate)) {
+        this.loadedConfigPath = candidate
         return load(candidate)
       }
     }
