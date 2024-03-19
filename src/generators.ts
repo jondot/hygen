@@ -7,18 +7,28 @@ import type {
 } from './types'
 import { ConflictResolutionStrategy } from './types'
 
-export const actionKeyFor = (generator: string, action: string) =>
-  `${generator}::${action}`
+const removeExtension = (file: string) => file.replace(/\.[cm]?[jt]s[x]?$/, '')
 
-let generators: GeneratorInfo[] = null
+export const actionKeyFor = (generator: string, action: string) =>
+  `${generator}::${removeExtension(action)}`
+
+const generators = new Map<string, GeneratorInfo>()
 const actionsMap: ActionsMap = new Map()
 
-function mapActions(
+const registerAction = (generatorName: string, name: string, path: string) =>
+  actionsMap.set(actionKeyFor(generatorName, name), {
+    name,
+    path,
+    generatorName,
+  })
+
+function resolveActionConflicts(
   generator: GeneratorInfo,
   conflictStrategy: ConflictResolutionStrategy,
 ) {
   for (const action of generator.actions) {
     const key = actionKeyFor(generator.name, action.name)
+    // console.debug('action map:', action.name, ' - ', key)
 
     if (actionsMap.has(key)) {
       switch (conflictStrategy) {
@@ -38,45 +48,57 @@ Update that value in your hygen config to
           continue
 
         case ConflictResolutionStrategy.OVERRIDE:
-          actionsMap.set(key, generator)
+          registerAction(generator.name, action.name, action.path)
       }
+    } else {
+      registerAction(generator.name, action.name, action.path)
     }
   }
 }
 
+/**
+ * Pushes the generators of the template at {@link templateFolder}
+ * into the module private variable {@link generators} while resolving
+ * action conflicts
+ */
 const loadGeneratorsForTemplate = (
   templatesFolder: ResolvedTemplatePathConfig,
-): GeneratorInfo[] => {
-  const generators = readdirSync(templatesFolder.path).filter((_) =>
+  conflictStrategy: ConflictResolutionStrategy,
+): void => {
+  const tplGenerators = readdirSync(templatesFolder.path).filter((_) =>
     lstatSync(joinPath(templatesFolder.path, _)).isDirectory(),
   )
 
-  return generators.reduce((acc, name) => {
+  for (const name of tplGenerators) {
     const path = joinPath(templatesFolder.path, name)
     const actions = readdirSync(path)
 
-    acc.push({
+    const info: GeneratorInfo = {
       name,
       path,
-      actions,
-    })
+      actions: actions.map((action) => ({
+        name: action,
+        path: joinPath(path, removeExtension(action)),
+        generatorName: name,
+      })),
+    }
 
-    return acc
-  }, [])
+    resolveActionConflicts(info, conflictStrategy)
+    generators.set(name, info)
+  }
 }
 
 export function loadGenerators(
   templates: ResolvedTemplatePathConfig[],
   conflictStrategy: ConflictResolutionStrategy,
-): { generators: GeneratorInfo[]; actionsMap: Map<string, GeneratorInfo> } {
-  if (generators) return { generators, actionsMap }
+): {
+  generators: Map<string, GeneratorInfo>
+  actionsMap: ActionsMap
+} {
+  if (generators.size) return { generators, actionsMap }
 
   for (const templateFolder of templates) {
-    generators = loadGeneratorsForTemplate(templateFolder)
-
-    for (const generator of generators) {
-      mapActions(generator, conflictStrategy)
-    }
+    loadGeneratorsForTemplate(templateFolder, conflictStrategy)
   }
 
   return {

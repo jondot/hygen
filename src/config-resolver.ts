@@ -232,14 +232,14 @@ const resolveTemplates = (
   const { resolvedConfigSources, hasValidPaths, missingPaths } =
     resolveConfigSourcesTemplates(cwd, configs)
 
-  if (missingPaths.length) {
-    // todo: core team should decide if they want to show a warning
-    // saying that the paths in `missingPaths` are missing or not
-    console.warn(`The following paths from your 'templates' config option are missing: ${missingPaths
-      .map((t) => `      - ${t.path}`)
-      .join('\n')},
-    }`)
-  }
+  // if (missingPaths.length) {
+  //   // todo: core team should decide if they want to show a warning
+  //   // saying that the paths in `missingPaths` are missing or not
+  //   console.log(`The following paths from your 'templates' config option are missing: ${missingPaths
+  //     .map((t) => `      - ${t.path}`)
+  //     .join('\n')},
+  //   }`)
+  // }
 
   if (!hasValidPaths) {
     throw new Error(

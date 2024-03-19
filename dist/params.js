@@ -24,12 +24,12 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.DEFAULT_ACTION = void 0;
-const path_1 = __importDefault(require("path"));
 const yargs_parser_1 = __importDefault(require("yargs-parser"));
-const fs_extra_1 = __importDefault(require("fs-extra"));
 const prompt_1 = __importDefault(require("./prompt"));
+const generators_1 = require("./generators");
+const engine_1 = require("./engine");
 exports.DEFAULT_ACTION = '_default';
-const resolvePositionals = (templates, args) => __awaiter(void 0, void 0, void 0, function* () {
+const resolvePositionals = (actionsMap, args) => __awaiter(void 0, void 0, void 0, function* () {
     /*
     we want a to create flexible resolution and allow both:
   
@@ -48,35 +48,38 @@ const resolvePositionals = (templates, args) => __awaiter(void 0, void 0, void 0
     init MyName (default, name=MyName), default because 'repo' does not exist
     init (default, name=[empty]), default always!
     */
-    let [generator, action, name] = args;
-    if (generator &&
-        action &&
-        (yield fs_extra_1.default.exists(path_1.default.join(templates, generator, action)))) {
+    const [generator, action, name] = args;
+    if (generator && action && actionsMap.has((0, generators_1.actionKeyFor)(generator, action))) {
         return [generator, action, name];
     }
-    if (generator &&
-        (yield fs_extra_1.default.exists(path_1.default.join(templates, generator, exports.DEFAULT_ACTION)))) {
-        action = exports.DEFAULT_ACTION;
-        [generator, name] = args;
+    if (generator && actionsMap.has((0, generators_1.actionKeyFor)(generator, exports.DEFAULT_ACTION))) {
+        return [generator, exports.DEFAULT_ACTION, name];
     }
     return [generator, action, name];
 });
-const params = ({ templates, createPrompter }, externalArgv) => __awaiter(void 0, void 0, void 0, function* () {
+const params = (resolvedConfig, externalArgv) => __awaiter(void 0, void 0, void 0, function* () {
     const argv = (0, yargs_parser_1.default)(externalArgv);
-    const [generator, action, name] = yield resolvePositionals(templates, argv._);
+    const { templates, conflictResolutionStrategy, createPrompter } = resolvedConfig;
+    const { actionsMap } = (0, generators_1.loadGenerators)(templates, conflictResolutionStrategy);
+    const [generator, action, name] = yield resolvePositionals(actionsMap, argv._);
     if (!generator || !action) {
         return { generator, action, templates };
     }
-    const [mainAction, subaction] = action.split(':');
-    const actionfolder = path_1.default.join(templates, generator, mainAction);
+    const targetAction = actionsMap.get((0, generators_1.actionKeyFor)(generator, action));
+    if (!targetAction) {
+        // todo: improve this error
+        throw new engine_1.ShowHelpError(`The action ${targetAction} does not exist in the ${generator} generator`);
+    }
+    const actionFolder = targetAction.path;
     const { _ } = argv, cleanArgv = __rest(argv, ["_"]);
-    const promptArgs = yield (0, prompt_1.default)(createPrompter, actionfolder, Object.assign(Object.assign({}, (name ? { name } : {})), cleanArgv));
+    const promptArgs = yield (0, prompt_1.default)(createPrompter, actionFolder, Object.assign(Object.assign({}, (name ? { name } : {})), cleanArgv));
+    const [, subAction] = action.split(':');
     const args = Object.assign({
         templates,
-        actionfolder,
+        actionFolder,
         generator,
         action,
-        subaction,
+        subAction,
     }, 
     // include positionals as special arg for templates to consume,
     // and a unique timestamp for this run

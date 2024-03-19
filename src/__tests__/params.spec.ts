@@ -12,12 +12,12 @@ describe('params', () => {
   })
 
   // todo: figure out the intention and re-enable this test
-  it.skip('dont take template folder in template', async () => {
+  it('dont take template folder in template', async () => {
     const args = await params(
       {
         templates: [
           {
-            path: fixture('template-folder-in-templates', '_templates'),
+            path: fixture('app-custom'),
             prefix: '',
             pathChecked: false,
           },
@@ -30,26 +30,27 @@ describe('params', () => {
       action: 'foo',
       name: 'bar',
       subAction: undefined,
-      actionFolder: fixture(
-        'template-folder-in-templates',
-        '_templates',
-        'dont-take-this',
-        'foo',
-      ),
+      actionFolder: fixture('app-custom', 'dont-take-this', 'foo'),
       generator: 'dont-take-this',
-      templates: fixture('template-folder-in-templates', '_templates'),
+      templates: [
+        {
+          path: fixture('app-custom'),
+          pathChecked: false,
+          prefix: '',
+        },
+      ],
       ts: '1337',
     })
   })
 
   // todo: figure out the intention and re-enable this test
-  it.skip('env var overrides local templates but still take explicitly given templates', async () => {
-    process.env.HYGEN_TMPLS = fixture('templates-override', 'tmpls')
+  it('env var overrides local templates but still take explicitly given templates', async () => {
+    process.env.HYGEN_TMPLS = fixture('app-custom', 'tmpls')
     const args = await params(
       {
         templates: [
           {
-            path: fixture('templates-override', '_templates'),
+            path: fixture('app-custom'),
             prefix: '',
             pathChecked: false,
           },
@@ -63,13 +64,14 @@ describe('params', () => {
       name: 'bar',
       subAction: undefined,
       generator: 'dont-take-this',
-      actionFolder: fixture(
-        'templates-override',
-        '_templates',
-        'dont-take-this',
-        'foo',
-      ),
-      templates: fixture('templates-override', '_templates'),
+      actionFolder: fixture('app-custom', 'dont-take-this', 'foo'),
+      templates: [
+        {
+          path: fixture('app-custom'),
+          pathChecked: false,
+          prefix: '',
+        },
+      ],
       ts: '1337',
     })
   })

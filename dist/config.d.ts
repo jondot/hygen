@@ -6,6 +6,7 @@ declare const reversePathsToWalk: ({ folder, path }: {
 declare const configLookup: (file: string, folder: string, path?: any) => any;
 declare class ConfigResolver {
     configFile: string;
+    loadedConfigPath: string;
     io: ResolverIO;
     constructor(configFile: string, io: ResolverIO);
     resolve(from: string): Promise<Record<string, any>>;

@@ -13,9 +13,7 @@
   "license": "MIT",
   "repository": "https://github.com/jondot/hygen",
   "main": "dist/index.js",
-  "bin": {
-    "hygen": "./dist/bin.js"
-  },
+  "bin": "./dist/bin.js",
   "scripts": {
     "standalone": "rm -rf standalone; yarn build:lib && yarn pkg package.json --out-path standalone && node scripts/standalone.js",
     "standalone:brew-sha": "shasum -a 256 standalone/*.macos.*.tar.gz",
@@ -60,6 +58,7 @@
     "eslint-plugin-prettier": "^4.0.0",
     "gh-pages": "^3.1.0",
     "jest": "^27.5.1",
+    "nodemon": "^3.1.0",
     "pkg": "^5.5.2",
     "react": "17.0.2",
     "stylomatic": "^0.3.1",
@@ -68,6 +67,10 @@
     "ts-node": "^10.5.0",
     "typescript": "^4.5.5",
     "zeroconf-typescript-eslint": "^2.4.0"
+  },
+  "nodemonConfig": {
+    "ignore": ["**/test/**", "**/docs/**"],
+    "delay": 500
   },
   "jest": {
     "transform": {

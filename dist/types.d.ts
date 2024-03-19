@@ -1,3 +1,12 @@
+export declare type ActionsMap = Map<string, GeneratorInfo>;
+export interface GeneratorInfo {
+    name: string;
+    path: string;
+    actions: Array<{
+        name: string;
+        path: string;
+    }>;
+}
 export interface Logger {
     ok: (msg: string) => void;
     notice: (msg: string) => void;
@@ -14,16 +23,54 @@ export interface RenderedAction {
     attributes: any;
     body: string;
 }
+export interface TemplateConfigObj {
+    path: string;
+    prefix?: string;
+}
+export declare type TemplatesConfigOption = string | Array<string | TemplateConfigObj>;
+export declare type ResolvedTemplatePathConfig = TemplateConfigObj & {
+    pathChecked: boolean;
+    exists?: boolean;
+    overridden?: boolean;
+};
+export declare enum ConflictResolutionStrategy {
+    /**
+     * Stops the generation and lets the user know
+     * that actions are in conflict
+     */
+    FAIL = "fail",
+    /**
+     * keeps the action is defined last
+     */
+    OVERRIDE = "override",
+    /**
+     * keeps the action that appears first skipping the ones that conflict
+     */
+    SKIP = "skip"
+}
 export interface RunnerConfig {
     exec?: (sh: string, body: string) => void;
-    templates?: string;
-    templatesOverride?: string;
+    templates?: TemplatesConfigOption;
+    templatesOverride?: TemplatesConfigOption;
+    /**
+     * Sets how action conflicts get resolved
+     *
+     * - "fail": [default] stops the generation and lets the user know that templates are in conflict
+     * - "override": keeps the action that is defined last
+     * - "skip": keeps the action that appears first skipping the ones that conflict
+     *
+     * @default "fail"
+     */
+    conflictResolutionStrategy?: ConflictResolutionStrategy;
     cwd?: string;
     logger?: Logger;
     debug?: boolean;
     helpers?: any;
     localsDefaults?: any;
     createPrompter?: <Q, T>() => Prompter<Q, T>;
+}
+export interface ResolvedRunnerConfig extends RunnerConfig {
+    templates: ResolvedTemplatePathConfig[];
 }
 export interface ResolverIO {
     exists: (arg0: string) => Promise<boolean>;
@@ -41,11 +88,11 @@ export interface RunnerResult {
     };
 }
 export declare type ParamsResult = {
-    templates: string;
+    templates: ResolvedTemplatePathConfig[];
     generator: string;
     action: string;
-    subaction?: string;
-    actionfolder?: string;
+    subAction?: string;
+    actionFolder?: string;
     name?: string;
     dry?: boolean;
 } & object;

@@ -10,3 +10,4 @@ src/__tests__/metaverse/**/given/
 _book
 yarn-error.log
 standalone/
+.yarn

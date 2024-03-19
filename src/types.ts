@@ -1,12 +1,15 @@
-export type ActionsMap = Map<string, GeneratorInfo>
+export interface Action {
+  name: string
+  path: string
+  generatorName: string
+}
+
+export type ActionsMap = Map<string, Action>
 
 export interface GeneratorInfo {
   name: string
   path: string
-  actions: Array<{
-    name: string
-    path: string
-  }>
+  actions: Array<Action>
 }
 
 export interface Logger {

@@ -1,1 +1,1 @@
-{"version":3,"file":"config-resolver.d.ts","sourceRoot":"","sources":["../src/config-resolver.ts"],"names":[],"mappings":"AAEA,OAAO,KAAK,EAAE,YAAY,EAAE,MAAM,SAAS,CAAA;iCAsBb,YAAY,KAAG,QAAQ,YAAY,CAAC;AAAlE,wBAUC"}
+{"version":3,"file":"config-resolver.d.ts","sourceRoot":"","sources":["../src/config-resolver.ts"],"names":[],"mappings":"AAEA,OAAO,KAAK,EACV,oBAAoB,EAEpB,YAAY,EAEb,MAAM,SAAS,CAAA;iCA+Pc,YAAY,KAAG,QAAQ,oBAAoB,CAAC;AAA1E,wBAcC"}

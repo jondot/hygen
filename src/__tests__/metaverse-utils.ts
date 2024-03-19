@@ -31,7 +31,7 @@ const createConfig = (metaDir) => ({
 })
 const dir = (m) => path.join(__dirname, 'metaverse', m)
 
-const metaverse = (folder, cmds, promptResponse = null) => {
+const metaverse = (folder, cmds, promptResponse: any = null) => {
   it(folder, async () => {
     const metaDir = dir(folder)
     console.log('metaverse test in:', metaDir)

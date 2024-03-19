@@ -27,14 +27,15 @@ const resolvePositionals = async (actionsMap: ActionsMap, args: string[]) => {
   init MyName (default, name=MyName), default because 'repo' does not exist
   init (default, name=[empty]), default always!
   */
-  const [generator, action, name] = args
+  let [generator, action, name] = args
 
   if (generator && action && actionsMap.has(actionKeyFor(generator, action))) {
     return [generator, action, name]
   }
 
   if (generator && actionsMap.has(actionKeyFor(generator, DEFAULT_ACTION))) {
-    return [generator, DEFAULT_ACTION, name]
+    action = DEFAULT_ACTION
+    ;[generator, name] = args
   }
 
   return [generator, action, name]
@@ -49,6 +50,9 @@ const params = async (
     resolvedConfig
 
   const { actionsMap } = loadGenerators(templates, conflictResolutionStrategy)
+
+  // console.debug('generators', generators)
+  // console.debug(`actionsMap (items: ${actionsMap.size})`, actionsMap.entries())
 
   const [generator, action, name] = await resolvePositionals(actionsMap, argv._)
 

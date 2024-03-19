@@ -44,7 +44,7 @@ exports.ShowHelpError = ShowHelpError;
 const engine = (argv, config) => __awaiter(void 0, void 0, void 0, function* () {
     const { cwd, templates, logger } = config;
     const args = Object.assign(yield (0, params_1.default)(config, argv), { cwd });
-    const { generator, action, actionfolder } = args;
+    const { generator, action, actionFolder } = args;
     if (['-h', '--help'].includes(argv[0])) {
         logger.log(`
 Usage:
@@ -62,8 +62,8 @@ Options:
     if (!action) {
         throw new ShowHelpError(`please specify an action for ${generator}.`);
     }
-    logger.log(`Loaded templates: ${templates.replace(`${cwd}/`, '')}`);
-    if (!(yield fs_extra_1.default.exists(actionfolder))) {
+    logger.log(`Loaded templates: ${templates.map((t) => `${t.path}/`, '')}`);
+    if (!(yield fs_extra_1.default.exists(actionFolder))) {
         throw new ShowHelpError(`I can't find action '${action}' for generator '${generator}'.
 
       You can try:

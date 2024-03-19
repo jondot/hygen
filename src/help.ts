@@ -22,7 +22,7 @@ const availableActions = (
 
   const { generators } = loadGenerators(templates, conflictStrategy)
 
-  return generators.reduce((acc, generator) => {
+  return Array.from(generators.values()).reduce((acc, generator) => {
     acc[generator.name] = generator.actions.map((a) => a.name)
     return acc
   }, {})
