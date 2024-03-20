@@ -14,7 +14,15 @@ const reversePathsToWalk = ({ folder, path }) => {
 }
 
 const configLookup = (file: string, folder: string, path: any = importedPath) =>
-  uniq(reversePathsToWalk({ folder, path }).map((p) => [path.join(p, file), path.join(p, file).replace(/.js$/, '.cjs')]).flat())
+  uniq(
+    reversePathsToWalk({ folder, path })
+      .map((p) => [
+        path.join(p, file),
+        path.join(p, file).replace(/.js$/, '.cjs'),
+        path.join(p, file).replace(/.js$/, '.mjs'),
+      ])
+      .flat(),
+  )
 
 class ConfigResolver {
   configFile: string

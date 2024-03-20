@@ -4,11 +4,13 @@ import type { Prompter } from './types'
 import helpers from './helpers'
 
 const hooksfiles = [
-  'index.cjs',
   'index.js',
+  'index.cjs',
+  'index.mjs',
   'index.ts',
-  'prompt.cjs',
   'prompt.js',
+  'prompt.cjs',
+  'prompt.mjs',
   'prompt.ts',
 ]
 const prompt = async <Q, T>(
