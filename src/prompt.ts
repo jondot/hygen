@@ -8,10 +8,14 @@ const hooksfiles = [
   'index.cjs',
   'index.mjs',
   'index.ts',
+  'index.cts',
+  'index.mts',
   'prompt.js',
   'prompt.cjs',
   'prompt.mjs',
   'prompt.ts',
+  'prompt.cts',
+  'prompt.mts',
 ]
 const prompt = async <Q, T>(
   createPrompter: () => Prompter<Q, T>,
