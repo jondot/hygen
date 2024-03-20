@@ -41,9 +41,9 @@ const hooksfiles = [
     'prompt.js',
     'prompt.ts',
 ];
-const prompt = (createPrompter, actionfolder, args) => __awaiter(void 0, void 0, void 0, function* () {
+const prompt = (createPrompter, actionFolder, args) => __awaiter(void 0, void 0, void 0, function* () {
     const hooksfile = hooksfiles
-        .map((f) => path_1.default.resolve(path_1.default.join(actionfolder, f)))
+        .map((f) => path_1.default.resolve(path_1.default.join(actionFolder, f)))
         .find((f) => fs_1.default.existsSync(f));
     if (!hooksfile) {
         return Promise.resolve({});

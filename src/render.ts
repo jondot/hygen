@@ -39,14 +39,14 @@ const render = async (
   args: any,
   config: RunnerConfig,
 ): Promise<RenderedAction[]> =>
-  getFiles(args.actionfolder)
+  getFiles(args.actionFolder)
     .then((things) => things.sort((a, b) => a.localeCompare(b))) // TODO: add a test to verify this sort
     .then(filter((f) => !ignores.find((ig) => f.endsWith(ig)))) // TODO: add a
     // test for ignoring prompt.js and index.js
     .then(
       filter((file) =>
-        args.subaction
-          ? file.replace(args.actionfolder, '').match(args.subaction)
+        args.subAction
+          ? file.replace(args.actionFolder, '').match(args.subAction)
           : true,
       ),
     )

@@ -1,30 +1,48 @@
-import fs from 'fs'
-import path from 'path'
-import chalk from 'chalk'
-import type { Logger } from './types'
+import { bold } from 'chalk'
+import type {
+  Logger,
+  ResolvedRunnerConfig,
+  ResolvedTemplatePathConfig,
+} from './types'
 import { DEFAULT_ACTION } from './params'
+import { loadGenerators } from './generators'
+import { ConflictResolutionStrategy } from './types'
+
 const pkg = require('../package.json') // eslint-disable-line @typescript-eslint/no-var-requires
 
 const VERSION = pkg.version
 
-const availableActions = (templates: string) => {
-  const generators = fs
-    .readdirSync(templates)
-    .filter((_) => fs.lstatSync(path.join(templates, _)).isDirectory())
-  return generators.reduce((acc, generator) => {
-    const actions = fs.readdirSync(path.join(templates, generator))
-    acc[generator] = actions
+let _availableActions: Record<string, string[]>
+
+const availableActions = (
+  templates: ResolvedTemplatePathConfig[],
+  conflictStrategy = ConflictResolutionStrategy.FAIL,
+): Record<string, string[]> => {
+  if (_availableActions) return _availableActions
+
+  const { generators } = loadGenerators(templates, conflictStrategy)
+
+  return Array.from(generators.values()).reduce((acc, generator) => {
+    acc[generator.name] = generator.actions.map((a) => a.name)
     return acc
   }, {})
 }
 
-const printHelp = (templates: string, logger: Logger) => {
+const printHelp = (config: ResolvedRunnerConfig, logger: Logger) => {
   logger.log(`Hygen v${VERSION}`)
   logger.log('\nAvailable actions:')
-  if (!templates) {
-    logger.log(`No generators or actions found. 
 
-      This means I didn't find a _templates folder right here, 
+  const actionsByGenerator = availableActions(
+    config.templates,
+    config.conflictResolutionStrategy,
+  )
+
+  // todo: this needs to be refactored
+  // config-resolver is now throwing in certain cases
+  if (!Object.keys(actionsByGenerator).length) {
+    logger.log(`No generators or actions found.
+
+      This means I didn't find a _templates folder right here,
       or anywhere up the folder tree starting here.
 
       Here's how to start using Hygen:
@@ -34,25 +52,26 @@ const printHelp = (templates: string, logger: Logger) => {
 
       (edit your generator in _templates/my-generator)
 
-      $ hygen my-generator 
+      $ hygen my-generator
 
       See https://hygen.io for more.
-      
+
       `)
     return
   }
-  Object.entries(availableActions(templates)).forEach(([k, v]: [any, any]) => {
+
+  for (const [generator, actions] of Object.entries(actionsByGenerator)) {
     logger.log(
-      `${chalk.bold(k)}: ${
-        v.find((a) => a === DEFAULT_ACTION)
-          ? `${k}${v.length > 1 ? ',' : ''} `
+      `${bold(generator)}: ${
+        actions.find((name) => name === DEFAULT_ACTION)
+          ? `${generator}${actions.length > 1 ? ',' : ''} `
           : ''
-      }${v
-        .filter((a) => a !== DEFAULT_ACTION)
-        .map((a) => `${k} ${a}`)
+      }${actions
+        .filter((name) => name !== DEFAULT_ACTION)
+        .map((action) => `${generator} ${action}`)
         .join(', ')}`,
     )
-  })
+  }
 }
 
 export { availableActions, printHelp, VERSION }

@@ -11,7 +11,7 @@ describe('render ng', () => {
     const expectedBody = ''
     // act
     const actual = await render(
-      { actionfolder: fixture('app', 'action-empty') },
+      { actionFolder: fixture('app', 'action-empty') },
       {},
     )
     const actualFile = actual[0].file
@@ -30,7 +30,7 @@ describe('render ng', () => {
       {
         bill: 17,
         name: 'someone',
-        actionfolder: fixture('app', 'action-full'),
+        actionFolder: fixture('app', 'action-full'),
       },
       {},
     )
@@ -59,7 +59,7 @@ describe('render ng', () => {
     const response = await render(
       {
         name: 'someone',
-        actionfolder: fixture('app', 'action-capitalized'),
+        actionFolder: fixture('app', 'action-capitalized'),
       },
       {},
     )
@@ -77,7 +77,7 @@ describe('render ng', () => {
     // act
     const response = await render(
       {
-        actionfolder: fixture('app', 'action-capitalized-defaults'),
+        actionFolder: fixture('app', 'action-capitalized-defaults'),
       },
       {},
     )
@@ -97,7 +97,7 @@ describe('render ng', () => {
     const response = await render(
       {
         bill: 17,
-        actionfolder: fixture('app', 'action-multifiles'),
+        actionFolder: fixture('app', 'action-multifiles'),
       },
       {},
     )
@@ -119,7 +119,7 @@ describe('render ng', () => {
     const response = await render(
       {
         bill: 17,
-        actionfolder: fixture('app', 'action-multifiles-nest'),
+        actionFolder: fixture('app', 'action-multifiles-nest'),
       },
       {},
     )
@@ -132,7 +132,7 @@ describe('render ng', () => {
     expect(actualFileTwo).toMatch(expectedFileTwo)
   })
 
-  it('should filter what will be rendered only to that subaction value', async () => {
+  it('should filter what will be rendered only to that subAction value', async () => {
     // setup
     const expectedFileCount = 1
     const expectedFile = /capitalized/
@@ -140,8 +140,8 @@ describe('render ng', () => {
     const response = await render(
       {
         bill: 17,
-        actionfolder: fixture('app', 'action-multifiles'),
-        subaction: 'capitalized',
+        actionFolder: fixture('app', 'action-multifiles'),
+        subAction: 'capitalized',
       },
       {},
     )
@@ -157,7 +157,7 @@ describe('render ng', () => {
     const res = await render(
       {
         name: 'devise',
-        actionfolder: fixture('app', 'action-inject'),
+        actionFolder: fixture('app', 'action-inject'),
       },
       {},
     )
@@ -174,7 +174,7 @@ describe('render ng', () => {
     const response = await render(
       {
         name: 'FooBar',
-        actionfolder: fixture('app', 'action-change-case'),
+        actionFolder: fixture('app', 'action-change-case'),
       },
       {},
     )
@@ -198,7 +198,7 @@ describe('render ng', () => {
     // act
     const response = await render(
       {
-        actionfolder: fixture('app', 'action-full'),
+        actionFolder: fixture('app', 'action-full'),
       },
       config,
     )

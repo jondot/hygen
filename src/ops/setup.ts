@@ -11,7 +11,7 @@ XXX:
 -  --setup|from argument overrides setup
 -  --mode argument
 -  --verbose, --cache
-XXX: 
+XXX:
 - testing infra: when focus added ignore snapshots
 - better ignoring when focusing?
 - better separation to individual tests?, rework test generation
@@ -58,6 +58,7 @@ const setup = async (
 
     return result('executed', payload)
   }
+
   return result('ignored')
 }
 

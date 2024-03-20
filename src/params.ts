@@ -1,12 +1,14 @@
-import path from 'path'
+import { join as joinPath } from 'path'
 import yargs from 'yargs-parser'
 import fs from 'fs-extra'
-import type { ParamsResult, RunnerConfig } from './types'
+import type { ActionsMap, ParamsResult, ResolvedRunnerConfig } from './types'
 
 import prompt from './prompt'
+import { actionKeyFor, loadGenerators } from './generators';
+import { ShowHelpError } from './engine'
 export const DEFAULT_ACTION = '_default'
 
-const resolvePositionals = async (templates: string, args: string[]) => {
+const resolvePositionals = async (actionsMap: ActionsMap, args: string[]) => {
   /*
   we want a to create flexible resolution and allow both:
 
@@ -26,54 +28,66 @@ const resolvePositionals = async (templates: string, args: string[]) => {
   init (default, name=[empty]), default always!
   */
   let [generator, action, name] = args
-  if (
-    generator &&
-    action &&
-    (await fs.exists(path.join(templates, generator, action)))
-  ) {
+
+  if (generator && action && actionsMap.has(actionKeyFor(generator, action))) {
     return [generator, action, name]
   }
 
-  if (
-    generator &&
-    (await fs.exists(path.join(templates, generator, DEFAULT_ACTION)))
-  ) {
+  if (generator && actionsMap.has(actionKeyFor(generator, DEFAULT_ACTION))) {
     action = DEFAULT_ACTION
     ;[generator, name] = args
   }
+
   return [generator, action, name]
 }
 
 const params = async (
-  { templates, createPrompter }: RunnerConfig,
+  resolvedConfig: ResolvedRunnerConfig,
   externalArgv: string[],
 ): Promise<ParamsResult> => {
   const argv = yargs(externalArgv)
+  const { templates, conflictResolutionStrategy, createPrompter } =
+    resolvedConfig
 
-  const [generator, action, name] = await resolvePositionals(templates, argv._)
+  const { actionsMap } = loadGenerators(templates, conflictResolutionStrategy)
+
+  // console.debug('generators', generators)
+  // console.debug(`actionsMap (items: ${actionsMap.size})`, actionsMap.entries())
+
+  const [generator, action, name] = await resolvePositionals(actionsMap, argv._)
 
   if (!generator || !action) {
     return { generator, action, templates }
   }
-  const [mainAction, subaction] = action.split(':')
 
-  const actionfolder = path.join(templates, generator, mainAction)
+  const targetAction = actionsMap.get(actionKeyFor(generator, action))
+
+  if (!targetAction) {
+    // todo: improve this error
+    throw new ShowHelpError(
+      `The action ${targetAction} does not exist in the ${generator} generator`,
+    )
+  }
+
+  const actionFolder = targetAction.path
 
   const { _, ...cleanArgv } = argv
-  const promptArgs = await prompt(createPrompter, actionfolder, {
+  const promptArgs = await prompt(createPrompter, actionFolder, {
     // NOTE we might also want the rest of the generator/action/etc. params here
     // but theres no usecase yet
     ...(name ? { name } : {}),
     ...cleanArgv,
   })
 
+  const [, subAction] = action.split(':')
+
   const args = Object.assign(
     {
       templates,
-      actionfolder,
+      actionFolder,
       generator,
       action,
-      subaction,
+      subAction,
     },
     // include positionals as special arg for templates to consume,
     // and a unique timestamp for this run

@@ -5,18 +5,25 @@ import helpers from './helpers'
 
 const hooksfiles = [
   'index.js',
+  'index.cjs',
+  'index.mjs',
   'index.ts',
-  'prompt.cjs',
+  'index.cts',
+  'index.mts',
   'prompt.js',
+  'prompt.cjs',
+  'prompt.mjs',
   'prompt.ts',
+  'prompt.cts',
+  'prompt.mts',
 ]
 const prompt = async <Q, T>(
   createPrompter: () => Prompter<Q, T>,
-  actionfolder: string,
+  actionFolder: string,
   args: Record<string, any>,
 ): Promise<T | object> => {
   const hooksfile = hooksfiles
-    .map((f) => path.resolve(path.join(actionfolder, f)))
+    .map((f) => path.resolve(path.join(actionFolder, f)))
     .find((f) => fs.existsSync(f))
 
   if (!hooksfile) {

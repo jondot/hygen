@@ -46,12 +46,12 @@ function getFiles(dir) {
     });
 }
 const render = (args, config) => __awaiter(void 0, void 0, void 0, function* () {
-    return getFiles(args.actionfolder)
+    return getFiles(args.actionFolder)
         .then((things) => things.sort((a, b) => a.localeCompare(b))) // TODO: add a test to verify this sort
         .then(filter((f) => !ignores.find((ig) => f.endsWith(ig)))) // TODO: add a
         // test for ignoring prompt.js and index.js
-        .then(filter((file) => args.subaction
-        ? file.replace(args.actionfolder, '').match(args.subaction)
+        .then(filter((file) => args.subAction
+        ? file.replace(args.actionFolder, '').match(args.subAction)
         : true))
         .then(map((file) => fs_extra_1.default.readFile(file).then((text) => ({ file, text: text.toString() }))))
         .then((_) => Promise.all(_))

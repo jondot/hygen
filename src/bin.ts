@@ -4,6 +4,8 @@ import path from 'path'
 import Logger from './logger'
 import { runner } from './index'
 
+// todo: should we always include this?
+// It would mean poorer error reporting of bad config
 const defaultTemplates = path.join(__dirname, '../src/templates')
 runner(process.argv.slice(2), {
   templates: defaultTemplates,
