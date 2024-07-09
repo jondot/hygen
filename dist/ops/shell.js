@@ -30,7 +30,7 @@ const shell = ({ attributes: { sh, spinner, sh_ignore_exit }, body }, args, { lo
             }
             catch (error) {
                 if (sh_ignore_exit !== true) {
-                    logger.err(error.stderr);
+                    logger.err(error.stderr || error.stdout);
                     process.exit(1);
                 }
             }
