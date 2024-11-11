@@ -33,7 +33,7 @@ function Home() {
           <Shell style={{ margin: '5.5rem 0 2rem 0' }} />
           <CtaButton to={useBaseUrl('docs/quick-start')}>Quick Start</CtaButton>
           <Or>&mdash; or &mdash;</Or>
-          <TtaLink href={gitHubURL}>Github &rarr;</TtaLink>
+          <TtaLink href={gitHubURL}>GitHub &rarr;</TtaLink>
         </Hero>
       </IndexHeadContainer>
       <main>

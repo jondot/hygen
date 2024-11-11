@@ -17,7 +17,7 @@ class Navigation extends React.Component {
             Docs{' '}
           </Link>
           <a className="nav-link" href="https://github.com/jondot/hygen">
-            Github
+            GitHub
           </a>
           {this.props.withSearch && <DocSearch />}
         </section>
