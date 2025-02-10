@@ -21,7 +21,8 @@ const shell = async (
         debug('result %o', res)
       } catch (error) {
         if (sh_ignore_exit !== true) {
-          logger.err(error.stderr)
+          logger.err(error)
+          debug(error)
           process.exit(1)
         }
       } finally {

@@ -1,10 +1,9 @@
 {
-  "//extends": "pick from: stylomatic/{node-library|react-library|nextjs|base}.json",
-  "extends": "stylomatic/node-library.json",
   "compilerOptions": {
     "outDir": "dist",
     "strict": false,
-    "isolatedModules": false
+    "isolatedModules": false,
+    "esModuleInterop": true
   },
   "include": [
     "./src"

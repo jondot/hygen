@@ -7,7 +7,7 @@ const fixture = (...segments) =>
 describe('params', () => {
   process.env.HYGEN_TS = '1337'
   beforeEach(() => {
-    process.env.HYGEN_TMPLS = null
+    process.env.HYGEN_TMPLS = undefined
   })
   it('dont take template folder in template', async () => {
     const args = await params(

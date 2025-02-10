@@ -1,12 +1,12 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`context should populate with capitalized keys 1`] = `
-Object {
+{
   "Name": "Foobar",
   "Names": "Foobars",
-  "h": Object {
+  "h": {
     "capitalize": [Function],
-    "changeCase": Object {
+    "changeCase": {
       "camel": [Function],
       "camelCase": [Function],
       "constant": [Function],
@@ -48,7 +48,7 @@ Object {
       "upperCase": [Function],
       "upperCaseFirst": [Function],
     },
-    "inflection": Object {
+    "inflection": {
       "_apply_rules": [Function],
       "camelize": [Function],
       "capitalize": [Function],
@@ -67,7 +67,7 @@ Object {
       "transform": [Function],
       "undasherize": [Function],
       "underscore": [Function],
-      "version": "1.12.0",
+      "version": "1.13.1",
     },
   },
   "name": "foobar",

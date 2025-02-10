@@ -1,4 +1,15 @@
 "use strict";
+var __assign = (this && this.__assign) || function () {
+    __assign = Object.assign || function(t) {
+        for (var s, i = 1, n = arguments.length; i < n; i++) {
+            s = arguments[i];
+            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
+                t[p] = s[p];
+        }
+        return t;
+    };
+    return __assign.apply(this, arguments);
+};
 var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
     function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
     return new (P || (P = Promise))(function (resolve, reject) {
@@ -8,23 +19,50 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
+var __generator = (this && this.__generator) || function (thisArg, body) {
+    var _ = { label: 0, sent: function() { if (t[0] & 1) throw t[1]; return t[1]; }, trys: [], ops: [] }, f, y, t, g = Object.create((typeof Iterator === "function" ? Iterator : Object).prototype);
+    return g.next = verb(0), g["throw"] = verb(1), g["return"] = verb(2), typeof Symbol === "function" && (g[Symbol.iterator] = function() { return this; }), g;
+    function verb(n) { return function (v) { return step([n, v]); }; }
+    function step(op) {
+        if (f) throw new TypeError("Generator is already executing.");
+        while (g && (g = 0, op[0] && (_ = 0)), _) try {
+            if (f = 1, y && (t = op[0] & 2 ? y["return"] : op[0] ? y["throw"] || ((t = y["return"]) && t.call(y), 0) : y.next) && !(t = t.call(y, op[1])).done) return t;
+            if (y = 0, t) op = [op[0] & 2, t.value];
+            switch (op[0]) {
+                case 0: case 1: t = op; break;
+                case 4: _.label++; return { value: op[1], done: false };
+                case 5: _.label++; y = op[1]; op = [0]; continue;
+                case 7: op = _.ops.pop(); _.trys.pop(); continue;
+                default:
+                    if (!(t = _.trys, t = t.length > 0 && t[t.length - 1]) && (op[0] === 6 || op[0] === 2)) { _ = 0; continue; }
+                    if (op[0] === 3 && (!t || (op[1] > t[0] && op[1] < t[3]))) { _.label = op[1]; break; }
+                    if (op[0] === 6 && _.label < t[1]) { _.label = t[1]; t = op; break; }
+                    if (t && _.label < t[2]) { _.label = t[2]; _.ops.push(op); break; }
+                    if (t[2]) _.ops.pop();
+                    _.trys.pop(); continue;
+            }
+            op = body.call(thisArg, _);
+        } catch (e) { op = [6, e]; y = 0; } finally { f = t = 0; }
+        if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
+    }
+};
 var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const path_1 = __importDefault(require("path"));
-const fs_extra_1 = __importDefault(require("fs-extra"));
-const ejs_1 = __importDefault(require("ejs"));
-const front_matter_1 = __importDefault(require("front-matter"));
-const ignore_walk_1 = __importDefault(require("ignore-walk"));
-const debug_1 = __importDefault(require("debug"));
-const context_1 = __importDefault(require("./context"));
-const debug = (0, debug_1.default)('hygen:render');
+var path_1 = __importDefault(require("path"));
+var fs_extra_1 = __importDefault(require("fs-extra"));
+var ejs_1 = __importDefault(require("ejs"));
+var front_matter_1 = __importDefault(require("front-matter"));
+var ignore_walk_1 = __importDefault(require("ignore-walk"));
+var debug_1 = __importDefault(require("debug"));
+var context_1 = __importDefault(require("./context"));
+var debug = (0, debug_1.default)('hygen:render');
 // for some reason lodash/fp takes 90ms to load.
 // inline what we use here with the regular lodash.
-const map = (f) => (arr) => arr.map(f);
-const filter = (f) => (arr) => arr.filter(f);
-const ignores = [
+var map = function (f) { return function (arr) { return arr.map(f); }; };
+var filter = function (f) { return function (arr) { return arr.filter(f); }; };
+var ignores = [
     'prompt.js',
     'index.js',
     'prompt.ts',
@@ -36,39 +74,54 @@ const ignores = [
     'ehthumbs.db',
     'Thumbs.db',
 ];
-const renderTemplate = (tmpl, locals, config) => typeof tmpl === 'string' ? ejs_1.default.render(tmpl, (0, context_1.default)(locals, config)) : tmpl;
+var renderTemplate = function (tmpl, locals, config) {
+    return typeof tmpl === 'string' ? ejs_1.default.render(tmpl, (0, context_1.default)(locals, config)) : tmpl;
+};
 function getFiles(dir) {
-    return __awaiter(this, void 0, void 0, function* () {
-        const files = ignore_walk_1.default
-            .sync({ path: dir, ignoreFiles: ['.hygenignore'] })
-            .map((f) => path_1.default.join(dir, f));
-        return files;
+    return __awaiter(this, void 0, void 0, function () {
+        var files;
+        return __generator(this, function (_a) {
+            files = ignore_walk_1.default
+                .sync({ path: dir, ignoreFiles: ['.hygenignore'] })
+                .map(function (f) { return path_1.default.join(dir, f); });
+            return [2 /*return*/, files];
+        });
     });
 }
-const render = (args, config) => __awaiter(void 0, void 0, void 0, function* () {
-    return getFiles(args.actionfolder)
-        .then((things) => things.sort((a, b) => a.localeCompare(b))) // TODO: add a test to verify this sort
-        .then(filter((f) => !ignores.find((ig) => f.endsWith(ig)))) // TODO: add a
-        // test for ignoring prompt.js and index.js
-        .then(filter((file) => args.subaction
-        ? file.replace(args.actionfolder, '').match(args.subaction)
-        : true))
-        .then(map((file) => fs_extra_1.default.readFile(file).then((text) => ({ file, text: text.toString() }))))
-        .then((_) => Promise.all(_))
-        .then(map(({ file, text }) => {
-        debug('Pre-formatting file: %o', file);
-        return Object.assign({ file }, (0, front_matter_1.default)(text, { allowUnsafe: true }));
-    }))
-        .then(map(({ file, attributes, body }) => {
-        const renderedAttrs = Object.entries(attributes).reduce((obj, [key, value]) => {
-            return Object.assign(Object.assign({}, obj), { [key]: renderTemplate(value, args, config) });
-        }, {});
-        debug('Rendering file: %o', file);
-        return {
-            file,
-            attributes: renderedAttrs,
-            body: renderTemplate(body, Object.assign(Object.assign({}, args), { attributes: renderedAttrs }), config),
-        };
-    }));
-});
+var render = function (args, config) { return __awaiter(void 0, void 0, void 0, function () {
+    return __generator(this, function (_a) {
+        return [2 /*return*/, getFiles(args.actionfolder)
+                .then(function (things) { return things.sort(function (a, b) { return a.localeCompare(b); }); }) // TODO: add a test to verify this sort
+                .then(filter(function (f) { return !ignores.find(function (ig) { return f.endsWith(ig); }); })) // TODO: add a
+                // test for ignoring prompt.js and index.js
+                .then(filter(function (file) {
+                return args.subaction
+                    ? file.replace(args.actionfolder, '').match(args.subaction)
+                    : true;
+            }))
+                .then(map(function (file) {
+                return fs_extra_1.default.readFile(file).then(function (text) { return ({ file: file, text: text.toString() }); });
+            }))
+                .then(function (_) { return Promise.all(_); })
+                .then(map(function (_a) {
+                var file = _a.file, text = _a.text;
+                debug('Pre-formatting file: %o', file);
+                return __assign({ file: file }, (0, front_matter_1.default)(text, { allowUnsafe: true }));
+            }))
+                .then(map(function (_a) {
+                var file = _a.file, attributes = _a.attributes, body = _a.body;
+                var renderedAttrs = Object.entries(attributes).reduce(function (obj, _a) {
+                    var _b;
+                    var key = _a[0], value = _a[1];
+                    return __assign(__assign({}, obj), (_b = {}, _b[key] = renderTemplate(value, args, config), _b));
+                }, {});
+                debug('Rendering file: %o', file);
+                return {
+                    file: file,
+                    attributes: renderedAttrs,
+                    body: renderTemplate(body, __assign(__assign({}, args), { attributes: renderedAttrs }), config),
+                };
+            }))];
+    });
+}); };
 exports.default = render;

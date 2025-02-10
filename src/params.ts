@@ -49,8 +49,9 @@ const params = async (
   externalArgv: string[],
 ): Promise<ParamsResult> => {
   const argv = yargs(externalArgv)
+  const extra_argv = argv._ as string[]
 
-  const [generator, action, name] = await resolvePositionals(templates, argv._)
+  const [generator, action, name] = await resolvePositionals(templates, extra_argv)
 
   if (!generator || !action) {
     return { generator, action, templates }

@@ -1,6 +1,6 @@
 import path from 'path'
 import fs from 'fs-extra'
-import { red } from 'chalk'
+import chalk from 'chalk'
 import type { ActionResult, RenderedAction, RunnerConfig } from '../types'
 import createResult from './result'
 
@@ -33,9 +33,9 @@ const add = async (
           prefix: '',
           type: 'confirm',
           name: 'overwrite',
-          message: red(`     exists: ${to}. Overwrite? (y/N): `),
+          message: chalk.red(`     exists: ${to}. Overwrite? (y/N): `),
         })
-        .then(({ overwrite }) => overwrite))
+        .then((response: { overwrite: boolean }) => response.overwrite))
     ) {
       logger.warn(`     skipped: ${to}`)
       return result('skipped')
